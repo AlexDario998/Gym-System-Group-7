@@ -70,3 +70,37 @@ h1, .centeredForm {
     
 }
 
+.divImgContainerTIDevice, .divImgContainerLocal {
+    
+    background-size: contain;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.divImgContainerTIDevice {
+    
+    background-image: url('../img/imgAddTIDevice.png');
+}
+
+.divImgContainerLocal {
+    
+    background-image: url('../img/imgAddLocal.jpg');
+}
+
+.divContainer {
+    
+    margin-left: 40%;
+    width: 60%;
+    background-color: #3d8e90;
+}
+
+.div2Container {
+    
+    margin-left: 5%;
+    margin-top: 3%;
+    width: 90%;
+}
+
+label, small {
+    color: white;
+}
