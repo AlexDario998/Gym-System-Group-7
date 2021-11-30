@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Machine</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -48,15 +48,15 @@ and open the template in the editor.
             </div>
 
             <div class="col-6">
-                <label for="userId">Número de Serie:</label>
+                <label for="serial">Número de Serie:</label>
                 <div class="position-relative" id="groupChickenId">
-                    <input type="text" class="form-control formInput" id="machineSerial" name="machineSerial" placeholder="Ingrese el número de serie" onchange="">
+                    <input type="text" class="form-control formInput" id="serialNumber" name="serialNumber" placeholder="Ingrese el número de serie" onchange="">
 
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter Serial correctly.</small>
             </div>
              <div class="col-6">
-                <label for="userId">Marca:</label>
+                <label for="brand">Marca:</label>
                 <div class="position-relative" id="groupChickenId">
                     <input type="text" class="form-control formInput" id="machineBrand" name="machineBrand" placeholder="Ingrese la marca" onchange="">
 
@@ -67,8 +67,8 @@ and open the template in the editor.
 
             <div class="form-row align-items-center">
                 <div class="col-auto my-1">
-                    <label class="mr-sm-2" for="userType">Zona del  Gimnasio:</label><br>
-                    <select class="custom-select mr-sm-2" id="userType">
+                    <label class="mr-sm-2" for="machineZone">Zona del  Gimnasio:</label><br>
+                    <select class="custom-select mr-sm-2" id="zone">
                         <option selected>Elije...</option>
                         <option value="musculacion">Musculación </option>
                         <option value="pesoLibre">Peso libre</option>
