@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Local</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="../css/style.css" rel="stylesheet" type="text/css">
+        
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <script src="../js/validations.js"></script>
+    </head>
+    
+    <body onload="initialize()" class="container">
+        <h1>Agregar gimnasio</h1>
+        <hr>
+        
+        <br>
+        
+        <div class="divImgContainerLocal">
+            <div class="divContainer">
+
+                <br><br><br>
+
+                <div class="div2Container">
+                    <form id="form">
+                        <div class="col-12">
+                            <label for="name">Nombre del gimnasio:</label>
+                            <div class="position-relative" id="groupName">
+                                <input type="text" class="form-control formInput" id="name" name="name" placeholder="Ej: Smart Fit San Gabriel" onchange="validation(1)">
+                                <i id="iName" class="formValidationState fas"></i>
+                            </div>
+                            <small class="formInputErrorDesactive" id="messageErrorName">Para el nombre del gimnasio se aceptan solo letras y espacios en blanco.</small>
+                        </div>
+
+                        <p></p>
+
+                        <div class="col-12">
+                            <label for="city">Ciudad:</label>
+                            <div class="position-relative" id="groupCity">
+                                <input type="text" class="form-control formInput" id="city" name="city" placeholder="Ej: Quito" onchange="validation(2)">
+                                <i id="iCity" class="formValidationState fas"></i>
+                            </div>
+                            <small class="formInputErrorDesactive" id="messageErrorCity">Para la ciudad se aceptan solo letras y espacios en blanco.</small>
+                        </div>
+                        
+                        <p></p>
+                        
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="reset" class="btn btn-secondary">Descartar</button>
+                        
+                    </form>
+                </div>
+                
+                <br><br><br>
+            </div>
+            
+            
+        </div>
+    </body>
+</html>

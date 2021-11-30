@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="../css/style.css" rel="stylesheet" type="text/css">
+        
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    </head>
+    
+    <body onload="initialize()" class="container">
+        <h1>Añadir dispositivo TI</h1>
+        <hr>
+        
+        <br>
+        
+        <div class="divImgContainerTIDevice">
+            <div class="divContainer">
+
+                <br><br><br>
+
+                <div class="div2Container">
+                    <form id="form">
+                        <div class="col-12">
+                            <label for="name">Nombre del dispositivo:</label>
+                            <div class="position-relative" id="groupName">
+                                <input type="text" class="form-control formInput" id="name" name="name" placeholder="Ej: Computador portátil" onchange="nameValidation()">
+                            </div>
+                            <small class="formInputErrorDesactive" id="messageErrorName">Para el nombre del dispositivo TI se aceptan solo letras y espacios en blanco.</small>
+                        </div>
+
+                        <p></p>
+
+                        <div class="col-12">
+                            <label for="local">Gimnasio:</label>
+                            <div class="position-relative" id="groupLocal">
+                                <select class="form-control formInput" id="local" name="local">
+                                    <option value="\0" disabled="disabled" selected>Ingrese una opción</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <p></p>
+
+                        <div class="col-12">
+                            <label for="serial">Numero de serie:</label>
+                            <div class="position-relative" id="groupSerial">
+                                <input type="number" class="form-control formInput" id="serial" name="serial" placeholder="Ej: 4A185048W">
+
+                            </div>
+                            <small class="formInputErrorDesactive" id="messageSerial">Para el serial solo se aceptan numeros y letras.</small>
+                        </div>
+
+                        <p></p>
+
+                        <div class="col-12">
+                            <label for="userId">Encargado responsable:</label>
+                            <div class="position-relative" id="groupChickenId">
+                                <input type="text" class="form-control formInput" id="userEmail" name="userEmail" placeholder="Ej: Recepcion" onchange="">
+
+                            </div>
+                            <small class="formInputErrorDesactive" id="messageErrorId">Para el encargado responsable ingrese solo letras y espacios en blanco.</small>
+                        </div>
+
+                        <p></p>
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="reset" class="btn btn-secondary">Descartar</button>
+
+                    </form>
+                </div>
+                
+                <br><br><br>
+            </div>
+            
+            
+        </div>
+    </body>
+</html>
