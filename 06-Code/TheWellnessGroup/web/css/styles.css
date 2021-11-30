@@ -97,6 +97,51 @@ body{
     
 }
 
+/* Main Page */
+.menu{
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+    color: orange;
+    background-color: #fff;
+}
+
+.imgLogo{
+    width: 40%;
+    margin-left: auto;
+    /* background-color: orangered; */
+    align-items: flex-start;
+    /* position: relative; */
+}
+
+.optMenu:first-child{
+    margin-right: auto;
+}
+
+.optMenu:nth-child(2),
+.optMenu:nth-child(3),
+.optMenu:last-child{
+    /* background-color: lightcoral; */
+    padding: 1% 3%;
+    font-size: 20px;
+    border-left: 1px solid #000;
+    text-decoration: none;
+    color: #fe8c00;
+}
+
+.optMenu:nth-child(2):hover,
+.optMenu:nth-child(3):hover,
+.optMenu:last-child:hover{
+    /* background-color: lightcoral; */
+    color: white;
+    background: #fe8c00;  
+    background: -webkit-linear-gradient(to top, #ff5729, #fe8c00);  
+    background: linear-gradient(to top, #ff5729, #fe8c00);
+
+}
 
 
   /* Mobile */
