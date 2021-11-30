@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../css/style.css" rel="stylesheet" type="text/css">
+
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <script src="../js/validations.js"></script>
+    </head>
+    <body class="container">
+       <h1> Añadir Máquina de Gimnasio</h1>
+        <hr>
+        <form id="form">
+            <div class="col-6">
+                <label for="machineName">Nombre de la Máquina :</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="text" class="form-control formInput" id="machineName" name="machineName" placeholder="Ingrese el nombre de la máquina" onchange="idValidation()">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter name correctly.</small>
+            </div>
+             <div class="col-6">
+                <label for="machineName">Id de la Máquina :</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="number" class="form-control formInput" id="machineId" name="machineId" placeholder="Ingrese el ID respectivo" onchange="idValidation()">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Id correctly.</small>
+            </div>
+            <div class="col-6">
+                <label for="machineLocal">Local ubicado :</label>
+                <div class="position-relative" id="groupChickenId">
+                    <select class="custom-select mr-sm-2" id="local">
+                        <option selected>Elije...</option>
+                       
+                    </select>
+                </div>
+               
+            </div>
+
+            <div class="col-6">
+                <label for="userId">Número de Serie:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="text" class="form-control formInput" id="machineSerial" name="machineSerial" placeholder="Ingrese el número de serie" onchange="">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Serial correctly.</small>
+            </div>
+             <div class="col-6">
+                <label for="userId">Marca:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="text" class="form-control formInput" id="machineBrand" name="machineBrand" placeholder="Ingrese la marca" onchange="">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Brand correctly.</small>
+            </div>
+           
+
+            <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+                    <label class="mr-sm-2" for="userType">Zona del  Gimnasio:</label><br>
+                    <select class="custom-select mr-sm-2" id="userType">
+                        <option selected>Elije...</option>
+                        <option value="musculacion">Musculación </option>
+                        <option value="pesoLibre">Peso libre</option>
+                        <option value="cardio ">Cardio</option>
+                        <option value="sala ">sala</option>
+                    </select>
+                </div>
+                <div class="form-row align-items-center">
+               
+              <button type="submit" class="btn btn-primary">Guardar</button>
+              <button type="reset" class="btn btn-secondary">Descartar</button>
+        </form>
+    </body>
+</html>
