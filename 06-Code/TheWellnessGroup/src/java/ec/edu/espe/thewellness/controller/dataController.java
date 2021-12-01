@@ -10,6 +10,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.thewellness.model.Local;
+import ec.edu.espe.thewellness.model.Machine;
 import ec.edu.espe.thewellness.model.TIDevice;
 import ec.edu.espe.thewellness.model.User;
 import ec.edu.espe.thewellness.utils.ConnectMongo;
@@ -96,6 +97,30 @@ public class DataController {
         }
 
         return user;
+    }
+       public static ArrayList<Machine> getMachine() throws ParseException, IOException {
+        MongoDBManagement mongoDBManagement = new MongoDBManagement();
+        ArrayList<Machine> machine = new ArrayList<>();
+        MongoDatabase database = mongoDBManagement.conecction();
+        MongoCollection collection = database.getCollection("machines");
+        MongoCursor<Document> cursor = collection.find().iterator();
+        try {
+            while (cursor.hasNext()) {
+                JsonObject jsonObject = new JsonParser().parse(cursor.next().toJson()).getAsJsonObject();
+                Machine machineClass = new Machine();
+                machineClass.setId(jsonObject.get("id").getAsInt());
+                machineClass.setName(jsonObject.get("name").getAsString());
+                machineClass.setGym(jsonObject.get("gym").getAsString());
+                machineClass.setSerial(jsonObject.get("serial Number").getAsString());
+                machineClass.setBrand(jsonObject.get("brand").getAsString());
+                machineClass.setZone(jsonObject.get("zone").getAsString());
+                machine.add(machineClass);
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return machine;
     }
 
 }
