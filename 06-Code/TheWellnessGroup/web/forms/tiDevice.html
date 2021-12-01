@@ -8,6 +8,8 @@
         <link href="../css/style.css" rel="stylesheet" type="text/css">
         
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <script src="../js/validations.js"></script>
+        
     </head>
     
     <body onload="initialize()" class="container">
@@ -39,6 +41,8 @@
                             <div class="position-relative" id="groupLocal">
                                 <select class="form-control formInput" id="local" name="local">
                                     <option value="\0" disabled="disabled" selected>Ingrese una opción</option>
+                                    <option value="1">Smart Fit Quicentro Sur</option>
+                                    <option value="2">Smart Fit Plataforma financiera</option>
                                 </select>
                             </div>
                         </div>
@@ -68,12 +72,12 @@
                         <p></p>
 
                         <div class="col-12">
-                            <label for="userId">Encargado responsable:</label>
-                            <div class="position-relative" id="groupChickenId">
-                                <input type="text" class="form-control formInput" id="userEmail" name="userEmail" placeholder="Ej: Recepcion" onchange="validation(4)">
+                            <label for="manager">Encargado responsable:</label>
+                            <div class="position-relative" id="groupManager">
+                                <input type="text" class="form-control formInput" id="manager" name="manager" placeholder="Ej: Recepcion" onchange="validation(4)">
                                 <i id="iManager" class="formValidationState fas"></i>
                             </div>
-                            <small class="formInputErrorDesactive" id="messageErrorId">Para el encargado responsable ingrese solo letras y espacios en blanco.</small>
+                            <small class="formInputErrorDesactive" id="messageErrorManager">Para el encargado responsable ingrese solo letras y espacios en blanco.</small>
                         </div>
 
                         <p></p>
@@ -85,6 +89,7 @@
                 </div>
                 
                 <br><br><br>
+                
             </div>
             
             
