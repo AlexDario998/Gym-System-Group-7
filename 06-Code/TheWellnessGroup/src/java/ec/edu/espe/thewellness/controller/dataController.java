@@ -11,6 +11,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.thewellness.model.Local;
 import ec.edu.espe.thewellness.model.TIDevice;
+import ec.edu.espe.thewellness.model.User;
 import ec.edu.espe.thewellness.utils.ConnectMongo;
 import ec.edu.espe.thewellness.utils.MongoDBManagement;
 import java.io.IOException;
@@ -70,6 +71,31 @@ public class DataController {
         }
 
         return tiDevice;
+    }
+
+    public static ArrayList<User> getUser() throws ParseException, IOException {
+        MongoDBManagement mongoDBManagement = new MongoDBManagement();
+        ArrayList<User> user = new ArrayList<>();
+        MongoDatabase database = mongoDBManagement.conecction();
+        MongoCollection collection = database.getCollection("users");
+        MongoCursor<Document> cursor = collection.find().iterator();
+        try {
+            while (cursor.hasNext()) {
+                JsonObject jsonObject = new JsonParser().parse(cursor.next().toJson()).getAsJsonObject();
+                User userClass = new User();
+                userClass.setId(jsonObject.get("id").getAsString());
+                userClass.setName(jsonObject.get("name").getAsString());
+                userClass.setLastName(jsonObject.get("last name").getAsString());
+                userClass.setEmail(jsonObject.get("email").getAsString());
+                userClass.setType(jsonObject.get("type").getAsString());
+                userClass.setGym(jsonObject.get("gym").getAsString());
+                user.add(userClass);
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return user;
     }
 
 }
