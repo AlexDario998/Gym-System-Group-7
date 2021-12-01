@@ -19,25 +19,31 @@ and open the template in the editor.
     <body onload="initialize()" class="container">
         <h1> Crear Usuario</h1>
         <hr>
-        <form id="form">
-            <div class="col-6">
+        <br>
+        <div class="divImgUser">
+            
+            <div class="divContainer">
+                <br><br><br>
+        <div class="div2Container">
+        <form id="form" action="../jsps/addUser.jsp">
+            <div class="col-12">
                 <label for="userName">Nombres :</label>
-                <div class="position-relative" id="groupChickenId">
+                <div class="position-relative" id="groupName">
                     <input type="text" class="form-control formInput" id="userName" name="userName" placeholder="Ingrese el nombre del usuario" onchange="idValidation()">
 
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter ID correctly.</small>
             </div>
-            <div class="col-6">
+            <div class="col-12">
                 <label for="userName">Apellidos :</label>
-                <div class="position-relative" id="groupChickenId">
+                <div class="position-relative" id="groupId">
                     <input type="text" class="form-control formInput" id="userLastName" name="userLastName" placeholder="Ingrese los apellidos del usuario" onchange="nameValidation()">
 
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter last name correctly.</small>
             </div>
 
-            <div class="col-6">
+            <div class="col-12">
                 <label for="userId">User ID/Pasaporte:</label>
                 <div class="position-relative" id="groupChickenId">
                     <input type="number" class="form-control formInput" id="userId" name="userId" placeholder="Ingrese el usuario ID" onchange="idValidation()">
@@ -45,7 +51,7 @@ and open the template in the editor.
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter ID correctly.</small>
             </div>
-            <div class="col-6">
+            <div class="col-12">
                 <label for="userId">Correo Electrónico:</label>
                 <div class="position-relative" id="groupChickenId">
                     <input type="email" class="form-control formInput" id="userEmail" name="userEmail" placeholder="Enter user ID" onchange="">
@@ -55,9 +61,10 @@ and open the template in the editor.
             </div>
 
             <div class="form-row align-items-center">
-                <div class="col-auto my-1">
-                    <label class="mr-sm-2" for="userType">Tipo de usuarios:</label><br>
-                    <select class="custom-select mr-sm-2" id="userType">
+                
+                    <label  for="userType">Tipo de usuarios:</label><br>
+                    <div class="position-relative" >
+                    <select class="form-control formInput" id="userType">
                         <option selected>Elije...</option>
                         <option value="systemAdmin">Admin de sistemas </option>
                         <option value="maintanceAdmin">Admin de mantenimiento</option>
@@ -67,7 +74,7 @@ and open the template in the editor.
                 </div>
                 <div class="form-row align-items-center">
                 <div class="col-auto my-1">
-                    <label class="mr-sm-2" for="userType">Local Asignado:</label><br>
+                    <label  for="userType">Local Asignado:</label><br>
                     <select class="custom-select mr-sm-2" id="gym">
                         <option selected>Elije...</option>
                        
@@ -76,5 +83,9 @@ and open the template in the editor.
               <button type="submit" class="btn btn-primary">Guardar</button>
               <button type="reset" class="btn btn-secondary">Descartar</button>
         </form>
+            </div>
+                <br><br><br>
+                 </div>
+        </div>
     </body>
 </html>

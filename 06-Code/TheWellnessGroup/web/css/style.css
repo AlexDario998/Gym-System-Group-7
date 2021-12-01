@@ -104,3 +104,7 @@ h1, .centeredForm {
 label, small {
     color: white;
 }
+.divImgUser {
+    
+    background-image: url('../img/phi1.PNG');
+}

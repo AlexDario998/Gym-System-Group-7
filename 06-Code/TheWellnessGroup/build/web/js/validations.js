@@ -29,30 +29,52 @@ function idValidation(){
     
 }
 
-function nameValidation(){
+function validation(numero){
+    
+    var name;
+    var groupName;
+    var iName;
+    var messageErrorName;
+    
+    if(numero == 1){
+        
+        name = document.getElementById('name').value;
+        groupName = document.getElementById('groupName');
+        iName = document.getElementById('iName');
+        messageErrorName = document.getElementById('messageErrorName');
+        
+    }else if(numero == 2){
+        
+        name = document.getElementById('city').value;
+        groupName = document.getElementById('groupCity');
+        iName = document.getElementById('iCity');
+        messageErrorName = document.getElementById('messageErrorCity');
+        
+    }
+    
+    nameValidation(name, groupName, iName, messageErrorName);
+}
+
+function nameValidation(name, groupName, iName, messageErrorName){
     
     var regexName = /^[a-zA-Z ]+$/;
-    var name = document.getElementById('name').value;
-    var groupChickenName = document.getElementById('groupChickenName');
-    var iChickenName = document.getElementById('iChickenName');
-    var messageErrorName = document.getElementById('messageErrorName');
     var aux;
     
     if(regexName.test(name)){
-        groupChickenName.classList.remove('formGroupIncorrect');
-        groupChickenName.classList.add('formGroupCorrect');
-        iChickenName.classList.remove('fa-times-circle');
-        iChickenName.classList.add('fa-check-circle');
+        groupName.classList.remove('formGroupIncorrect');
+        groupName.classList.add('formGroupCorrect');
+        iName.classList.remove('fa-times-circle');
+        iName.classList.add('fa-check-circle');
         messageErrorName.classList.remove('formInputErrorActive');
         messageErrorName.classList.add('formInputErrorDesactive');
         
         aux = true;
         
     }else{
-        groupChickenName.classList.remove('formGroupCorrect');
-        groupChickenName.classList.add('formGroupIncorrect');
-        iChickenName.classList.remove('fa-check-circle');
-        iChickenName.classList.add('fa-times-circle');
+        groupName.classList.remove('formGroupCorrect');
+        groupName.classList.add('formGroupIncorrect');
+        iName.classList.remove('fa-check-circle');
+        iName.classList.add('fa-times-circle');
         messageErrorName.classList.remove('formInputErrorDesactive');
         messageErrorName.classList.add('formInputErrorActive');
         
@@ -63,7 +85,7 @@ function nameValidation(){
     
 }
 
-function bornYearValidation(){
+/*function bornYearValidation(){
     
     var regexBornYear = /[0-9]+$/;
     var bornYear = document.getElementById('bornYear').value;
@@ -96,7 +118,7 @@ function bornYearValidation(){
     }
     
     return aux;
-}
+}*/
 
 function colorValidation(){
     

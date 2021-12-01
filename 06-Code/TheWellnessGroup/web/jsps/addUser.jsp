@@ -4,6 +4,7 @@
     Author     : cami_
 --%>
 
+<%@page import="ec.edu.espe.thewellness.utils.ConnectMongo"%>
 <%@page import="org.bson.Document"%>
 <%@page import="ec.edu.espe.thewellness.utils.MongoDBManagement"%>
 <%@page import="ec.edu.espe.thewellness.model.User"%>
@@ -34,8 +35,8 @@ gym=request.getParameter("gym");
 
 User user=new User(id,name,lastName,email,type,gym);
 
-MongoDBManagement dataBase;
-
+MongoDBManagement dataBase= new MongoDBManagement();
+ConnectMongo connection;
 Document document= new Document();
 
 document.put("id",user.getId());
@@ -45,7 +46,7 @@ document.put("email", user.getEmail());
 document.put("type", user.getType());
 document.put("gym", user.getGym());
 
-//dataBase.save(document, "users", "TheWellnessGroup"");
+dataBase.save(document, "users", ConnectMongo.database);
 
 
         
