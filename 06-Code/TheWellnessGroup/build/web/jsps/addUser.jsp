@@ -18,38 +18,38 @@
     </head>
     <body>
         <h1>User Added</h1>
-        <% 
-        int id;
-         String name;
-    String lastName;
-    String email;
-    String type;
-    String gym;
-    
-id=Integer.parseInt(request.getParameter("userId"));
-name= request.getParameter("userName");
-lastName=request.getParameter("userLastName");
-email=request.getParameter("userEmail");
-type=request.getParameter("userType");
-gym=request.getParameter("gym");
+        <%
+            MongoDBManagement mongoDBManagement = new MongoDBManagement();
+            ConnectMongo connectMongo = new ConnectMongo();
+            connectMongo.connectData();
+            Document document = new Document();
 
-User user=new User(id,name,lastName,email,type,gym);
+            String id;
+            String name;
+            String lastName;
+            String email;
+            String type;
+            String gym;
 
-MongoDBManagement dataBase= new MongoDBManagement();
-ConnectMongo connection;
-Document document= new Document();
+            id = request.getParameter("userId");
+            name = request.getParameter("userName");
+            lastName = request.getParameter("userLastName");
+            email = request.getParameter("userEmail");
+            type = request.getParameter("userType");
+            gym = request.getParameter("gym");
 
-document.put("id",user.getId());
-document.put("name", user.getName());
-document.put("last name", user.getLastName());
-document.put("email", user.getEmail());
-document.put("type", user.getType());
-document.put("gym", user.getGym());
+            User user = new User(id, name, lastName, email, type, gym);
 
-dataBase.save(document, "users", ConnectMongo.database);
+            document.put("id", user.getId());
+            document.put("name", user.getName());
+            document.put("last name", user.getLastName());
+            document.put("email", user.getEmail());
+            document.put("type", user.getType());
+            document.put("gym", user.getGym());
+
+            mongoDBManagement.save(document, "users", ConnectMongo.database);
 
 
-        
         %>
     </body>
 </html>

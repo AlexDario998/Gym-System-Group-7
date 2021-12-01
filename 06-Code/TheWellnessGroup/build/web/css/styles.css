@@ -194,6 +194,56 @@ body{
     text-decoration: none;
     border-bottom: 2px solid red;
 }
+
+/* Repairs */
+.container{
+    background-image: url(../img/gym_swissotel_01darks.jpg);
+}
+.textDescription{
+    resize: none;
+    height: 8rem;
+}
+
+.formsRepair{
+    background-color: #fff;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5vh 0vh;
+    margin-bottom: 30px;
+}
+
+.classRepairs{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonsRepairs{
+    text-align: center;
+}
+.titleContainer{
+    color: #fff;
+}
+
+.inpSize{
+    width: 100%;
+    background: rgba(71, 71, 71, 0.226);
+}
+
+.containerSystem{
+    background-image: url(../img/computerDark.jpg);
+    background-size: cover;
+}
+
+.containerInfra{
+    background-image: url(../img/pool_dark.png);
+    background-size: cover;
+}
+
+.descartar{
+    color: #fff;
+    text-decoration: none;
+}
   /* Mobile */
   @media (max-width:768px){
     #logreg-forms{
