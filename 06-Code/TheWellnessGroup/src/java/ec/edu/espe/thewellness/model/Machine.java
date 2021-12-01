@@ -27,6 +27,10 @@ public class Machine {
         this.zone = zone;
     }
 
+    public Machine() {
+  
+    }
+
     /**
      * @return the id
      */
