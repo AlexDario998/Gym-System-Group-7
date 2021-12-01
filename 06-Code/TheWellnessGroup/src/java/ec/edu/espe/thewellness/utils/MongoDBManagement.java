@@ -25,14 +25,14 @@ import org.json.simple.parser.ParseException;
 
 /**
  *
- * @author jhona
+ * @author SEAT
  */
 public class MongoDBManagement {
     MongoDB mongoDB = new MongoDB();
 
     public MongoDatabase conecction() {
-        //mongodb+srv://josvega6:12345@cluster0.gyybq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-        String URI = "mongodb+srv://admin:<password>@awdproject.42lj4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+        
+        String URI = "mongodb+srv://admin:admin@awdproject.42lj4.mongodb.net/TheWellnessGroup?retryWrites=true&w=majority";
         try {
             mongoDB.setUri(new MongoClientURI(URI));
             mongoDB.setMongoClient(new MongoClient(mongoDB.getUri()));

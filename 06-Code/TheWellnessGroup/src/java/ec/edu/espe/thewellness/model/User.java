@@ -10,14 +10,14 @@ package ec.edu.espe.thewellness.model;
  * @author cami_
  */
 public class User {
-     int id;
+    String id;
     String name;
     String lastName;
     String email;
     String type;
     String gym;
 
-    public User(int id, String name, String lastName, String email, String type, String gym) {
+    public User(String id, String name, String lastName, String email, String type, String gym) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -30,11 +30,11 @@ public class User {
         
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
