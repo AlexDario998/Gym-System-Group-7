@@ -63,6 +63,12 @@ function validation(numero){
         groupName = document.getElementById('groupManager');
         iName = document.getElementById('iManager');
         messageErrorName = document.getElementById('messageErrorManager');
+    }else if(numero == 5){
+        
+        name = document.getElementById('localName').value;
+        groupName = document.getElementById('groupLocal');
+        iName = document.getElementById('iLocal');
+        messageErrorName = document.getElementById('messageErrorLocal');
     }
     
     nameValidation(name, groupName, iName, messageErrorName);
