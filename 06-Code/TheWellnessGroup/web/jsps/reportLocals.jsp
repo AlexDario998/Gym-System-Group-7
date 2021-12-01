@@ -4,7 +4,7 @@
     Author     : Elkin Vera
 --%>
 
-<%@page import="ec.edu.espe.thewellness.controller.dataController"%>
+<%@page import="ec.edu.espe.thewellness.controller.DataController"%>
 <%@page import="ec.edu.espe.thewellness.model.Local"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,7 +20,7 @@
     <body>
         
         <%
-            
+             DataController dataController = new DataController();
             ArrayList<Local> locals;
             locals = dataController.getLocal();
             

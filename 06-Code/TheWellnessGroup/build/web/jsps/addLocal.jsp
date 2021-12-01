@@ -4,8 +4,6 @@
     Author     : Elkin Vera
 --%>
 
-<%@page import="org.json.simple.JSONObject"%>
-<%@page import="org.json.simple.parser.JSONParser"%>
 <%@page import="org.bson.Document"%>
 <%@page import="ec.edu.espe.thewellness.utils.ConnectMongo"%>
 <%@page import="ec.edu.espe.thewellness.utils.MongoDBManagement"%>
@@ -40,10 +38,6 @@
             name = request.getParameter("name");
             city = request.getParameter("city");
             
-            out.println("<br>ID --> " + id);
-            out.println("<br>Name --> " + name);
-            out.println("<br>City --> " + city);
-            
             local = new Local(id, name, city);
             
             document.put("ID", local.getId());
@@ -51,13 +45,6 @@
             document.put("City", local.getCity());
 
             mongoDBManagement.save(document, "Locals", ConnectMongo.database);
-            
-         
-            
-            
-            
-
-            
         %>
         
         
