@@ -11,7 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="../css/style.css" rel="stylesheet" type="text/css">
+        <!-- <link href="../css/style.css" rel="stylesheet" type="text/css"> -->
         <link rel="stylesheet" href="../css/styles.css">
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
         <script src="../js/validations.js"></script>
@@ -25,7 +25,7 @@ and open the template in the editor.
                 <h2>Solicitud de Arreglo</h2>
                 <label for="autorName">Autor de la solicitud :</label>
                 <div class="position-relative" id="groupChickenId">
-                    <input type="text" class="form-control formInput inpSize" id="autorName" name="autorName" placeholder="Ingrese el nombre del autor" onchange="idValidation()">
+                    <input type="text" class="form-control formInput inpSize" id="autorName" name="autorName" placeholder="Ingrese el nombre del autor" onchange=" validation(1)">
 
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter name correctly.</small>
