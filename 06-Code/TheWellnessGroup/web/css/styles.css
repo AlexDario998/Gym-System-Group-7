@@ -234,6 +234,16 @@ body{
     background-image: url(../img/computerDark.jpg);
     background-size: cover;
 }
+
+.containerInfra{
+    background-image: url(../img/pool_dark.png);
+    background-size: cover;
+}
+
+.descartar{
+    color: #fff;
+    text-decoration: none;
+}
   /* Mobile */
   @media (max-width:768px){
     #logreg-forms{
