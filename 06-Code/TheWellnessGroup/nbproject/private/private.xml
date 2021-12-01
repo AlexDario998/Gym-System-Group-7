@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/cami_/OneDrive/Documentos/QUINTO%20SEMESTRE/Web%20Avanzado%20Git/Gym-System-Group-7/06-Code/TheWellnessGroup/web/jsps/addMachine.jsp</file>
             <file>file:/C:/Users/cami_/OneDrive/Documentos/QUINTO%20SEMESTRE/Web%20Avanzado%20Git/Gym-System-Group-7/06-Code/TheWellnessGroup/web/forms/machine.html</file>
             <file>file:/C:/Users/cami_/OneDrive/Documentos/QUINTO%20SEMESTRE/Web%20Avanzado%20Git/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/model/TIDevice.java</file>
@@ -11,6 +12,11 @@
             <file>file:/C:/Users/cami_/OneDrive/Documentos/QUINTO%20SEMESTRE/Web%20Avanzado%20Git/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/model/Machine.java</file>
             <file>file:/C:/Users/cami_/OneDrive/Documentos/QUINTO%20SEMESTRE/Web%20Avanzado%20Git/Gym-System-Group-7/06-Code/TheWellnessGroup/web/forms/user.html</file>
             <file>file:/C:/Users/cami_/OneDrive/Documentos/QUINTO%20SEMESTRE/Web%20Avanzado%20Git/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/model/Device.java</file>
+=======
+            <file>file:/C:/Users/velas/OneDrive/Escritorio/Ing.%20Software/5to%20SEMESTRE/Desarrollo%20Web%20Avanzado/github/Gym-System-Group-7/06-Code/TheWellnessGroup/web/jsps/addRepairM.jsp</file>
+            <file>file:/C:/Users/velas/OneDrive/Escritorio/Ing.%20Software/5to%20SEMESTRE/Desarrollo%20Web%20Avanzado/github/Gym-System-Group-7/06-Code/TheWellnessGroup/web/jsps/addUser.jsp</file>
+            <file>file:/C:/Users/velas/OneDrive/Escritorio/Ing.%20Software/5to%20SEMESTRE/Desarrollo%20Web%20Avanzado/github/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/model/Requirement.java</file>
+>>>>>>> 17630f1fbd0e94c7c66c23a52abca31fd44f1b23
         </group>
     </open-files>
 </project-private>

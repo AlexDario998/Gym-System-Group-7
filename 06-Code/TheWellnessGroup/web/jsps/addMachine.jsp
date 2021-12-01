@@ -42,7 +42,7 @@
             type=request.getParameter("zone");
             zone=request.getParameter("zone");
 
-           Machine machine=new Machine(id, serial, name, gym, brand, null, type);
+           Machine machine=new Machine(id, serial, name, gym, brand, type,zone);
 
             document.put("id", machine.getId());
             document.put("name", machine.getName());

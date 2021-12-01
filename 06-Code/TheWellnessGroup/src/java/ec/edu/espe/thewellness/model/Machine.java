@@ -15,9 +15,10 @@ public class Machine extends Device {
     public Machine(){
         
     }
-
-    public Machine(int id, String serialNumber, String name, int idGym, String brand, String manager, String type) {
-        super(id, serialNumber, name, idGym, brand, manager, type);
+    
+    public Machine(int id, String serialNumber, String name, int idGym, String brand, String type,String zone) {
+        super(id, serialNumber, name, idGym, brand, type);
+        this.zone = zone;
     }
 
     

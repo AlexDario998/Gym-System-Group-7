@@ -11,20 +11,18 @@ public class Device {
     protected String name;
     protected int idGym;
     protected String brand;
-    protected String manager;
     protected String type;
 
     public Device() {
         
     }
 
-    public Device(int id, String serialNumber, String name, int idGym, String brand, String manager, String type) {
+    public Device(int id, String serialNumber, String name, int idGym, String brand, String type) {
         this.id = id;
         this.serialNumber = serialNumber;
         this.name = name;
         this.idGym = idGym;
         this.brand = brand;
-        this.manager = manager;
         this.type = type;
     }
 
@@ -63,13 +61,6 @@ public class Device {
         this.brand = brand;
     }
     
-    public String getManager() {
-        return manager;
-    }
-    public void setManager(String manager) {
-        this.manager = manager;
-    }
-
     public String getType() {
         return type;
     }
