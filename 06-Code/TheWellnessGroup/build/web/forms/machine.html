@@ -25,7 +25,7 @@ and open the template in the editor.
              <div class="divContainer">
                  <br><br><br>
                  <div class="div2Container">
-        <form id="form">
+        <form id="form" action="../jsps/addMachine.jsp">
             <div class="col-12">
                 <label for="machineName">Nombre de la Máquina :</label>
                 <div class="position-relative" id="groupName">
@@ -37,7 +37,7 @@ and open the template in the editor.
              <div class="col-12">
                 <label for="machineName">Id de la Máquina :</label>
                 <div class="position-relative" id="groupChickenId">
-                    <input type="number" class="form-control formInput" id="machineId" name="machineId" placeholder="Ingrese el ID respectivo" onchange="idValidation()">
+                    <input type="text" class="form-control formInput" id="machineId" name="machineId" placeholder="Ingrese el ID respectivo" onchange="idValidation()">
 
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter Id correctly.</small>

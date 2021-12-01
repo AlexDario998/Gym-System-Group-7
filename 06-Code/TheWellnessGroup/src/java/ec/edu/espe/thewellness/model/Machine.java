@@ -9,65 +9,16 @@ package ec.edu.espe.thewellness.model;
  *
  * @author cami_
  */
-public class Machine {
-    String name;
-    int id;
-    String gym;
-    String serialNumber;
-    String brand;
+public class Machine extends Device {
     String zone;
-
-    public Machine(String name, int id, String gym, String serialNumber, String brand, String zone) {
-        this.name = name;
-        this.id = id;
-        this.gym = gym;
-        this.serialNumber = serialNumber;
-        this.brand = brand;
-        this.zone = zone;
-    }
     
     public Machine(){
         
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getGym() {
-        return gym;
-    }
-
-    public void setGym(String gym) {
-        this.gym = gym;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public Machine(String zone, int id, String serialNumber, String name, String brand, String type) {
+        super(id, serialNumber, name, brand, type);
+        this.zone = zone;
     }
 
     public String getZone() {
