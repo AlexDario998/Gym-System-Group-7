@@ -4,6 +4,7 @@
     Author     : Elkin Vera
 --%>
 
+<%@page import="ec.edu.espe.thewellness.controller.dataController"%>
 <%@page import="ec.edu.espe.thewellness.model.Local"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,13 +21,8 @@
         
         <%
             
-            ArrayList<Local> list = new ArrayList();
-        
-            Local local1 = new Local(1,"Smart Fit Manta", "Manta");
-            Local local2 = new Local(1,"Smart Fit Quito", "Quito");
-            
-            list.add(local1);
-            list.add(local2);
+            ArrayList<Local> locals;
+            locals = dataController.getLocal();
             
         %>
         
@@ -47,12 +43,12 @@
                 </thead>
                 <tbody>
                     <%
-                      for(int i=0; i<list.size(); i++){
+                      for(Local local : locals){
                     %>
                         <tr class="text-center">
-                            <td><% out.print(list.get(i).getId()); %></td>
-                            <td><% out.print(list.get(i).getName()); %></td>
-                            <td><% out.print(list.get(i).getCity()); %></td>
+                            <td><% out.print(local.getId()); %></td>
+                            <td><% out.print(local.getName()); %></td>
+                            <td><% out.print(local.getCity()); %></td>
                             <td>Eliminar - Actualizar</td>
                             <!--<td><a class="btn btn-primary" href="actionsAdminAlumno.php?action=editAlumno&codigo=<?php echo $result[$k]["PER_CEDULA"];?>">Editar</a></td>-->
                             <!--<td><a class="btn btn-danger" href="actionsAdminAlumno.php?action=deleteAlumno&codigo=<?php echo $result[$k]["PER_CEDULA"];?>">Eliminar</a></td>-->

@@ -4,6 +4,8 @@
     Author     : Elkin Vera
 --%>
 
+<%@page import="org.json.simple.JSONObject"%>
+<%@page import="org.json.simple.parser.JSONParser"%>
 <%@page import="org.bson.Document"%>
 <%@page import="ec.edu.espe.thewellness.utils.ConnectMongo"%>
 <%@page import="ec.edu.espe.thewellness.utils.MongoDBManagement"%>
@@ -49,6 +51,13 @@
             document.put("City", local.getCity());
 
             mongoDBManagement.save(document, "Locals", ConnectMongo.database);
+            
+         
+            
+            
+            
+
+            
         %>
         
         
