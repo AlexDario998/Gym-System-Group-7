@@ -4,13 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/web/forms/local.html</file>
-            <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/model/Machine.java</file>
-            <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/controller/dataController.java</file>
             <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/web/jsps/addLocal.jsp</file>
-            <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/utils/MongoDBManagement.java</file>
-            <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/utils/ConnectMongo.java</file>
-            <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/web/jsps/reportLocals.jsp</file>
-            <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/src/java/ec/edu/espe/thewellness/model/Local.java</file>
+            <file>file:/C:/Desktop/ESPE-SOFTWARE/05Semestre/WebAvanzado/Gym-System-Group-7/06-Code/TheWellnessGroup/web/forms/tiDevice.html</file>
         </group>
     </open-files>
 </project-private>

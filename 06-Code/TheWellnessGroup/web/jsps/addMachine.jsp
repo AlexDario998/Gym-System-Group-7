@@ -33,14 +33,14 @@
             int gym;
             String zone,type;
 
-            id = Integer.parseInt(request.getParameter("machineId"));
+            id = (int)(Math. random()*1000+1);
             name = request.getParameter("machineName");
             
             serial = request.getParameter("serialNumber");
             brand = request.getParameter("machineBrand");
             gym = Integer.parseInt(request.getParameter("local"));
-            type=request.getParameter("zone");
-            zone=request.getParameter("zone");
+            type="asdas";
+            zone="dsads";
 
            Machine machine=new Machine(id, serial, name, gym, brand, type,zone);
 
