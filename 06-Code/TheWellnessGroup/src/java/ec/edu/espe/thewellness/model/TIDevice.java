@@ -10,8 +10,8 @@ public class TIDevice extends Device{
         
     }
 
-    public TIDevice(int id, String serialNumber, String name, String brand, String type) {
-        super(id, serialNumber, name, brand, type);
+    public TIDevice(int id, String serialNumber, String name, int idGym, String brand, String manager, String type) {
+        super(id, serialNumber, name, idGym, brand, manager, type);
     }
     
 }
