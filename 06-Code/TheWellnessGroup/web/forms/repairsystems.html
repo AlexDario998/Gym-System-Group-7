@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sistemas/Dispositivos TI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <script src="../js/validations.js"></script>
+    </head>
+    <body class="containerSystem">
+        <h1 class="titleContainer">Sistemas/Dispositivos TI</h1>
+        <hr>
+        <form id="form" class="formsRepair">
+
+            <div class="col-6 classRepairs">
+                <h2>Solicitud de Arreglo</h2>
+                <label for="autorName">Autor de la solicitud :</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="text" class="form-control formInput inpSize" id="autorName" name="autorName" placeholder="Ingrese el nombre del autor" onchange="idValidation()">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter name correctly.</small>
+            </div>
+             <div class="col-6 classRepairs">
+                <label for="localName">Local:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="number" class="form-control formInput inpSize" id="localName" name="localName" placeholder="Especifique el Local" onchange="idValidation()">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Local correctly.</small>
+            </div>
+            
+            <div class="col-6 classRepairs">
+                <label for="serial">Número de Serie:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="text" class="form-control formInput inpSize" id="serialNumber" name="serialNumber" placeholder="Ingrese el número de serie" onchange="">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Serial correctly.</small>
+            </div>
+
+            <div class="col-6 classRepairs">
+                <label for="dateRepair">Fecha:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="date" class="form-control formInput inpSize" id="dateRepair" name="dateRepair" onchange="idValidation()">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Date correctly.</small>
+            </div>
+
+            <div class="col-6 classRepairs">
+                <label for="typeMachine">Tipo de Máquina:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <select class="custom-select mr-sm-2 inpSize" id="typeMachine">
+                        <option selected>Elije...</option>
+                       
+                    </select>
+                </div>
+            </div>
+
+             <div class="col-6 classRepairs">
+                <label for="brand">Descripción Breve:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <textarea type="text" class="form-control formInput textDescription inpSize" id="machineBrand" name="machineBrand" placeholder="Ingrese la marca" onchange=""></textarea>
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Description correctly.</small>
+            </div>
+           
+            <div class="col-6 classRepairs">
+                <label for="pictureEvidence">Foto/Evidencia:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="file" class="form-control formInput inpSize" id="pictureEvidence" name="pictureEvidence" placeholder="Ingrese la marca" onchange="">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Picture correctly.</small>
+            </div>
+
+ 
+                <div class="form-row align-items-center buttonsRepairs">
+               
+              <button type="submit" class="btn btn-primary">Guardar</button>
+              <button type="reset" class="btn btn-secondary">Descartar</button>
+              </div>
+        </form>
+    </body>
+</html>
