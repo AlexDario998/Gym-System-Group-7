@@ -20,9 +20,13 @@ and open the template in the editor.
        <h1> Añadir Máquina de Gimnasio</h1>
         <hr>
         <br>
-        <div class="divImgUser"> 
+        <div class="divImgMachine"> 
+            
+             <div class="divContainer">
+                 <br><br><br>
+                 <div class="div2Container">
         <form id="form">
-            <div class="col-6">
+            <div class="col-12">
                 <label for="machineName">Nombre de la Máquina :</label>
                 <div class="position-relative" id="groupName">
                     <input type="text" class="form-control formInput" id="machineName" name="machineName" placeholder="Ingrese el nombre de la máquina" onchange="idValidation()">
@@ -30,7 +34,7 @@ and open the template in the editor.
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter name correctly.</small>
             </div>
-             <div class="col-6">
+             <div class="col-12">
                 <label for="machineName">Id de la Máquina :</label>
                 <div class="position-relative" id="groupChickenId">
                     <input type="number" class="form-control formInput" id="machineId" name="machineId" placeholder="Ingrese el ID respectivo" onchange="idValidation()">
@@ -38,10 +42,10 @@ and open the template in the editor.
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter Id correctly.</small>
             </div>
-            <div class="col-6">
+            <div class="col-12">
                 <label for="machineLocal">Local ubicado :</label>
-                <div class="position-relative" id="groupChickenId">
-                    <select class="custom-select mr-sm-2" id="local">
+                <div class="position-relative" >
+                    <select class="form-control formInput" id="local">
                         <option selected>Elije...</option>
                        
                     </select>
@@ -49,7 +53,7 @@ and open the template in the editor.
                
             </div>
 
-            <div class="col-6">
+            <div class="col-12">
                 <label for="serial">Número de Serie:</label>
                 <div class="position-relative" id="groupChickenId">
                     <input type="text" class="form-control formInput" id="serialNumber" name="serialNumber" placeholder="Ingrese el número de serie" onchange="">
@@ -57,7 +61,7 @@ and open the template in the editor.
                 </div>
                 <small class="formInputErrorDesactive" id="messageErrorId">Enter Serial correctly.</small>
             </div>
-             <div class="col-6">
+             <div class="col-12">
                 <label for="brand">Marca:</label>
                 <div class="position-relative" id="groupChickenId">
                     <input type="text" class="form-control formInput" id="machineBrand" name="machineBrand" placeholder="Ingrese la marca" onchange="">
@@ -68,9 +72,10 @@ and open the template in the editor.
            
 
             <div class="form-row align-items-center">
-                <div class="col-auto my-1">
+               
                     <label class="mr-sm-2" for="machineZone">Zona del  Gimnasio:</label><br>
-                    <select class="custom-select mr-sm-2" id="zone">
+                     <div class="position-relative">
+                    <select class="form-control formInput" id="zone">
                         <option selected>Elije...</option>
                         <option value="musculacion">Musculación </option>
                         <option value="pesoLibre">Peso libre</option>
@@ -78,11 +83,14 @@ and open the template in the editor.
                         <option value="sala ">sala</option>
                     </select>
                 </div>
-                <div class="form-row align-items-center">
+                    <div class="form-row align-items-center"><br>
                
               <button type="submit" class="btn btn-primary">Guardar</button>
               <button type="reset" class="btn btn-secondary">Descartar</button>
         </form>
+                 </div>
+                     <br><br><br>
             </div>
+             </div>
     </body>
 </html>

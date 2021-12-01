@@ -49,7 +49,20 @@ function validation(numero){
         groupName = document.getElementById('groupCity');
         iName = document.getElementById('iCity');
         messageErrorName = document.getElementById('messageErrorCity');
+    
+    }else if(numero == 3){
         
+        name = document.getElementById('brand').value;
+        groupName = document.getElementById('groupBrand');
+        iName = document.getElementById('iBrand');
+        messageErrorName = document.getElementById('messageErrorBrand');
+        
+    }else if(numero == 4){
+        
+        name = document.getElementById('manager').value;
+        groupName = document.getElementById('groupManager');
+        iName = document.getElementById('iManager');
+        messageErrorName = document.getElementById('messageErrorManager');
     }
     
     nameValidation(name, groupName, iName, messageErrorName);

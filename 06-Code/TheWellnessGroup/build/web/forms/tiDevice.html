@@ -26,7 +26,8 @@
                         <div class="col-12">
                             <label for="name">Nombre del dispositivo:</label>
                             <div class="position-relative" id="groupName">
-                                <input type="text" class="form-control formInput" id="name" name="name" placeholder="Ej: Computador portátil" onchange="nameValidation()">
+                                <input type="text" class="form-control formInput" id="name" name="name" placeholder="Ej: Computador portátil" onchange="validation(1)">
+                                <i id="iName" class="formValidationState fas"></i>
                             </div>
                             <small class="formInputErrorDesactive" id="messageErrorName">Para el nombre del dispositivo TI se aceptan solo letras y espacios en blanco.</small>
                         </div>
@@ -43,12 +44,23 @@
                         </div>
 
                         <p></p>
+                        
+                        <div class="col-12">
+                            <label for="brand">Marca:</label>
+                            <div class="position-relative" id="groupBrand">
+                                <input type="text" class="form-control formInput" id="brand" name="brand" placeholder="Ej: HP" onchange="validation(3)">
+                                <i id="iBrand" class="formValidationState fas"></i>
+                            </div>
+                            <small class="formInputErrorDesactive" id="messageErrorBrand">Para la marca se aceptan solo letras y espacios en blanco.</small>
+                        </div>
+
+                        <p></p>
 
                         <div class="col-12">
                             <label for="serial">Numero de serie:</label>
                             <div class="position-relative" id="groupSerial">
-                                <input type="number" class="form-control formInput" id="serial" name="serial" placeholder="Ej: 4A185048W">
-
+                                <input type="text" class="form-control formInput" id="serial" name="serial" placeholder="Ej: 4A185048W">
+                                <i id="iSerial" class="formValidationState fas"></i>
                             </div>
                             <small class="formInputErrorDesactive" id="messageSerial">Para el serial solo se aceptan numeros y letras.</small>
                         </div>
@@ -58,8 +70,8 @@
                         <div class="col-12">
                             <label for="userId">Encargado responsable:</label>
                             <div class="position-relative" id="groupChickenId">
-                                <input type="text" class="form-control formInput" id="userEmail" name="userEmail" placeholder="Ej: Recepcion" onchange="">
-
+                                <input type="text" class="form-control formInput" id="userEmail" name="userEmail" placeholder="Ej: Recepcion" onchange="validation(4)">
+                                <i id="iManager" class="formValidationState fas"></i>
                             </div>
                             <small class="formInputErrorDesactive" id="messageErrorId">Para el encargado responsable ingrese solo letras y espacios en blanco.</small>
                         </div>
