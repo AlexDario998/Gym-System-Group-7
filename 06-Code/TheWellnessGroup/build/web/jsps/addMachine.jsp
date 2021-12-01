@@ -30,26 +30,26 @@
             String name;
             String serial;
             String brand;
-            String gym;
+            int gym;
             String zone,type;
 
             id = Integer.parseInt(request.getParameter("machineId"));
             name = request.getParameter("machineName");
-            gym = request.getParameter("local");
+            
             serial = request.getParameter("serialNumber");
             brand = request.getParameter("machineBrand");
-            gym = request.getParameter("local");
+            gym = Integer.parseInt(request.getParameter("local"));
             type=request.getParameter("zone");
             zone=request.getParameter("zone");
 
-           Machine machine=new Machine(zone, id, serial, name, brand, type);
+           Machine machine=new Machine(id, serial, name, gym, brand, null, type);
 
             document.put("id", machine.getId());
             document.put("name", machine.getName());
             document.put("serial Number", machine.getSerialNumber());
             document.put("brand", machine.getBrand());
             document.put("type", machine.getType());
-            //document.put("gym", user.getGym());
+            
             document.put("zone", machine.getZone());
 
             mongoDBManagement.save(document, "machines", ConnectMongo.database);

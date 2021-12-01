@@ -16,11 +16,11 @@ public class Machine extends Device {
         
     }
 
-    public Machine(String zone, int id, String serialNumber, String name, String brand, String type) {
-        super(id, serialNumber, name, brand, type);
-        this.zone = zone;
+    public Machine(int id, String serialNumber, String name, int idGym, String brand, String manager, String type) {
+        super(id, serialNumber, name, idGym, brand, manager, type);
     }
 
+    
     public String getZone() {
         return zone;
     }
