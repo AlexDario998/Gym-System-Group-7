@@ -14,7 +14,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
  
 
-const User=()=>{
+const Machine=()=>{
     const [values, setValues] = React.useState({
         amount: '',
         password: '',
@@ -71,7 +71,7 @@ sx={{
         
 
         <InputLabel htmlFor="input-with-icon-adornment">
-            Nombres:
+            Nombre de la Máquina:
         </InputLabel>
         <FormControl variant="standard">
             <Input
@@ -84,11 +84,11 @@ sx={{
             size="large"
             sx={{width: '105%', my:2,}}
             variant = "standard"
-            placeholder = "Ingrese los nombres"/>
+            placeholder = "Ingrese el nombre"/>
         </FormControl>
 
          <InputLabel htmlFor="input-with-icon-adornment">
-            Apellidos:
+            Número de serie:
         </InputLabel>
         <FormControl variant="standard">
             <Input
@@ -101,11 +101,11 @@ sx={{
             size="large"
             sx={{width: '105%', my:2,}}
             variant = "standard"
-            placeholder = "Ingrese los apellidos"/>
+            placeholder = "Ingrese la serie"/>
         </FormControl>
 
  <InputLabel htmlFor="input-with-icon-adornment">
-            User ID/Passport:
+            Marca:
         </InputLabel>
         <FormControl variant="standard">
             <Input
@@ -118,29 +118,13 @@ sx={{
             size="large"
             sx={{width: '105%', my:2,}}
             variant = "standard"
-            placeholder = "Ingrese el id correspondiente"/>
+            placeholder = "Ingrese la marca"/>
         </FormControl>
 
 
-        <InputLabel htmlFor="input-with-icon-adornment">
-            Correo electrónico:
-        </InputLabel>
-        <FormControl variant="standard">
-            <Input
-            id=""
-            startAdornment={
-                <InputAdornment position="start">
-                <AccountCircle />
-                </InputAdornment>
-            }
-            size="large"
-            sx={{width: '105%', my:2,}}
-            variant = "standard"
-            placeholder = "Ingrese el correo correspondiente"/>
-        </FormControl>
 
         <InputLabel htmlFor="input-with-icon-adornment">
-            Tipo de Usuario:
+            Zona del Gimnasio:
         </InputLabel>
         <FormControl variant="standard">
         <Select
@@ -153,9 +137,9 @@ sx={{
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={'Admin'}>Admin</MenuItem>
-          <MenuItem value={'user'}>User</MenuItem>
-          <MenuItem value={'supervisor'}>Supervisor</MenuItem>
+          <MenuItem value={'Peso Libre'}>Peso Libre</MenuItem>
+          <MenuItem value={'Cardio'}>Cardio</MenuItem>
+          <MenuItem value={'Musculación'}>Musculación</MenuItem>
         </Select>          
           
         </FormControl>
@@ -211,4 +195,4 @@ sx={{
     )
 }
 
-export default User;
+export default Machine;
