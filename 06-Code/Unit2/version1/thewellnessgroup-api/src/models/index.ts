@@ -2,3 +2,4 @@ export * from './users.model';
 
 export * from './gyms.model';
 export * from './timachines.model';
+export * from './machines.model';
