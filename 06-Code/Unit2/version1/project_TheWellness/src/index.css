@@ -31,3 +31,13 @@ code {
   height: 100%;
   position: absolute;
 }
+
+.imgLocal {
+  background-image: url(img/imgAddLocal.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}

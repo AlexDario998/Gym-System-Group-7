@@ -38,7 +38,7 @@ function App() {
 
     return (
         <Box
-            class = "imgTIDevice"
+            class = "imgLocal"
         >
             <br/><br/>
             <form>
@@ -62,38 +62,12 @@ function App() {
                 >
                     <h1>Agregar dispositivo TI</h1><br/>
 
-                    {/* Device name */}
-                    <TextField fullWidth id="deviceName" placeholder="Nombre del dispositivo" label="Nombre del dispositivo" />
+                    {/* Gym name */}
+                    <TextField fullWidth id="gymName" placeholder="Nombre del gimnasio" label="Nombre del gimnasio" />
                     <br/>
 
-                    {/* Serial number */}
-                    <TextField fullWidth id="serialNumber" placeholder="Número de serie" label="Número de serie" />
-                    <br/>
-
-                    {/* Brand */}
-                    <TextField fullWidth id="deviceBrand" placeholder="Marca" label="Marca" />
-                    <br/>
-
-                    {/* Owner */}
-                    <TextField fullWidth id="deviceOwner" placeholder="Encargado" label="Encargado" />
-                    <br/>
-                    
-                    {/* Gym */}
-                    <FormControl fullWidth>
-                        <InputLabel id="labelGym">Gimnasio al que pertenece</InputLabel>
-                        <Select
-                            fullWidth
-                            labelId="labelGym"
-                            id="gym"
-                            label="Gimnasio al que pertenece"
-                            onChange={handleChange}
-                        >
-                            <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
-                            <MenuItem value={'Gym 1'}>Gimnasio 1</MenuItem>
-                            <MenuItem value={'Gym 2'}>Gimnasio 2</MenuItem>
-                            <MenuItem value={'Gym 3'}>Gimnasio 3</MenuItem>
-                        </Select>
-                    </FormControl>
+                    {/* City */}
+                    <TextField fullWidth id="city" placeholder="Ciudad" label="Ciudad" />
                     <br/>
 
                     <Button
