@@ -1,25 +1,25 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class TImachine extends Entity {
+export class Timachines extends Entity {
   @property({
-    type: 'string',
+    type: 'number',
     id: true,
     generated: true,
   })
-  id?: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  serialNumber: string;
+  id?: number;
 
   @property({
     type: 'string',
     required: true,
   })
   name: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  serialNumber: string;
 
   @property({
     type: 'string',
@@ -33,14 +33,20 @@ export class TImachine extends Entity {
   })
   local: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  owner: string;
 
-  constructor(data?: Partial<TImachine>) {
+
+  constructor(data?: Partial<Timachines>) {
     super(data);
   }
 }
 
-export interface TImachineRelations {
+export interface TimachinesRelations {
   // describe navigational properties here
 }
 
-export type TImachineWithRelations = TImachine & TImachineRelations;
+export type TimachinesWithRelations = Timachines & TimachinesRelations;
