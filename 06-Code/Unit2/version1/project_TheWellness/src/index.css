@@ -11,16 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.boxback{
-  background-image: url(img/GymBackground.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-}
 
 .imgTIDevice {
   background-image: url(img/imgAddTIDevice.png);
@@ -40,4 +30,61 @@ code {
   width: 100%;
   height: 100%;
   position: absolute;
+}
+
+.boxback{
+  background-image: url(img/GymBackground.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  color: #fff;
+  text-align: center; 
+  font-size: 6vh;
+  margin: 0;
+}
+
+.subtitle{
+  text-align: center; 
+  font-size: 35px;
+  margin: 0;
+}
+
+.boxInfra{
+  background-image: url(img/pool_dark.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* width: 100%; */
+  /* height: 100vh; */
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.boxMach{
+  background-image: url(img/gym_swissotel_01darks.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* width: 100%; */
+  /* height: 100vh; */
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.boxSystem{
+  background-image: url(img/computerDark.jpg);
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  /* width: 100%; */
+  /* height: 100vh; */
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }

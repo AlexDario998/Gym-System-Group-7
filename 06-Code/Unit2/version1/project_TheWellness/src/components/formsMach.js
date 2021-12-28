@@ -41,16 +41,15 @@ function App() {
   return (
 <form> 
 <Box
-class = "boxInfra"
+class = "boxMach"
 >
  <h1
  class = "title"
  sx={{
- }}>Infraestructura</h1>
- <hr/>
+ }}>Maquinas del Gimnasio</h1>
   <Box   sx={{
             width: '50%',
-            // height: '650px',
+            // height: '750px',
             marginLeft:'auto',
             marginRight:'auto',
             justifyContent: 'center',
@@ -84,6 +83,19 @@ class = "boxInfra"
         </InputLabel>
         <TextField
           id="filled-textarea-local"
+          multiline
+          variant="filled"
+          placeholder='Especifique el Local'
+          sx={{
+            width:'80%',
+        }}
+        />
+{/* Numero de Serie */}
+<InputLabel htmlFor="filled-textarea-serial">
+        Numero de Serie:
+        </InputLabel>
+        <TextField
+          id="filled-textarea-serial"
           multiline
           variant="filled"
           placeholder='Especifique el Local'

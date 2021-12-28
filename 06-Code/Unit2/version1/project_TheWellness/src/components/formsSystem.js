@@ -41,16 +41,16 @@ function App() {
   return (
 <form> 
 <Box
-class = "boxInfra"
+class = "boxSystem"
 >
  <h1
  class = "title"
  sx={{
- }}>Infraestructura</h1>
+ }}>Sistemas/Dispositivos TI</h1>
  <hr/>
   <Box   sx={{
             width: '50%',
-            // height: '650px',
+            // height: '750px',
             marginLeft:'auto',
             marginRight:'auto',
             justifyContent: 'center',
@@ -84,6 +84,19 @@ class = "boxInfra"
         </InputLabel>
         <TextField
           id="filled-textarea-local"
+          multiline
+          variant="filled"
+          placeholder='Especifique el Local'
+          sx={{
+            width:'80%',
+        }}
+        />
+{/* Numero de Serie */}
+<InputLabel htmlFor="filled-textarea-serial">
+        Numero de Serie:
+        </InputLabel>
+        <TextField
+          id="filled-textarea-serial"
           multiline
           variant="filled"
           placeholder='Especifique el Local'
@@ -154,11 +167,10 @@ class = "boxInfra"
             type="submit"
             sx={{
                 boxShadow: '1px 1px 5px #333',
-                margin: "10px",  
+                margin: "5px",  
                 background: '#CB356B',  /* fallback for old browsers */
                 background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
                 background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
                 width:'40%',
             }
           }        
