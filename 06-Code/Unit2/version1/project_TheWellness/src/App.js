@@ -6,6 +6,8 @@ import Systems from './components/formsSystem';
 import Machine from './components/formsMach';
 import TIDevice from './components/formAddTIDevice';
 import Gym from './components/formAddLocal';
+import User from './components/user';
+import Machines from './components/machine';
 
 
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/machines" element={<Machine />} />
         <Route path="/formAddTIDevice" element={<TIDevice />} />
         <Route path="/formAddGym" element={<Gym />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/gymMachines" element={<Machines />} />
       </Routes>
     </BrowserRouter>
     
