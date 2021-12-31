@@ -8,6 +8,7 @@ import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
 import User from './components/user';
 import Machines from './components/machine';
+import TableLocals from './components/TableLocalsLayout'
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/formAddGym" element={<Gym />} />
         <Route path="/user" element={<User />} />
         <Route path="/gymMachines" element={<Machines />} />
+        <Route path="/reportLocals" element={<TableLocals />} />
       </Routes>
     </BrowserRouter>
     

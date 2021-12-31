@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import '../App.css';
 import '../index.css';
 import {Box, TextField, Button, MenuItem, Select, FormControl, InputLabel} from "@mui/material"
-import { getLocals } from '../services/localAxios';
 
-const FormAddTIDevice = ({handleSubmit}) => {
+const FormAddTIDevice = (props) => {
+
+    const gyms = props.gyms;
+    const handleSubmit = props.handleSubmit;
 
     const [values, setValues] = useState({
         name: '',
@@ -13,7 +15,6 @@ const FormAddTIDevice = ({handleSubmit}) => {
         local: '',
         owner: ''
     })
-    const [gyms, setGyms] = useState([])
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -26,25 +27,11 @@ const FormAddTIDevice = ({handleSubmit}) => {
         //e.target.reset()
     }
 
-    useEffect(() => {
-        async function loadGyms() {
-            const response = await getLocals()
-
-            if (response.status === 200) {
-                setGyms(response.data)
-                
-            }
-        }
-
-        loadGyms()
-        
-    }, [])
-
-    if (gyms.length === 0) {
+    /*if (gyms.length === 0) {
         return 'No hay gimnasios. Agregue uno primero.'
         
     }
-
+    console.log(gyms)*/
     return (
         
         <form onSubmit={handleSubmitInternal} id="formAddTIDevice">

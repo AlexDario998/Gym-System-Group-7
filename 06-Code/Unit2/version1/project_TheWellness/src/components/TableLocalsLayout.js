@@ -1,15 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import FormAddTIDevice from './FormAddTIDevice'
-import {saveTIDevice} from '../services/tiDeviceAxios'
+import TableLocals from './TableLocals'
+import {getLocals} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import { getLocals } from '../services/localAxios';
+import React, {useEffect, useState} from 'react';
 
 const TIDeviceLayout = () => {
+
     const [gyms, setGyms] = useState([])
-    const handleSubmit = (data) => {
-        saveTIDevice(data)
-    }
 
     useEffect(() => {
         async function loadGyms() {
@@ -17,7 +14,6 @@ const TIDeviceLayout = () => {
 
             if (response.status === 200) {
                 setGyms(response.data)
-                
             }
         }
 
@@ -27,12 +23,9 @@ const TIDeviceLayout = () => {
 
     return (
         <>
-            <Box
-                class = "imgTIDevice"
-            >
+            <Box>
                 <br/><br/>
-                <FormAddTIDevice handleSubmit={handleSubmit} gyms={gyms}/>
-                <br/>
+                <TableLocals gyms={gyms}/>
             </Box>
         
         </>
