@@ -4,7 +4,7 @@ import Login from './components/Login';
 import Infra from './components/formsInf';
 import Systems from './components/formsSystem';
 import Machine from './components/formsMach';
-import TIDevice from './components/formAddTIDevice';
+import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
 import User from './components/user';
 import Machines from './components/machine';
