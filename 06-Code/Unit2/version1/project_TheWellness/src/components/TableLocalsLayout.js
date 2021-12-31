@@ -4,7 +4,7 @@ import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
 
-const TIDeviceLayout = () => {
+const TableLocalsLayout = () => {
 
     const [gyms, setGyms] = useState([])
 
@@ -31,4 +31,4 @@ const TIDeviceLayout = () => {
         </>
     )
 }
-export default TIDeviceLayout
+export default TableLocalsLayout

@@ -4,12 +4,15 @@ import { DataGrid } from '@mui/x-data-grid';
 
 const TableLocals = (props) => {
 
-    const gyms = props.gyms
+    const tiDevices = props.tiDevices
 
     const columns = [
         //{ field: 'id', headerName: 'ID', width: 70 },
-        { field: 'namegym', headerName: 'Gimnasio', width: 200 },
-        { field: 'city', headerName: 'Ciudad', width: 200 }
+        { field: 'name', headerName: 'Equipo infórmatico', width: 200 },
+        { field: 'serialNumber', headerName: 'Serial', width: 200 },
+        { field: 'brand', headerName: 'Marca', width: 200 },
+        { field: 'local', headerName: 'Gimnasio', width: 200 },
+        { field: 'owner', headerName: 'Responsable', width: 200 }
     ]
       
     return (
@@ -31,17 +34,20 @@ const TableLocals = (props) => {
             }}
         >
 
-            <h1>Reporte locales</h1><br/>
+            <h1>Reporte equipos informáticos</h1><br/>
 
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid
                     rows=
                     {
-                        gyms.map(item => (
+                        tiDevices.map(item => (
                             {
                                 id: Math.random() * (1000 - 0) + 0,
-                                namegym: item.namegym,
-                                city: item.city
+                                name: item.name,
+                                serialNumber: item.serialNumber,
+                                brand: item.brand,
+                                local: item.local,
+                                owner: item.owner
                             }
                         ))
                     }
