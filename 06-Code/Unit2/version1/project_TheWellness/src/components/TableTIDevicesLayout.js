@@ -3,6 +3,7 @@ import {getTIDevices} from '../services/tiDeviceAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
+import NavBar from './NavBar'
 
 const TableTIDevicesLayout = () => {
 
@@ -24,6 +25,7 @@ const TableTIDevicesLayout = () => {
     return (
         <>
             <Box>
+                <NavBar />
                 <br/><br/>
                 <TableTIDevices tiDevices={tiDevices}/>
             </Box>

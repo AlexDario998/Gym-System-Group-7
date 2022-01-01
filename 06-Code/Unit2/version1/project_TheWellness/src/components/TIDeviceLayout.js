@@ -4,6 +4,7 @@ import {saveTIDevice} from '../services/tiDeviceAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import { getLocals } from '../services/localAxios';
+import NavBar from './NavBar'
 
 const TIDeviceLayout = () => {
     const [gyms, setGyms] = useState([])
@@ -30,6 +31,7 @@ const TIDeviceLayout = () => {
             <Box
                 class = "imgTIDevice"
             >
+                <NavBar />
                 <br/><br/>
                 <FormAddTIDevice handleSubmit={handleSubmit} gyms={gyms}/>
                 <br/>
