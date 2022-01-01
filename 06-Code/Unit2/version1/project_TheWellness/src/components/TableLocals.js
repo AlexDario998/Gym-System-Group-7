@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
+import Cookies from 'universal-cookie/es6';
+
+const cookies = new Cookies()
 
 const TableLocals = (props) => {
 
@@ -11,6 +14,12 @@ const TableLocals = (props) => {
         { field: 'namegym', headerName: 'Gimnasio', width: 200 },
         { field: 'city', headerName: 'Ciudad', width: 200 }
     ]
+
+    useEffect(() => {
+        if (typeof cookies.get('userName') === 'undefined') {
+            window.location.href = "./"
+        }
+    });
       
     return (
         <Box

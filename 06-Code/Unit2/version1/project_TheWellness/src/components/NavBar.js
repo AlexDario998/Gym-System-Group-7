@@ -13,9 +13,12 @@ import MenuItem from '@mui/material/MenuItem';
 import logo from '../img/logoWellnessGroup.png'
 import { Link } from 'react-router-dom';
 import '../index.css';
+import Cookies from 'universal-cookie/es6'
+
+const cookies = new Cookies()
 
 const NavBar = () => {
-
+    
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [anchorElForms, setAnchorElForms] = React.useState(null);
@@ -46,6 +49,19 @@ const NavBar = () => {
     const handleCloseReportMenu = () => {
         setAnchorElReports(null);
     };
+
+    const logOut = () => {
+        cookies.remove('id', {path: "/"})
+        cookies.remove('name', {path: "/"})
+        cookies.remove('lastName', {path: "/"})
+        cookies.remove('userName', {path: "/"})
+        cookies.remove('idCard', {path: "/"})
+        cookies.remove('email', {path: "/"})
+        cookies.remove('gym', {path: "/"})
+        cookies.remove('type', {path: "/"})
+
+        window.location.href = './'
+    }
 
     return (
         <AppBar position="static" style={{ backgroundColor: '#ffb74d' }}>
@@ -182,7 +198,7 @@ const NavBar = () => {
                             onClose={handleCloseUserMenu}
                         >
                             
-                            <MenuItem key='exit'>
+                            <MenuItem key='exit' onClick={logOut}>
                                 <Typography textAlign="center">Salir</Typography>
                             </MenuItem>
                             
