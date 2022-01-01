@@ -2,7 +2,7 @@ import React from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 
-const TableLocals = (props) => {
+const TableTIDevices = (props) => {
 
     const tiDevices = props.tiDevices
 
@@ -62,4 +62,4 @@ const TableLocals = (props) => {
     
 
 }
-export default TableLocals
+export default TableTIDevices

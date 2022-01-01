@@ -16,7 +16,7 @@ const TableLocals = (props) => {
         <Box
             sx={{
                 width: '70%',
-                height: '90vh',
+                height: '82vh',
                 marginLeft:'auto',
                 marginRight:'auto',
                 justifyContent: 'center',

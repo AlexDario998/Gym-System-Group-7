@@ -11,7 +11,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../img/logoWellnessGroup.png'
-import { createMuiTheme } from '@mui/material';
+import { Link } from 'react-router-dom';
+import '../index.css';
 
 const NavBar = () => {
 
@@ -47,7 +48,7 @@ const NavBar = () => {
     };
 
     return (
-        <AppBar position="static" style={{ backgroundColor: '#ffb74d'}}>
+        <AppBar position="static" style={{ backgroundColor: '#ffb74d' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     
@@ -89,11 +90,15 @@ const NavBar = () => {
                             onClose={handleCloseFormMenu}
                         >
                             
-                            <MenuItem key='formsLocals' onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Locales</Typography>
+                            <MenuItem key='formsLocals'>
+                                <Link to='/formAddGym' className='link'>
+                                    <Typography textAlign="center">Locales</Typography>
+                                </Link>
                             </MenuItem>
                             <MenuItem key='formsTIDevices'>
-                                <Typography textAlign="center">Dispositivos TI</Typography>
+                                <Link to='/formAddTIDevice' className='link'>    
+                                    <Typography textAlign="center">Dispositivos TI</Typography>
+                                </Link>
                             </MenuItem>
                             <MenuItem key='formsGymMachines'>
                                 <Typography textAlign="center">Máquinas de gimnasio</Typography>
@@ -134,10 +139,14 @@ const NavBar = () => {
                         >
                             
                             <MenuItem key='reportsLocals'>
-                                <Typography textAlign="center">Locales</Typography>
+                                <Link to='/reportLocals' className='link'>
+                                    <Typography textAlign="center">Locales</Typography>
+                                </Link>
                             </MenuItem>
                             <MenuItem key='reportsTIDevices'>
-                                <Typography textAlign="center">Dispositivos TI</Typography>
+                                <Link to='/reportTIDevices' className='link'>
+                                    <Typography textAlign="center">Dispositivos TI</Typography>
+                                </Link>
                             </MenuItem>
                             <MenuItem key='reportsGymMachines'>
                                 <Typography textAlign="center">Máquinas de gimnasio</Typography>
