@@ -5,6 +5,9 @@ import '../index.css';
 import {Box} from "@mui/material"
 import { getLocals } from '../services/localAxios';
 import NavBar from './NavBar'
+import Cookies from 'universal-cookie/es6';
+
+const cookies = new Cookies()
 
 const TIDeviceLayout = () => {
     const [gyms, setGyms] = useState([])
@@ -25,6 +28,12 @@ const TIDeviceLayout = () => {
         loadGyms()
         
     }, [])
+
+    useEffect(() => {
+        if (typeof cookies.get('userName') === 'undefined') {
+            window.location.href = "./"
+        }
+    })
 
     return (
         <>
