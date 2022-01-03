@@ -16,17 +16,20 @@ export async function getLocals(){
   }
 }
 
-export async function saveLocal(localData){
+export async function saveLocal(localData, values, setValues){
+
   try{
-      const response = await axios({
-          url: `${baseUrl}/gyms`,
-          method: 'POST',
-          data: localData,
-      })
-      
-      return response
+    const response = await axios({
+        url: `${baseUrl}/gyms`,
+        method: 'POST',
+        data: localData,
+    })
+    
+    setValues({namegym: '', city: ''})
 
   }catch(error){
     console.log(error)
+    setValues({namegym: '', city: ''})
+
   }
 }

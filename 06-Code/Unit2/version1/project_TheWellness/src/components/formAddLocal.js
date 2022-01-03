@@ -3,22 +3,26 @@ import '../App.css';
 import '../index.css';
 import {Box, TextField, Button, MenuItem, Select} from "@mui/material"
 
-const FormAddLocal = ({handleSubmit}) => {
+const FormAddLocal = (props) => {
 
-    const [formAddLocalValues, setformAddLocalValues] = useState({
+    const {handleSubmit, formAddLocalValues, setformAddLocalValues} = props
+
+    /*const [formAddLocalValues, setformAddLocalValues] = useState({
         namegym: '',
         city: ''
-    })
+    })*/
 
     const handleChange = (event) => {
         const { name, value } = event.target
         setformAddLocalValues({ ...formAddLocalValues, [name]: value})
+        console.log(formAddLocalValues.namegym)
+        console.log(formAddLocalValues.city)
     }
 
     const handleSubmitInternal = (e) => {
         e.preventDefault()
         handleSubmit(formAddLocalValues)
-        
+        //e.target.reset()
     }
     
     return (

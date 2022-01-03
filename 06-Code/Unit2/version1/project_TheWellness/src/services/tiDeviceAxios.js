@@ -16,13 +16,15 @@ export async function getTIDevices(){
     }
 }
 
-export async function saveTIDevice(tiDeviceData){
+export async function saveTIDevice(tiDeviceData, values, setValues){
   try{
       const response = await axios({
           url: `${baseUrl}/timachines`,
           method: 'POST',
           data: tiDeviceData,
       })
+
+      setValues({name: '', serialNumber: '', brand: '',  local: '', owner: ''})
 
   }catch(error){
     console.log(error)

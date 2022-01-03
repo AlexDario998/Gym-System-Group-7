@@ -7,14 +7,16 @@ const FormAddTIDevice = (props) => {
 
     const gyms = props.gyms;
     const handleSubmit = props.handleSubmit;
+    const values = props.values;
+    const setValues = props.setValues;
 
-    const [values, setValues] = useState({
+    /*const [values, setValues] = useState({
         name: '',
         serialNumber: '',
         brand: '',
         local: '',
         owner: ''
-    })
+    })*/
 
     const handleChange = (event) => {
         const { name, value } = event.target

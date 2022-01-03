@@ -11,8 +11,17 @@ const cookies = new Cookies()
 
 const TIDeviceLayout = () => {
     const [gyms, setGyms] = useState([])
+
+    const [values, setValues] = useState({
+        name: '',
+        serialNumber: '',
+        brand: '',
+        local: '',
+        owner: ''
+    })
+
     const handleSubmit = (data) => {
-        saveTIDevice(data)
+        saveTIDevice(data,values,setValues)
     }
 
     useEffect(() => {
@@ -42,7 +51,7 @@ const TIDeviceLayout = () => {
             >
                 <NavBar />
                 <br/><br/>
-                <FormAddTIDevice handleSubmit={handleSubmit} gyms={gyms}/>
+                <FormAddTIDevice handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues}/>
                 <br/>
             </Box>
         
