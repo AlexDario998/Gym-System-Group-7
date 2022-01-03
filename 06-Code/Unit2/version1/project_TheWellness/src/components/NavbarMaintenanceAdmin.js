@@ -14,9 +14,9 @@ import logo from "../img/logoWellnessGroup.png";
 import { Link } from "react-router-dom";
 import "../index.css";
 import Cookies from "universal-cookie/es6";
-//const cookies = new Cookies()
+const cookies = new Cookies()
 
-const NavBar = () => {
+const NavbarMaintenanceAdmin = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -27,7 +27,7 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
-  /* const logOut = () => {
+  const logOut = () => {
         cookies.remove('id', {path: "/"})
         cookies.remove('name', {path: "/"})
         cookies.remove('lastName', {path: "/"})
@@ -38,7 +38,7 @@ const NavBar = () => {
         cookies.remove('type', {path: "/"})
 
         window.location.href = './'
-    }*/
+    }
 
   return (
     <AppBar position="static" style={{ backgroundColor: "#ffb74d" }}>
@@ -60,7 +60,7 @@ const NavBar = () => {
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 REPORTES
-                <Link to="/TableFixMachinesRequests" className="link"></Link>
+                <Link to="/TableMaintenanceRequests" className="link"></Link>
               </Button>
             </Tooltip>
           </Box>
