@@ -60,4 +60,4 @@ const TableFixMachinesRequests = (props) => {
     
 
 }
-export default TableFixMachinesRequests
+export default TableRepairTIDevicesRequests

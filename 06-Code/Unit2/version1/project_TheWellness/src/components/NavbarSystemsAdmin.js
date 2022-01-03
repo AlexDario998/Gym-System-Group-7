@@ -60,7 +60,7 @@ const NavBar = () => {
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 REPORTES
-                <Link to="/TableFixTIDevicesRequests" className="link"></Link>
+                <Link to="/TableRepairTIDevicesRequests" className="link"></Link>
               </Button>
             </Tooltip>
           </Box>
