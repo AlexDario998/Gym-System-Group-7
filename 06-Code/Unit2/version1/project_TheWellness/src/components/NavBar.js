@@ -117,10 +117,14 @@ const NavBar = () => {
                                 </Link>
                             </MenuItem>
                             <MenuItem key='formsGymMachines'>
-                                <Typography textAlign="center">Máquinas de gimnasio</Typography>
+                                <Link to='/gymMachines' className='link'>
+                                    <Typography textAlign="center">Máquinas de gimnasio</Typography>
+                                </Link>
                             </MenuItem>
                             <MenuItem key='formsUsers'>
-                                <Typography textAlign="center">Usuarios</Typography>
+                                <Link to='/users' className='link'>
+                                    <Typography textAlign="center">Usuarios</Typography>
+                                </Link>
                             </MenuItem>
                             
                         </Menu>
