@@ -36,11 +36,11 @@ export function checkLogin(loginValues) {
                     break
 
                 case 2:
-
+                    
                     break
 
                 case 3:
-
+                    window.location.href = "./TableRepairTIDevicesRequests"
                     break
 
                 case 4:

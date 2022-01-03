@@ -14,9 +14,9 @@ import logo from "../img/logoWellnessGroup.png";
 import { Link } from "react-router-dom";
 import "../index.css";
 import Cookies from "universal-cookie/es6";
-//const cookies = new Cookies()
+const cookies = new Cookies()
 
-const NavBar = () => {
+const NavbarSystemsAdmin = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -27,7 +27,7 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
-  /* const logOut = () => {
+   const logOut = () => {
         cookies.remove('id', {path: "/"})
         cookies.remove('name', {path: "/"})
         cookies.remove('lastName', {path: "/"})
@@ -38,7 +38,7 @@ const NavBar = () => {
         cookies.remove('type', {path: "/"})
 
         window.location.href = './'
-    }*/
+    }
 
   return (
     <AppBar position="static" style={{ backgroundColor: "#ffb74d" }}>
@@ -67,7 +67,7 @@ const NavBar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Salir">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
                 <Avatar alt="Botón salir" src="exitButton.jpg" />
               </IconButton>
             </Tooltip>

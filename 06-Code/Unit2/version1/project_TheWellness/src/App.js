@@ -10,7 +10,7 @@ import User from './components/user';
 import Machines from './components/machine';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
-
+import TableRepairTIDevicesRequests from './components/TableRepairTIDevicesRequestsLayout';
 
 const App = () => {
 
@@ -29,6 +29,7 @@ const App = () => {
         <Route path="/gymMachines" element={<Machines />} />
         <Route path="/reportLocals" element={<TableLocals />} />
         <Route path="/reportTIDevices" element={<TableTIDevices />} />
+        <Route path="/TableRepairTIDevicesRequests" element={<TableRepairTIDevicesRequests />} />
       </Routes>
     </BrowserRouter>
     

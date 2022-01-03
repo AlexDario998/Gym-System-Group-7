@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 
-const TableFixMachinesRequests = (props) => {
+const TableRepairTIDevicesRequests = (props) => {
 
     const reports = props.reports
 
@@ -10,8 +10,9 @@ const TableFixMachinesRequests = (props) => {
         { field: 'authorName', headerName: 'Nombre del autor', width: 200 },
         { field: 'gym', headerName: 'Local', width: 200 },
         { field: 'device', headerName: 'Dispositivo', width: 200 },
-        { field: 'requestDate', headerName: 'Fecha de Solicitud', width: 200 },
-        { field: 'priority', headerName: 'Prioridad', width: 200 }
+        { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
+        { field: 'machineType', headerName: 'Tipo de Dispositivo', width: 200 },
+        { field: 'description', headerName: 'Descripción', width: 200 }
     ]
       
     return (
@@ -42,10 +43,12 @@ const TableFixMachinesRequests = (props) => {
                         reports.map(item => (
                             {
                                 id: item.id,
-                                gym: item.gym,
-                                device: item.device,
-                                requestDate: item.requestDate,
-                                priority: item.priority
+                                authorName: item.idUser,
+                                gym: item.idLocal,
+                                device: item.idTIDevice,
+                                date: item.date,
+                                machineType: item.machineType,
+                                description: item.description
                             }
                         ))
                     }
