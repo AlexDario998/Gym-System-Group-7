@@ -4,3 +4,4 @@ export * from './users.controller';
 export * from './gyms.controller';
 export * from './timachines.controller';
 export * from './machines.controller';
+export * from './repair-request-gym-machine.controller';
