@@ -2,7 +2,7 @@ import logo from '../img/logoWellnessGroup.png';
 import * as React from 'react';
 import '../App.css';
 import '../index.css';
-import {Box,TextField,Button} from "@mui/material"
+import {Box,TextField,Button,Stack,Typography} from "@mui/material"
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -42,35 +42,46 @@ function App() {
 <form> 
 <Box
 class = "boxMach"
->
- <h1
- class = "title"
- sx={{
- }}>Maquinas del Gimnasio</h1>
-  <Box   sx={{
+sx={{
+  justifyContent: 'center',
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  padding:'1vh',
+  background: '#fff',  /* fallback for old browsers */
+  borderRadius: '10px',
+  boxShadow: '1px 1px 20px #333'
+}}>
+      <Box   sx={{
             width: '50%',
-            // height: '750px',
             marginLeft:'auto',
             marginRight:'auto',
+            marginTop:'15vh',
+            marginBottom:'5vh',
             justifyContent: 'center',
             display: 'flex',
             alignItems: 'center',
             flexDirection: 'column',
             padding:'1vh',
             background: '#fff',  /* fallback for old browsers */
-            borderRadius: '10px',
+            borderRadius: '60px',
             boxShadow: '1px 1px 20px #333'
         }}
     >
+{/* <Typography variant="h3" gutterBottom component="div">Maquinas del Gimnasio</Typography>
+<Typography variant="h4" gutterBottom component="div">Solicitud de Arreglo</Typography> */}
+ <h1 class = "title">Maquinas</h1>
     <h1  class = "subtitle">Solicitud de Arreglo</h1>
+
 {/* Autor de la Solicitud */}
-        <InputLabel htmlFor="filled-textarea-autor">
-        Autor de la Solicitud:
-        </InputLabel>
-        <TextField
-          id="filled-textarea-autor"
+
+<Typography variant="subtitle1" gutterBottom component="div">
+Autor de la Solicitud:
+      </Typography>
+        <TextField fullWidth 
+          id="filled-textarea-local"
           multiline
-          variant="filled"
+          variant="filled" 
           placeholder='Ingrese el nombre del autor'
           size="large"
           sx={{
@@ -78,10 +89,10 @@ class = "boxMach"
         }}
         />
 {/* Local */}
-      <InputLabel htmlFor="filled-textarea-local">
-        Local:
-        </InputLabel>
-        <TextField
+      <Typography variant="subtitle1" gutterBottom component="div">
+      Local:
+      </Typography>
+        <TextField fullWidth 
           id="filled-textarea-local"
           multiline
           variant="filled"
@@ -91,10 +102,10 @@ class = "boxMach"
         }}
         />
 {/* Numero de Serie */}
-<InputLabel htmlFor="filled-textarea-serial">
-        Numero de Serie:
-        </InputLabel>
-        <TextField
+      <Typography variant="subtitle1" gutterBottom component="div">
+      Numero de Serie:
+      </Typography>
+        <TextField fullWidth 
           id="filled-textarea-serial"
           multiline
           variant="filled"
@@ -104,10 +115,10 @@ class = "boxMach"
         }}
         />
 {/* Fecha */}
-        <InputLabel htmlFor="filled-textarea-date">
-        Fecha:
-        </InputLabel>
-        <TextField
+      <Typography variant="subtitle1" gutterBottom component="div">
+      Fecha:
+      </Typography>
+        <TextField fullWidth 
           id="filled-textarea-date"
           multiline
           variant="filled"
@@ -117,10 +128,10 @@ class = "boxMach"
         }}
         />
 {/* Descripcion Breve */}
-      <InputLabel htmlFor="filled-multiline-description">
-      Descripción Breve:
-        </InputLabel>
-        <TextField
+      <Typography variant="subtitle1" gutterBottom component="div">
+      Descripcion Breve:
+      </Typography>
+        <TextField fullWidth 
           id="filled-multiline-description"
           multiline
           rows={3}
@@ -131,10 +142,10 @@ class = "boxMach"
       }      
         />
 {/* Foto/Evidencia */}
-      <InputLabel htmlFor="filled-textarea-foto">
-     Foto:
-        </InputLabel>
-        <TextField
+      {/* <Typography variant="subtitle1" gutterBottom component="div">
+      Foto:
+      </Typography>
+        <TextField fullWidth 
           id="filled-textarea-foto"
           multiline
           variant="filled"
@@ -142,41 +153,29 @@ class = "boxMach"
             width:'80%',
         }}
 
-        />
-        <Button
-            variant="contained"
-            size = "large"
-            type="submit"
-            sx={{
-                boxShadow: '1px 1px 5px #333',
-                margin: "10px",  
-                background: '#667db6',  /* fallback for old browsers */
-                background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
-                background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                
-                width:'40%',
-            }
-          }        
-        >
-            Enviar y Notificar
-        </Button>
-        <Button
-            variant="contained"
-            size = "large"
-            type="submit"
-            sx={{
-                boxShadow: '1px 1px 5px #333',
-                margin: "10px",  
-                background: '#CB356B',  /* fallback for old browsers */
-                background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
-                background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-                width:'40%',
-            }
-          }        
-        >
-            Descartar
-        </Button>
+        /> */}
+      <br/>
+      <Stack spacing={3} direction="row">
+      <Button variant="contained" 
+       sx={{
+        boxShadow: '1px 1px 5px #333',
+        // margin: "10px",  
+        background: '#667db6',  /* fallback for old browsers */
+        background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
+        background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
+    }}>
+      Enviar y Notificar
+  </Button>
+  <Button variant="contained" 
+       sx={{
+        boxShadow: '1px 1px 5px #333',
+        background: '#CB356B',  /* fallback for old browsers */
+        background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
+        background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }}>
+      Descartar
+  </Button>
+    </Stack>
     </Box>
     </Box>
 </form>
