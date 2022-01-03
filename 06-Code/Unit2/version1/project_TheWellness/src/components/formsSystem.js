@@ -2,7 +2,7 @@ import logo from '../img/logoWellnessGroup.png';
 import * as React from 'react';
 import '../App.css';
 import '../index.css';
-import {Box,TextField,Button} from "@mui/material"
+import {Box,TextField,Button,Stack,Typography} from "@mui/material"
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -43,31 +43,32 @@ function App() {
 <Box
 class = "boxSystem"
 >
- <h1
- class = "title"
- sx={{
- }}>Sistemas/Dispositivos TI</h1>
+ 
  <hr/>
   <Box   sx={{
             width: '50%',
             // height: '750px',
             marginLeft:'auto',
             marginRight:'auto',
+            marginTop:'10vh',
+            marginBottom:'5vh',
+            // margin: '15vh auto',
             justifyContent: 'center',
             display: 'flex',
             alignItems: 'center',
             flexDirection: 'column',
             padding:'1vh',
             background: '#fff',  /* fallback for old browsers */
-            borderRadius: '10px',
+            borderRadius: '60px',
             boxShadow: '1px 1px 20px #333'
         }}
     >
+      <h1 class = "title">Sistemas/Dispositivos TI</h1>
     <h1  class = "subtitle">Solicitud de Arreglo</h1>
 {/* Autor de la Solicitud */}
-        <InputLabel htmlFor="filled-textarea-autor">
-        Autor de la Solicitud:
-        </InputLabel>
+      <Typography variant="subtitle1" gutterBottom component="div">
+       Autor de la Solicitud:
+      </Typography>
         <TextField
           id="filled-textarea-autor"
           multiline
@@ -79,9 +80,9 @@ class = "boxSystem"
         }}
         />
 {/* Local */}
-      <InputLabel htmlFor="filled-textarea-local">
+      <Typography variant="subtitle1" gutterBottom component="div">
         Local:
-        </InputLabel>
+      </Typography>
         <TextField
           id="filled-textarea-local"
           multiline
@@ -105,9 +106,9 @@ class = "boxSystem"
         }}
         />
 {/* Fecha */}
-        <InputLabel htmlFor="filled-textarea-date">
+      <Typography variant="subtitle1" gutterBottom component="div">
         Fecha:
-        </InputLabel>
+      </Typography>
         <TextField
           id="filled-textarea-date"
           multiline
@@ -118,9 +119,9 @@ class = "boxSystem"
         }}
         />
 {/* Descripcion Breve */}
-      <InputLabel htmlFor="filled-multiline-description">
-      Descripción Breve:
-        </InputLabel>
+      <Typography variant="subtitle1" gutterBottom component="div">
+      Descripcion Breve:
+      </Typography>
         <TextField
           id="filled-multiline-description"
           multiline
@@ -132,9 +133,9 @@ class = "boxSystem"
       }      
         />
 {/* Foto/Evidencia */}
-      <InputLabel htmlFor="filled-textarea-foto">
-     Foto:
-        </InputLabel>
+      {/* <Typography variant="subtitle1" gutterBottom component="div">
+        Foto:
+      </Typography>
         <TextField
           id="filled-textarea-foto"
           multiline
@@ -142,41 +143,29 @@ class = "boxSystem"
           sx={{
             width:'80%',
         }}
-
-        />
-        <Button
-            variant="contained"
-            size = "large"
-            type="submit"
-            sx={{
-                boxShadow: '1px 1px 5px #333',
-                margin: "10px",  
-                background: '#667db6',  /* fallback for old browsers */
-                background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
-                background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                
-                width:'40%',
-            }
-          }        
-        >
-            Enviar y Notificar
-        </Button>
-        <Button
-            variant="contained"
-            size = "large"
-            type="submit"
-            sx={{
-                boxShadow: '1px 1px 5px #333',
-                margin: "5px",  
-                background: '#CB356B',  /* fallback for old browsers */
-                background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
-                background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                width:'40%',
-            }
-          }        
-        >
-            Descartar
-        </Button>
+        /> */}
+        <br/>
+      <Stack spacing={3} direction="row">
+      <Button variant="contained" 
+       sx={{
+        boxShadow: '1px 1px 5px #333',
+        // margin: "10px",  
+        background: '#667db6',  /* fallback for old browsers */
+        background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
+        background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
+    }}>
+      Enviar y Notificar
+  </Button>
+  <Button variant="contained" 
+       sx={{
+        boxShadow: '1px 1px 5px #333',
+        background: '#CB356B',  /* fallback for old browsers */
+        background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
+        background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }}>
+      Descartar
+  </Button>
+    </Stack>
     </Box>
     </Box>
 </form>
