@@ -4,18 +4,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {RepairRequestInfrastructure} from '../models';
 import {RepairRequestInfrastructureRepository} from '../repositories';
@@ -23,8 +17,8 @@ import {RepairRequestInfrastructureRepository} from '../repositories';
 export class RepairRequestInfrastructureController {
   constructor(
     @repository(RepairRequestInfrastructureRepository)
-    public repairRequestInfrastructureRepository : RepairRequestInfrastructureRepository,
-  ) {}
+    public repairRequestInfrastructureRepository: RepairRequestInfrastructureRepository,
+  ) { }
 
   @post('/repair-request-infrastructures')
   @response(200, {
@@ -105,7 +99,7 @@ export class RepairRequestInfrastructureController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(RepairRequestInfrastructure, {exclude: 'where'}) filter?: FilterExcludingWhere<RepairRequestInfrastructure>
   ): Promise<RepairRequestInfrastructure> {
     return this.repairRequestInfrastructureRepository.findById(id, filter);
@@ -116,7 +110,7 @@ export class RepairRequestInfrastructureController {
     description: 'RepairRequestInfrastructure PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -134,7 +128,7 @@ export class RepairRequestInfrastructureController {
     description: 'RepairRequestInfrastructure PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() repairRequestInfrastructure: RepairRequestInfrastructure,
   ): Promise<void> {
     await this.repairRequestInfrastructureRepository.replaceById(id, repairRequestInfrastructure);
@@ -144,7 +138,7 @@ export class RepairRequestInfrastructureController {
   @response(204, {
     description: 'RepairRequestInfrastructure DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.repairRequestInfrastructureRepository.deleteById(id);
   }
 }

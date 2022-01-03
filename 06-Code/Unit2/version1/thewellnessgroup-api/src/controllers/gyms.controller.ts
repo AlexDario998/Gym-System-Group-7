@@ -99,7 +99,7 @@ export class GymsController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(Gyms, {exclude: 'where'}) filter?: FilterExcludingWhere<Gyms>
   ): Promise<Gyms> {
     return this.gymsRepository.findById(id, filter);
@@ -110,7 +110,7 @@ export class GymsController {
     description: 'Gyms PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -128,7 +128,7 @@ export class GymsController {
     description: 'Gyms PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() gyms: Gyms,
   ): Promise<void> {
     await this.gymsRepository.replaceById(id, gyms);
@@ -138,7 +138,7 @@ export class GymsController {
   @response(204, {
     description: 'Gyms DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.gymsRepository.deleteById(id);
   }
 }

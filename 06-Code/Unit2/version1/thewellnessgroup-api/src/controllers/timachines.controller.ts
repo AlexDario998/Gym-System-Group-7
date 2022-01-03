@@ -4,18 +4,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Timachines} from '../models';
 import {TimachinesRepository} from '../repositories';
@@ -23,8 +17,8 @@ import {TimachinesRepository} from '../repositories';
 export class TimachinesController {
   constructor(
     @repository(TimachinesRepository)
-    public timachinesRepository : TimachinesRepository,
-  ) {}
+    public timachinesRepository: TimachinesRepository,
+  ) { }
 
   @post('/timachines')
   @response(200, {
@@ -105,7 +99,7 @@ export class TimachinesController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(Timachines, {exclude: 'where'}) filter?: FilterExcludingWhere<Timachines>
   ): Promise<Timachines> {
     return this.timachinesRepository.findById(id, filter);
@@ -116,7 +110,7 @@ export class TimachinesController {
     description: 'Timachines PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -134,7 +128,7 @@ export class TimachinesController {
     description: 'Timachines PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() timachines: Timachines,
   ): Promise<void> {
     await this.timachinesRepository.replaceById(id, timachines);
@@ -144,7 +138,7 @@ export class TimachinesController {
   @response(204, {
     description: 'Timachines DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.timachinesRepository.deleteById(id);
   }
 }

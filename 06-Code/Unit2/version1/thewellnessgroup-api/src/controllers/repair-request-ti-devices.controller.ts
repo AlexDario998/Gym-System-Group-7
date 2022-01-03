@@ -4,18 +4,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {RepairRequestTiDevices} from '../models';
 import {RepairRequestTiDevicesRepository} from '../repositories';
@@ -23,8 +17,8 @@ import {RepairRequestTiDevicesRepository} from '../repositories';
 export class RepairRequestTiDevicesController {
   constructor(
     @repository(RepairRequestTiDevicesRepository)
-    public repairRequestTiDevicesRepository : RepairRequestTiDevicesRepository,
-  ) {}
+    public repairRequestTiDevicesRepository: RepairRequestTiDevicesRepository,
+  ) { }
 
   @post('/repair-request-ti-devices')
   @response(200, {
@@ -105,7 +99,7 @@ export class RepairRequestTiDevicesController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(RepairRequestTiDevices, {exclude: 'where'}) filter?: FilterExcludingWhere<RepairRequestTiDevices>
   ): Promise<RepairRequestTiDevices> {
     return this.repairRequestTiDevicesRepository.findById(id, filter);
@@ -116,7 +110,7 @@ export class RepairRequestTiDevicesController {
     description: 'RepairRequestTiDevices PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -134,7 +128,7 @@ export class RepairRequestTiDevicesController {
     description: 'RepairRequestTiDevices PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() repairRequestTiDevices: RepairRequestTiDevices,
   ): Promise<void> {
     await this.repairRequestTiDevicesRepository.replaceById(id, repairRequestTiDevices);
@@ -144,7 +138,7 @@ export class RepairRequestTiDevicesController {
   @response(204, {
     description: 'RepairRequestTiDevices DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.repairRequestTiDevicesRepository.deleteById(id);
   }
 }

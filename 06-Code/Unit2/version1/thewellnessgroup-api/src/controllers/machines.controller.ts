@@ -4,18 +4,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Machines} from '../models';
 import {MachinesRepository} from '../repositories';
@@ -23,8 +17,8 @@ import {MachinesRepository} from '../repositories';
 export class MachinesController {
   constructor(
     @repository(MachinesRepository)
-    public machinesRepository : MachinesRepository,
-  ) {}
+    public machinesRepository: MachinesRepository,
+  ) { }
 
   @post('/machines')
   @response(200, {
@@ -37,12 +31,12 @@ export class MachinesController {
         'application/json': {
           schema: getModelSchemaRef(Machines, {
             title: 'NewMachines',
-            
+
           }),
         },
       },
     })
-    machines: Machines,
+    machines: Omit<Machines, 'id'>,
   ): Promise<Machines> {
     return this.machinesRepository.create(machines);
   }

@@ -4,18 +4,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {RepairRequestGymMachines} from '../models';
 import {RepairRequestGymMachinesRepository} from '../repositories';
@@ -23,8 +17,8 @@ import {RepairRequestGymMachinesRepository} from '../repositories';
 export class RepairRequestGymMachineController {
   constructor(
     @repository(RepairRequestGymMachinesRepository)
-    public repairRequestGymMachinesRepository : RepairRequestGymMachinesRepository,
-  ) {}
+    public repairRequestGymMachinesRepository: RepairRequestGymMachinesRepository,
+  ) { }
 
   @post('/repair-request-gym-machines')
   @response(200, {
@@ -105,7 +99,7 @@ export class RepairRequestGymMachineController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(RepairRequestGymMachines, {exclude: 'where'}) filter?: FilterExcludingWhere<RepairRequestGymMachines>
   ): Promise<RepairRequestGymMachines> {
     return this.repairRequestGymMachinesRepository.findById(id, filter);
@@ -116,7 +110,7 @@ export class RepairRequestGymMachineController {
     description: 'RepairRequestGymMachines PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -134,7 +128,7 @@ export class RepairRequestGymMachineController {
     description: 'RepairRequestGymMachines PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() repairRequestGymMachines: RepairRequestGymMachines,
   ): Promise<void> {
     await this.repairRequestGymMachinesRepository.replaceById(id, repairRequestGymMachines);
@@ -144,7 +138,7 @@ export class RepairRequestGymMachineController {
   @response(204, {
     description: 'RepairRequestGymMachines DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.repairRequestGymMachinesRepository.deleteById(id);
   }
 }

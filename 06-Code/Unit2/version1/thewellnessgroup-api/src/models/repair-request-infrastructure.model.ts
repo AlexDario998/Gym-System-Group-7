@@ -3,23 +3,23 @@ import {Entity, model, property} from '@loopback/repository';
 @model()
 export class RepairRequestInfrastructure extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
     generated: true,
   })
-  id?: number;
+  id?: string;
 
   @property({
-    type: 'number',
+    type: 'string',
     required: true,
   })
-  idUser: number;
+  idUser: string;
 
   @property({
-    type: 'number',
+    type: 'string',
     required: true,
   })
-  idLocal: number;
+  idLocal: string;
 
   @property({
     type: 'date',
