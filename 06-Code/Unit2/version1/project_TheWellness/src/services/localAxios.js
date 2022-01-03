@@ -33,3 +33,17 @@ export async function saveLocal(localData, values, setValues){
 
   }
 }
+
+export async function deleteLocal(idLocal){
+
+  const response = await axios.delete(`${baseUrl}/gyms/${idLocal}`)
+  .then(response => {
+    window.alert('Registro eliminado')
+    window.location.reload()
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+  
+}

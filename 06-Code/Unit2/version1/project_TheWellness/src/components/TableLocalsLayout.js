@@ -1,5 +1,5 @@
 import TableLocals from './TableLocals'
-import {getLocals} from '../services/localAxios'
+import {getLocals, deleteLocal} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
@@ -11,6 +11,10 @@ const cookies = new Cookies()
 const TableLocalsLayout = () => {
 
     const [gyms, setGyms] = useState([])
+
+    const deleteRegister = (idLocal) => {
+        deleteLocal(idLocal)
+    }
 
     useEffect(() => {
         async function loadGyms() {
@@ -36,7 +40,7 @@ const TableLocalsLayout = () => {
             <Box>
                 <NavBar />
                 <br/><br/>
-                <TableLocals gyms={gyms}/>
+                <TableLocals gyms={gyms} deleteRegister={deleteRegister} />
             </Box>
         
         </>

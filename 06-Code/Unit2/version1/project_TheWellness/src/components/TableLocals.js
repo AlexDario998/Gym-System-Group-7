@@ -1,17 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
+import '../index.css'
+import MatEdit from './MatEdit'
+import MatDelete from './MatDelete'
 
 const TableLocals = (props) => {
 
     const gyms = props.gyms
+    const deleteRegister = props.deleteRegister
+
+    const handleDeleteRegister = (idLocal) => {
+        deleteRegister(idLocal)
+    }
 
     const columns = [
-        //{ field: 'id', headerName: 'ID', width: 70 },
         { field: 'namegym', headerName: 'Gimnasio', width: 200 },
-        { field: 'city', headerName: 'Ciudad', width: 200 }
+        { field: 'city', headerName: 'Ciudad', width: 200 },
+        { 
+            field: 'actions', 
+            headerName: 'Acciones',
+            sortable: false,
+            width: 200,
+            disableClickEventBubbling: true,
+            renderCell: (params) => (
+                <div
+                    style={{ cursor: "pointer" }}
+                >
+                    <MatEdit index={params.row.id} />
+                    <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
+                </div>
+            )
+        }
     ]
-      
+    
     return (
         <Box
             sx={{
@@ -39,12 +61,13 @@ const TableLocals = (props) => {
                     {
                         gyms.map(item => (
                             {
-                                id: Math.random() * (1000 - 0) + 0,
+                                id: item.id,
                                 namegym: item.namegym,
                                 city: item.city
                             }
-                        ))
+                        )) 
                     }
+                    
                     columns={columns}
                     pageSize={10}
                     rowsPerPageOptions={[10]}
@@ -52,8 +75,5 @@ const TableLocals = (props) => {
             </div>
         </Box>
     );
-      
-    
-
 }
 export default TableLocals

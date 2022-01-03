@@ -118,6 +118,7 @@ const FormAddTIDevice = (props) => {
                         {
                             gyms.map(item => (
                                 <MenuItem value={item.namegym}>{item.namegym}</MenuItem>
+                                
                             ))
                         }
                         
