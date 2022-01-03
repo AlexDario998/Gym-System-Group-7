@@ -6,7 +6,7 @@ import Systems from './components/formsSystem';
 import Machine from './components/formsMach';
 import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
-import User from './components/user';
+import User from './components/FormUser';
 import Machines from './components/machine';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
