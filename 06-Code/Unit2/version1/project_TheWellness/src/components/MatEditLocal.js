@@ -14,7 +14,7 @@ const style = {
     p: 4,
 };
 
-const MatEdit = ( props ) => {
+const MatEditLocal = ( props ) => {
 
     const data = props.data
     const handleUpdateRegister = props.handleUpdateRegister
@@ -111,4 +111,4 @@ const MatEdit = ( props ) => {
         </>
     )
 }
-export default MatEdit
+export default MatEditLocal

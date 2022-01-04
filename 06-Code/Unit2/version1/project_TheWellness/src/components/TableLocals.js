@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 import '../index.css'
-import MatEdit from './MatEdit'
+import MatEditLocal from './MatEditLocal'
 import MatDelete from './MatDelete'
 
 const TableLocals = (props) => {
@@ -32,7 +32,7 @@ const TableLocals = (props) => {
                 <div
                     style={{ cursor: "pointer" }}
                 >
-                    <MatEdit data={params.row} handleUpdateRegister={handleUpdateRegister} />
+                    <MatEditLocal data={params.row} handleUpdateRegister={handleUpdateRegister} />
                     <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
                 </div>
             )

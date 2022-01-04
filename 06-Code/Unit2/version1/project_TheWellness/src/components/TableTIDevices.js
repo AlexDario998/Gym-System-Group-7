@@ -1,18 +1,43 @@
 import React from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
+import MatEdit from './MatEditLocal'
+import MatDelete from './MatDelete'
 
 const TableTIDevices = (props) => {
 
     const tiDevices = props.tiDevices
+    const updateRegister = props.updateRegister
+    const deleteRegister = props.deleteRegister
+
+    const handleDeleteRegister = (idTiDevice) => {
+        deleteRegister(idTiDevice)
+    }
+
+    const handleUpdateRegister = (values) => {
+        updateRegister(values)
+    }
 
     const columns = [
-        //{ field: 'id', headerName: 'ID', width: 70 },
         { field: 'name', headerName: 'Equipo infórmatico', width: 200 },
         { field: 'serialNumber', headerName: 'Serial', width: 200 },
         { field: 'brand', headerName: 'Marca', width: 200 },
         { field: 'local', headerName: 'Gimnasio', width: 200 },
-        { field: 'owner', headerName: 'Responsable', width: 200 }
+        { field: 'owner', headerName: 'Responsable', width: 200 },
+        { 
+            field: 'actions', 
+            headerName: 'Acciones',
+            sortable: false,
+            width: 200,
+            disableClickEventBubbling: true,
+            renderCell: (params) => (
+                <div
+                    style={{ cursor: "pointer" }}
+                >
+                    <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
+                </div>
+            )
+        }
     ]
       
     return (
@@ -42,7 +67,7 @@ const TableTIDevices = (props) => {
                     {
                         tiDevices.map(item => (
                             {
-                                id: Math.random() * (1000 - 0) + 0,
+                                id: item.id,
                                 name: item.name,
                                 serialNumber: item.serialNumber,
                                 brand: item.brand,
