@@ -8,6 +8,7 @@ import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
 import User from './components/FormUser';
 import Machines from './components/machine';
+import Homescreen from './components/homeScreen';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
 import TableRepairTIDevicesRequests from './components/TableRepairTIDevicesRequestsLayout';
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/infrastructure" element={<Infra />} />
         <Route path="/systems" element={<Systems />} />
         <Route path="/machines" element={<Machine />} />
+        <Route path="/homeScreen" element={<Homescreen />} />
         <Route path="/formAddTIDevice" element={<TIDevice />} />
         <Route path="/formAddGym" element={<Gym />} />
         <Route path="/user" element={<User />} />
