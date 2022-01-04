@@ -122,7 +122,7 @@ const NavBar = () => {
                                 </Link>
                             </MenuItem>
                             <MenuItem key='formsUsers'>
-                                <Link to='/users' className='link'>
+                                <Link to='/user' className='link'>
                                     <Typography textAlign="center">Usuarios</Typography>
                                 </Link>
                             </MenuItem>

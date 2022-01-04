@@ -1,27 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 import '../index.css'
 import MatEdit from './MatEdit'
 import MatDelete from './MatDelete'
 
+const TableMachines = (props) => {
 
-const TableRepairTIDevicesRequests = (props) => {
-
-    const reports = props.reports
+    const machines = props.machines
     const deleteRegister = props.deleteRegister
 
-    const handleDeleteRegister = (idRequest) => {
-        deleteRegister(idRequest)
+    const handleDeleteRegister = (idMachine) => {
+        deleteRegister(idMachine)
     }
 
     const columns = [
-        { field: 'authorName', headerName: 'Nombre del autor', width: 200 },
-        { field: 'gym', headerName: 'Local', width: 200 },
-        { field: 'device', headerName: 'Dispositivo', width: 200 },
-        { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
-        { field: 'machineType', headerName: 'Tipo de Dispositivo', width: 200 },
-        { field: 'description', headerName: 'Descripción', width: 200 },
+        { field: 'machineName', headerName: 'Nombre de la máquina', width: 200 },
+        { field: 'machineBrand', headerName: 'Marca', width: 200 },
+        { field: 'machineSerial', headerName: 'Número de serie', width: 200 },
+        { field: 'gym', headerName: 'Gimnasio', width: 200 },
+        { field: 'zone', headerName: 'Zona del gimnasio', width: 200 },
         { 
             field: 'actions', 
             headerName: 'Acciones',
@@ -38,7 +36,7 @@ const TableRepairTIDevicesRequests = (props) => {
             )
         }
     ]
-      
+    
     return (
         <Box
             sx={{
@@ -58,24 +56,21 @@ const TableRepairTIDevicesRequests = (props) => {
             }}
         >
 
-            <h1>Solicitudes de Arreglo Dispositivos TI</h1><br/>
+            <h1>Reporte locales</h1><br/>
 
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid
                     rows=
                     {
-                        reports.map(item => (
+                        machines.map(item => (
                             {
                                 id: item.id,
-                                authorName: item.idUser,
-                                gym: item.idLocal,
-                                device: item.idTIDevice,
-                                date: item.date,
-                                machineType: item.machineType,
-                                description: item.description
+                                namegym: item.namegym,
+                                city: item.city
                             }
-                        ))
+                        )) 
                     }
+                    
                     columns={columns}
                     pageSize={10}
                     rowsPerPageOptions={[10]}
@@ -83,8 +78,5 @@ const TableRepairTIDevicesRequests = (props) => {
             </div>
         </Box>
     );
-      
-    
-
 }
-export default TableRepairTIDevicesRequests
+export default TableMachines

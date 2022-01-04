@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Machine</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../css/style.css" rel="stylesheet" type="text/css">
+
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <script src="../js/validations.js"></script>
+    </head>
+    <body class="container">
+       <h1> Añadir Máquina de Gimnasio</h1>
+        <hr>
+        <br>
+        <div class="divImgMachine"> 
+            
+             <div class="divContainer">
+                 <br><br><br>
+                 <div class="div2Container">
+        <form id="form" action="../jsps/addMachine.jsp">
+            <div class="col-12">
+                <label for="machineName">Nombre de la Máquina :</label>
+                <div class="position-relative" id="groupName">
+                    <input type="text" class="form-control formInput" id="machineName" name="machineName" placeholder="Ingrese el nombre de la máquina" onchange="idValidation()">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter name correctly.</small>
+            </div>
+            <div class="col-12">
+                <label for="local">Local ubicado :</label>
+                <div class="position-relative" >
+                    <select class="form-control formInput" id="local" name="local">
+                        <option selected value="1">Elije...</option>
+                       
+                    </select>
+                </div>
+               
+            </div>
+
+            <div class="col-12">
+                <label for="serialNumber">Número de Serie:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="text" class="form-control formInput" id="serialNumber" name="serialNumber" placeholder="Ingrese el número de serie" onchange="">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Serial correctly.</small>
+            </div>
+             <div class="col-12">
+                <label for="machineBrand">Marca:</label>
+                <div class="position-relative" id="groupChickenId">
+                    <input type="text" class="form-control formInput" id="machineBrand" name="machineBrand" placeholder="Ingrese la marca" onchange="">
+
+                </div>
+                <small class="formInputErrorDesactive" id="messageErrorId">Enter Brand correctly.</small>
+            </div>
+           
+
+            <div class="form-row align-items-center">
+               
+                    <label class="mr-sm-2" for="zone">Zona del  Gimnasio:</label><br>
+                     <div class="position-relative">
+                    <select class="form-control formInput" id="zone" name="zone">
+                        <option selected>Elije...</option>
+                        <option value="musculacion">Musculación </option>
+                        <option value="pesoLibre">Peso libre</option>
+                        <option value="cardio ">Cardio</option>
+                        <option value="sala ">sala</option>
+                    </select>
+                </div>
+                    <div class="form-row align-items-center"><br>
+               
+              <button type="submit" class="btn btn-primary">Guardar</button>
+              <button type="reset" class="btn btn-secondary">Descartar</button>
+        </form>
+                 </div>
+                     <br><br><br>
+            </div>
+             </div>
+    </body>
+</html>

@@ -75,9 +75,7 @@ const Machines=()=>{
                     <TextField fullWidth id="machineSerial" placeholder="Ingrese el Número de serie" label="Número de serie" />
                     <br/>
 
-                    {/* Owner */}
-                    <TextField fullWidth id="MachineMail" placeholder="Ingrese el correo" label="Correo eléctronico" />
-                    <br/>
+                   
                     
                     {/* Gym */}
                     <FormControl fullWidth>

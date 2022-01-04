@@ -25,11 +25,11 @@ export async function saveUser(userData, values, setValues){
         data: userData,
     })
     
-    setValues({userName: '', userLastName: '',userMail:'',userId:''})
+    setValues({name:'', userName:'', email:'', password:'', idCard:'', gym:'', type:'',lastName:''})
 
   }catch(error){
     console.log(error)
-    setValues({userName: '', userLastName: '',userMail:'',userId:''})
+    setValues({name:'', userName:'', email:'', password:'', idCard:'', gym:'', type:'',lastName:''})
 
   }
 }
