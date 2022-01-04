@@ -41,7 +41,7 @@ const FormAddTIDevice = (props) => {
             <Box 
                 sx={{
                     width: '30%',
-                    height: '90vh',
+                    height: '100%',
                     marginLeft:'auto',
                     marginRight:'auto',
                     justifyContent: 'center',
@@ -55,6 +55,7 @@ const FormAddTIDevice = (props) => {
                     boxShadow: '1px 1px 20px #333'
                 }}
             >
+                <br/>
                 <h1>Agregar dispositivo TI</h1><br/>
 
                 {/* Device name */}
@@ -140,7 +141,9 @@ const FormAddTIDevice = (props) => {
                 >
                     Ingresar
                 </Button>
+                <br/>
             </Box>
+            
         </form>
     );
 }

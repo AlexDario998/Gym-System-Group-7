@@ -31,7 +31,7 @@ const FormAddLocal = (props) => {
             <Box 
                 sx={{
                     width: '30%',
-                    height: '90vh',
+                    height: '100%',
                     marginLeft:'auto',
                     marginRight:'auto',
                     justifyContent: 'center',
@@ -45,6 +45,7 @@ const FormAddLocal = (props) => {
                     boxShadow: '1px 1px 20px #333'
                 }}
             >
+                <br/>
                 <h1 align="center">Agregar local</h1><br/>
 
                 {/* Gym name */}
@@ -84,7 +85,9 @@ const FormAddLocal = (props) => {
                 >
                     Ingresar
                 </Button>
+                <br/>
             </Box>
+            
         </form>
             
     );

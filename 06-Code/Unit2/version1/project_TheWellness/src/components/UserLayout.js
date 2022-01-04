@@ -1,5 +1,6 @@
 import FormUser from './FormUser'
 import {saveUser} from '../services/userAxios'
+import {getLocals} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import NavBar from './NavBar'
@@ -10,20 +11,36 @@ const cookies = new Cookies()
 
 const UserLayout = () => {
 
+    const [gyms, setGyms] = useState([])
+
     const [values, setValues] = useState({
-        name:'',
+        name: '',
         userName: '',
-        lastName:'',
-        password:'',
-        idCard:'',
-        email:'',
-        type:'',
+        lastName: '',
+        password: '',
+        idCard: '',
+        email: '',
+        type: 0,
         gym: ''
     })
 
     const handleSubmit = (data) => {
         saveUser(data,values,setValues)
     }
+
+    useEffect(() => {
+        async function loadGyms() {
+            const response = await getLocals()
+
+            if (response.status === 200) {
+                setGyms(response.data)
+                
+            }
+        }
+
+        loadGyms()
+        
+    }, [])
 
     useEffect(() => {
         if (typeof cookies.get('userName') === 'undefined') {
@@ -38,7 +55,7 @@ const UserLayout = () => {
             >
                 <NavBar />
                 <br/><br/>
-                <FormUser handleSubmit={handleSubmit} values={values} setValues={setValues} />
+                <FormUser handleSubmit={handleSubmit} gyms={gyms} formUserValues={values} setFormUservalues={setValues} />
                 <br/>
             </Box>
         

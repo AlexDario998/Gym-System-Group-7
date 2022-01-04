@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/menuOpt" element={<Menuopt />} />
         <Route path="/formAddTIDevice" element={<TIDevice />} />
         <Route path="/formAddGym" element={<Gym />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/formUser" element={<User />} />
         <Route path="/gymMachines" element={<Machines />} />
         <Route path="/reportLocals" element={<TableLocals />} />
         <Route path="/reportTIDevices" element={<TableTIDevices />} />

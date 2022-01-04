@@ -116,13 +116,13 @@ const NavBar = () => {
                                     <Typography textAlign="center">Dispositivos TI</Typography>
                                 </Link>
                             </MenuItem>
-                            <MenuItem key='formsUsers'>
+                            <MenuItem key='formGymMachines'>
                                 <Link to='/gymMachines' className='link'>
                                     <Typography textAlign="center">Máquinas de gimnasio</Typography>
                                 </Link>
                             </MenuItem>
                             <MenuItem key='formsUsers'>
-                                <Link to='/user' className='link'>
+                                <Link to='/formUser' className='link'>
                                     <Typography textAlign="center">Usuarios</Typography>
                                 </Link>
                             </MenuItem>

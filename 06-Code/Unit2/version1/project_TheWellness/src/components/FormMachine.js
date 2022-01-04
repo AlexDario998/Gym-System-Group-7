@@ -29,7 +29,7 @@ const FormMachine = ( props ) => {
             <Box 
                 sx={{
                     width: '30%',
-                    height: '90vh',
+                    height: '100%',
                     marginLeft:'auto',
                     marginRight:'auto',
                     justifyContent: 'center',
@@ -43,6 +43,7 @@ const FormMachine = ( props ) => {
                     boxShadow: '1px 1px 20px #333'
                 }}
             >
+                <br/>
                 <h1 align="center">Agregar máquina de gimnasio</h1><br/>
 
                 {/* Device name */} 
@@ -115,7 +116,9 @@ const FormMachine = ( props ) => {
                 >
                     Ingresar
                 </Button>
+                <br/>
             </Box>
+            
         </form>
     )
 }
