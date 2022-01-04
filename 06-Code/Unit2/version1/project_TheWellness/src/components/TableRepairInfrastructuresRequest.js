@@ -1,42 +1,16 @@
 import React, { useEffect } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
-import '../index.css'
-
-import MatDelete from './MatDelete'
 
 
-const TableRepairTIDevicesRequests = (props) => {
+const TableRepairInfrastructuresRequests = (props) => {
 
     const reports = props.reports
-    const deleteRegister = props.deleteRegister
-
-    const handleDeleteRegister = (idRequest) => {
-        deleteRegister(idRequest)
-    }
-
-
     const columns = [
         { field: 'authorName', headerName: 'Nombre del autor', width: 200 },
         { field: 'gym', headerName: 'Local', width: 200 },
-        { field: 'device', headerName: 'Dispositivo', width: 200 },
         { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
-        { field: 'machineType', headerName: 'Tipo de Dispositivo', width: 200 },
-        { field: 'description', headerName: 'Descripción', width: 200 },
-        { 
-            field: 'actions', 
-            headerName: 'Acciones',
-            sortable: false,
-            width: 200,
-            disableClickEventBubbling: true,
-            renderCell: (params) => (
-                <div
-                    style={{ cursor: "pointer" }}
-                >
-                    <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
-                </div>
-            )
-        }
+        { field: 'description', headerName: 'Descripción', width: 200 }
     ]
       
     return (
@@ -58,7 +32,7 @@ const TableRepairTIDevicesRequests = (props) => {
             }}
         >
 
-            <h1>Solicitudes de Arreglo Dispositivos TI</h1><br/>
+            <h1>Solicitudes de Arreglo Infraestructura</h1><br/>
 
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid
@@ -69,9 +43,7 @@ const TableRepairTIDevicesRequests = (props) => {
                                 id: item.id,
                                 authorName: item.idUser,
                                 gym: item.idLocal,
-                                device: item.idTIDevice,
                                 date: item.date,
-                                machineType: item.machineType,
                                 description: item.description
                             }
                         ))
@@ -87,4 +59,4 @@ const TableRepairTIDevicesRequests = (props) => {
     
 
 }
-export default TableRepairTIDevicesRequests
+export default TableRepairInfrastructuresRequests

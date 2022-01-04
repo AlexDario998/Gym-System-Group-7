@@ -1,25 +1,18 @@
-import TableRepairTIDevicesRequests from "./TableRepairTIDevicesRequests";
+import TableRepairInfrastructuresRequests from "./TableRepairInfrastructuresRequests";
 import {
-  getReports,
-  deleteRequest,
-
-} from "../services/repairRequestTIDevicesAxios";
+  getReports
+} from "../services/repairInfrastructuresRequestAxios";
 import "../index.css";
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import NavbarSystemsAdmin from "./NavbarSystemsAdmin";
+import NavbarMaintenanceAdmin from "./NavbarMaintenanceAdmin";
 import Cookies from "universal-cookie/es6";
 
 const cookies = new Cookies();
 
-const TableRepairTIDevicesRequestsLayout = () => {
+const TableRepairInfrastructuresRequestsLayout = () => {
   const [reports, setReports] = useState([]);
   
-  const deleteRegister = (idRequest) => {
-    deleteRequest(idRequest);
-  };
-
-
   useEffect(() => {
     async function loadReports() {
       const response = await getReports();
@@ -41,16 +34,14 @@ const TableRepairTIDevicesRequestsLayout = () => {
   return (
     <>
       <Box>
-        <NavbarSystemsAdmin />
+        <NavbarMaintenanceAdmin/>
         <br />
         <br />
-        <TableRepairTIDevicesRequests
+        <TableRepairInfrastructuresRequests
           reports={reports}
-          deleteRegister={deleteRegister}
-   
         />
       </Box>
     </>
   );
 };
-export default TableRepairTIDevicesRequestsLayout;
+export default TableRepairInfrastructuresRequestsLayout;
