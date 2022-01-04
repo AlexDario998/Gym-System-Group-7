@@ -2,7 +2,7 @@ import React from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 import MatDelete from './MatDelete'
-import MatEditTiDevice from './MatEditTiDevice';
+import MatEditUser from './MatEditUser';
 
 const TableUsers = (props) => {
 
@@ -38,7 +38,7 @@ const TableUsers = (props) => {
                 <div
                     style={{ cursor: "pointer" }}
                 >
-                    <MatEditTiDevice data={params.row} handleUpdateRegister={handleUpdateRegister} gyms={gyms} />
+                    <MatEditUser data={params.row} handleUpdateRegister={handleUpdateRegister} gyms={gyms} />
                     <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
                 </div>
             )

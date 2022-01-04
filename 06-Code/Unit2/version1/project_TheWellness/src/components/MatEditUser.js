@@ -97,16 +97,78 @@ const MatEditUser = ( props ) => {
 
                         {/* Owner */}
                         <TextField fullWidth 
-                            name='owner' 
-                            id="owner" 
-                            value={formUser.owner}
-                            onChange={handleChange}
-                            placeholder="Propietario" 
-                            label="Propietario" 
+                            id="userId"
+                             name="idCard" 
+                             placeholder="ID/Pasaporte" 
+                             value={formUser.idCard} 
+                             label="Id/Pasaporte" 
+                             onChange={handleChange} 
                             style={{
                                 marginTop: '5%'
                             }}
                         />
+
+                        <TextField fullWidth
+                        id="email"  
+                        name="email" 
+                        placeholder="Correo eléctronico" 
+                        value={formUser.email} 
+                        label="Correo eléctronico" 
+                        onChange={handleChange} 
+                        style={{
+                            marginTop: '5%'
+                        }}
+
+                        />
+
+                        <TextField fullWidth 
+                        id="userName" 
+                        name="userName" 
+                        placeholder="Nombre de usuario" 
+                        value={formUser.userName} 
+                        label="Nombre de usuario" 
+                        onChange={handleChange} 
+                        style={{
+                            marginTop: '5%'
+                        }}
+                        
+                        />
+
+                        <TextField fullWidth 
+                        id="password" 
+                        name="password" 
+                        placeholder="Contraseña" 
+                        value={formUser.password} 
+                        type="password" 
+                        label="Contraseña" 
+                        onChange={handleChange} 
+                        style={{
+                            marginTop: '5%'
+                        }}
+                        
+                        />
+
+                        <FormControl fullWidth>
+                        style={{
+                                marginTop: '5%'
+                            }}
+                            <InputLabel id="labelTypeUser">Tipo de Usuario</InputLabel>
+                            <Select
+                            fullWidth
+                            labelId="labelTypeUser"
+                            id="type"
+                            name="type"
+                            value={formUser.type}
+                            label="Tipo de usuario"
+                            onChange={handleChange}
+                    >
+                        <MenuItem disabled selected >Seleccione un tipo </MenuItem>
+                        <MenuItem value={2}>Supervisor</MenuItem>
+                        <MenuItem value={3}>Admin/Sistemas</MenuItem>
+                        <MenuItem value={4}>Admin/Mantenimiento</MenuItem>
+                        <MenuItem value={5}>Grupo de mantenimiento</MenuItem>
+                    </Select>
+                         </FormControl>
 
                         {/* Gym */}
                         <FormControl fullWidth 
@@ -117,9 +179,9 @@ const MatEditUser = ( props ) => {
                             <Select
                                 fullWidth
                                 labelId="labelGym"
-                                name='local'
-                                id="local"
-                                value={formUser.local}
+                                name='gym'
+                                id="gym"
+                                value={formUser.gym}
                                 onChange={handleChange}
                                 label="Gimnasio al que pertenece"
                             >
