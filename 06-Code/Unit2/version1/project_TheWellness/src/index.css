@@ -146,3 +146,91 @@ code {
   border-radius: 300px;
   box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px rgb(252, 134, 0), 0 0 30px rgb(252, 134, 0), 0 0 40px rgb(252, 134, 0), 0 0 55px rgb(252, 134, 0), 0 0 75px rgb(252, 134, 0);
 }
+
+/* Menu Options */
+
+.backgroundOpt{
+  background-color: #fff;
+}
+.menuOpt{
+  /* background-image: linear-gradient(to top, #fff 0%, rgb(255, 161, 74) 100%); */
+  background-image: url(img/imgRepairMachBlack.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tableOpt{
+  width: 100%;
+  text-align: center;
+  padding: 5%;
+}
+.imgOpt{
+  background-color: #fff;
+  width: 100%;
+  height: 35vh;
+  margin-top: 10vh;
+  -webkit-box-shadow: 0px 0px 31px 6px rgba(0,0,0,0.75); 
+  box-shadow: 0px 0px 31px 6px rgba(0,0,0,0.75);  
+}
+
+.imgOpt:hover{
+  -webkit-box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75); 
+  box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75);  
+
+}
+
+.titlesOpt,
+.imgOpt{
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.titlesOpt:hover{
+  color: rgb(224, 108, 0);
+  -webkit-box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75); 
+  box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75);  
+}
+/* .imgOpt:hover{
+
+  background: #232323;
+  box-shadow: 0 0 5px #FFF, 0 0 6px #FFF, 0 0 7px #FFF, 0 0 8px #f09f25, 0 0 9px #f09f25, 0 0 10px #f09f25, 0 0 11px #f09f25, 0 0 12px #f09f25;
+} */
+
+.addReq{
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid red;
+  display: block;
+  width: 180px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.addReq:hover{
+  color: orange;
+}
+
+.repMach{
+  background-image: url(img/gym_swissotel_01.jpg);
+  background-size: cover;
+}
+
+.repSyst{
+  background-image: url(img/IMG_9406.jfif);
+  background-size: cover;
+}
+
+.repInfra{
+  background-image: url(img/gym_dann_carlton_01.jpg);
+  background-size: cover;
+}
