@@ -14,7 +14,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
  
 
-const User=()=>{
+const FormUser=(props)=>{
+    const {handleSubmit, formUserValues, setUservalues} = props
     const [values, setValues] = React.useState({
         amount: '',
         password: '',
@@ -23,26 +24,26 @@ const User=()=>{
         showPassword: false,
       });
     
-      const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
+     const handleChange = (event) => {
+        const { name, value } = event.target
+        setUservalues({ ...formUserValues, [name]: value})
+        
+    }
+    const handleSubmitInternal = (e) => {
+        e.preventDefault()
+        handleSubmit(formUserValues)
+        //e.target.reset()
+    }
     
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
+      
     
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
+      
     return(
        <Box
             class = "imgTIDevice"
         >
             <br/><br/>
-            <form>
+            <form onSubmit={handleSubmitInternal} id="formUser">
 
                 <Box 
                     sx={{
@@ -63,21 +64,22 @@ const User=()=>{
                 >
                     <h1>Crear Usuario</h1><br/>
 
-                    {/* Device name */}
-                    <TextField fullWidth id="userName" placeholder="Nombres del usuario" label="Nombres" />
+                    <TextField fullWidth id="userName" name="name" placeholder="Nombres del usuario" label="Nombres"   onChange={handleChange} />
                     <br/>
 
-                    {/* Serial number */}
-                    <TextField fullWidth id="userLastName" placeholder="Apellidos del usuario" label="Apellidos" />
+                    
+                    <TextField fullWidth id="userLastName"  name="lastName" placeholder="Apellidos del usuario" label="Apellidos"   onChange={handleChange} />
                     <br/>
 
-                    {/* Brand */}
-                    <TextField fullWidth id="userId" placeholder="ID/Pasaporte" label="Id/Pasaporte del usuario" />
+                   
+                    <TextField fullWidth id="userId" name="idCard" placeholder="ID/Pasaporte" label="Id/Pasaporte del usuario"   onChange={handleChange} />
                     <br/>
 
-                    {/* Owner */}
-                    <TextField fullWidth id="userMail" placeholder="Ingrese el correo" label="Correo eléctronico" />
+                   
+                    <TextField fullWidth id="email"  name="email" placeholder="Ingrese el correo" label="Correo eléctronico"   onChange={handleChange} />
                     <br/>
+                     <TextField fullWidth id="userName"  name="userName" placeholder="Ingrese el nombre de usuario" label="Nombre de usuario"   onChange={handleChange} /><br/>
+                     <TextField fullWidth id="password"   name="password" placeholder="Ingrese la contraseña" label="Contraseña"   onChange={handleChange} /><br/>
                     
                     {/* Gym */}
                     <FormControl fullWidth>
@@ -86,14 +88,15 @@ const User=()=>{
                             fullWidth
                             labelId="labelGym"
                             id="type"
+                            name="type"
                             label="Tipo de usuario"
                             onChange={handleChange}
                         >
                             <MenuItem disabled selected>Seleccione un tipo </MenuItem>
-                            <MenuItem value={'SystemAdmin'}>Admin/Sistemas</MenuItem>
-                            <MenuItem value={'MaintanceAdmin'}>Admin/Mantenimiento</MenuItem>
-                            <MenuItem value={'Supervisor'}>Supervisor</MenuItem>
-                            <MenuItem value={'User'}>Usuario</MenuItem>
+                            <MenuItem value={1}>Admin/Sistemas</MenuItem>
+                            <MenuItem value={2}>Admin/Mantenimiento</MenuItem>
+                            <MenuItem value={3}>Supervisor</MenuItem>
+                            <MenuItem value={4}>Usuario</MenuItem>
                         </Select>
                     </FormControl>
                     <br/>
@@ -103,6 +106,7 @@ const User=()=>{
                             fullWidth
                             labelId="labelGym"
                             id="gym"
+                             name="gym"
                             label="Local asignado"
                             onChange={handleChange}
                         >
@@ -141,4 +145,4 @@ const User=()=>{
     )
 }
 
-export default User;
+export default FormUser;

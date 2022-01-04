@@ -15,8 +15,7 @@ const FormAddLocal = (props) => {
     const handleChange = (event) => {
         const { name, value } = event.target
         setformAddLocalValues({ ...formAddLocalValues, [name]: value})
-        console.log(formAddLocalValues.namegym)
-        console.log(formAddLocalValues.city)
+        
     }
 
     const handleSubmitInternal = (e) => {
