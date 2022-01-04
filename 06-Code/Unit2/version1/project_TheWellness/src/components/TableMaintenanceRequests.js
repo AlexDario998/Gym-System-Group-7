@@ -35,7 +35,7 @@ const TableMaintenanceRequests = (props) => {
             }}
         >
 
-            <h1>Solicitudes de Arreglo Dispositivos TI</h1><br/>
+            <h1>Solicitudes de Arreglo de Máquinas de Gimnasio</h1><br/>
 
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid

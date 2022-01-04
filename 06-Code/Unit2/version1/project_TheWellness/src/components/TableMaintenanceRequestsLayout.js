@@ -34,7 +34,7 @@ const TableMaintenanceRequestsLayout = () => {
     return (
         <>
             <Box>
-                <NavbarMaintenanceAdmin />
+                <NavbarMaintenanceAdmin/>
                 <br/><br/>
                 <TableMaintenanceRequests reports={reports}/>
             </Box>

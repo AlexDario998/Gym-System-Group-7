@@ -44,7 +44,7 @@ export function checkLogin(loginValues) {
                     break
 
                 case 4:
-
+                    window.location.href = "./TableMaintenanceRequests"
                     break
             }
 
