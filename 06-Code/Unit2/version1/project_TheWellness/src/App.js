@@ -14,6 +14,7 @@ import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
 import TableRepairTIDevicesRequests from './components/TableRepairTIDevicesRequestsLayout';
 import TableMaintenanceRequests from './components/TableMaintenanceRequestsLayout';
+import TableRepairInfrastructuresRequests from './components/TableRepairInfrastructuresRequestsLayout';
 
 const App = () => {
 
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/reportTIDevices" element={<TableTIDevices />} />
         <Route path="/TableRepairTIDevicesRequests" element={<TableRepairTIDevicesRequests />} />
         <Route path="/TableMaintenanceRequests" element={<TableMaintenanceRequests />} />
+        <Route path="/TableRepairInfrastructuresRequests" element={<TableRepairInfrastructuresRequests />} />
 
       </Routes>
     </BrowserRouter>

@@ -18,14 +18,22 @@ const cookies = new Cookies()
 
 const NavbarMaintenanceAdmin = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElReports, setAnchorElReports] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
+  const handleOpenReportMenu = (event) => {
+    setAnchorElReports(event.currentTarget);
+};
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const handleCloseReportMenu = () => {
+    setAnchorElReports(null);
+};
+
 
   const logOut = () => {
         cookies.remove('id', {path: "/"})
@@ -53,17 +61,48 @@ const NavbarMaintenanceAdmin = () => {
             }}
           />
 
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Tooltip title="Visualizar Reportes">
-              <Button
-                key="reports"
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                REPORTES
-                <Link to="/TableMaintenanceRequests" className="link"></Link>
-              </Button>
-            </Tooltip>
-          </Box>
+<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <Tooltip title="Reportes">
+                            <Button
+                                key='reports'
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                onClick={handleOpenReportMenu}
+                            >
+                                Reportes
+                            </Button>
+                        </Tooltip>
+
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="subMenuReports"
+                            anchorEl={anchorElReports}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            open={Boolean(anchorElReports)}
+                            onClose={handleCloseReportMenu}
+                        >
+                            
+                            <MenuItem key='reportsMachines'>
+                                <Link to='/TableMaintenanceRequests' className='link'>
+                                    <Typography textAlign="center">Solicitudes de Mantenimiento de Maquinas</Typography>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem key='reportsInfrastructure'>
+                                <Link to='/TableRepairInfrastructuresRequests' className='link'>    
+                                    <Typography textAlign="center">Solicitudes de Mantenimiento de Infraestructura</Typography>
+                                </Link>
+                            </MenuItem>
+      
+                            
+                        </Menu>
+                    </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Salir">
