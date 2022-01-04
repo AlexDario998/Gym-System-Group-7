@@ -1,4 +1,4 @@
-import MenuOpt from './MenuOpt'
+import MenuOpt from './menuOpt'
 import '../index.css';
 import {Box} from "@mui/material"
 import NavBarLeaderGym from './NavBarLeaderGym'
