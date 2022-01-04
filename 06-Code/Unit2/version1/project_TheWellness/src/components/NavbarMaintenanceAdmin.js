@@ -61,14 +61,14 @@ const NavbarMaintenanceAdmin = () => {
             }}
           />
 
-<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Tooltip title="Reportes">
                             <Button
                                 key='reports'
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                 onClick={handleOpenReportMenu}
                             >
-                                Reportes
+                                Solicitudes
                             </Button>
                         </Tooltip>
 
@@ -91,16 +91,14 @@ const NavbarMaintenanceAdmin = () => {
                             
                             <MenuItem key='reportsMachines'>
                                 <Link to='/TableMaintenanceRequests' className='link'>
-                                    <Typography textAlign="center">Solicitudes de Mantenimiento de Maquinas</Typography>
+                                    <Typography textAlign="center">Máquinas de gimnasio</Typography>
                                 </Link>
                             </MenuItem>
                             <MenuItem key='reportsInfrastructure'>
                                 <Link to='/TableRepairInfrastructuresRequests' className='link'>    
-                                    <Typography textAlign="center">Solicitudes de Mantenimiento de Infraestructura</Typography>
+                                    <Typography textAlign="center">Infraestructura</Typography>
                                 </Link>
                             </MenuItem>
-      
-                            
                         </Menu>
                     </Box>
 

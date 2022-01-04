@@ -12,6 +12,7 @@ import Homescreen from './components/homeScreen';
 import Menuopt from './components/menuOpt';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
+import TableGymMachines from './components/TableMachinesLayout'
 import TableRepairTIDevicesRequests from './components/TableRepairTIDevicesRequestsLayout';
 import TableMaintenanceRequests from './components/TableMaintenanceRequestsLayout';
 import TableRepairInfrastructuresRequests from './components/TableRepairInfrastructuresRequestsLayout';
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/gymMachines" element={<Machines />} />
         <Route path="/reportLocals" element={<TableLocals />} />
         <Route path="/reportTIDevices" element={<TableTIDevices />} />
+        <Route path="/reportGymMachines" element={<TableGymMachines />} />
         <Route path="/TableRepairTIDevicesRequests" element={<TableRepairTIDevicesRequests />} />
         <Route path="/TableMaintenanceRequests" element={<TableMaintenanceRequests />} />
         <Route path="/TableRepairInfrastructuresRequests" element={<TableRepairInfrastructuresRequests />} />

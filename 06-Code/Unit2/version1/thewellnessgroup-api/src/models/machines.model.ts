@@ -4,6 +4,13 @@ import {Entity, model, property} from '@loopback/repository';
 export class Machines extends Entity {
   @property({
     type: 'string',
+    id: true,
+    generated: true,
+  })
+  id?: string;
+
+  @property({
+    type: 'string',
     required: true,
   })
   name: string;
@@ -16,8 +23,6 @@ export class Machines extends Entity {
 
   @property({
     type: 'string',
-    id: true,
-    generated: false,
     required: true,
   })
   serialNumber: string;
