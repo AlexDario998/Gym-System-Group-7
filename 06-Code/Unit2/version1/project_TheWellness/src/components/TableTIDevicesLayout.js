@@ -1,5 +1,6 @@
 import TableTIDevices from './TableTIDevices'
 import {getTIDevices, deleteTiDevice, updateTiDevice} from '../services/tiDeviceAxios'
+import {getLocals} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
@@ -11,6 +12,7 @@ const cookies = new Cookies()
 const TableTIDevicesLayout = () => {
 
     const [tiDevices, setTIDevices] = useState([])
+    const [gyms, setGyms] = useState([])
 
     const deleteRegister = (idTiDevice) => {
         deleteTiDevice(idTiDevice)
@@ -19,6 +21,20 @@ const TableTIDevicesLayout = () => {
     const updateRegister = (values) => {
         updateTiDevice(values)
     }
+
+    useEffect(() => {
+        async function loadGyms() {
+            const response = await getLocals()
+
+            if (response.status === 200) {
+                setGyms(response.data)
+                
+            }
+        }
+
+        loadGyms()
+        
+    }, [])
 
     useEffect(() => {
         async function loadTIDevices() {
@@ -44,7 +60,7 @@ const TableTIDevicesLayout = () => {
             <Box>
                 <NavBar />
                 <br/><br/>
-                <TableTIDevices tiDevices={tiDevices} deleteRegister={deleteRegister} updateRegister={updateRegister} />
+                <TableTIDevices tiDevices={tiDevices} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
             </Box>
         
         </>
