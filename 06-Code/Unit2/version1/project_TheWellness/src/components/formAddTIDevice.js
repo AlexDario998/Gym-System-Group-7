@@ -111,13 +111,12 @@ const FormAddTIDevice = (props) => {
                         value={values.local}
                         onChange={handleChange}
                         label="Gimnasio al que pertenece"
-                        onChange={handleChange}
                     >
                         
                         <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
                         {
                             gyms.map(item => (
-                                <MenuItem value={item.namegym}>{item.namegym}</MenuItem>
+                                <MenuItem value={item.id}>{item.namegym}</MenuItem>
                                 
                             ))
                         }
