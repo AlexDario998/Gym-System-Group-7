@@ -1,12 +1,12 @@
 import TableUsers from './TableUser'
-import { getUsers,deleteUser,updateUser} from '../services/userAxios'
-
+import { getUsers,deleteUser,updateUser } from '../services/userAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
 import NavBar from './NavBar'
 import Cookies from 'universal-cookie/es6';
 import {getLocals} from '../services/localAxios'
+
 const cookies = new Cookies()
 
 const TableUserLayout = () => {

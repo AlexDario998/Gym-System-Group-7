@@ -73,12 +73,13 @@ const TableUsers = (props) => {
                     {
                         users.map(item => (
                             {
-                                id: Math.random() * (1000 - 0) + 0,
+                                id: item.id,
                                 name: item.name,
                                 lastName: item.lastName,
                                 idCard: item.idCard,
                                 email: item.email,
                                 userName: item.userName,
+                                password: item.password,
                                 type:item.type,
                                 gym:item.gym
 

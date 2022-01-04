@@ -23,16 +23,14 @@ const MatEditUser = ( props ) => {
     const [open, setOpen] = useState(false);
 
     const [formUser, setformUser] = useState({
-        idCard:data.idCard,
-        name:data.name,
-        lastName:data.lastName,
-        userName:data.userName,
-        email:data.email,
-        password:data.password,
-        type:data.type,
-        gym:data.gym
-
-
+        idCard: data.idCard,
+        name: data.name,
+        lastName: data.lastName,
+        userName: data.userName,
+        email: data.email,
+        password: data.password,
+        type: data.type,
+        gym: data.gym
     })
 
     const handleChange = (event) => {
@@ -72,7 +70,7 @@ const MatEditUser = ( props ) => {
 
                       
                         <TextField fullWidth 
-                           id="userName" 
+                           id="name" 
                            name="name" 
                            value={formUser.name} 
                            placeholder="Nombres" 
@@ -80,9 +78,6 @@ const MatEditUser = ( props ) => {
                            onChange={handleChange} 
                         />
 
-                        
-
-                        {/* Brand */}
                         <TextField fullWidth 
                             id="userLastName"  
                             name="lastName" 
@@ -95,73 +90,73 @@ const MatEditUser = ( props ) => {
                             }}
                         />
 
-                        {/* Owner */}
                         <TextField fullWidth 
                             id="userId"
-                             name="idCard" 
-                             placeholder="ID/Pasaporte" 
-                             value={formUser.idCard} 
-                             label="Id/Pasaporte" 
-                             onChange={handleChange} 
+                            name="idCard" 
+                            placeholder="ID/Pasaporte" 
+                            value={formUser.idCard} 
+                            label="Id/Pasaporte" 
+                            onChange={handleChange} 
                             style={{
                                 marginTop: '5%'
                             }}
                         />
 
                         <TextField fullWidth
-                        id="email"  
-                        name="email" 
-                        placeholder="Correo eléctronico" 
-                        value={formUser.email} 
-                        label="Correo eléctronico" 
-                        onChange={handleChange} 
-                        style={{
-                            marginTop: '5%'
-                        }}
-
-                        />
-
-                        <TextField fullWidth 
-                        id="userName" 
-                        name="userName" 
-                        placeholder="Nombre de usuario" 
-                        value={formUser.userName} 
-                        label="Nombre de usuario" 
-                        onChange={handleChange} 
-                        style={{
-                            marginTop: '5%'
-                        }}
-                        
-                        />
-
-                        <TextField fullWidth 
-                        id="password" 
-                        name="password" 
-                        placeholder="Contraseña" 
-                        value={formUser.password} 
-                        type="password" 
-                        label="Contraseña" 
-                        onChange={handleChange} 
-                        style={{
-                            marginTop: '5%'
-                        }}
-                        
-                        />
-
-                        <FormControl fullWidth>
-                        style={{
+                            id="email"  
+                            name="email" 
+                            placeholder="Correo eléctronico" 
+                            value={formUser.email} 
+                            label="Correo eléctronico" 
+                            onChange={handleChange} 
+                            style={{
                                 marginTop: '5%'
                             }}
+
+                        />
+
+                        <TextField fullWidth 
+                            id="userName" 
+                            name="userName" 
+                            placeholder="Nombre de usuario" 
+                            value={formUser.userName} 
+                            label="Nombre de usuario" 
+                            onChange={handleChange} 
+                            style={{
+                                marginTop: '5%'
+                            }}
+                        
+                        />
+
+                        <TextField fullWidth 
+                            id="password" 
+                            name="password" 
+                            placeholder="Contraseña" 
+                            value={formUser.password} 
+                            type="password" 
+                            label="Contraseña" 
+                            onChange={handleChange} 
+                            style={{
+                                marginTop: '5%'
+                            }}
+                        
+                        />
+
+                        <FormControl fullWidth
+                            style={{
+                                    marginTop: '5%'
+                                }}
+                        >
                             <InputLabel id="labelTypeUser">Tipo de Usuario</InputLabel>
                             <Select
-                            fullWidth
-                            labelId="labelTypeUser"
-                            id="type"
-                            name="type"
-                            value={formUser.type}
-                            label="Tipo de usuario"
-                            onChange={handleChange}
-                    >
+                                fullWidth
+                                labelId="labelTypeUser"
+                                id="type"
+                                name="type"
+                                value={formUser.type}
+                                label="Tipo de usuario"
+                                onChange={handleChange}
+                            >
                         <MenuItem disabled selected >Seleccione un tipo </MenuItem>
                         <MenuItem value={2}>Supervisor</MenuItem>
                         <MenuItem value={3}>Admin/Sistemas</MenuItem>
