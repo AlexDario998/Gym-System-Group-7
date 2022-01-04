@@ -158,7 +158,7 @@ code {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
-  overflow-y: scroll;
+  overflow-y: fixed;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -169,13 +169,12 @@ code {
 .tableOpt{
   width: 100%;
   text-align: center;
-  padding: 5%;
+  padding: 3%;
 }
 .imgOpt{
   background-color: #fff;
   width: 100%;
   height: 35vh;
-  margin-top: 10vh;
   -webkit-box-shadow: 0px 0px 31px 6px rgba(0,0,0,0.75); 
   box-shadow: 0px 0px 31px 6px rgba(0,0,0,0.75);  
 }
