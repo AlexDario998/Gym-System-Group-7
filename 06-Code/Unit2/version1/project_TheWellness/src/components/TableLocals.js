@@ -9,9 +9,14 @@ const TableLocals = (props) => {
 
     const gyms = props.gyms
     const deleteRegister = props.deleteRegister
+    const updateRegister = props.updateRegister
 
     const handleDeleteRegister = (idLocal) => {
         deleteRegister(idLocal)
+    }
+
+    const handleUpdateRegister = (values) => {
+        updateRegister(values)
     }
 
     const columns = [
@@ -27,7 +32,7 @@ const TableLocals = (props) => {
                 <div
                     style={{ cursor: "pointer" }}
                 >
-                    <MatEdit index={params.row.id} />
+                    <MatEdit data={params.row} handleUpdateRegister={handleUpdateRegister} />
                     <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
                 </div>
             )

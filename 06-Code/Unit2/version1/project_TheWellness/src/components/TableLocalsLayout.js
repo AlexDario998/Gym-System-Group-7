@@ -1,5 +1,5 @@
 import TableLocals from './TableLocals'
-import {getLocals, deleteLocal} from '../services/localAxios'
+import {getLocals, deleteLocal, updateLocal} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
@@ -14,6 +14,10 @@ const TableLocalsLayout = () => {
 
     const deleteRegister = (idLocal) => {
         deleteLocal(idLocal)
+    }
+
+    const updateRegister = (values) => {
+        updateLocal(values)
     }
 
     useEffect(() => {
@@ -40,7 +44,7 @@ const TableLocalsLayout = () => {
             <Box>
                 <NavBar />
                 <br/><br/>
-                <TableLocals gyms={gyms} deleteRegister={deleteRegister} />
+                <TableLocals gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
             </Box>
         
         </>

@@ -52,7 +52,7 @@ const FormAddLocal = (props) => {
                 <TextField fullWidth 
                     name='namegym' 
                     id="namegym" 
-                    value={formAddLocalValues.gymName}
+                    value={formAddLocalValues.namegym}
                     onChange={handleChange}
                     placeholder="Nombre del gimnasio" 
                     label="Nombre del gimnasio" 

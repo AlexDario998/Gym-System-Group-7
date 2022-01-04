@@ -47,3 +47,20 @@ export async function deleteLocal(idLocal){
 
   
 }
+
+export async function updateLocal(values){
+
+  const response = await axios.put(`${baseUrl}/gyms/${values.id}`,{
+    namegym: values.namegym,
+    city: values.city
+  })
+  .then(response => {
+    window.alert('Registro actualizado')
+    window.location.reload()
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+  
+}
