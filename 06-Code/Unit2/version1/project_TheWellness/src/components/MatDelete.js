@@ -1,6 +1,5 @@
-import { FormControlLabel, IconButton } from "@material-ui/core"
 import DeleteIcon from '@mui/icons-material/Delete'
-import { red } from "@material-ui/core/colors"
+import { IconButton } from '@mui/material'
 
 const MatDelete = ( props ) => {
 
@@ -18,17 +17,17 @@ const MatDelete = ( props ) => {
     };
   
     return (
-        <FormControlLabel
-            control={
-                <IconButton
-                    color="secondary"
-                    aria-label="add an alarm"
-                    onClick={handleDeleteClick}
-                >
-                    <DeleteIcon style={{ color: red[500] }} />
-                </IconButton>
-            }
-        />
+        <IconButton 
+            color="secondary"
+            aria-label="add an alarm"
+            onClick={handleDeleteClick}
+        >
+            <DeleteIcon 
+                style={{
+                    color: '#e91e63'
+                }}
+            />
+        </IconButton>
     )
 }
 export default MatDelete
