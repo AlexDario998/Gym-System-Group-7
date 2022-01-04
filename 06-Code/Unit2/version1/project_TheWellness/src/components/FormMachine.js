@@ -1,45 +1,31 @@
-import logo from '../img/logoWellnessGroup.png';
 import * as React from 'react';
 import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Select,MenuItem} from "@mui/material"
-import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import IconButton from '@mui/material/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
  
 
-const FormMachine = () => {
-    const [values, setValues] = React.useState({
-        amount: '',
-        password: '',
-        weight: '',
-        weightRange: '',
-        showPassword: false,
-      });
+const FormMachine = ( props ) => {
+
+    const handleSubmit = props.handleSubmit
+    const gyms = props.gyms
+    const values = props.values
+    const setValues = props.setValues
     
-      const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-    
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
-    
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setValues({ ...values, [name]: value})
+    }
+
+    const handleSubmitInternal = (e) => {
+        e.preventDefault()
+        handleSubmit(values)
+    }
 
     return(
-        <form>
+        <form onSubmit={handleSubmitInternal} >
             <Box 
                 sx={{
                     width: '30%',
@@ -57,21 +43,19 @@ const FormMachine = () => {
                     boxShadow: '1px 1px 20px #333'
                 }}
             >
-                <h1>Agregar Máquina de Gimnasio</h1><br/>
+                <h1 align="center">Agregar máquina de gimnasio</h1><br/>
 
-                {/* Device name */}
-                <TextField fullWidth id="machineName" placeholder="Ingrese el nombre de la máquina" label="Nombre" />
+                {/* Device name */} 
+                <TextField fullWidth id="machineName" name='name' value={values.name} onChange={handleChange} placeholder="Ingrese el nombre de la máquina" label="Nombre" />
                 <br/>
 
                 {/* Serial number */}
-                <TextField fullWidth id="machineBrand" placeholder="Ingrese la marca " label="Marca" />
+                <TextField fullWidth id="machineBrand" name='mark' value={values.mark} onChange={handleChange} placeholder="Ingrese la marca " label="Marca" />
                 <br/>
 
                 {/* Brand */}
-                <TextField fullWidth id="machineSerial" placeholder="Ingrese el Número de serie" label="Número de serie" />
+                <TextField fullWidth id="machineSerial" name='serialNumber' value={values.serialNumber} onChange={handleChange} placeholder="Ingrese el Número de serie" label="Número de serie" />
                 <br/>
-
-                
                 
                 {/* Gym */}
                 <FormControl fullWidth>
@@ -80,17 +64,19 @@ const FormMachine = () => {
                         fullWidth
                         labelId="labelGym"
                         id="gym"
+                        name='gym'
+                        value={values.gym}
                         label="Local asignado"
                         onChange={handleChange}
                     >
                         <MenuItem disabled selected>Seleccione un local </MenuItem>
-                        <MenuItem value={'UIOPLA1'}>UIOPLA1</MenuItem>
-                        <MenuItem value={'UIOPOR'}>UIOPOR</MenuItem>
-                        <MenuItem value={'UIOQUIS'}>UIOQUIS</MenuItem>
-                        <MenuItem value={'UIOREC'}>UIOREC</MenuItem>
-                        <MenuItem value={'UIOSAN'}>UIOSAN</MenuItem>
-                        <MenuItem value={'PHSWISS'}>PHSWISS</MenuItem>
-                        <MenuItem value={'PHDANN'}>PHDANN</MenuItem>
+                        {
+                            gyms.map(item => (
+                                <MenuItem value={item.id}>{item.namegym}</MenuItem>
+                                
+                            ))
+                        }
+
                     </Select>
                 </FormControl>
                 <br/>
@@ -100,6 +86,8 @@ const FormMachine = () => {
                         fullWidth
                         labelId="labelGym"
                         id="zone"
+                        name='zone'
+                        value={values.zone}
                         label="Zona del gimnasio"
                         onChange={handleChange}
                     >

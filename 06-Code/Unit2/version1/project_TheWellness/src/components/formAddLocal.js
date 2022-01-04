@@ -45,7 +45,7 @@ const FormAddLocal = (props) => {
                     boxShadow: '1px 1px 20px #333'
                 }}
             >
-                <h1>Agregar local</h1><br/>
+                <h1 align="center">Agregar local</h1><br/>
 
                 {/* Gym name */}
                 <TextField fullWidth 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {saveTIDevice} from '../services/tiDeviceAxios'
+import {saveGymMachine} from '../services/gymMachineAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import { getLocals } from '../services/localAxios';
@@ -14,14 +14,14 @@ const MachineLayout = () => {
 
     const [values, setValues] = useState({
         name: '',
+        gym: '',
         serialNumber: '',
-        brand: '',
-        local: '',
-        owner: ''
+        mark: '',
+        zone: ''
     })
 
     const handleSubmit = (data) => {
-        saveTIDevice(data,values,setValues)
+        saveGymMachine(data,values,setValues)
     }
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const MachineLayout = () => {
             >
                 <NavBar />
                 <br/><br/>
-                <FormMachine handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues}/>
+                <FormMachine handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues} />
                 <br/>
             </Box>
         
