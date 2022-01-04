@@ -8,7 +8,7 @@ import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
 import User from './components/UserLayout';
 
-import Machines from './components/machine';
+import Machines from './components/MachineLayout';
 import Homescreen from './components/homeScreen';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
