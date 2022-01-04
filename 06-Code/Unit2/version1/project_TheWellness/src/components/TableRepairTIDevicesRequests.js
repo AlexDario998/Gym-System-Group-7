@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 import '../index.css'
-import MatEdit from './MatEdit'
 import MatDelete from './MatDelete'
 
 
@@ -32,7 +31,7 @@ const TableRepairTIDevicesRequests = (props) => {
                 <div
                     style={{ cursor: "pointer" }}
                 >
-                    <MatEdit index={params.row.id} />
+                 
                     <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
                 </div>
             )
