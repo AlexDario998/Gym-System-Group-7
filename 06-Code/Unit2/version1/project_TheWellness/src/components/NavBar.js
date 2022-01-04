@@ -174,7 +174,9 @@ const NavBar = () => {
                                 </Link>
                             </MenuItem>
                             <MenuItem key='reportsUsers'>
+                            <Link to='/reportUsers' className='link'>
                                 <Typography textAlign="center">Usuarios</Typography>
+                                </Link>
                             </MenuItem>
                         </Menu>
                     </Box>
