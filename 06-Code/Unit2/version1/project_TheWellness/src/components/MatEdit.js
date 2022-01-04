@@ -1,6 +1,4 @@
-//import {FormControlLabel, IconButton } from "@material-ui/core"
 import EditIcon from '@mui/icons-material/Edit'
-//import IconButton from '@mui/material/IconButton'
 import { IconButton } from '@mui/material'
 
 const MatEdit = ({ index }) => {
