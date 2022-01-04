@@ -46,19 +46,15 @@ const FormMachine = ( props ) => {
                 <br/>
                 <h1 align="center">Agregar máquina de gimnasio</h1><br/>
 
-                {/* Device name */} 
                 <TextField fullWidth id="machineName" name='name' value={values.name} onChange={handleChange} placeholder="Ingrese el nombre de la máquina" label="Nombre" />
                 <br/>
 
-                {/* Serial number */}
                 <TextField fullWidth id="machineBrand" name='mark' value={values.mark} onChange={handleChange} placeholder="Ingrese la marca " label="Marca" />
                 <br/>
 
-                {/* Brand */}
                 <TextField fullWidth id="machineSerial" name='serialNumber' value={values.serialNumber} onChange={handleChange} placeholder="Ingrese el Número de serie" label="Número de serie" />
                 <br/>
                 
-                {/* Gym */}
                 <FormControl fullWidth>
                     <InputLabel id="labelGym">Local de ubicación</InputLabel>
                     <Select

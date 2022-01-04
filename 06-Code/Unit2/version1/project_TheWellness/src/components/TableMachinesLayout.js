@@ -1,5 +1,6 @@
 import TableMachines from './TableMachines'
 import {getGymMachines,deleteGymMachine,updateGymMachine} from '../services/gymMachineAxios'
+import {getLocals} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
@@ -11,6 +12,7 @@ const cookies = new Cookies()
 const TableMachinesLayout = () => {
 
     const [gymMachines, setGymMachines] = useState([])
+    const [gyms, setGyms] = useState([])
 
     const deleteRegister = (idGymMachines) => {
         deleteGymMachine(idGymMachines)
@@ -19,6 +21,20 @@ const TableMachinesLayout = () => {
     const updateRegister = (values) => {
         updateGymMachine(values)
     }
+
+    useEffect(() => {
+        async function loadGyms() {
+            const response = await getLocals()
+
+            if (response.status === 200) {
+                setGyms(response.data)
+                
+            }
+        }
+
+        loadGyms()
+        
+    }, [])
 
     useEffect(() => {
         async function loadGymMachines() {
@@ -44,7 +60,7 @@ const TableMachinesLayout = () => {
             <Box>
                 <NavBar />
                 <br/><br/>
-                <TableMachines gymMachines={gymMachines} deleteRegister={deleteRegister} updateRegister={updateRegister} />
+                <TableMachines gymMachines={gymMachines} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
             </Box>
         
         </>

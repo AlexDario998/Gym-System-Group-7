@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 import '../index.css'
-//import MatEdit from './MatEdit'
+import MatEditGymMachine from './MatEditGymMachine'
 import MatDelete from './MatDelete'
 
 const TableMachines = (props) => {
 
     const gymMachines = props.gymMachines
+    const gyms = props.gyms
     const deleteRegister = props.deleteRegister
     const updateRegister = props.updateRegister
 
@@ -35,7 +36,7 @@ const TableMachines = (props) => {
                 <div
                     style={{ cursor: "pointer" }}
                 >
-                    
+                    <MatEditGymMachine data={params.row} gyms={gyms} handleUpdateRegister={handleUpdateRegister} />
                     <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
                 </div>
             )
