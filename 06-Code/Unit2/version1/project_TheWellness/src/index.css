@@ -154,7 +154,8 @@ code {
 }
 .menuOpt{
   /* background-image: linear-gradient(to top, #fff 0%, rgb(255, 161, 74) 100%); */
-  background-image: url(img/imgRepairMachBlack.jpg);
+  /* background-image: url(img/imgRepairMachBlack.jpg); */
+  background-color: #fff;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -179,24 +180,24 @@ code {
   box-shadow: 0px 0px 31px 6px rgba(0,0,0,0.75);  
 }
 
-.imgOpt:hover{
+/* .imgOpt:hover{
   -webkit-box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75); 
   box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75);  
 
-}
+} */
 
 .titlesOpt,
 .imgOpt{
-  color: #fff;
+  color: #000;
   text-decoration: none;
   text-align: center;
 }
 
-.titlesOpt:hover{
+/* .titlesOpt:hover{
   color: rgb(224, 108, 0);
   -webkit-box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75); 
   box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75);  
-}
+} */
 /* .imgOpt:hover{
 
   background: #232323;
@@ -204,7 +205,7 @@ code {
 } */
 
 .addReq{
-  color: #fff;
+  color: #000;
   text-decoration: none;
   border-bottom: 2px solid red;
   display: block;
@@ -215,9 +216,9 @@ code {
   font-weight: 600;
 }
 
-.addReq:hover{
+/* .addReq:hover{
   color: orange;
-}
+} */
 
 .repMach{
   background-image: url(img/gym_swissotel_01.jpg);

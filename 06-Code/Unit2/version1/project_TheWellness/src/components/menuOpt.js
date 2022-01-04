@@ -55,7 +55,7 @@ const MenuOpt = () => {
                 <TableCell><a href="repairinfra.html"><div class="imgOpt repInfra"></div></a></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><a href="repairmachine.html" class="titlesOpt"><h2>Maquinas del Gimnasio</h2></a></TableCell>
+                <TableCell><a href="repairmachine.html" class="titlesOpt"><h2>Máquinas del Gimnasio</h2></a></TableCell>
                 <TableCell><a href="repairsystems.html" class="titlesOpt"><h2>Sistemas/Dispositivos TI</h2></a></TableCell>
                 <TableCell><a href="repairinfra.html" class="titlesOpt"><h2>Infraestructura Gimnasio</h2></a></TableCell>
             </TableRow>
