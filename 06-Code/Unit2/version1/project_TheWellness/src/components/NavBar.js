@@ -169,7 +169,9 @@ const NavBar = () => {
                                 </Link>
                             </MenuItem>
                             <MenuItem key='reportsGymMachines'>
-                                <Typography textAlign="center">Máquinas de gimnasio</Typography>
+                                <Link to='/reportGymMachines' className='link'>
+                                    <Typography textAlign="center">Máquinas de gimnasio</Typography>
+                                </Link>
                             </MenuItem>
                             <MenuItem key='reportsUsers'>
                             <Link to='/reportUsers' className='link'>

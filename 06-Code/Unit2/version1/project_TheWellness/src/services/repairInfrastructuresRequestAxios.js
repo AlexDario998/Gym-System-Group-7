@@ -16,3 +16,21 @@ export async function getReports(){
   }
 }
 
+export async function saveRinfrastructure(rinfrastructureData, values, setValues){
+
+  try{
+    const response = await axios({
+        url: `${baseUrl}/repair-request-infrastructures`,
+        method: 'POST',
+        data: rinfrastructureData,
+    })
+    
+    setValues({autor: '', local: '',date:'',description:''})
+
+  }catch(error){
+    console.log(error)
+    setValues({autor: '', local: '',date:'',description:''})
+
+  }
+}
+

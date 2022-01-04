@@ -29,4 +29,22 @@ export async function deleteRequest(idRequest){
   
 }
 
+export async function saveRsystems(rsystemsData, values, setValues){
+
+  try{
+    const response = await axios({
+        url: `${baseUrl}/repair-request-ti-devices`,
+        method: 'POST',
+        data: rsystemsData,
+    })
+    
+    setValues({autor: '', local: '',serial:'',date:'',description:''})
+
+  }catch(error){
+    console.log(error)
+    setValues({autor: '', local: '',serial:'',date:'',description:''})
+
+  }
+}
+
 
