@@ -1,6 +1,6 @@
-import FormsInf from './FormsInf'
+import FormsSystem from './FormsSystem'
 import {getLocals} from '../services/localAxios'
-import {saveRinfrastructure} from '../services/repairInfrastructuresRequestAxios'
+import {saveRsystems} from '../services/repairRequestTIDevicesAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import NavBarLeaderGym from './NavBarLeaderGym'
@@ -9,18 +9,21 @@ import {useEffect, useState} from 'react';
 
 const cookies = new Cookies()
 
-const FormInfLayout = () => {
+const FormSystemLayout = () => {
 
     const [gyms, setGyms] = useState([])
-    const [formInfValues, setFormInfValues] = useState({
+    const [formSystemValues, setFormSystemValues] = useState({
+        id:'',
         idUser: '',
         idLocal: '',
-        date: '',
+        idTIDevice: '',
+        date:'',
+        machineType:'',
         description: ''
     })
 
     const handleSubmit = (data) => {
-        saveRinfrastructure(data,formInfValues,setFormInfValues)
+        saveRsystems(data,formSystemValues,setFormSystemValues)
     }
 
     useEffect(() => {
@@ -46,15 +49,15 @@ const FormInfLayout = () => {
     return (
         <>
             <Box
-                class = "boxInfra"
+                // class = "imgLocal"
             >
                 <NavBarLeaderGym />
-                <br/><br/>
-                <FormsInf handleSubmit={handleSubmit} gyms={gyms} formInfValues={formInfValues} setFormInfValues={setFormInfValues} />
-                <br/>
+                {/* <br/><br/> */}
+                <FormsSystem handleSubmit={handleSubmit} gyms={gyms} formSystemValues={formSystemValues} setFormSystemValues={setFormSystemValues} />
+                {/* <br/> */}
             </Box>
         
         </>
     )
 }
-export default FormInfLayout
+export default FormSystemLayout
