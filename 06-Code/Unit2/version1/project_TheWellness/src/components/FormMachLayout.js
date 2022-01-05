@@ -61,7 +61,17 @@ const FormMachLayout = () => {
     return (
         <>
             <Box
-                // class = "imgLocal"
+                 class="boxMach"
+                 sx={{
+                   justifyContent: 'center',
+                   display: 'flex',
+                   alignItems: 'center',
+                   flexDirection: 'column',
+                   padding:'1vh',
+                   background: '#fff',  /* fallback for old browsers */
+                   // borderRadius: '10px',
+                   boxShadow: '1px 1px 20px #333',
+                 }}
             >
                 <NavBarLeaderGym />
                 {/* <br/><br/> */}

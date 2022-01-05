@@ -38,17 +38,7 @@ const FormsMach = (prop) => {
   return (
     <form onSubmit={handleSubmitInternal}> 
       <Box
-        class = "boxMach"
-        sx={{
-          justifyContent: 'center',
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-          padding:'1vh',
-          background: '#fff',  /* fallback for old browsers */
-          borderRadius: '10px',
-          boxShadow: '1px 1px 20px #333'
-        }}
+      
       >
         <Box   
           sx={{
@@ -155,8 +145,52 @@ const FormsMach = (prop) => {
             width:'80%',
         }
       }      
-        />
-
+      />
+      <Typography variant="subtitle1" gutterBottom component="div">
+        Tipo de Maquina:
+      </Typography>
+        <Select
+          fullWidth
+          labelId="labelGym"
+          id="type"
+          name='type'
+          label="Zona del gimnasio"
+          variant="filled"
+          onChange={handleChange}
+          sx={{
+            width:'80%',
+        }}
+        >
+          <MenuItem disabled selected>Seleccione un tipo </MenuItem>
+          <MenuItem value={'Aerobico'}>Aerobico</MenuItem>
+          <MenuItem value={'Musculación'}>Musculación</MenuItem>
+          <MenuItem value={'Palanca'}>Palanca</MenuItem>
+          <MenuItem value={'Placas'}>Placas</MenuItem>
+          <MenuItem value={'Multifuncion'}>Multifuncion</MenuItem>
+                        
+        </Select>
+      <br/>
+      <Typography variant="subtitle1" gutterBottom component="div">
+        Zona del Gimnasio:
+      </Typography>
+        <Select
+          fullWidth
+          labelId="labelGym"
+          id="zone"
+          name='zone'
+          label="Zona del gimnasio"
+          variant="filled"
+          onChange={handleChange}
+          sx={{
+            width:'80%',
+        }}
+        >
+          <MenuItem disabled selected>Seleccione un local </MenuItem>
+          <MenuItem value={'Cardio'}>Cardio</MenuItem>
+          <MenuItem value={'Musculación'}>Musculación</MenuItem>
+          <MenuItem value={'Peso libre'}>Peso libre</MenuItem>
+                        
+        </Select>
       <br/>
         <Stack spacing={3} direction="row">
           <Button variant="contained" type='submit'
@@ -178,15 +212,12 @@ const FormsMach = (prop) => {
               background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             }}>
             Descartar
-          </Button>
-          
+          </Button> 
         </Stack>
         <br/>
       </Box>
     </Box>
 </form>
-      
-
   );
 }
 

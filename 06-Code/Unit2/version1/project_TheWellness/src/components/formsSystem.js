@@ -15,7 +15,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 
-function App() {
+function FormsSystem() {
     const [values, setValues] = React.useState({
         amount: '',
         password: '',
@@ -40,8 +40,7 @@ function App() {
       };
   return (
 <form> 
-  <Box class = "boxSystem">
-    <hr/>
+  <Box>
     <Box   sx={{
               width: '50%',
               marginLeft:'auto',
@@ -159,4 +158,4 @@ function App() {
   );
 }
 
-export default App;
+export default FormsSystem;
