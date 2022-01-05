@@ -67,19 +67,20 @@ const NavBar = () => {
         <AppBar position="static" style={{ backgroundColor: '#ffb74d' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                   <Link to='/homeScreenSuperAdmin'>
+                   {/* <Link to='/homeScreenSuperAdmin'>
                         <img 
                             alt="Botón salir" 
                             src={logo}
                             style=
                             {{
                                 maxWidth: '35%',
-                                marginRight: '1%'
+                                marginRight: '1%',
                             }}   
                         />
-                    </Link>
+                    </Link> */}
+                    <Link to="/homeScreenSuperAdmin"><div class="logoNav"></div></Link>
 
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' ,marginRight:'auto'} }}>
                         <Tooltip title="Llenar formularios">
                             <Button
                                 key='forms'

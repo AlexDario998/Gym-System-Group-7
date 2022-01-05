@@ -243,3 +243,11 @@ code {
   background-image: url(img/gym_dann_carlton_01.jpg);
   background-size: cover;
 }
+
+
+.logoNav{
+  background-image: url(img/logoWellnessGroup.png);
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+}
