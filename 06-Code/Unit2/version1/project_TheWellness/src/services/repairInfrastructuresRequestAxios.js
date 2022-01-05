@@ -49,9 +49,28 @@ export async function getReportsByConfirmation() {
         j++;
       }
     }
-    console.log(dataReports)
+    
     return dataReports;
   } catch (error) {
     console.log(error);
   }
+}
+
+export async function updateConfirmation(data){
+  const response = await axios.put(`${baseUrl}/repair-request-infrastructures/${data.id}`,{
+    idUser: data.idUser,
+    idLocal: data.idLocal,
+    date: data.date,
+    description: data.description,
+    confirmation: false
+  })
+  .then(response => {
+    window.alert('Solicitud completada')
+    window.location.reload()
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+  
 }

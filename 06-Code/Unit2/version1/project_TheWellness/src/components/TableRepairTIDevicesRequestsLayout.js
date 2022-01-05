@@ -2,6 +2,7 @@ import TableRepairTIDevicesRequests from "./TableRepairTIDevicesRequests";
 import {
   getReports,
   deleteRequest,
+  getReportsByConfirmation,
 
 } from "../services/repairRequestTIDevicesAxios";
 import "../index.css";

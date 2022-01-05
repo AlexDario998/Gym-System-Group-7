@@ -1,5 +1,5 @@
 import TableMaintenanceRequests from './TableMaintenanceRequests'
-import {getReports} from '../services/maintenanceRequestsAxios.js'
+import {getReports, getReportsByConfirmationMachines, updateConfirmation} from '../services/maintenanceRequestsAxios.js'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
@@ -11,14 +11,16 @@ const cookies = new Cookies()
 const TableMaintenanceRequestsLayout = () => {
 
     const [reports, setReports] = useState([])
+    const updateRegister = (data) => {
+        updateConfirmation(data);
+      };
+    
 
     useEffect(() => {
         async function loadReports() {
-            const response = await getReports()
-
-            if (response.status === 200) {
-                setReports(response.data)
-            }
+            const data = await getReportsByConfirmationMachines();
+             setReports(data);
+            
         }
 
         loadReports()
@@ -36,7 +38,9 @@ const TableMaintenanceRequestsLayout = () => {
             <Box>
                 <NavbarMaintenanceAdmin/>
                 <br/><br/>
-                <TableMaintenanceRequests reports={reports}/>
+                <TableMaintenanceRequests reports={reports}
+                    updateRegister={updateRegister}
+                />
             </Box>
         
         </>

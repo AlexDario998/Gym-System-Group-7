@@ -14,6 +14,7 @@ import HomeScreenMantAdmin from './components/HomeScreenMantAdmin';
 import HomeScreenSystemAdmin from './components/HomeScreenSystemAdminLayout';
 
 import Menuopt from './components/MenuOptLayout';
+import Optsoli from './components/OptSoliLayout';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
 
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="/homeScreenMantAdmin" element={<HomeScreenMantAdmin />} />
         <Route path="/homeScreenSystemAdmin" element={<HomeScreenSystemAdmin />} />
         <Route path="/menuOpt" element={<Menuopt />} />
+        <Route path="/optSoli" element={<Optsoli />} />
         <Route path="/formAddTIDevice" element={<TIDevice />} />
         <Route path="/formAddGym" element={<Gym />} />
         <Route path="/formUser" element={<User />} />

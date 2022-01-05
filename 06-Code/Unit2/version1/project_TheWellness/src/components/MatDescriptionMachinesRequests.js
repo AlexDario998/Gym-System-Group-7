@@ -14,7 +14,7 @@ const style = {
   p: 4,
 };
 
-const MatDescriptionInfrastructuresRequests = (props) => {
+const MatDescriptionMachinesRequests = (props) => {
   const data = props.data;
   const handleDescriptionRegister = props.handleDescriptionRegister;
   
@@ -24,7 +24,10 @@ const MatDescriptionInfrastructuresRequests = (props) => {
     id: data.id,
     idUser: data.idUser,
     idLocal: data.idLocal,
+    idGymMachine: data.idGymMachine,
     date: data.date,
+    machineType: data.machineType,
+    gymZone: data.gymZone,
     description: data.description,
     confirmation: data.confirmation
   });
@@ -62,4 +65,4 @@ const MatDescriptionInfrastructuresRequests = (props) => {
     </>
   );
 };
-export default MatDescriptionInfrastructuresRequests;
+export default MatDescriptionMachinesRequests;

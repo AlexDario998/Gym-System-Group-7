@@ -101,8 +101,8 @@ const NavBarLeaderGym = () => {
                                 </Link>
                             </MenuItem>
                             <MenuItem key='formsTIDevices'>
-                                <Link to='/formAddTIDevice' className='link'>    
-                                    <Typography textAlign="center">Solicitudes pendientes</Typography>
+                                <Link to='/OptSoli' className='link'>    
+                                    <Typography textAlign="center">Solicitudes</Typography>
                                 </Link>
                             </MenuItem>
                         </Menu>

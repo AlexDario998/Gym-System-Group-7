@@ -31,9 +31,9 @@ function App() {
     password: ''
   })
 
-  /*const handleChange = (prop) => (event) => {
+  const HandleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
-  };*/
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -133,10 +133,10 @@ function App() {
             <Input
               id="standard-adornment-password"
               name='password'
-              /*type={values.showPassword ? 'text' : 'password'}
-              value={values.password}*/
-
-              type="password"
+              type={values.showPassword ? 'text' : 'password'}
+              value={values.password}
+              onChange={HandleChange('password')}
+              // type="password"
               
               endAdornment={
                 <InputAdornment position="end">
