@@ -17,12 +17,10 @@ const TableRepairTIDevicesRequests = (props) => {
 
 
     const columns = [
-        { field: 'authorName', headerName: 'Nombre del autor', width: 200 },
-        { field: 'gym', headerName: 'Local', width: 200 },
+        { field: 'idUser', headerName: 'Autor', width: 200 },
+        { field: 'idLocal', headerName: 'Local', width: 200 },
         { field: 'device', headerName: 'Dispositivo', width: 200 },
         { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
-        { field: 'machineType', headerName: 'Tipo de Dispositivo', width: 200 },
-        { field: 'description', headerName: 'Descripción', width: 200 },
         { 
             field: 'actions', 
             headerName: 'Acciones',
@@ -71,8 +69,8 @@ const TableRepairTIDevicesRequests = (props) => {
                                 gym: item.idLocal,
                                 device: item.idTIDevice,
                                 date: item.date,
-                                machineType: item.machineType,
-                                description: item.description
+                                description: item.description,
+                                confirmation: item.confirmation
                             }
                         ))
                     }

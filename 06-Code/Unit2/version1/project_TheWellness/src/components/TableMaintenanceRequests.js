@@ -13,7 +13,8 @@ const TableMaintenanceRequests = (props) => {
         { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
         { field: 'machineType', headerName: 'Tipo de Maquina', width: 200 },
         { field: 'gymZone', headerName: 'Zona del Gimnasio', width: 200 },
-        { field: 'description', headerName: 'Descripción', width: 200 }
+        { field: 'description', headerName: 'Descripción', width: 200 },
+        { field: 'confirmation', headerName: 'Confirmación', width: 200 }
     ]
       
     return (
@@ -50,7 +51,8 @@ const TableMaintenanceRequests = (props) => {
                                 date: item.date,
                                 machineType: item.machineType,
                                 gymZone: item.gymZone,
-                                description: item.description
+                                description: item.description,
+                                confirmation: item.confirmation
                             }
                         ))
                     }

@@ -1,6 +1,8 @@
 import TableRepairInfrastructuresRequests from "./TableRepairInfrastructuresRequests";
 import {
-  getReports, getReportsByConfirmation
+  getReports,
+  getReportsByConfirmation,
+  updateConfirmation,
 } from "../services/repairInfrastructuresRequestAxios";
 import "../index.css";
 import { Box } from "@mui/material";
@@ -12,14 +14,15 @@ const cookies = new Cookies();
 
 const TableRepairInfrastructuresRequestsLayout = () => {
   const [reports, setReports] = useState([]);
-  
+
+  const updateRegister = (data) => {
+    updateConfirmation(data);
+  };
+
   useEffect(() => {
     async function loadReports() {
-      const response = await getReportsByConfirmation();
-
-      if (response.status === 200) {
-        setReports(response.data);
-      }
+      const data = await getReportsByConfirmation();
+      setReports(data);
     }
 
     loadReports();
@@ -34,11 +37,12 @@ const TableRepairInfrastructuresRequestsLayout = () => {
   return (
     <>
       <Box>
-        <NavbarMaintenanceAdmin/>
+        <NavbarMaintenanceAdmin />
         <br />
         <br />
         <TableRepairInfrastructuresRequests
           reports={reports}
+          updateRegister={updateRegister}
         />
       </Box>
     </>

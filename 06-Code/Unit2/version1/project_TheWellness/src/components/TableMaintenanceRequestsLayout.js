@@ -1,5 +1,5 @@
 import TableMaintenanceRequests from './TableMaintenanceRequests'
-import {getReports} from '../services/maintenanceRequestsAxios.js'
+import {getReports, getReportsByConfirmationMachines} from '../services/maintenanceRequestsAxios.js'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';

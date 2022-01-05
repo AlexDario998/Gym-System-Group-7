@@ -17,8 +17,7 @@ const style = {
 const MatDescriptionInfrastructuresRequests = (props) => {
   const data = props.data;
   const handleDescriptionRegister = props.handleDescriptionRegister;
-  console.log(data);
-
+  
   const [open, setOpen] = useState(false);
 
   const [values, setValues] = useState({

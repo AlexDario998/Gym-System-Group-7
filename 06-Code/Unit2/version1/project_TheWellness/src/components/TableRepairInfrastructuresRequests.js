@@ -10,23 +10,40 @@ import {
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import MatDescriptionInfrastructuresRequests from "./MatDescriptionInfrastructuresRequests";
+import MatRepairInfrastructureComplete from "./MatRepairInfrastructureComplete";
 
 const TableRepairInfrastructuresRequests = (props) => {
   const reports = props.reports;
+  const updateRegister = props.updateRegister
 
+  const handleUpdateRegister = (data) => {
+    updateRegister(data)
+}
   const columns = [
-    { field: "authorName", headerName: "Nombre del autor", width: 200 },
-    { field: "gym", headerName: "Local", width: 200 },
+    { field: "idUser", headerName: "Nombre del autor", width: 200 },
+    { field: "idLocal", headerName: "Local", width: 200 },
     { field: "date", headerName: "Fecha de Solicitud", width: 200 },
     {
-      field: "actions",
-      headerName: "Acciones",
+      field: "description",
+      headerName: "Descripción",
       sortable: false,
-      width: 200,
+      width: 120,
       disableClickEventBubbling: true,
       renderCell: (params) => (
         <div style={{ cursor: "pointer" }}>
           <MatDescriptionInfrastructuresRequests data={params.row} />
+        </div>
+      ),
+    },
+    {
+      field: "confirmation",
+      headerName: "Confirmación",
+      sortable: false,
+      width: 120,
+      disableClickEventBubbling: true,
+      renderCell: (params) => (
+        <div style={{ cursor: "pointer" }}>
+          <MatRepairInfrastructureComplete data={params.row} handleUpdateRegister={handleUpdateRegister} />
         </div>
       ),
     },
@@ -58,8 +75,8 @@ const TableRepairInfrastructuresRequests = (props) => {
         
           rows={reports.map((item) => ({
             id: item.id,
-            authorName: item.idUser,
-            gym: item.idLocal,
+            idUser: item.idUser,
+            idLocal: item.idLocal,
             date: item.date,
             description: item.description
           }))}
