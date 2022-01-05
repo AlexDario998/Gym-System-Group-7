@@ -20,7 +20,7 @@ const FormSystemLayout = () => {
     const [gyms, setGyms] = useState([])
     const [tiDeviceValues, setTiDeviceValues] = useState([])
     const [formSystemValues, setFormSystemValues] = useState({
-        idUser: cookies.get('id', {path: "/"}) ,
+        idUser: cookies.get('id', {path: "/"}),
         idLocal: '',
         idTIDevice: '',
         date: dateComplete,

@@ -53,19 +53,19 @@ const MenuOpt = () => {
         <Table class="tableOpt"
         sx={{margin:'0px'}}>
             <TableRow>
-                <TableCell><Link to="/machines"><div class="imgOpt repMach"></div></Link></TableCell>
-                <TableCell><Link to="/systems"><div class="imgOpt repSyst"></div></Link></TableCell>
-                <TableCell><Link to="/infrastructure"><div class="imgOpt repInfra"></div></Link></TableCell>
+                <TableCell><Link to="/TableMaintenanceRequestsLayoutLeader"><div class="imgOpt repMach"></div></Link></TableCell>
+                <TableCell><Link to="/TableRepairTIDevicesRequestsLayoutLeader"><div class="imgOpt repSyst"></div></Link></TableCell>
+                <TableCell><Link to="/TableRepairInfrastructuresRequestsLayoutLeader"><div class="imgOpt repInfra"></div></Link></TableCell>
             </TableRow>
             <TableRow  sx={{margin:'0px'}}>
-                <TableCell><Link to="/machines" class="titlesOpt"><h2>Máquinas del Gimnasio</h2></Link></TableCell>
-                <TableCell><Link to="/systems" class="titlesOpt"><h2>Sistemas/Dispositivos TI</h2></Link></TableCell>
-                <TableCell><Link to="/infrastructure" class="titlesOpt"><h2>Infraestructura Gimnasio</h2></Link></TableCell>
+                <TableCell><Link to="/TableMaintenanceRequestsLayoutLeader" class="titlesOpt"><h2>Máquinas del Gimnasio</h2></Link></TableCell>
+                <TableCell><Link to="/TableRepairTIDevicesRequestsLayoutLeader" class="titlesOpt"><h2>Sistemas/Dispositivos TI</h2></Link></TableCell>
+                <TableCell><Link to="/TableRepairInfrastructuresRequestsLayoutLeader" class="titlesOpt"><h2>Infraestructura Gimnasio</h2></Link></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Link to="/machines" class="addReq">Ver Solicitudes</Link></TableCell>
-                <TableCell><Link to="/systems" class="addReq">Ver Solicitudes</Link></TableCell>
-                <TableCell><Link to="/infrastructure" class="addReq">Ver Solicitudes</Link></TableCell>
+                <TableCell><Link to="/TableMaintenanceRequestsLayoutLeader" class="addReq">Ver Solicitudes</Link></TableCell>
+                <TableCell><Link to="/TableRepairTIDevicesRequestsLayoutLeader" class="addReq">Ver Solicitudes</Link></TableCell>
+                <TableCell><Link to="/TableRepairInfrastructuresRequestsLayoutLeader" class="addReq">Ver Solicitudes</Link></TableCell>
             </TableRow>
         </Table>
     </div>

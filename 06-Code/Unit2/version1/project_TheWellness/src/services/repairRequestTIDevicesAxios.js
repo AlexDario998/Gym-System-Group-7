@@ -32,7 +32,6 @@ export async function deleteRequest(idRequest){
 }
 
 export async function saveRsystems(data, values, setValues){
-  console.log(data)
   try{
     const response = await axios({
         url: `${baseUrl}/repair-request-ti-devices`,

@@ -53,7 +53,7 @@ const FormsInf = (props) => {
                     <Select
                         fullWidth
                         labelId="labelGym"
-                        name='local'
+                        name='idLocal'
                         id="local"
                         value={formInfValues.idLocal}
                         onChange={handleChange}
@@ -80,6 +80,9 @@ const FormsInf = (props) => {
                     value={formInfValues.description}
                     onChange={handleChange}
                     placeholder="Descripción" 
+                    multiline
+                    rows={3}
+                    variant="filled"
                 />
                 <br/>
 

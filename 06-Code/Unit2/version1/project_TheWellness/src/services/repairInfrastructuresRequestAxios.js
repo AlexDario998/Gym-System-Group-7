@@ -15,11 +15,7 @@ export async function getReports() {
   }
 }
 
-export async function saveRinfrastructure(
-  rinfrastructureData,
-  values,
-  setValues
-) {
+export async function saveRinfrastructure(rinfrastructureData,values,setValues) {
   try {
     const response = await axios({
       url: `${baseUrl}/repair-request-infrastructures`,
@@ -27,10 +23,10 @@ export async function saveRinfrastructure(
       data: rinfrastructureData,
     });
 
-    setValues({ autor: "", local: "", date: "", description: "" });
+    setValues({ idLocal: "", description: "" });
   } catch (error) {
     console.log(error);
-    setValues({ autor: "", local: "", date: "", description: "" });
+    setValues({ idLocal: "", description: "" });
   }
 }
 

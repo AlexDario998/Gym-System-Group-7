@@ -152,8 +152,9 @@ const FormsMach = (props) => {
         <Select
           fullWidth
           labelId="labelGym"
-          id="type"
-          name='type'
+          id="machineType"
+          name='machineType'
+          value={formMachValues.machineType}
           label="Zona del gimnasio"
           variant="filled"
           onChange={handleChange}
@@ -176,8 +177,9 @@ const FormsMach = (props) => {
         <Select
           fullWidth
           labelId="labelGym"
-          id="zone"
-          name='zone'
+          id="gymZone"
+          name='gymZone'
+          value={formMachValues.gymZone}
           label="Zona del gimnasio"
           variant="filled"
           onChange={handleChange}
