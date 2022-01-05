@@ -32,19 +32,19 @@ export function checkLogin(loginValues) {
 
             switch (dataLogin.type) {
                 case 1:
-                    window.location.href = "./reportLocals"
+                    window.location.href = "./homeScreenSuperAdmin"
                     break
 
                 case 2:
-                    window.location.href = "./infrastructure"
+                    window.location.href = "./homeScreenLeaderGym"
                     break
 
                 case 3:
-                    window.location.href = "./TableRepairTIDevicesRequests"
+                    window.location.href = "./homeScreenSystemAdmin"
                     break
 
                 case 4:
-                    window.location.href = "./TableMaintenanceRequests"
+                    window.location.href = "./homeScreenMantAdmin"
                     break
             }
 

@@ -2,13 +2,17 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import Infra from './components/FormInfLayout';
-import Systems from './components/formsSystem';
+import Systems from './components/FormSystemLayout';
 import Machine from './components/FormMachLayout';
 import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
 import User from './components/UserLayout';
 import Machines from './components/MachineLayout';
-import Homescreen from './components/homeScreen';
+import HomescreenSuperAdmin from './components/HomeScreenSuperAdminLayout';
+import HomescreenLeaderGym from './components/HomeScreenLeaderGymLayout';
+import HomeScreenMantAdmin from './components/HomeScreenMantAdmin';
+import HomeScreenSystemAdmin from './components/HomeScreenSystemAdminLayout';
+
 import Menuopt from './components/MenuOptLayout';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
@@ -32,7 +36,10 @@ const App = () => {
         <Route path="/infrastructure" element={<Infra />} />
         <Route path="/systems" element={<Systems />} />
         <Route path="/machines" element={<Machine />} />
-        <Route path="/homeScreen" element={<Homescreen />} />
+        <Route path="/homeScreenSuperAdmin" element={<HomescreenSuperAdmin />} />
+        <Route path="/homeScreenLeaderGym" element={<HomescreenLeaderGym />} />
+        <Route path="/homeScreenMantAdmin" element={<HomeScreenMantAdmin />} />
+        <Route path="/homeScreenSystemAdmin" element={<HomeScreenSystemAdmin />} />
         <Route path="/menuOpt" element={<Menuopt />} />
         <Route path="/formAddTIDevice" element={<TIDevice />} />
         <Route path="/formAddGym" element={<Gym />} />

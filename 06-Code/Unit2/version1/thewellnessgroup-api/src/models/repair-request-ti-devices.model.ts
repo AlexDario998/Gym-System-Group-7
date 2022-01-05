@@ -37,12 +37,6 @@ export class RepairRequestTiDevices extends Entity {
     type: 'string',
     required: true,
   })
-  machineType: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
   description: string;
 
   @property({

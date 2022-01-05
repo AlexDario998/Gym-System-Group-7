@@ -39,14 +39,13 @@ function App() {
         event.preventDefault();
       };
   return (
-<Box
-class = "bgHome"
->
-<div class = "logoHome">.</div>
- <h1 class = "titleHome">Bienvenidos</h1>
- <h2 class = "subtitleHome">A "The Wellness Group"</h2>
-
-</Box>
+    <>
+    <br/>
+    <br/><br/><br/><br/><br/>
+      <div class = "logoHome">.</div>
+      <h1 class = "titleHome">Bienvenidos</h1>
+      <h2 class = "subtitleHome">A "The Wellness Group"</h2>
+    </>
       
 
   );

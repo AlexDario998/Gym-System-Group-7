@@ -16,6 +16,30 @@ export async function getGymMachines(){
     }
 }
 
+export async function getGymMachinesByIdLocal(idLocal){
+  try{
+      const response = await axios({
+          url: `${baseUrl}/machines`,
+          method: 'GET',
+      })
+      
+      const data = response.data
+      var dataGymMachines = []
+      var j = 0
+
+      for (var i=0; i<data.length; i++) {
+          if (data[i].gym === idLocal) {
+            dataGymMachines[j] = data[i]
+            j++
+          }
+      }
+      return dataGymMachines
+
+  }catch(error){
+    console.log(error)
+  }
+}
+
 export async function saveGymMachine(machineData, values, setValues){
 
     try{

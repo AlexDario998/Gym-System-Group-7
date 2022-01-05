@@ -85,13 +85,10 @@ code {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
-  overflow-y: fixed;
+  overflow-y: scroll;
   width: 100%;
-  height: 100%;
-  /* position: absolute; */
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
+  height: 100vh;
+  position: absolute;
 }
 
 .boxMach{
@@ -99,13 +96,10 @@ code {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
-  overflow-y: fixed;
+  overflow-y: scroll;
   width: 100%;
   height: 100%;
-  /* position: absolute; */
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
+  position: absolute;
 }
 
 .boxSystem{
@@ -117,9 +111,6 @@ code {
   width: 100%;
   height: 100%;
   position: absolute;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
 }
 .link {
   text-decoration: none;
@@ -132,23 +123,23 @@ code {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
-  overflow-y: scroll;
+  overflow-y: fixed;
   width: 100%;
   height: 100%;
   position: absolute;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
 }
 .titleHome{
   font-size: 11vh;
   margin: 0;
+  margin-left: 5%;
+  margin-top: 1%;
   color: rgb(252, 134, 0);
   /* color: #fff; */
 }
 .subtitleHome{
   font-size: 8vh;
   margin: 0;
+  margin-left: 5%;
   color: #fff;
   /* color: rgb(252, 134, 0); */
 }
@@ -157,11 +148,8 @@ code {
   background-image: url(img/logoWellnessGroup.png);
   background-size: cover;
   width: 40vh;
-  /* width: 200px; */
-  /* height: 200px; */
   height: 40vh;
   position: absolute;
-  /* left: 100px; */
   right: 100px;
   background-color: #fff;
   border-radius: 300px;
@@ -253,5 +241,13 @@ code {
 
 .repInfra{
   background-image: url(img/gym_dann_carlton_01.jpg);
+  background-size: cover;
+}
+
+
+.logoNav{
+  background-image: url(img/logoWellnessGroup.png);
+  width: 80px;
+  height: 80px;
   background-size: cover;
 }

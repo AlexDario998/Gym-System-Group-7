@@ -46,7 +46,7 @@ const FormInfLayout = () => {
     return (
         <>
             <Box
-                class = "imgLocal"
+                class = "boxInfra"
             >
                 <NavBarLeaderGym />
                 <br/><br/>

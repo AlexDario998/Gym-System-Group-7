@@ -78,7 +78,7 @@ const FormMachine = ( props ) => {
                 </FormControl>
                 <br/>
                     <FormControl fullWidth>
-                    <InputLabel id="labelGym">Zona del gimnasio Gimnasio</InputLabel>
+                    <InputLabel id="labelGym">Zona del Gimnasio</InputLabel>
                     <Select
                         fullWidth
                         labelId="labelGym"
