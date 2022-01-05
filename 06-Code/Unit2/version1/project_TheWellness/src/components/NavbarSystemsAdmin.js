@@ -48,13 +48,16 @@ const NavbarSystemsAdmin = () => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Tooltip title="Visualizar Reportes">
+            <Link to="/TableRepairTIDevicesRequests" className="link">
               <Button
                 key="reports"
                 sx={{ my: 2, color: "white", display: "block" }}
               >
+                
                 Solicitudes
-                <Link to="/TableRepairTIDevicesRequests" className="link"></Link>
+                
               </Button>
+              </Link>
             </Tooltip>
           </Box>
 

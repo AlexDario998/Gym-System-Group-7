@@ -49,7 +49,7 @@ const MenuOpt = () => {
   > 
 
     <div>
-    <h2 class="titleSol">Solicitudes Pendientes</h2>
+    <h2 class="titleSol">Solicitudes</h2>
         <Table class="tableOpt"
         sx={{margin:'0px'}}>
             <TableRow>
