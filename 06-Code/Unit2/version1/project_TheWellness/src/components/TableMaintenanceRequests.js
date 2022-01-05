@@ -14,7 +14,7 @@ const TableMaintenanceRequests = (props) => {
 
     const columns = [
         { field: 'idUser', headerName: 'Autor', width: 200 },
-        { field: 'idGym', headerName: 'Local', width: 200 },
+        { field: 'idLocal', headerName: 'Local', width: 200 },
         { field: 'idGymMachine', headerName: 'Maquina', width: 200 },
         { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
         { field: 'machineType', headerName: 'Tipo de Maquina', width: 200 },
