@@ -1,5 +1,6 @@
 import logo from '../img/logoWellnessGroup.png';
-import * as React from 'react';
+import React, {useEffect,useState} from 'react';
+
 import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Select,MenuItem} from "@mui/material"
@@ -9,9 +10,13 @@ import FormControl from '@mui/material/FormControl';
  
 
 const FormUser = (props) => {
+
+    const initialValues={userName:"",idCard:""}
+    const [formErrors,setFormErrors]=useState({});
     const handleSubmit = props.handleSubmit
     const gyms = props.gyms
     const formUserValues = props.formUserValues
+    const [isSubmit, setIsSubmit]=useState(false);
     const setFormUservalues = props.setFormUservalues
     console.log(gyms)
     
@@ -22,7 +27,25 @@ const FormUser = (props) => {
     }
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        handleSubmit(formUserValues)
+        validate(formUserValues);
+        handleSubmit(formUserValues);
+        setIsSubmit(true);
+    }
+
+    useEffect(()=>{
+        console.log()
+        if(Object.keys(formErrors).length===0 && isSubmit){
+            console.log(formUserValues);
+        }
+    },[formErrors]);
+
+    const validate=(values)=>{
+        const errors={};
+        const regex= /^[^\s@]+@[^s@]+\.[^\s@]{2,}$/i;
+        if(!values.userName){
+            errors.userName="Username is required";
+        }
+
     }
       
     return(
