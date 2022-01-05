@@ -1,4 +1,4 @@
-import FormsInf from './formsInf'
+import FormsInf from './FormsInf'
 import {getLocals} from '../services/localAxios'
 import {saveRinfrastructure} from '../services/repairInfrastructuresRequestAxios'
 import '../index.css';
