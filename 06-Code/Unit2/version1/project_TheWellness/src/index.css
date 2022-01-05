@@ -33,7 +33,28 @@ code {
   height: 100%;
   position: absolute;
 }
+ 
+.imgUser{
+  background-image: url(img/phi1.PNG);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
+.imgMachine{
+  background-image: url(img/gyms_04.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
 .boxback{
   background-image: url(img/GymBackground.jpeg);

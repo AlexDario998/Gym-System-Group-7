@@ -51,7 +51,7 @@ const UserLayout = () => {
     return (
         <>
             <Box
-                class = "imgLocal"
+                class = "imgUser"
             >
                 <NavBar />
                 <br/><br/>

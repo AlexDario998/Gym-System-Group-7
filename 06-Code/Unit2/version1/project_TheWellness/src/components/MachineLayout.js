@@ -47,7 +47,7 @@ const MachineLayout = () => {
     return (
         <>
             <Box
-                class = "imgTIDevice"
+                class = "imgMachine"
             >
                 <NavBar />
                 <br/><br/>
