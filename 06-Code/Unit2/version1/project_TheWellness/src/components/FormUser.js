@@ -1,5 +1,9 @@
 import logo from '../img/logoWellnessGroup.png';
 import React, {useEffect,useState} from 'react';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import InputAdornment from '@mui/material/InputAdornment';
 
 import '../App.css';
 import '../index.css';
@@ -31,6 +35,12 @@ const FormUser = (props) => {
         handleSubmit(formUserValues);
         setIsSubmit(true);
     }
+    const handleClickShowPassword = () => {
+    setFormUservalues({
+      ...formUserValues,
+      showPassword: !formUserValues.showPassword,
+    });
+  };
 
     useEffect(()=>{
         console.log()
@@ -39,14 +49,17 @@ const FormUser = (props) => {
         }
     },[formErrors]);
 
-    const validate=(values)=>{
+    const validate=(formUserValues)=>{
         const errors={};
         const regex= /^[^\s@]+@[^s@]+\.[^\s@]{2,}$/i;
-        if(!values.userName){
+        if(!formUserValues.userName){
             errors.userName="Username is required";
         }
 
     }
+    const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
       
     return(
        
@@ -82,7 +95,28 @@ const FormUser = (props) => {
                 <br/>
                 <TextField fullWidth id="userName" name="userName" placeholder="Nombre de usuario" value={formUserValues.userName} label="Nombre de usuario" onChange={handleChange} />
                 <br/>
-                <TextField fullWidth id="password" name="password" placeholder="Contraseña" value={formUserValues.password} type="password" label="Contraseña" onChange={handleChange} />
+                <TextField fullWidth 
+                    id="password" 
+                    name="password"
+                    placeholder="Contraseña" 
+                    value={formUserValues.password} 
+                    type={formUserValues.showPassword ? 'text' : 'password'}
+                    label="Contraseña" 
+                    onChange={handleChange} 
+                    
+                     endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {formUserValues.showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+                    
+                    />
                 <br/>
                 
                 <FormControl fullWidth>
