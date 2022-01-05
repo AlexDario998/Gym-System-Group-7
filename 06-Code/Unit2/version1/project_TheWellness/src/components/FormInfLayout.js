@@ -8,15 +8,21 @@ import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 
 const cookies = new Cookies()
+const date = new Date()
+const year = date.getFullYear()
+const month = date.getMonth() + 1
+const day = date.getDate()
+const dateComplete = day + '/' + month + '/' + year
 
 const FormInfLayout = () => {
 
     const [gyms, setGyms] = useState([])
     const [formInfValues, setFormInfValues] = useState({
-        idUser: '',
+        idUser: cookies.get('id', {path: "/"}),
         idLocal: '',
-        date: '',
-        description: ''
+        date: dateComplete,
+        description: '',
+        confirmation: true
     })
 
     const handleSubmit = (data) => {

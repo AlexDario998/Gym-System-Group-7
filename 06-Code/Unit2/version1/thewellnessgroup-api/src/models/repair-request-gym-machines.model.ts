@@ -28,7 +28,7 @@ export class RepairRequestGymMachines extends Entity {
   idGymMachine: string;
 
   @property({
-    type: 'date',
+    type: 'string',
     required: true,
   })
   date: string;

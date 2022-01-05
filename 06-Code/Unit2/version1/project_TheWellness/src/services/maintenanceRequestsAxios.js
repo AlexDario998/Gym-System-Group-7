@@ -17,7 +17,6 @@ export async function getReports(){
 }
 
 export async function saveRmachine(rmachineData, values, setValues){
-
   try{
     const response = await axios({
         url: `${baseUrl}/repair-request-gym-machines`,
@@ -25,11 +24,11 @@ export async function saveRmachine(rmachineData, values, setValues){
         data: rmachineData,
     })
     
-    setValues({autor: '', local: '',serial:'',date:'',description:''})
+    setValues({idLocal: '', idTIDevice:'', description:'', machineType: '', gymZone:''})
 
   }catch(error){
     console.log(error)
-    setValues({autor: '', local: '',serial:'',date:'',description:''})
+    setValues({idLocal: '', idTIDevice:'', description:'', machineType: '', gymZone:''})
 
   }
 }
