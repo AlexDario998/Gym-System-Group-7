@@ -1,19 +1,49 @@
 import React from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
+import MatDelete from './MatDelete'
+import MatEditUser from './MatEditUser';
 
 const TableUsers = (props) => {
 
     const users = props.users
+    const gyms = props.gyms
+    const updateRegister = props.updateRegister
+    const deleteRegister = props.deleteRegister
+
+    const handleDeleteRegister = (idTiDevice) => {
+        deleteRegister(idTiDevice)
+    }
+
+    const handleUpdateRegister = (values) => {
+        updateRegister(values)
+    }
 
     const columns = [
-        //{ field: 'id', headerName: 'ID', width: 70 },
-        { field: 'userName', headerName: 'Nombres', width: 200 },
-        { field: 'userLastName', headerName: 'Apellidos', width: 200 },
-        { field: 'userId', headerName: 'Brand', width: 200 },
-        { field: 'userMail', headerName: 'Correo', width: 200 },
+        
+        { field: 'idCard', headerName: 'Cédula', width: 200 },
+        { field: 'name', headerName: 'Nombre', width: 200 },
+        { field: 'lastName', headerName: 'Apellidos', width: 200 },
+        { field: 'email', headerName: 'Correo', width: 200 },
+        { field: 'userName', headerName: 'Usuario', width: 200 },
         { field: 'type', headerName: 'Tipo de usuario', width: 200 },
-        { field: 'gym', headerName: 'Local Asignado', width: 200 }
+        { field: 'gym', headerName: 'Local Asignado', width: 200 },
+        { 
+            field: 'actions', 
+            headerName: 'Acciones',
+            sortable: false,
+            width: 200,
+            disableClickEventBubbling: true,
+            renderCell: (params) => (
+                <div
+                    style={{ cursor: "pointer" }}
+                >
+                    <MatEditUser data={params.row} handleUpdateRegister={handleUpdateRegister} gyms={gyms} />
+                    <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
+                </div>
+            )
+        }
+
     ]
       
     return (
@@ -43,13 +73,15 @@ const TableUsers = (props) => {
                     {
                         users.map(item => (
                             {
-                                id: Math.random() * (1000 - 0) + 0,
-                                name: item.userName,
-                                userLastName: item.userLastName,
-                                userId: item.userId,
-                                userMail: item.userMail,
-                                userType: item.type,
-                                userGym:item.gym
+                                id: item.id,
+                                name: item.name,
+                                lastName: item.lastName,
+                                idCard: item.idCard,
+                                email: item.email,
+                                userName: item.userName,
+                                password: item.password,
+                                type:item.type,
+                                gym:item.gym
 
                             }
                         ))

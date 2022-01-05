@@ -36,7 +36,7 @@ export function checkLogin(loginValues) {
                     break
 
                 case 2:
-                    
+                    window.location.href = "./infrastructure"
                     break
 
                 case 3:

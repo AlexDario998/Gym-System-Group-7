@@ -1,31 +1,26 @@
-import FormUser from './FormUser'
-import {saveUser} from '../services/userAxios'
+import FormsInf from './FormsInf'
 import {getLocals} from '../services/localAxios'
+import {saveRinfrastructure} from '../services/repairInfrastructuresRequestAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import NavBar from './NavBar'
+import NavBarLeaderGym from './NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 
 const cookies = new Cookies()
 
-const UserLayout = () => {
+const FormInfLayout = () => {
 
     const [gyms, setGyms] = useState([])
-
-    const [values, setValues] = useState({
-        name: '',
-        userName: '',
-        lastName: '',
-        password: '',
-        idCard: '',
-        email: '',
-        type: 0,
-        gym: ''
+    const [formInfValues, setFormInfValues] = useState({
+        idUser: '',
+        idLocal: '',
+        date: '',
+        description: ''
     })
 
     const handleSubmit = (data) => {
-        saveUser(data,values,setValues)
+        saveRinfrastructure(data,formInfValues,setFormInfValues)
     }
 
     useEffect(() => {
@@ -51,15 +46,15 @@ const UserLayout = () => {
     return (
         <>
             <Box
-                class = "imgUser"
+                class = "imgLocal"
             >
-                <NavBar />
+                <NavBarLeaderGym />
                 <br/><br/>
-                <FormUser handleSubmit={handleSubmit} gyms={gyms} formUserValues={values} setFormUservalues={setValues} />
+                <FormsInf handleSubmit={handleSubmit} gyms={gyms} formInfValues={formInfValues} setFormInfValues={setFormInfValues} />
                 <br/>
             </Box>
         
         </>
     )
 }
-export default UserLayout
+export default FormInfLayout

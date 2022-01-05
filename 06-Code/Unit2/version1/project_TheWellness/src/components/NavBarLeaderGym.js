@@ -17,11 +17,11 @@ import Cookies from 'universal-cookie/es6'
 
 const cookies = new Cookies()
 
-const NavBar = () => {
+const NavBarLeaderGym = () => {
     
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [anchorElForms, setAnchorElForms] = React.useState(null);
+    const [anchorElForms, setAnchorElRequest] = React.useState(null);
     const [anchorElReports, setAnchorElReports] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
@@ -30,8 +30,8 @@ const NavBar = () => {
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
-    const handleOpenFormMenu = (event) => {
-        setAnchorElForms(event.currentTarget);
+    const handleOpenRequestMenu = (event) => {
+        setAnchorElRequest(event.currentTarget);
     };
     const handleOpenReportMenu = (event) => {
         setAnchorElReports(event.currentTarget);
@@ -43,11 +43,8 @@ const NavBar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-    const handleCloseFormMenu = () => {
-        setAnchorElForms(null);
-    };
-    const handleCloseReportMenu = () => {
-        setAnchorElReports(null);
+    const handleCloseRequestMenu = () => {
+        setAnchorElRequest(null);
     };
 
     const logOut = () => {
@@ -78,14 +75,14 @@ const NavBar = () => {
                         }}   
                     />
 
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Tooltip title="Llenar formularios">
                             <Button
                                 key='forms'
                                 sx={{ my: 2, color: 'white', display: 'block' }}
-                                onClick={handleOpenFormMenu}
+                                onClick={handleOpenRequestMenu}
                             >
-                                Formulario
+                                Solicitudes
                             </Button>
                         </Tooltip>
 
@@ -103,84 +100,21 @@ const NavBar = () => {
                                 horizontal: 'left',
                             }}
                             open={Boolean(anchorElForms)}
-                            onClose={handleCloseFormMenu}
+                            onClose={handleCloseRequestMenu}
                         >
                             
                             <MenuItem key='formsLocals'>
-                                <Link to='/formAddGym' className='link'>
-                                    <Typography textAlign="center">Locales</Typography>
+                                <Link to='/menuOpt' className='link'>
+                                    <Typography textAlign="center">Crear solicitud</Typography>
                                 </Link>
                             </MenuItem>
                             <MenuItem key='formsTIDevices'>
                                 <Link to='/formAddTIDevice' className='link'>    
-                                    <Typography textAlign="center">Dispositivos TI</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem key='formGymMachines'>
-                                <Link to='/gymMachines' className='link'>
-                                    <Typography textAlign="center">Máquinas de gimnasio</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem key='formsUsers'>
-                                <Link to='/formUser' className='link'>
-                                    <Typography textAlign="center">Usuarios</Typography>
-                                </Link>
-                            </MenuItem>
-                            
-                        </Menu>
-                    </Box>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Tooltip title="Generar reportes">
-                            <Button
-                                key='reports'
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                onClick={handleOpenReportMenu}
-                            >
-                                Reportes
-                            </Button>
-                        </Tooltip>
-
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="subMenuReports"
-                            anchorEl={anchorElReports}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElReports)}
-                            onClose={handleCloseReportMenu}
-                        >
-                            
-                            <MenuItem key='reportsLocals'>
-                                <Link to='/reportLocals' className='link'>
-                                    <Typography textAlign="center">Locales</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem key='reportsTIDevices'>
-                                <Link to='/reportTIDevices' className='link'>
-                                    <Typography textAlign="center">Dispositivos TI</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem key='reportsGymMachines'>
-                                <Link to='/reportGymMachines' className='link'>
-                                    <Typography textAlign="center">Máquinas de gimnasio</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem key='reportsUsers'>
-                            <Link to='/reportUsers' className='link'>
-                                <Typography textAlign="center">Usuarios</Typography>
+                                    <Typography textAlign="center">Solicitudes pendientes</Typography>
                                 </Link>
                             </MenuItem>
                         </Menu>
                     </Box>
-
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Salir">
@@ -217,4 +151,4 @@ const NavBar = () => {
         </AppBar>
     );
 };
-export default NavBar;
+export default NavBarLeaderGym;

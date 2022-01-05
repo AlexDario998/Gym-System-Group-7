@@ -2,23 +2,29 @@ import React, { useState } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 import '../index.css'
-import MatEdit from './MatEdit'
+import MatEditGymMachine from './MatEditGymMachine'
 import MatDelete from './MatDelete'
 
 const TableMachines = (props) => {
 
-    const machines = props.machines
+    const gymMachines = props.gymMachines
+    const gyms = props.gyms
     const deleteRegister = props.deleteRegister
+    const updateRegister = props.updateRegister
 
     const handleDeleteRegister = (idMachine) => {
         deleteRegister(idMachine)
     }
 
+    const handleUpdateRegister = (values) => {
+        updateRegister(values)
+    }
+
     const columns = [
-        { field: 'machineName', headerName: 'Nombre de la máquina', width: 200 },
-        { field: 'machineBrand', headerName: 'Marca', width: 200 },
-        { field: 'machineSerial', headerName: 'Número de serie', width: 200 },
+        { field: 'name', headerName: 'Máquina', width: 200 },
         { field: 'gym', headerName: 'Gimnasio', width: 200 },
+        { field: 'serialNumber', headerName: 'Número serial', width: 200 },
+        { field: 'mark', headerName: 'Marca', width: 200 },
         { field: 'zone', headerName: 'Zona del gimnasio', width: 200 },
         { 
             field: 'actions', 
@@ -30,7 +36,7 @@ const TableMachines = (props) => {
                 <div
                     style={{ cursor: "pointer" }}
                 >
-                    <MatEdit index={params.row.id} />
+                    <MatEditGymMachine data={params.row} gyms={gyms} handleUpdateRegister={handleUpdateRegister} />
                     <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
                 </div>
             )
@@ -56,17 +62,20 @@ const TableMachines = (props) => {
             }}
         >
 
-            <h1>Reporte locales</h1><br/>
+            <h1>Reporte máquinas de gimnasio</h1><br/>
 
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid
                     rows=
                     {
-                        machines.map(item => (
+                        gymMachines.map(item => (
                             {
                                 id: item.id,
-                                namegym: item.namegym,
-                                city: item.city
+                                name: item.name,
+                                gym: item.gym,
+                                serialNumber: item.serialNumber,
+                                mark: item.mark,
+                                zone: item.zone
                             }
                         )) 
                     }

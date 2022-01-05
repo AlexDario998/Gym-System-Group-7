@@ -53,3 +53,36 @@ export async function saveUser(userData, values, setValues){
 
   }
 }
+
+export async function deleteUser(user){
+
+  const response = await axios.delete(`${baseUrl}/users/${user}`)
+  .then(response => {
+    window.alert('Registro eliminado')
+    window.location.reload()
+  })
+  .catch(error => {
+    console.log(error)
+  })
+}
+
+export async function updateUser(values){
+
+  const response = await axios.put(`${baseUrl}/users/${values.id}`,{
+    name: values.name,
+    userName: values.userName,
+    lastName: values.lastName,
+    password: values.password,
+    idCard: values.idCard,
+    email: values.email,
+    type: values.type,
+    gym: values.gym
+  })
+  .then(response => {
+    window.alert('Registro actualizado')
+    //window.location.reload()
+  })
+  .catch(error => {
+    console.log(error)
+  })
+}
