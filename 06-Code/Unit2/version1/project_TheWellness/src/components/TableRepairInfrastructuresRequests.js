@@ -55,12 +55,13 @@ const TableRepairInfrastructuresRequests = (props) => {
 
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
+        
           rows={reports.map((item) => ({
             id: item.id,
             authorName: item.idUser,
             gym: item.idLocal,
             date: item.date,
-            description: item.description,
+            description: item.description
           }))}
           columns={columns}
           pageSize={10}

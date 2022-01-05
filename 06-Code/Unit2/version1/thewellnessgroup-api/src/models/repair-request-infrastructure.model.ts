@@ -33,6 +33,12 @@ export class RepairRequestInfrastructure extends Entity {
   })
   description: string;
 
+  @property({
+    type: 'boolean',
+    required: true,
+  })
+  confirmation: boolean;
+
 
   constructor(data?: Partial<RepairRequestInfrastructure>) {
     super(data);

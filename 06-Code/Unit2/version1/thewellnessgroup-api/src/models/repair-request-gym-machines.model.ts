@@ -51,6 +51,11 @@ export class RepairRequestGymMachines extends Entity {
   })
   description: string;
 
+  @property({
+    type: 'boolean',
+    required: true,
+  })
+  confirmation: boolean;
 
   constructor(data?: Partial<RepairRequestGymMachines>) {
     super(data);

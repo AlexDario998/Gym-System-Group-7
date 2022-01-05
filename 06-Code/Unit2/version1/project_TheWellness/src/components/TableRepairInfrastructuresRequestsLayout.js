@@ -1,6 +1,6 @@
 import TableRepairInfrastructuresRequests from "./TableRepairInfrastructuresRequests";
 import {
-  getReports
+  getReports, getReportsByConfirmation
 } from "../services/repairInfrastructuresRequestAxios";
 import "../index.css";
 import { Box } from "@mui/material";
@@ -15,7 +15,7 @@ const TableRepairInfrastructuresRequestsLayout = () => {
   
   useEffect(() => {
     async function loadReports() {
-      const response = await getReports();
+      const response = await getReportsByConfirmation();
 
       if (response.status === 200) {
         setReports(response.data);

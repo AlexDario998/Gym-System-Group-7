@@ -27,6 +27,7 @@ const MatDescriptionInfrastructuresRequests = (props) => {
     idLocal: data.idLocal,
     date: data.date,
     description: data.description,
+    confirmation: data.confirmation
   });
 
   const handleOpenModal = () => {
