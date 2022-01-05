@@ -179,7 +179,9 @@ code {
 .tableOpt{
   width: 100%;
   text-align: center;
-  padding: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin: 0;
 }
 .imgOpt{
   background-color: #fff;
@@ -250,4 +252,10 @@ code {
   width: 80px;
   height: 80px;
   background-size: cover;
+}
+
+.titleSol{
+  text-align: center; 
+  font-size: 29px;
+  margin: 0;
 }

@@ -49,22 +49,23 @@ const MenuOpt = () => {
   > 
 
     <div>
-    <h1 class="titleSol">Crear Solicitudes</h1>
-        <Table class="tableOpt">
+    <h2 class="titleSol">Solicitudes Pendientes</h2>
+        <Table class="tableOpt"
+        sx={{margin:'0px'}}>
             <TableRow>
                 <TableCell><Link to="/machines"><div class="imgOpt repMach"></div></Link></TableCell>
                 <TableCell><Link to="/systems"><div class="imgOpt repSyst"></div></Link></TableCell>
                 <TableCell><Link to="/infrastructure"><div class="imgOpt repInfra"></div></Link></TableCell>
             </TableRow>
-            <TableRow>
+            <TableRow  sx={{margin:'0px'}}>
                 <TableCell><Link to="/machines" class="titlesOpt"><h2>Máquinas del Gimnasio</h2></Link></TableCell>
                 <TableCell><Link to="/systems" class="titlesOpt"><h2>Sistemas/Dispositivos TI</h2></Link></TableCell>
                 <TableCell><Link to="/infrastructure" class="titlesOpt"><h2>Infraestructura Gimnasio</h2></Link></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Link to="/machines" class="addReq">Agregar Requerimiento</Link></TableCell>
-                <TableCell><Link to="/systems" class="addReq">Agregar Requerimiento</Link></TableCell>
-                <TableCell><Link to="/infrastructure" class="addReq">Agregar Requerimiento</Link></TableCell>
+                <TableCell><Link to="/machines" class="addReq">Ver Solicitudes</Link></TableCell>
+                <TableCell><Link to="/systems" class="addReq">Ver Solicitudes</Link></TableCell>
+                <TableCell><Link to="/infrastructure" class="addReq">Ver Solicitudes</Link></TableCell>
             </TableRow>
         </Table>
     </div>
