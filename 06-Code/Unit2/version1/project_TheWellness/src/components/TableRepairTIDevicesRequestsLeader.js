@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
-import MatDescriptionMachinesRequests from "./MatDescriptionMachinesRequests";
+import '../index.css'
+import MatDescriptionTIDevicesRequests from "./MatDescriptionTIDevicesRequests";
 
-const TableMaintenanceRequestsLeader = (props) => {
+
+
+const TableRepairTIDevicesRequestsLeader = (props) => {
 
     const reports = props.reports
+  
+
 
     const columns = [
         { field: 'idUser', headerName: 'Autor', width: 200 },
         { field: 'idLocal', headerName: 'Local', width: 200 },
-        { field: 'idGymMachine', headerName: 'Maquina', width: 200 },
+        { field: 'idTIDevice', headerName: 'Dispositivo', width: 200 },
         { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
-        { field: 'machineType', headerName: 'Tipo de Maquina', width: 200 },
-        { field: 'gymZone', headerName: 'Zona del Gimnasio', width: 200 },
         {
             field: "description",
             headerName: "Descripción",
@@ -22,10 +25,11 @@ const TableMaintenanceRequestsLeader = (props) => {
             disableClickEventBubbling: true,
             renderCell: (params) => (
               <div style={{ cursor: "pointer" }}>
-                <MatDescriptionMachinesRequests data={params.row} />
+                <MatDescriptionTIDevicesRequests data={params.row} />
               </div>
             ),
-          }
+          },
+         
     ]
       
     return (
@@ -47,7 +51,7 @@ const TableMaintenanceRequestsLeader = (props) => {
             }}
         >
 
-            <h1>Solicitudes de Arreglo de Máquinas de Gimnasio</h1><br/>
+            <h1>Solicitudes de Arreglo Dispositivos TI</h1><br/>
 
             <div style={{ height: 400, width: '100%' }}>
                 <DataGrid
@@ -58,10 +62,8 @@ const TableMaintenanceRequestsLeader = (props) => {
                                 id: item.id,
                                 idUser: item.idUser,
                                 idLocal: item.idLocal,
-                                idGymMachine: item.idGymMachine,
+                                idTIDevice: item.idTIDevice,
                                 date: item.date,
-                                machineType: item.machineType,
-                                gymZone: item.gymZone,
                                 description: item.description,
                             }
                         ))
@@ -77,4 +79,4 @@ const TableMaintenanceRequestsLeader = (props) => {
     
 
 }
-export default TableMaintenanceRequestsLeader
+export default TableRepairTIDevicesRequestsLeader

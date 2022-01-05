@@ -26,6 +26,8 @@ import TableRepairTIDevicesRequests from './components/TableRepairTIDevicesReque
 import TableMaintenanceRequests from './components/TableMaintenanceRequestsLayout';
 import TableRepairInfrastructuresRequests from './components/TableRepairInfrastructuresRequestsLayout';
 import TableMaintenanceRequestsLayoutLeader from './components/TableMaintenanceRequestsLayoutLeader';
+import TableRepairInfrastructuresRequestsLayoutLeader from './components/TableRepairInfrastructuresRequestsLayoutLeader';
+import TableRepairTIDevicesRequestsLayoutLeader from './components/TableRepairTIDevicesRequestsLayoutLeader';
 
 const App = () => {
 
@@ -56,6 +58,8 @@ const App = () => {
         <Route path="/TableRepairInfrastructuresRequests" element={<TableRepairInfrastructuresRequests />} />
         <Route path="/reportUsers" element={<TableUsers />} />
         <Route path="/tableMaintenanceRequestsLayoutLeader" element={<TableMaintenanceRequestsLayoutLeader />} />
+        <Route path="/TableRepairInfrastructuresRequestsLayoutLeader" element={<TableRepairInfrastructuresRequestsLayoutLeader />} />
+        <Route path="/TableRepairTIDevicesRequestsLayoutLeader" element={<TableRepairTIDevicesRequestsLayoutLeader />} />
 
       </Routes>
     </BrowserRouter>
