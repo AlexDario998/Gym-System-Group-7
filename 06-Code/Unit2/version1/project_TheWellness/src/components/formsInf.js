@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../App.css';
 import '../index.css';
-import {Box, TextField, Button, MenuItem, Select, FormControl, InputLabel} from "@mui/material"
+import {Box, TextField, Button, MenuItem, Select, FormControl, InputLabel,Typography,Stack} from "@mui/material"
 
 const FormsInf = (props) => {
 
@@ -26,7 +26,7 @@ const FormsInf = (props) => {
             
             <Box 
                 sx={{
-                    width: '30%',
+                    width: '40%',
                     height: '100%',
                     marginLeft:'auto',
                     marginRight:'auto',
@@ -36,17 +36,20 @@ const FormsInf = (props) => {
                     flexDirection: 'column',
                     paddingLeft:'20px',
                     paddingRight:'20px',
-                    background: '#fff',  /* fallback for old browsers */
+                    background: '#fff',
                     borderRadius: '15px',
                     boxShadow: '1px 1px 20px #333'
                 }}
             >
                 <br/>
-                <h1 align='center'>Solicitud de arreglo de infraestructura</h1><br/>
+                <h1 class = "title">Infraestructura</h1>
+                <h1  class = "subtitle">Solicitud de Arreglo</h1><br/>
 
                 {/* Gym */}
-                <FormControl fullWidth>
-                    <InputLabel id="labelGym">Gimnasio</InputLabel>
+                
+                <Typography variant="subtitle1" gutterBottom component="div">
+                    Gimnasio:
+                </Typography>
                     <Select
                         fullWidth
                         labelId="labelGym"
@@ -54,7 +57,6 @@ const FormsInf = (props) => {
                         id="local"
                         value={formInfValues.idLocal}
                         onChange={handleChange}
-                        label="Gimnasio"
                     >
                         
                         <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
@@ -66,35 +68,43 @@ const FormsInf = (props) => {
                         }
                         
                     </Select>
-                </FormControl>
                 <br/>
 
                 {/* Description */}
+                <Typography variant="subtitle1" gutterBottom component="div">
+                    Descripcion:
+                </Typography>
                 <TextField fullWidth 
                     name='description' 
                     id="description" 
                     value={formInfValues.description}
                     onChange={handleChange}
                     placeholder="Descripción" 
-                    label="Descripción" 
                 />
                 <br/>
 
-                <Button
-                    variant="contained"
-                    size = "large"
-                    type="submit"
-                    sx={{
-                        boxShadow: '1px 1px 5px #333',
-                        margin: "10px",  
-                        background: '#ff4b1f',  /* fallback for old browsers */
-                        background: '-webkit-linear-gradient(to right, #ff9068, #ff4b1f)',  /* Chrome 10-25, Safari 5.1-6 */
-                        background: 'linear-gradient(to right, #ff9068, #ff4b1f)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                        width:'60%',
-                    }}        
-                >
-                    Ingresar
-                </Button>
+                <Stack spacing={3} direction="row">
+          <Button variant="contained" type='submit'
+            sx={{
+              boxShadow: '1px 1px 5px #333',
+              // margin: "10px",  
+              background: '#667db6',  /* fallback for old browsers */
+              background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
+              background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
+            }}>
+            Enviar y Notificar
+          </Button>
+
+          <Button variant="contained" 
+            sx={{
+              boxShadow: '1px 1px 5px #333',
+              background: '#CB356B',  /* fallback for old browsers */
+              background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
+              background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }}>
+            Descartar
+          </Button> 
+        </Stack>
                 <br/>
             </Box>
             

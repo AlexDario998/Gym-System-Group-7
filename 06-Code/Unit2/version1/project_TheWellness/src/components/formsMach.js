@@ -57,8 +57,6 @@ const FormsMach = (prop) => {
             boxShadow: '1px 1px 20px #333'
           }}
         >
-{/* <Typography variant="h3" gutterBottom component="div">Maquinas del Gimnasio</Typography>
-<Typography variant="h4" gutterBottom component="div">Solicitud de Arreglo</Typography> */}
     <h1 class = "title">Maquinas</h1>
     <h1  class = "subtitle">Solicitud de Arreglo</h1><br/>
 
