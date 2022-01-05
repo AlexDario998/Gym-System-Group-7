@@ -28,7 +28,7 @@ const TableMaintenanceRequestsLayout = () => {
     }, [])
 
     useEffect(() => {
-        if (typeof cookies.get('userName') === 'undefined') {
+        if (typeof cookies.get('userName') === 'undefined' || cookies.get('type', {path: "/"}) !== '4') {
             window.location.href = "./"
         }
     })

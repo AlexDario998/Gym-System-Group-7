@@ -10,7 +10,7 @@ const cookies = new Cookies()
 const HomeScreenSystemAdminLayout = () => {
 
     useEffect(() => {
-        if (typeof cookies.get('userName') === 'undefined') {
+        if (typeof cookies.get('userName') === 'undefined' || cookies.get('type', {path: "/"}) !== '3') {
             window.location.href = "./"
         }
     })

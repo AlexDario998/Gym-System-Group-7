@@ -60,8 +60,17 @@ function App() {
     if (typeof cookies.get('userName') !== 'undefined') {
       console.log('type: ' + cookies.get('type'))
       if (cookies.get('type') === '1') {
-        console.log('type: ' + cookies.get('type'))
-        window.location.href = "./reportLocals"
+        window.location.href = "./homeScreenSuperAdmin"
+
+      }else if(cookies.get('type') === '2') {
+        window.location.href = "./homeScreenLeaderGym"
+
+      }else if(cookies.get('type') === '3') {
+        window.location.href = "./homeScreenSystemAdmin"
+
+      }else if(cookies.get('type') === '4') {
+        window.location.href = "./homeScreenMantAdmin"
+
       }
     }
   });

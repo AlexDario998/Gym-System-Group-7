@@ -20,7 +20,7 @@ const LocalLayout = () => {
     }
 
     useEffect(() => {
-        if (typeof cookies.get('userName') === 'undefined') {
+        if (typeof cookies.get('userName') === 'undefined' || cookies.get('type', {path: "/"}) !== '1') {
             window.location.href = "./"
         }
     })
