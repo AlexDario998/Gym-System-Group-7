@@ -8,7 +8,7 @@ import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
 import User from './components/UserLayout';
 import Machines from './components/MachineLayout';
-import Homescreen from './components/homeScreen';
+import HomescreenSuperAdmin from './components/HomeScreenSuperAdminLayout';
 import Menuopt from './components/MenuOptLayout';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/infrastructure" element={<Infra />} />
         <Route path="/systems" element={<Systems />} />
         <Route path="/machines" element={<Machine />} />
-        <Route path="/homeScreen" element={<Homescreen />} />
+        <Route path="/homeScreenSuperAdmin" element={<HomescreenSuperAdmin />} />
         <Route path="/menuOpt" element={<Menuopt />} />
         <Route path="/formAddTIDevice" element={<TIDevice />} />
         <Route path="/formAddGym" element={<Gym />} />
