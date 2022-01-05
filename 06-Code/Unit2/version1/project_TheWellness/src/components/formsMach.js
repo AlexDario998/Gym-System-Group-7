@@ -1,8 +1,8 @@
 import logo from '../img/logoWellnessGroup.png';
-import * as React from 'react';
+import React, {useEffect} from 'react';
 import '../App.css';
 import '../index.css';
-import {Box,TextField,Button,Stack,Typography} from "@mui/material"
+import {Box,TextField,Button,Stack,Typography,Select,MenuItem} from "@mui/material"
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -15,44 +15,43 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 
-function App() {
-    const [values, setValues] = React.useState({
-        amount: '',
-        password: '',
-        weight: '',
-        weightRange: '',
-        showPassword: false,
-      });
+const FormsMach = (prop) => {
+
+  const handleSubmit = prop.handleSubmit
+  const gymMachineValues = prop.gymMachineValues
+  const gyms = prop.gyms
+  const formMachValues = prop.formMachValues
+  const setFormMachValues = prop.setFormMachValues
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFormMachValues({ ...formMachValues, [name]: value})
+  }
+
+  const handleSubmitInternal = (e) => {
+    e.preventDefault()
+    handleSubmit(formMachValues)
+  }
+
+  
     
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-    
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
-    
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
   return (
-<form> 
-<Box
-class = "boxMach"
-sx={{
-  justifyContent: 'center',
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column',
-  padding:'1vh',
-  background: '#fff',  /* fallback for old browsers */
-  borderRadius: '10px',
-  boxShadow: '1px 1px 20px #333'
-}}>
-      <Box   sx={{
+    <form onSubmit={handleSubmitInternal}> 
+      <Box
+        class = "boxMach"
+        sx={{
+          justifyContent: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+          padding:'1vh',
+          background: '#fff',  /* fallback for old browsers */
+          borderRadius: '10px',
+          boxShadow: '1px 1px 20px #333'
+        }}
+      >
+        <Box   
+          sx={{
             width: '50%',
             marginLeft:'auto',
             marginRight:'auto',
@@ -66,73 +65,89 @@ sx={{
             background: '#fff',  /* fallback for old browsers */
             borderRadius: '15px',
             boxShadow: '1px 1px 20px #333'
-        }}
-    >
+          }}
+        >
 {/* <Typography variant="h3" gutterBottom component="div">Maquinas del Gimnasio</Typography>
 <Typography variant="h4" gutterBottom component="div">Solicitud de Arreglo</Typography> */}
     <h1 class = "title">Maquinas</h1>
-    <h1  class = "subtitle">Solicitud de Arreglo</h1>
+    <h1  class = "subtitle">Solicitud de Arreglo</h1><br/>
 
-{/* Autor de la Solicitud */}
-
-<Typography variant="subtitle1" gutterBottom component="div">
-Autor de la Solicitud:
-      </Typography>
-        <TextField fullWidth 
-          id="filled-textarea-local"
-          multiline
-          variant="filled" 
-          placeholder='Ingrese el nombre del autor'
-          size="large"
-          sx={{
-            width: '80%',
-        }}
-        />
-{/* Local */}
+      {/* Local */}
       <Typography variant="subtitle1" gutterBottom component="div">
       Local:
       </Typography>
-        <TextField fullWidth 
-          id="filled-textarea-local"
-          multiline
-          variant="filled"
-          placeholder='Especifique el Local'
-          sx={{
-            width:'80%',
+
+      <FormControl
+        fullWidth 
+        id="filled-textarea-local"
+        multiline
+        variant="filled"
+        placeholder='Especifique el Local'
+        sx={{
+          width:'80%'
         }}
-        />
-{/* Numero de Serie */}
+      >
+        <Select
+            fullWidth
+            name='idLocal'
+            value={formMachValues.idLocal}
+            id="local"
+            onChange={handleChange}
+        >
+            
+            <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
+            {
+                gyms.map(item => (
+                    <MenuItem value={item.id} >{item.namegym}</MenuItem>
+                    
+                ))
+            }
+            
+        </Select>
+    </FormControl>
+      <br/>
+{/* Gym machine */}
       <Typography variant="subtitle1" gutterBottom component="div">
       Numero de Serie:
       </Typography>
-        <TextField fullWidth 
-          id="filled-textarea-serial"
-          multiline
-          variant="filled"
-          placeholder='Especifique el Local'
-          sx={{
-            width:'80%',
+
+      <FormControl
+        fullWidth 
+        id="filled-textarea-local"
+        multiline
+        variant="filled"
+        placeholder='Especifique el Local'
+        sx={{
+          width:'80%'
         }}
-        />
-{/* Fecha */}
-      <Typography variant="subtitle1" gutterBottom component="div">
-      Fecha:
-      </Typography>
-        <TextField fullWidth 
-          id="filled-textarea-date"
-          multiline
-          variant="filled"
-          placeholder='dd/mm/aaaa'
-          sx={{
-            width:'80%',
-        }}
-        />
-{/* Descripcion Breve */}
+      >
+        <Select
+            fullWidth
+            name='idGymMachine'
+            value={formMachValues.idGymMachine}
+            id="gymMachine"
+            onChange={handleChange}
+        >
+            
+            <MenuItem disabled selected>Seleccione una máquina</MenuItem>
+            {
+                gymMachineValues.map(item => (
+                    <MenuItem value={item.id} >{item.name}</MenuItem>
+                    
+                ))
+            }
+            
+        </Select>
+    </FormControl>
+
+    {/* Descripcion Breve */}
       <Typography variant="subtitle1" gutterBottom component="div">
       Descripcion Breve:
       </Typography>
         <TextField fullWidth 
           id="filled-multiline-description"
+          name='description'
+          value={formMachValues.description}
           multiline
           rows={3}
           variant="filled"
@@ -141,42 +156,33 @@ Autor de la Solicitud:
         }
       }      
         />
-{/* Foto/Evidencia */}
-      {/* <Typography variant="subtitle1" gutterBottom component="div">
-      Foto:
-      </Typography>
-        <TextField fullWidth 
-          id="filled-textarea-foto"
-          multiline
-          variant="filled"
-          sx={{
-            width:'80%',
-        }}
 
-        /> */}
       <br/>
-      <Stack spacing={3} direction="row">
-      <Button variant="contained" 
-       sx={{
-        boxShadow: '1px 1px 5px #333',
-        // margin: "10px",  
-        background: '#667db6',  /* fallback for old browsers */
-        background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
-        background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
-    }}>
-      Enviar y Notificar
-  </Button>
-  <Button variant="contained" 
-       sx={{
-        boxShadow: '1px 1px 5px #333',
-        background: '#CB356B',  /* fallback for old browsers */
-        background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
-        background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }}>
-      Descartar
-  </Button>
-    </Stack>
-    </Box>
+        <Stack spacing={3} direction="row">
+          <Button variant="contained" type='submit'
+            sx={{
+              boxShadow: '1px 1px 5px #333',
+              // margin: "10px",  
+              background: '#667db6',  /* fallback for old browsers */
+              background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
+              background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
+            }}>
+            Enviar y Notificar
+          </Button>
+
+          <Button variant="contained" 
+            sx={{
+              boxShadow: '1px 1px 5px #333',
+              background: '#CB356B',  /* fallback for old browsers */
+              background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
+              background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }}>
+            Descartar
+          </Button>
+          
+        </Stack>
+        <br/>
+      </Box>
     </Box>
 </form>
       
@@ -184,4 +190,4 @@ Autor de la Solicitud:
   );
 }
 
-export default App;
+export default FormsMach;

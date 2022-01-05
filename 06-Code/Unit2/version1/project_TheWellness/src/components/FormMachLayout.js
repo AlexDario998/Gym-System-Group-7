@@ -1,5 +1,6 @@
 import FormsMach from './FormsMach'
 import {getLocals} from '../services/localAxios'
+import {getGymMachinesByIdLocal} from '../services/gymMachineAxios'
 import {saveRmachine} from '../services/maintenanceRequestsAxios'
 import '../index.css';
 import {Box} from "@mui/material"
@@ -12,6 +13,7 @@ const cookies = new Cookies()
 const FormMachLayout = () => {
 
     const [gyms, setGyms] = useState([])
+    const [gymMachineValues, setGymMachineValues] = useState([])
     const [formMachValues, setFormMachValues] = useState({
         idUser: '',
         idLocal: '',
@@ -25,6 +27,16 @@ const FormMachLayout = () => {
     const handleSubmit = (data) => {
         saveRmachine(data,formMachValues,setFormMachValues)
     }
+
+    useEffect(() => {
+        async function loadGymMachinesByIdLocal() {
+            const gymMachines = await getGymMachinesByIdLocal(formMachValues.idLocal)
+            setGymMachineValues(gymMachines)
+        }
+        loadGymMachinesByIdLocal()
+    }, [formMachValues.idLocal])
+    
+    console.log(gymMachineValues)
 
     useEffect(() => {
         async function loadGyms() {
@@ -53,7 +65,7 @@ const FormMachLayout = () => {
             >
                 <NavBarLeaderGym />
                 {/* <br/><br/> */}
-                <FormsMach handleSubmit={handleSubmit} gyms={gyms} formMachValues={formMachValues} setFormMachValues={setFormMachValues} />
+                <FormsMach handleSubmit={handleSubmit} gymMachineValues={gymMachineValues} gyms={gyms} formMachValues={formMachValues} setFormMachValues={setFormMachValues} />
                 {/* <br/> */}
             </Box>
         
