@@ -69,4 +69,23 @@ export async function getReportsByConfirmation() {
   }
 }
 
+export async function updateConfirmation(data){
+  const response = await axios.put(`${baseUrl}/repair-request-ti-devices/${data.id}`,{
+    idUser: data.idUser,
+    idLocal: data.idLocal,
+    idTIDevice: data.idTIDevice,
+    date: data.date,
+    description: data.description,
+    confirmation: false
+  })
+  .then(response => {
+    window.alert('Solicitud completada')
+    window.location.reload()
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+  
+}
 

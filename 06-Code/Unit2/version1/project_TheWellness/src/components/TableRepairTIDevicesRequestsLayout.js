@@ -3,6 +3,7 @@ import {
   getReports,
   deleteRequest,
   getReportsByConfirmation,
+  updateConfirmation,
 
 } from "../services/repairRequestTIDevicesAxios";
 import "../index.css";
@@ -16,18 +17,17 @@ const cookies = new Cookies();
 const TableRepairTIDevicesRequestsLayout = () => {
   const [reports, setReports] = useState([]);
   
-  const deleteRegister = (idRequest) => {
-    deleteRequest(idRequest);
+  const updateRegister = (data) => {
+    updateConfirmation(data);
+
   };
 
 
   useEffect(() => {
     async function loadReports() {
       const response = await getReports();
-
-      if (response.status === 200) {
-        setReports(response.data);
-      }
+      const data = await getReportsByConfirmation();
+      setReports(data);
     }
 
     loadReports();
@@ -47,7 +47,7 @@ const TableRepairTIDevicesRequestsLayout = () => {
         <br />
         <TableRepairTIDevicesRequests
           reports={reports}
-          deleteRegister={deleteRegister}
+          updateRegister={updateRegister}
    
         />
       </Box>

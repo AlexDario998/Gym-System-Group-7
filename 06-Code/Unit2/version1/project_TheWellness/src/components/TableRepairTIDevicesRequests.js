@@ -2,39 +2,49 @@ import React, { useEffect } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
 import '../index.css'
-
-import MatDelete from './MatDelete'
+import MatDescriptionTIDevicesRequests from "./MatDescriptionTIDevicesRequests";
+import MatRepairRequestsComplete from "./MatRepairRequestsComplete";
 
 
 const TableRepairTIDevicesRequests = (props) => {
 
     const reports = props.reports
-    const deleteRegister = props.deleteRegister
+    const updateRegister = props.updateRegister
 
-    const handleDeleteRegister = (idRequest) => {
-        deleteRegister(idRequest)
+    const handleUpdateRegister = (data) => {
+        updateRegister(data)
     }
 
 
     const columns = [
         { field: 'idUser', headerName: 'Autor', width: 200 },
         { field: 'idLocal', headerName: 'Local', width: 200 },
-        { field: 'device', headerName: 'Dispositivo', width: 200 },
+        { field: 'idTIDevice', headerName: 'Dispositivo', width: 200 },
         { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
-        { 
-            field: 'actions', 
-            headerName: 'Acciones',
+        {
+            field: "description",
+            headerName: "Descripción",
             sortable: false,
-            width: 200,
+            width: 120,
             disableClickEventBubbling: true,
             renderCell: (params) => (
-                <div
-                    style={{ cursor: "pointer" }}
-                >
-                    <MatDelete index={params.row.id} handleDeleteRegister={handleDeleteRegister} />
-                </div>
-            )
-        }
+              <div style={{ cursor: "pointer" }}>
+                <MatDescriptionTIDevicesRequests data={params.row} />
+              </div>
+            ),
+          },
+          {
+            field: "confirmation",
+            headerName: "Confirmación",
+            sortable: false,
+            width: 120,
+            disableClickEventBubbling: true,
+            renderCell: (params) => (
+              <div style={{ cursor: "pointer" }}>
+                <MatRepairRequestsComplete data={params.row} handleUpdateRegister={handleUpdateRegister} />
+              </div>
+            ),
+          }
     ]
       
     return (
@@ -65,12 +75,11 @@ const TableRepairTIDevicesRequests = (props) => {
                         reports.map(item => (
                             {
                                 id: item.id,
-                                authorName: item.idUser,
-                                gym: item.idLocal,
-                                device: item.idTIDevice,
+                                idUser: item.idUser,
+                                idLocal: item.idLocal,
+                                idTIDevice: item.idTIDevice,
                                 date: item.date,
                                 description: item.description,
-                                confirmation: item.confirmation
                             }
                         ))
                     }
