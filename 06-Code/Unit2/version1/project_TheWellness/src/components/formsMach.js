@@ -56,21 +56,21 @@ sx={{
             width: '50%',
             marginLeft:'auto',
             marginRight:'auto',
-            marginTop:'15vh',
-            marginBottom:'5vh',
+            marginTop:'3vh',
+            marginBottom:'2vh',
             justifyContent: 'center',
             display: 'flex',
             alignItems: 'center',
             flexDirection: 'column',
             padding:'1vh',
             background: '#fff',  /* fallback for old browsers */
-            borderRadius: '60px',
+            borderRadius: '15px',
             boxShadow: '1px 1px 20px #333'
         }}
     >
 {/* <Typography variant="h3" gutterBottom component="div">Maquinas del Gimnasio</Typography>
 <Typography variant="h4" gutterBottom component="div">Solicitud de Arreglo</Typography> */}
- <h1 class = "title">Maquinas</h1>
+    <h1 class = "title">Maquinas</h1>
     <h1  class = "subtitle">Solicitud de Arreglo</h1>
 
 {/* Autor de la Solicitud */}
