@@ -9,6 +9,10 @@ import Gym from './components/LocalLayout';
 import User from './components/UserLayout';
 import Machines from './components/MachineLayout';
 import HomescreenSuperAdmin from './components/HomeScreenSuperAdminLayout';
+import HomescreenLeaderGym from './components/HomeScreenLeaderGymLayout';
+import HomeScreenMantAdmin from './components/HomeScreenMantAdmin';
+import HomeScreenSystemAdmin from './components/HomeScreenSystemAdminLayout';
+
 import Menuopt from './components/MenuOptLayout';
 import TableLocals from './components/TableLocalsLayout'
 import TableTIDevices from './components/TableTIDevicesLayout'
@@ -33,6 +37,9 @@ const App = () => {
         <Route path="/systems" element={<Systems />} />
         <Route path="/machines" element={<Machine />} />
         <Route path="/homeScreenSuperAdmin" element={<HomescreenSuperAdmin />} />
+        <Route path="/homeScreenLeaderGym" element={<HomescreenLeaderGym />} />
+        <Route path="/homeScreenMantAdmin" element={<HomeScreenMantAdmin />} />
+        <Route path="/homeScreenSystemAdmin" element={<HomeScreenSystemAdmin />} />
         <Route path="/menuOpt" element={<Menuopt />} />
         <Route path="/formAddTIDevice" element={<TIDevice />} />
         <Route path="/formAddGym" element={<Gym />} />

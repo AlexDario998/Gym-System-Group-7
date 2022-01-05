@@ -65,16 +65,8 @@ const NavBarLeaderGym = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     
-                    <img 
-                        alt="Botón salir" 
-                        src={logo}
-                        style=
-                        {{
-                            maxWidth: '5%',
-                            marginRight: '1%'
-                        }}   
-                    />
-
+                <Link to="/homeScreenLeaderGym"><div class="logoNav"></div></Link>
+                
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Tooltip title="Llenar formularios">
                             <Button
