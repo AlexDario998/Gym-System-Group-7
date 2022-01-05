@@ -1,20 +1,48 @@
 import React, { useEffect } from 'react';
 import {Box} from "@mui/material"
 import { DataGrid } from '@mui/x-data-grid';
+import MatRepairRequestsComplete from "./MatRepairRequestsComplete";
+import MatDescriptionMachinesRequests from "./MatDescriptionMachinesRequests";
 
 const TableMaintenanceRequests = (props) => {
 
     const reports = props.reports
+    const updateRegister = props.updateRegister
+    const handleUpdateRegister = (data) => {
+        updateRegister(data)
+    }
 
     const columns = [
-        { field: 'authorName', headerName: 'Nombre del autor', width: 200 },
-        { field: 'gym', headerName: 'Local', width: 200 },
-        { field: 'gymMachine', headerName: 'Maquina', width: 200 },
+        { field: 'idUser', headerName: 'Autor', width: 200 },
+        { field: 'idGym', headerName: 'Local', width: 200 },
+        { field: 'idGymMachine', headerName: 'Maquina', width: 200 },
         { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
         { field: 'machineType', headerName: 'Tipo de Maquina', width: 200 },
         { field: 'gymZone', headerName: 'Zona del Gimnasio', width: 200 },
-        { field: 'description', headerName: 'Descripción', width: 200 },
-        { field: 'confirmation', headerName: 'Confirmación', width: 200 }
+        {
+            field: "description",
+            headerName: "Descripción",
+            sortable: false,
+            width: 120,
+            disableClickEventBubbling: true,
+            renderCell: (params) => (
+              <div style={{ cursor: "pointer" }}>
+                <MatDescriptionMachinesRequests data={params.row} />
+              </div>
+            ),
+          },
+          {
+            field: "confirmation",
+            headerName: "Confirmación",
+            sortable: false,
+            width: 120,
+            disableClickEventBubbling: true,
+            renderCell: (params) => (
+              <div style={{ cursor: "pointer" }}>
+                <MatRepairRequestsComplete data={params.row} handleUpdateRegister={handleUpdateRegister} />
+              </div>
+            ),
+          },
     ]
       
     return (
@@ -45,14 +73,13 @@ const TableMaintenanceRequests = (props) => {
                         reports.map(item => (
                             {
                                 id: item.id,
-                                authorName: item.idUser,
-                                gym: item.idLocal,
-                                gymMachine: item.idGymMachine,
+                                idUser: item.idUser,
+                                idLocal: item.idLocal,
+                                idGymMachine: item.idGymMachine,
                                 date: item.date,
                                 machineType: item.machineType,
                                 gymZone: item.gymZone,
                                 description: item.description,
-                                confirmation: item.confirmation
                             }
                         ))
                     }
