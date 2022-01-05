@@ -9,19 +9,25 @@ import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 
 const cookies = new Cookies()
+const date = new Date()
+const year = date.getFullYear()
+const month = date.getMonth() + 1
+const day = date.getDate()
+const dateComplete = day + '/' + month + '/' + year
 
 const FormMachLayout = () => {
 
     const [gyms, setGyms] = useState([])
     const [gymMachineValues, setGymMachineValues] = useState([])
     const [formMachValues, setFormMachValues] = useState({
-        idUser: '',
+        idUser: cookies.get('id', {path: "/"}),
         idLocal: '',
         idGymMachine: '',
-        date:'',
-        machineType:'',
-        gymZone:'',
-        description: ''
+        date: dateComplete,
+        machineType: '',
+        gymZone: '',
+        description: '',
+        confirmation: true
     })
 
     const handleSubmit = (data) => {
@@ -35,8 +41,6 @@ const FormMachLayout = () => {
         }
         loadGymMachinesByIdLocal()
     }, [formMachValues.idLocal])
-    
-    console.log(gymMachineValues)
 
     useEffect(() => {
         async function loadGyms() {

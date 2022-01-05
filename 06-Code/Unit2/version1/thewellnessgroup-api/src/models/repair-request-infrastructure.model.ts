@@ -22,7 +22,7 @@ export class RepairRequestInfrastructure extends Entity {
   idLocal: string;
 
   @property({
-    type: 'date',
+    type: 'string',
     required: true,
   })
   date: string;
