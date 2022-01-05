@@ -57,7 +57,6 @@ export async function getReportsByConfirmation() {
 }
 
 export async function updateConfirmation(data){
-  console.log(data)
   const response = await axios.put(`${baseUrl}/repair-request-infrastructures/${data.id}`,{
     idUser: data.idUser,
     idLocal: data.idLocal,

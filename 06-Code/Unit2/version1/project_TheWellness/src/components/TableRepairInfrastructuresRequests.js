@@ -10,7 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import MatDescriptionInfrastructuresRequests from "./MatDescriptionInfrastructuresRequests";
-import MatRepairInfrastructureComplete from "./MatRepairInfrastructureComplete";
+import MatRepairRequestsComplete from "./MatRepairRequestsComplete";
 
 const TableRepairInfrastructuresRequests = (props) => {
   const reports = props.reports;
@@ -43,7 +43,7 @@ const TableRepairInfrastructuresRequests = (props) => {
       disableClickEventBubbling: true,
       renderCell: (params) => (
         <div style={{ cursor: "pointer" }}>
-          <MatRepairInfrastructureComplete data={params.row} handleUpdateRegister={handleUpdateRegister} />
+          <MatRepairRequestsComplete data={params.row} handleUpdateRegister={handleUpdateRegister} />
         </div>
       ),
     },
