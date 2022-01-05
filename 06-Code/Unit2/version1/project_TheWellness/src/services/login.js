@@ -36,15 +36,15 @@ export function checkLogin(loginValues) {
                     break
 
                 case 2:
-                    window.location.href = "./infrastructure"
+                    window.location.href = "./homeScreenLeaderGym"
                     break
 
                 case 3:
-                    window.location.href = "./TableRepairTIDevicesRequests"
+                    window.location.href = "./homeScreenSystemAdmin"
                     break
 
                 case 4:
-                    window.location.href = "./TableMaintenanceRequests"
+                    window.location.href = "./homeScreenMantAdmin"
                     break
             }
 
