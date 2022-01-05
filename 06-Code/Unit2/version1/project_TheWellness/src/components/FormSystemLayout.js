@@ -1,5 +1,6 @@
 import FormsSystem from './FormsSystem'
 import {getLocals} from '../services/localAxios'
+import {getTiDevicesByIdLocal} from '../services/tiDeviceAxios'
 import {saveRsystems} from '../services/repairRequestTIDevicesAxios'
 import '../index.css';
 import {Box} from "@mui/material"
@@ -8,23 +9,36 @@ import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 
 const cookies = new Cookies()
+const date = new Date()
+const year = date.getFullYear()
+const month = date.getMonth() + 1
+const day = date.getDate()
+const dateComplete = day + '/' + month + '/' + year
 
 const FormSystemLayout = () => {
 
     const [gyms, setGyms] = useState([])
+    const [tiDeviceValues, setTiDeviceValues] = useState([])
     const [formSystemValues, setFormSystemValues] = useState({
-        id:'',
-        idUser: '',
+        idUser: cookies.get('id', {path: "/"}) ,
         idLocal: '',
         idTIDevice: '',
-        date:'',
-        machineType:'',
-        description: ''
+        date: dateComplete,
+        description: '',
+        confirmation: true
     })
 
     const handleSubmit = (data) => {
         saveRsystems(data,formSystemValues,setFormSystemValues)
     }
+
+    useEffect(() => {
+        async function loadTiDevicesByIdLocal() {
+            const tiDevices = await getTiDevicesByIdLocal(formSystemValues.idLocal)
+            setTiDeviceValues(tiDevices)
+        }
+        loadTiDevicesByIdLocal()
+    }, [formSystemValues.idLocal])
 
     useEffect(() => {
         async function loadGyms() {
@@ -63,7 +77,7 @@ const FormSystemLayout = () => {
             >
                 <NavBarLeaderGym />
                 {/* <br/><br/> */}
-                <FormsSystem handleSubmit={handleSubmit} gyms={gyms} formSystemValues={formSystemValues} setFormSystemValues={setFormSystemValues} />
+                <FormsSystem handleSubmit={handleSubmit} tiDeviceValues={tiDeviceValues} gyms={gyms} formSystemValues={formSystemValues} setFormSystemValues={setFormSystemValues} />
                 {/* <br/> */}
             </Box>
         

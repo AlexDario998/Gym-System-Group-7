@@ -1,45 +1,28 @@
-import logo from '../img/logoWellnessGroup.png';
 import * as React from 'react';
 import '../App.css';
 import '../index.css';
-import {Box,TextField,Button,Stack,Typography} from "@mui/material"
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import IconButton from '@mui/material/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import {Box,TextField,Button,Stack,Typography,Select,MenuItem,FormControl} from "@mui/material"
 
+const FormsSystem = (props) => {
 
+  const handleSubmit = props.handleSubmit
+  const tiDeviceValues = props.tiDeviceValues
+  const gyms = props.gyms
+  const formSystemValues = props.formSystemValues
+  const setFormSystemValues = props.setFormSystemValues
 
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFormSystemValues({ ...formSystemValues, [name]: value})
+  }
 
-function FormsSystem() {
-    const [values, setValues] = React.useState({
-        amount: '',
-        password: '',
-        weight: '',
-        weightRange: '',
-        showPassword: false,
-      });
-    
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-    
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
-    
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
+  const handleSubmitInternal = (e) => {
+    e.preventDefault()
+    handleSubmit(formSystemValues)
+  }
+
   return (
-<form> 
+<form onSubmit={handleSubmitInternal}> 
   <Box>
     <Box   sx={{
               width: '50%',
@@ -60,75 +43,95 @@ function FormsSystem() {
       >
       <h1 class = "title">Sistemas/Dispositivos TI</h1>
       <h1  class = "subtitle">Solicitud de Arreglo</h1>
-  {/* Autor de la Solicitud */}
+
+      {/* Local */}
+      <Typography variant="subtitle1" gutterBottom component="div">
+      Local:
+      </Typography>
+
+      <FormControl
+        fullWidth 
+        id="filled-textarea-local"
+        multiline
+        variant="filled"
+        placeholder='Especifique el Local'
+        sx={{
+          width:'80%'
+        }}
+      >
+        <Select
+            fullWidth
+            name='idLocal'
+            value={formSystemValues.idLocal}
+            id="local"
+            onChange={handleChange}
+        >
+            
+            <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
+            {
+                gyms.map(item => (
+                    <MenuItem value={item.id} >{item.namegym}</MenuItem>
+                    
+                ))
+            }
+            
+        </Select>
+    </FormControl>
+      <br/>
+
+{/* Gym machine */}
+      <Typography variant="subtitle1" gutterBottom component="div">
+      Dispositivo TI:
+      </Typography>
+
+      <FormControl
+        fullWidth 
+        id="filled-textarea-local"
+        multiline
+        variant="filled"
+        placeholder='Especifique el Local'
+        sx={{
+          width:'80%'
+        }}
+      >
+        <Select
+            fullWidth
+            name='idTIDevice'
+            value={formSystemValues.idTiDevice}
+            id="tiDevice"
+            onChange={handleChange}
+        >
+            
+            <MenuItem disabled selected>Seleccione una máquina</MenuItem>
+            {
+                tiDeviceValues.map(item => (
+                    <MenuItem value={item.id} >{item.name}</MenuItem>
+                    
+                ))
+            }
+            
+        </Select>
+      </FormControl>
+
+      {/* Descripcion Breve */}
         <Typography variant="subtitle1" gutterBottom component="div">
-        Autor de la Solicitud:
+        Descripcion Breve:
         </Typography>
-        <TextField
-          id="filled-textarea-autor"
-          multiline
-          variant="filled"
-          placeholder='Ingrese el nombre del autor'
-          size="large"
-          sx={{
-            width: '80%',
-          }}
-        />
-  {/* Local */}
-        <Typography variant="subtitle1" gutterBottom component="div">
-          Local:
-        </Typography>
-        <TextField
-          id="filled-textarea-local"
-          multiline
-          variant="filled"
-          placeholder='Especifique el Local'
-          sx={{
-            width:'80%',
-          }}
-        />
-  {/* Numero de Serie */}
-        <Typography variant="subtitle1" gutterBottom component="div">
-          Numero de Serie:
-        </Typography>
-        <TextField
-          id="filled-textarea-serial"
-          multiline
-          variant="filled"
-          placeholder='Especifique el Local'
-          sx={{
-            width:'80%',
-          }}
-        />
-  {/* Fecha */}
-        <Typography variant="subtitle1" gutterBottom component="div">
-          Fecha:
-        </Typography>
-        <TextField
-          id="filled-textarea-date"
-          multiline
-          variant="filled"
-          placeholder='dd/mm/aaaa'
-          sx={{
-            width:'80%',
-          }}
-        />
-  {/* Descripcion Breve */}
-        <Typography variant="subtitle1" gutterBottom component="div">
-          Descripcion Breve:
-        </Typography>
-        <TextField
-          id="filled-multiline-description"
-          multiline
-          rows={3}
-          variant="filled"
-          sx={{
-            width:'80%',
+          <TextField fullWidth 
+            id="filled-multiline-description"
+            name='description'
+            value={formSystemValues.description}
+            onChange={handleChange}
+            multiline
+            rows={3}
+            variant="filled"
+            sx={{
+              width:'80%',
           }}      
-        />
+          />
         <br/>
         <Stack spacing={3} direction="row">
-        <Button variant="contained" 
+        <Button variant="contained" type='submit'
           sx={{
             boxShadow: '1px 1px 5px #333',
             // margin: "10px",  

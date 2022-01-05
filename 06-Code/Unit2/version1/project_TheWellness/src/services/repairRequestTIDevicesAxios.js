@@ -1,6 +1,8 @@
 import axios from 'axios'
+import Cookies from 'universal-cookie/es6'
 
 const baseUrl = 'http://localhost:3000'
+const cookies = new Cookies()
 
 export async function getReports(){
   try{
@@ -29,20 +31,20 @@ export async function deleteRequest(idRequest){
   
 }
 
-export async function saveRsystems(rsystemsData, values, setValues){
-
+export async function saveRsystems(data, values, setValues){
+  console.log(data)
   try{
     const response = await axios({
         url: `${baseUrl}/repair-request-ti-devices`,
         method: 'POST',
-        data: rsystemsData,
+        data: data,
     })
     
-    setValues({autor: '', local: '',serial:'',date:'',description:''})
+    setValues({idLocal: '', idTIDevice:'', description:''})
 
   }catch(error){
     console.log(error)
-    setValues({autor: '', local: '',serial:'',date:'',description:''})
+    setValues({idLocal: '', idTIDevice:'', description:''})
 
   }
 }
