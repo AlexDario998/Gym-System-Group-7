@@ -25,6 +25,7 @@ import TableGymMachines from './components/TableMachinesLayout'
 import TableRepairTIDevicesRequests from './components/TableRepairTIDevicesRequestsLayout';
 import TableMaintenanceRequests from './components/TableMaintenanceRequestsLayout';
 import TableRepairInfrastructuresRequests from './components/TableRepairInfrastructuresRequestsLayout';
+import TableMaintenanceRequestsLayoutLeader from './components/TableMaintenanceRequestsLayoutLeader';
 
 const App = () => {
 
@@ -54,6 +55,7 @@ const App = () => {
         <Route path="/TableMaintenanceRequests" element={<TableMaintenanceRequests />} />
         <Route path="/TableRepairInfrastructuresRequests" element={<TableRepairInfrastructuresRequests />} />
         <Route path="/reportUsers" element={<TableUsers />} />
+        <Route path="/tableMaintenanceRequestsLayoutLeader" element={<TableMaintenanceRequestsLayoutLeader />} />
 
       </Routes>
     </BrowserRouter>

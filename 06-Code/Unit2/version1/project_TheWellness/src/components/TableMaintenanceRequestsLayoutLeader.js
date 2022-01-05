@@ -3,7 +3,7 @@ import {getReports, getReportsByConfirmationMachines, updateConfirmation} from '
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
-import NavbarMaintenanceAdmin from './NavbarMaintenanceAdmin'
+import NavbarLeaderGym from './NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 
 const cookies = new Cookies()
@@ -21,7 +21,7 @@ const TableMaintenanceRequestsLayout = () => {
             const response = await getReports()
 
             if (response.status === 200) {
-                setGyms(response.data)
+                setReports(response.data)
                 
             }
         }
@@ -39,7 +39,7 @@ const TableMaintenanceRequestsLayout = () => {
     return (
         <>
             <Box>
-                <NavbarMaintenanceAdmin/>
+                <NavbarLeaderGym/>
                 <br/><br/>
                 <TableMaintenanceRequests reports={reports}
                 />
