@@ -16,6 +16,31 @@ export async function getTIDevices(){
     }
 }
 
+export async function getTiDevicesByIdLocal(idLocal){
+  try{
+      const response = await axios({
+          url: `${baseUrl}/timachines`,
+          method: 'GET',
+      })
+      
+      const data = response.data
+      var dataTiDevices = []
+      var j = 0
+
+      for (var i=0; i<data.length; i++) {
+          if (data[i].local === idLocal) {
+            dataTiDevices[j] = data[i]
+            j++
+          }
+      }
+      return dataTiDevices
+      
+
+  }catch(error){
+    console.log(error)
+  }
+}
+
 export async function saveTIDevice(tiDeviceData, values, setValues){
   try{
       const response = await axios({

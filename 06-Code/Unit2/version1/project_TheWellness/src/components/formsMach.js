@@ -15,13 +15,13 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 
-const FormsMach = (prop) => {
+const FormsMach = (props) => {
 
-  const handleSubmit = prop.handleSubmit
-  const gymMachineValues = prop.gymMachineValues
-  const gyms = prop.gyms
-  const formMachValues = prop.formMachValues
-  const setFormMachValues = prop.setFormMachValues
+  const handleSubmit = props.handleSubmit
+  const gymMachineValues = props.gymMachineValues
+  const gyms = props.gyms
+  const formMachValues = props.formMachValues
+  const setFormMachValues = props.setFormMachValues
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -94,9 +94,10 @@ const FormsMach = (prop) => {
         </Select>
     </FormControl>
       <br/>
+
 {/* Gym machine */}
       <Typography variant="subtitle1" gutterBottom component="div">
-      Numero de Serie:
+      Máquina:
       </Typography>
 
       <FormControl
@@ -136,6 +137,7 @@ const FormsMach = (prop) => {
           id="filled-multiline-description"
           name='description'
           value={formMachValues.description}
+          onChange={handleChange}
           multiline
           rows={3}
           variant="filled"

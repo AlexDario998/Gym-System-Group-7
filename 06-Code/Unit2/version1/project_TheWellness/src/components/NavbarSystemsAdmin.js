@@ -53,9 +53,7 @@ const NavbarSystemsAdmin = () => {
                 key="reports"
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                
                 Solicitudes
-                
               </Button>
               </Link>
             </Tooltip>
