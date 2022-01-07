@@ -25,7 +25,7 @@ router.get("/repair-requests-ti-devices/:id", (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
-module.exports = router;
+
 
 //update a request
 router.put("/repair-requests-ti-devices/:id", (req, res) => {
@@ -43,7 +43,7 @@ router.delete("/repair-requests-ti-devices/:id", (req, res) => {
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
   });
-  module.exports = router;
+
 
 
 module.exports = router;

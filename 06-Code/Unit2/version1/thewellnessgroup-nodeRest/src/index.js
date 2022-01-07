@@ -2,7 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const TIDevicesRequests = require("./routes/TIDevicesRequests");
-
+const InfrastructuresRequests = require("./routes/InfrastructuresRequests")
+const GymRequests = require("./routes/GymRequests")
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -10,7 +11,8 @@ const port = process.env.PORT || 3001;
 //middleware
 app.use(express.json());
 app.use(TIDevicesRequests);
-
+app.use(InfrastructuresRequests);
+app.use(GymRequests);
 
 //routes
 app.get('/', (req,res) =>{

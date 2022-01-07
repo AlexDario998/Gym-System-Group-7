@@ -2,11 +2,6 @@ const mongoose = require("mongoose");
 
 const infrastructuresRequestsSchema = mongoose.Schema({
   
-    id:{
-        type: 'string',
-        id: true,
-        generated: true
-      },
     idUser:{
         type: 'string',
         required: true,
@@ -16,8 +11,6 @@ const infrastructuresRequestsSchema = mongoose.Schema({
         type: 'string',
         required: true,
       },
-      
-    
       date:{
         type: 'string',
         required: true,

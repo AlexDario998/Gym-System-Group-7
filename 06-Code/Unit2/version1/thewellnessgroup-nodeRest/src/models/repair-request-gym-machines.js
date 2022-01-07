@@ -2,11 +2,6 @@ const mongoose = require("mongoose");
 
 const gymMachinesRequestsSchema = mongoose.Schema({
   
-    id:{
-        type: 'string',
-        id: true,
-        generated: true
-      },
     idUser:{
         type: 'string',
         required: true,
