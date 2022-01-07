@@ -3,7 +3,7 @@ const router = express.Router();
 const TIDevicesRequestsSchema = require("../models/repair-request-ti-devices");
 
 // read requests
-router.post("/repair-requests-ti-devices", (req, res) => {
+router.post("/repair-request-ti-devices", (req, res) => {
   const tiDevicesRequests = TIDevicesRequestsSchema(req.body);
   tiDevicesRequests
     .save()
@@ -12,14 +12,14 @@ router.post("/repair-requests-ti-devices", (req, res) => {
 });
 
 //get all requests
-router.get("/repair-requests-ti-devices", (req, res) => {
+router.get("/repair-request-ti-devices", (req, res) => {
   TIDevicesRequestsSchema.find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
 //get a request
-router.get("/repair-requests-ti-devices/:id", (req, res) => {
+router.get("/repair-request-ti-devices/:id", (req, res) => {
   const { id } = req.params;
   TIDevicesRequestsSchema.findById(id)
     .then((data) => res.json(data))
@@ -28,7 +28,7 @@ router.get("/repair-requests-ti-devices/:id", (req, res) => {
 
 
 //update a request
-router.put("/repair-requests-ti-devices/:id", (req, res) => {
+router.put("/repair-request-ti-devices/:id", (req, res) => {
   const { id } = req.params;
   const {idUser, idLocal, idTIDevice, date, description, confirmation} = req.body;
   TIDevicesRequestsSchema.updateOne({_id: id},{$set: {idUser, idLocal, idTIDevice, date, description, confirmation}})
@@ -37,7 +37,7 @@ router.put("/repair-requests-ti-devices/:id", (req, res) => {
 });
 
 //delete a request
-router.delete("/repair-requests-ti-devices/:id", (req, res) => {
+router.delete("/repair-request-ti-devices/:id", (req, res) => {
     const { id } = req.params;
     TIDevicesRequestsSchema.remove({_id: id})
       .then((data) => res.json(data))
