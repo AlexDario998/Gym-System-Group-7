@@ -20,9 +20,18 @@ const TableMachines = (props) => {
         updateRegister(values)
     }
 
+    const getGymById = (idGym) => {
+
+        for (var i=0; i<gyms.length; i++) {
+            if (gyms[i].id === idGym) {
+                return gyms[i].namegym
+            }
+        }
+    }
+
     const columns = [
         { field: 'name', headerName: 'Máquina', width: 200 },
-        { field: 'gym', headerName: 'Gimnasio', width: 200 },
+        { field: 'nameGym', headerName: 'Gimnasio', width: 200 },
         { field: 'serialNumber', headerName: 'Número serial', width: 200 },
         { field: 'mark', headerName: 'Marca', width: 200 },
         { field: 'zone', headerName: 'Zona del gimnasio', width: 200 },
@@ -75,7 +84,8 @@ const TableMachines = (props) => {
                                 gym: item.gym,
                                 serialNumber: item.serialNumber,
                                 mark: item.mark,
-                                zone: item.zone
+                                zone: item.zone,
+                                nameGym: getGymById(item.gym)
                             }
                         )) 
                     }

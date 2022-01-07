@@ -82,16 +82,16 @@ const NavbarMaintenanceAdmin = () => {
                             onClose={handleCloseReportMenu}
                         >
                             
+                          <Link to='/TableMaintenanceRequests' className='link'> 
                             <MenuItem key='reportsMachines'>
-                                <Link to='/TableMaintenanceRequests' className='link'>
-                                    <Typography textAlign="center">Máquinas de gimnasio</Typography>
-                                </Link>
+                                    <Typography textAlign="center">Máquinas de gimnasio</Typography>      
                             </MenuItem>
+                          </Link>
+                          <Link to='/TableRepairInfrastructuresRequests' className='link'> 
                             <MenuItem key='reportsInfrastructure'>
-                                <Link to='/TableRepairInfrastructuresRequests' className='link'>    
-                                    <Typography textAlign="center">Infraestructura</Typography>
-                                </Link>
+                                    <Typography textAlign="center">Infraestructura</Typography>      
                             </MenuItem>
+                          </Link>
                         </Menu>
                     </Box>
 

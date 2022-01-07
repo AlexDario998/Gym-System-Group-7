@@ -24,6 +24,7 @@ export async function saveRinfrastructure(rinfrastructureData,values,setValues) 
     });
 
     setValues({ idLocal: "", description: "" });
+    window.location.reload()
   } catch (error) {
     console.log(error);
     setValues({ idLocal: "", description: "" });

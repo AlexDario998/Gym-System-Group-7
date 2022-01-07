@@ -3,15 +3,8 @@ import React, {useEffect} from 'react';
 import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Stack,Typography,Select,MenuItem} from "@mui/material"
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import IconButton from '@mui/material/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -199,22 +192,23 @@ const FormsMach = (props) => {
             sx={{
               boxShadow: '1px 1px 5px #333',
               // margin: "10px",  
-              background: '#667db6',  /* fallback for old browsers */
-              background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
+              background: '#667db6',
+              background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
               background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
             }}>
             Enviar y Notificar
           </Button>
-
-          <Button variant="contained" 
-            sx={{
-              boxShadow: '1px 1px 5px #333',
-              background: '#CB356B',  /* fallback for old browsers */
-              background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
-              background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            }}>
-            Descartar
-          </Button> 
+          <Link to="/menuOpt"  class='linkDescartar'>
+            <Button variant="contained" 
+              sx={{
+                boxShadow: '1px 1px 5px #333',
+                background: '#CB356B',  /* fallback for old browsers */
+                background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
+                background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+              }}>
+              Descartar
+            </Button> 
+          </Link>
         </Stack>
         <br/>
       </Box>

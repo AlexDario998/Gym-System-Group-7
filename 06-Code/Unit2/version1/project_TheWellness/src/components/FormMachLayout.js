@@ -86,4 +86,4 @@ const FormMachLayout = () => {
         </>
     )
 }
-export default FormMachLayout
+export default FormMachLayout;

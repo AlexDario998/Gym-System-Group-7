@@ -4,7 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import MatDelete from './MatDelete'
 import MatEditUser from './MatEditUser';
 
-const TableUsers = (props) => {
+const TableUser = (props) => {
 
     const users = props.users
     const gyms = props.gyms
@@ -19,6 +19,15 @@ const TableUsers = (props) => {
         updateRegister(values)
     }
 
+    const getGymById = (idGym) => {
+        console.log(idGym)
+        for (var i=0; i<gyms.length; i++) {
+            if (gyms[i].id === idGym) {
+                return gyms[i].namegym
+            }
+        }
+    }
+
     const columns = [
         
         { field: 'idCard', headerName: 'Cédula', width: 200 },
@@ -27,7 +36,7 @@ const TableUsers = (props) => {
         { field: 'email', headerName: 'Correo', width: 200 },
         { field: 'userName', headerName: 'Usuario', width: 200 },
         { field: 'type', headerName: 'Tipo de usuario', width: 200 },
-        { field: 'gym', headerName: 'Local Asignado', width: 200 },
+        { field: 'nameGym', headerName: 'Local Asignado', width: 200 },
         { 
             field: 'actions', 
             headerName: 'Acciones',
@@ -81,7 +90,8 @@ const TableUsers = (props) => {
                                 userName: item.userName,
                                 password: item.password,
                                 type:item.type,
-                                gym:item.gym
+                                gym:item.gym,
+                                nameGym: getGymById(item.gym)
 
                             }
                         ))
@@ -97,4 +107,4 @@ const TableUsers = (props) => {
     
 
 }
-export default TableUsers
+export default TableUser

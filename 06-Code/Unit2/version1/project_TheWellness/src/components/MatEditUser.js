@@ -19,6 +19,7 @@ const MatEditUser = ( props ) => {
     const data = props.data
     const handleUpdateRegister = props.handleUpdateRegister
     const gyms = props.gyms
+    //console.log(data)
 
     const [open, setOpen] = useState(false);
 
@@ -32,7 +33,7 @@ const MatEditUser = ( props ) => {
         type: data.type,
         gym: data.gym
     })
-
+    console.log(formUser.gym)
     const handleChange = (event) => {
         const { name, value } = event.target
         setformUser({ ...formUser, [name]: value})

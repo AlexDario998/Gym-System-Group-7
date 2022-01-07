@@ -96,28 +96,27 @@ const NavBar = () => {
                             open={Boolean(anchorElForms)}
                             onClose={handleCloseFormMenu}
                         >
-                            
+                        <Link to='/formAddGym' className='link'>                            
                             <MenuItem key='formsLocals'>
-                                <Link to='/formAddGym' className='link'>
                                     <Typography textAlign="center">Locales</Typography>
-                                </Link>
+                                
                             </MenuItem>
-                            <MenuItem key='formsTIDevices'>
-                                <Link to='/formAddTIDevice' className='link'>    
+                        </Link>
+                        <Link to='/formAddTIDevice' className='link'>  
+                            <MenuItem key='formsTIDevices'>   
                                     <Typography textAlign="center">Dispositivos TI</Typography>
-                                </Link>
                             </MenuItem>
+                        </Link>
+                        <Link to='/gymMachines' className='link'>
                             <MenuItem key='formGymMachines'>
-                                <Link to='/gymMachines' className='link'>
                                     <Typography textAlign="center">Máquinas de gimnasio</Typography>
-                                </Link>
                             </MenuItem>
-                            <MenuItem key='formsUsers'>
-                                <Link to='/formUser' className='link'>
-                                    <Typography textAlign="center">Usuarios</Typography>
-                                </Link>
+                        </Link>
+                        <Link to='/formUser' className='link'>
+                            <MenuItem key='formsUsers'>                               
+                                    <Typography textAlign="center">Usuarios</Typography>                               
                             </MenuItem>
-                            
+                        </Link>  
                         </Menu>
                     </Box>
 
@@ -148,27 +147,27 @@ const NavBar = () => {
                             open={Boolean(anchorElReports)}
                             onClose={handleCloseReportMenu}
                         >
-                            
-                            <MenuItem key='reportsLocals'>
-                                <Link to='/reportLocals' className='link'>
+                        <Link to='/reportLocals' className='link'>    
+                            <MenuItem key='reportsLocals'>                              
                                     <Typography textAlign="center">Locales</Typography>
-                                </Link>
                             </MenuItem>
+                        </Link>
+                        <Link to='/reportTIDevices' className='link'>
                             <MenuItem key='reportsTIDevices'>
-                                <Link to='/reportTIDevices' className='link'>
                                     <Typography textAlign="center">Dispositivos TI</Typography>
-                                </Link>
+                                
                             </MenuItem>
-                            <MenuItem key='reportsGymMachines'>
-                                <Link to='/reportGymMachines' className='link'>
+                        </Link>
+                        <Link to='/reportGymMachines' className='link'>
+                            <MenuItem key='reportsGymMachines'>                               
                                     <Typography textAlign="center">Máquinas de gimnasio</Typography>
-                                </Link>
                             </MenuItem>
+                        </Link>
+                        <Link to='/reportUsers' className='link'>
                             <MenuItem key='reportsUsers'>
-                            <Link to='/reportUsers' className='link'>
                                 <Typography textAlign="center">Usuarios</Typography>
-                                </Link>
                             </MenuItem>
+                        </Link>
                         </Menu>
                     </Box>
 
