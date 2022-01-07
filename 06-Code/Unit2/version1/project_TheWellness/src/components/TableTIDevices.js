@@ -19,11 +19,20 @@ const TableTIDevices = (props) => {
         updateRegister(values)
     }
 
+    const getGymById = (idGym) => {
+
+        for (var i=0; i<gyms.length; i++) {
+            if (gyms[i].id === idGym) {
+                return gyms[i].namegym
+            }
+        }
+    }
+
     const columns = [
         { field: 'name', headerName: 'Equipo infórmatico', width: 200 },
         { field: 'serialNumber', headerName: 'Serial', width: 200 },
         { field: 'brand', headerName: 'Marca', width: 200 },
-        { field: 'local', headerName: 'Gimnasio', width: 200 },
+        { field: 'nameGym', headerName: 'Gimnasio', width: 200 },
         { field: 'owner', headerName: 'Responsable', width: 200 },
         { 
             field: 'actions', 
@@ -74,7 +83,8 @@ const TableTIDevices = (props) => {
                                 serialNumber: item.serialNumber,
                                 brand: item.brand,
                                 local: item.local,
-                                owner: item.owner
+                                owner: item.owner,
+                                nameGym: getGymById(item.local)
                             }
                         ))
                     }
