@@ -2,6 +2,7 @@ import * as React from 'react';
 import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Stack,Typography,Select,MenuItem,FormControl} from "@mui/material"
+import { Link } from 'react-router-dom';
 
 const FormsSystem = (props) => {
 
@@ -142,6 +143,7 @@ const FormsSystem = (props) => {
         >
           Enviar y Notificar
         </Button>
+        <Link to="/menuOpt"  class='linkDescartar'>
         <Button variant="contained" 
           sx={{
             boxShadow: '1px 1px 5px #333',
@@ -152,6 +154,7 @@ const FormsSystem = (props) => {
         >
           Descartar
         </Button>
+        </Link>
       </Stack>
       </Box>
     </Box>

@@ -4,6 +4,7 @@ import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Stack,Typography,Select,MenuItem} from "@mui/material"
 import FormControl from '@mui/material/FormControl';
+import { Link } from 'react-router-dom';
 
 
 
@@ -197,16 +198,17 @@ const FormsMach = (props) => {
             }}>
             Enviar y Notificar
           </Button>
-
-          <Button variant="contained" 
-            sx={{
-              boxShadow: '1px 1px 5px #333',
-              background: '#CB356B',  /* fallback for old browsers */
-              background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
-              background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            }}>
-            Descartar
-          </Button> 
+          <Link to="/menuOpt"  class='linkDescartar'>
+            <Button variant="contained" 
+              sx={{
+                boxShadow: '1px 1px 5px #333',
+                background: '#CB356B',  /* fallback for old browsers */
+                background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
+                background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+              }}>
+              Descartar
+            </Button> 
+          </Link>
         </Stack>
         <br/>
       </Box>

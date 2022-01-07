@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../App.css';
 import '../index.css';
 import {Box, TextField, Button, MenuItem, Select, FormControl, InputLabel,Typography,Stack} from "@mui/material"
+import { Link } from 'react-router-dom';
 
 const FormsInf = (props) => {
 
@@ -97,7 +98,7 @@ const FormsInf = (props) => {
             }}>
             Enviar y Notificar
           </Button>
-
+          <Link to="/menuOpt"  class='linkDescartar'>
           <Button variant="contained" 
             sx={{
               boxShadow: '1px 1px 5px #333',
@@ -107,6 +108,7 @@ const FormsInf = (props) => {
             }}>
             Descartar
           </Button> 
+          </Link>
         </Stack>
                 <br/>
             </Box>

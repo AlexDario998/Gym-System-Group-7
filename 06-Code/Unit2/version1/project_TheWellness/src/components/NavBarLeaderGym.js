@@ -94,17 +94,16 @@ const NavBarLeaderGym = () => {
                             open={Boolean(anchorElForms)}
                             onClose={handleCloseRequestMenu}
                         >
-                            
+                        <Link to='/menuOpt' className='link'>    
                             <MenuItem key='formsLocals'>
-                                <Link to='/menuOpt' className='link'>
                                     <Typography textAlign="center">Crear solicitud</Typography>
-                                </Link>
                             </MenuItem>
+                        </Link>
+                        <Link to='/OptSoli' className='link'>   
                             <MenuItem key='formsTIDevices'>
-                                <Link to='/OptSoli' className='link'>    
                                     <Typography textAlign="center">Solicitudes</Typography>
-                                </Link>
                             </MenuItem>
+                        </Link>
                         </Menu>
                     </Box>
 
