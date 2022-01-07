@@ -10,7 +10,6 @@ export async function getReports(){
       })
       
       return response
-
   }catch(error){
     console.log(error)
   }

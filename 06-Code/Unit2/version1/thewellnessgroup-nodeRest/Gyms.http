@@ -3,10 +3,10 @@ POST http://localhost:3001/repair-request-gym-machines HTTP/1.1
 Content-Type: application/json
 
 {
-    "idUser": "4",
-    "idLocal": "4",
-    "idGymMachine": "4",
-    "date": "4",
+    "idUser": "5",
+    "idLocal": "5",
+    "idGymMachine": "5",
+    "date": "5",
     "machineType": "4",
     "gymZone": "4",
     "description":"4",

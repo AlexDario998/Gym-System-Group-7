@@ -7,6 +7,9 @@ const GymRequests = require("./routes/GymRequests")
 
 const app = express();
 const port = process.env.PORT || 3001;
+var cors = require('cors');
+app.use(cors());
+
 
 //middleware
 app.use(express.json());
