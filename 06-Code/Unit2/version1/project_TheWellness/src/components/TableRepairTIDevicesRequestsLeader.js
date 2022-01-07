@@ -9,13 +9,42 @@ import MatDescriptionTIDevicesRequests from "./MatDescriptionTIDevicesRequests";
 const TableRepairTIDevicesRequestsLeader = (props) => {
 
     const reports = props.reports
-  
+    const gyms = props.gyms
+    const users = props.users
+    const tiDevices = props.tiDevices
+
+
+    const getGymById = (idGym) => {
+        for (var i=0; i<gyms.length; i++) {
+            if (gyms[i].id === idGym) {
+                return gyms[i].namegym
+            }
+        }
+    }
+
+    const getTiDeviceById = (idTiDevice) => {
+        for (var i=0; i<tiDevices.length; i++) {
+            if (tiDevices[i].id === idTiDevice) {
+                return tiDevices[i].name
+            }
+        }
+    }
+
+    const getUserById = (idUser) => {
+        for (var i=0; i<users.length; i++) {
+            if (users[i].id === idUser) {
+                return users[i].name + ' ' + users[i].lastName
+            }
+        }
+    }
+
+
 
 
     const columns = [
-        { field: 'idUser', headerName: 'Autor', width: 200 },
-        { field: 'idLocal', headerName: 'Local', width: 200 },
-        { field: 'idTIDevice', headerName: 'Dispositivo', width: 200 },
+        { field: 'user', headerName: 'Autor', width: 200 },
+        { field: 'local', headerName: 'Local', width: 200 },
+        { field: 'tiDevice', headerName: 'Dispositivo', width: 200 },
         { field: 'date', headerName: 'Fecha de Solicitud', width: 200 },
         {
             field: "description",
@@ -65,6 +94,9 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
                                 idTIDevice: item.idTIDevice,
                                 date: item.date,
                                 description: item.description,
+                                user: getUserById(item.idUser),
+                                local: getGymById(item.idLocal),
+                                tiDevice: getTiDeviceById(item.idTIDevice)
                             }
                         ))
                     }
