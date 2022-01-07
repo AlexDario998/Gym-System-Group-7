@@ -93,7 +93,7 @@ const getUserById = (idUser) => {
         <DataGrid
         
           rows={reports.map((item) => ({
-            id: item.id,
+            id: item._id,
             idUser: item.idUser,
             idLocal: item.idLocal,
             date: item.date,
