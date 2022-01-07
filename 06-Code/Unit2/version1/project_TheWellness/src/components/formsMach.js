@@ -3,15 +3,7 @@ import React, {useEffect} from 'react';
 import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Stack,Typography,Select,MenuItem} from "@mui/material"
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import IconButton from '@mui/material/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
 
 
 
@@ -199,8 +191,8 @@ const FormsMach = (props) => {
             sx={{
               boxShadow: '1px 1px 5px #333',
               // margin: "10px",  
-              background: '#667db6',  /* fallback for old browsers */
-              background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',  /* Chrome 10-25, Safari 5.1-6 */
+              background: '#667db6',
+              background: '-webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
               background: 'linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)',
             }}>
             Enviar y Notificar

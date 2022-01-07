@@ -40,7 +40,7 @@ export async function saveRsystems(data, values, setValues){
     })
     
     setValues({idLocal: '', idTIDevice:'', description:''})
-
+    window.location.reload()
   }catch(error){
     console.log(error)
     setValues({idLocal: '', idTIDevice:'', description:''})
