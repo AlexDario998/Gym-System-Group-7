@@ -1,5 +1,6 @@
 import EditIcon from '@mui/icons-material/Edit'
 import { IconButton, Modal, Box, TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
+import { esES } from '@mui/x-data-grid';
 import React, { useState } from 'react';
 
 const style = {
@@ -24,6 +25,7 @@ const MatEditUser = ( props ) => {
     const [open, setOpen] = useState(false);
 
     const [formUser, setformUser] = useState({
+        id: data.id,
         idCard: data.idCard,
         name: data.name,
         lastName: data.lastName,
@@ -33,13 +35,15 @@ const MatEditUser = ( props ) => {
         type: data.type,
         gym: data.gym
     })
-    console.log(formUser.gym)
+    //console.log(formUser.gym)
     const handleChange = (event) => {
         const { name, value } = event.target
         setformUser({ ...formUser, [name]: value})
+        console.log(formUser)
     }
 
-    const handleEdit = () => {
+    const handleEdit = (e) => {
+        e.preventDefault()
         handleUpdateRegister(formUser)
     };
   
@@ -158,12 +162,12 @@ const MatEditUser = ( props ) => {
                                 label="Tipo de usuario"
                                 onChange={handleChange}
                             >
-                        <MenuItem disabled selected >Seleccione un tipo </MenuItem>
-                        <MenuItem value={2}>Supervisor</MenuItem>
-                        <MenuItem value={3}>Admin/Sistemas</MenuItem>
-                        <MenuItem value={4}>Admin/Mantenimiento</MenuItem>
-                        <MenuItem value={5}>Grupo de mantenimiento</MenuItem>
-                    </Select>
+                                <MenuItem disabled selected >Seleccione un tipo </MenuItem>
+                                <MenuItem value={2}>Supervisor</MenuItem>
+                                <MenuItem value={3}>Admin/Sistemas</MenuItem>
+                                <MenuItem value={4}>Admin/Mantenimiento</MenuItem>
+                                <MenuItem value={5}>Grupo de mantenimiento</MenuItem>
+                            </Select>
                          </FormControl>
 
                         {/* Gym */}

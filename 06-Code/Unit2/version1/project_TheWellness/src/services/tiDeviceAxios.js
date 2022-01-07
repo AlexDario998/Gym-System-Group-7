@@ -79,7 +79,7 @@ export async function updateTiDevice(values){
   })
   .then(response => {
     window.alert('Registro actualizado')
-    //window.location.reload()
+    window.location.reload()
   })
   .catch(error => {
     console.log(error)

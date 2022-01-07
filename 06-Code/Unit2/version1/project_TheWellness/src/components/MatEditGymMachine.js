@@ -36,7 +36,8 @@ const MatEditGymMachine = ( props ) => {
         setGymMachineValues({ ...gymMachineValues, [name]: value})
     }
 
-    const handleEdit = () => {
+    const handleEdit = (e) => {
+        e.preventDefault()
         handleUpdateRegister(gymMachineValues)
     };
   

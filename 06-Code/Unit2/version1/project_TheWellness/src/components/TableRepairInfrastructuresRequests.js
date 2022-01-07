@@ -15,13 +15,32 @@ import MatRepairRequestsComplete from "./MatRepairRequestsComplete";
 const TableRepairInfrastructuresRequests = (props) => {
   const reports = props.reports;
   const updateRegister = props.updateRegister
+  const gyms = props.gyms
+  const users = props.users
 
   const handleUpdateRegister = (data) => {
     updateRegister(data)
+  }
+
+  const getGymById = (idGym) => {
+    for (var i=0; i<gyms.length; i++) {
+        if (gyms[i].id === idGym) {
+            return gyms[i].namegym
+        }
+    }
 }
+
+const getUserById = (idUser) => {
+    for (var i=0; i<users.length; i++) {
+        if (users[i].id === idUser) {
+            return users[i].name + ' ' + users[i].lastName
+        }
+    }
+}
+
   const columns = [
-    { field: "idUser", headerName: "Nombre del autor", width: 200 },
-    { field: "idLocal", headerName: "Local", width: 200 },
+    { field: "user", headerName: "Nombre del autor", width: 200 },
+    { field: "local", headerName: "Local", width: 200 },
     { field: "date", headerName: "Fecha de Solicitud", width: 200 },
     {
       field: "description",
@@ -78,7 +97,9 @@ const TableRepairInfrastructuresRequests = (props) => {
             idUser: item.idUser,
             idLocal: item.idLocal,
             date: item.date,
-            description: item.description
+            description: item.description,
+            user: getUserById(item.idUser),
+            local: getGymById(item.idLocal)
           }))}
           columns={columns}
           pageSize={10}

@@ -20,7 +20,6 @@ const TableUser = (props) => {
     }
 
     const getGymById = (idGym) => {
-        console.log(idGym)
         for (var i=0; i<gyms.length; i++) {
             if (gyms[i].id === idGym) {
                 return gyms[i].namegym
@@ -29,7 +28,6 @@ const TableUser = (props) => {
     }
 
     const columns = [
-        
         { field: 'idCard', headerName: 'Cédula', width: 200 },
         { field: 'name', headerName: 'Nombre', width: 200 },
         { field: 'lastName', headerName: 'Apellidos', width: 200 },
@@ -52,7 +50,6 @@ const TableUser = (props) => {
                 </div>
             )
         }
-
     ]
       
     return (
@@ -89,8 +86,8 @@ const TableUser = (props) => {
                                 email: item.email,
                                 userName: item.userName,
                                 password: item.password,
-                                type:item.type,
-                                gym:item.gym,
+                                type: item.type,
+                                gym: item.gym,
                                 nameGym: getGymById(item.gym)
 
                             }

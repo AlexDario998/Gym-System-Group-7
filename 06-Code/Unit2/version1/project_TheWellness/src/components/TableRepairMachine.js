@@ -4,7 +4,35 @@ import { DataGrid } from '@mui/x-data-grid';
 
 const TableRepairMachine = (props) => {
 
-    const repMachine = props.repMachine
+    const rmachine = props.rmachine
+    const gyms = props.gyms
+    const users = props.users
+    const gymMachines = props.gymMachines
+    console.log(rmachine)
+
+    const getGymById = (idGym) => {
+        for (var i=0; i<gyms.length; i++) {
+            if (gyms[i].id === idGym) {
+                return gyms[i].namegym
+            }
+        }
+    }
+
+    const getGymMachineById = (idGymMachine) => {
+        for (var i=0; i<gymMachines.length; i++) {
+            if (gymMachines[i].id === idGymMachine) {
+                return gymMachines[i].name
+            }
+        }
+    }
+
+    const getUserById = (idUser) => {
+        for (var i=0; i<users.length; i++) {
+            if (users[i].id === idUser) {
+                return users[i].name + users[i].lastName
+            }
+        }
+    }
 
     const columns = [
         //{ field: 'id', headerName: 'ID', width: 70 },
@@ -40,14 +68,16 @@ const TableRepairMachine = (props) => {
                 <DataGrid
                     rows=
                     {
-                        repMachine.map(item => (
+                        rmachine.map(item => (
                             {
-                                id: Math.random() * (1000 - 0) + 0,
-                                autor: item.autor,
-                                local: item.local,
-                                serial: item.brand,
+                                id: item.id,
+                                idUser: item.idUser,
+                                idLocal: item.idLocal,
+                                idGymMachine: item.idGymMachine,
                                 date: item.date,
-                                description: item.description
+                                description: item.description,
+                                user: getUserById(autor),
+                                nameGymMachine: getGymMachineById(serial)
                             }
                         ))
                     }

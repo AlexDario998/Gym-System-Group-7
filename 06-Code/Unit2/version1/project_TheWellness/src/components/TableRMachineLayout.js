@@ -1,5 +1,7 @@
 import TableRmachine from './TableRepairMachine'
 import { getRmachine} from '../services/rMachineAxios'
+import { getGymMachines} from '../services/gymMachineAxios'
+import { getUsers} from '../services/userAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
@@ -11,6 +13,9 @@ const cookies = new Cookies()
 const TableRMachineLayout = () => {
 
     const [rmachine, setRmachine] = useState([])
+    const [gyms, setGyms] = useState([])
+    const [gymMachines, setGymMachines] = useState([])
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
         async function loadRmachine() {
@@ -26,6 +31,48 @@ const TableRMachineLayout = () => {
     }, [])
 
     useEffect(() => {
+        async function loadGyms() {
+            const response = await getLocals()
+
+            if (response.status === 200) {
+                setGyms(response.data)
+                
+            }
+        }
+
+        loadGyms()
+        
+    }, [])
+
+    useEffect(() => {
+        async function loadGymMachines() {
+            const response = await getGymMachines()
+
+            if (response.status === 200) {
+                setGymMachines(response.data)
+                
+            }
+        }
+
+        loadGymMachines()
+        
+    }, [])
+
+    useEffect(() => {
+        async function loadUsers() {
+            const response = await getUsers()
+
+            if (response.status === 200) {
+                setUsers(response.data)
+                
+            }
+        }
+
+        loadUsers()
+        
+    }, [])
+
+    useEffect(() => {
         if (typeof cookies.get('userName') === 'undefined') {
             window.location.href = "./"
         }
@@ -36,7 +83,7 @@ const TableRMachineLayout = () => {
             <Box>
                 <NavBar />
                 <br/><br/>
-                <TableRmachine rmachine={rmachine}/>
+                <TableRmachine rmachine={rmachine} gyms={gyms} users={users} gymMachines={gymMachines} />
             </Box>
         
         </>

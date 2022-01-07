@@ -1,0 +1,38 @@
+###
+POST http://localhost:3001/repair-request-gym-machines HTTP/1.1
+Content-Type: application/json
+
+{
+    "idUser": "4",
+    "idLocal": "4",
+    "idGymMachine": "4",
+    "date": "4",
+    "machineType": "4",
+    "gymZone": "4",
+    "description":"4",
+    "confirmation": true
+}
+
+###
+GET http://localhost:3001/repair-request-gym-machines HTTP/1.1
+
+###
+GET http://localhost:3001/repair-request-gym-machines/61d7e18853ad903e2c4a78fd HTTP/1.1
+
+###
+PUT http://localhost:3001/repair-request-gym-machines/61d7e18853ad903e2c4a78fd HTTP/1.1
+Content-Type: application/json
+
+{
+    "idUser": "3.3",
+    "idLocal": "3",
+    "idGymMachine": "3",
+    "date": "3",
+    "machineType": "3",
+    "gymZone": "3",
+    "description":"3",
+    "confirmation": true
+}
+
+###
+DELETE http://localhost:3001/repair-request-gym-machines/61d7e18853ad903e2c4a78fd HTTP/1.1

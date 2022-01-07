@@ -36,7 +36,8 @@ const MatEditTiDevice = ( props ) => {
         setformTiDeviceValues({ ...formTiDeviceValues, [name]: value})
     }
 
-    const handleEdit = () => {
+    const handleEdit = (e) => {
+        e.preventDefault()
         handleUpdateRegister(formTiDeviceValues)
     };
   

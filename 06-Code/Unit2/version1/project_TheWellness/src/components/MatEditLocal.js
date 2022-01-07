@@ -32,7 +32,8 @@ const MatEditLocal = ( props ) => {
         setformAddLocalValues({ ...formAddLocalValues, [name]: value})
     }
 
-    const handleEdit = () => {
+    const handleEdit = (e) => {
+        e.preventDefault()
         handleUpdateRegister(formAddLocalValues)
     };
   
