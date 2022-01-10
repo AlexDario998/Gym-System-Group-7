@@ -4,6 +4,7 @@ require("dotenv").config();
 const TIDevicesRequests = require("./routes/TIDevicesRequests");
 const InfrastructuresRequests = require("./routes/InfrastructuresRequests")
 const GymRequests = require("./routes/GymRequests")
+const Infrastructure = require("./routes/Infrastructure")
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(TIDevicesRequests);
 app.use(InfrastructuresRequests);
 app.use(GymRequests);
+app.use(Infrastructure);
 
 //routes
 app.get('/', (req,res) =>{
