@@ -29,16 +29,16 @@ const TableTIDevices = (props) => {
     }
 
     const columns = [
-        { field: 'name', headerName: 'Equipo infórmatico', width: 200 },
+        { field: 'name', headerName: 'Equipo infórmatico', width: 150 },
         { field: 'serialNumber', headerName: 'Serial', width: 200 },
-        { field: 'brand', headerName: 'Marca', width: 200 },
-        { field: 'nameGym', headerName: 'Gimnasio', width: 200 },
-        { field: 'owner', headerName: 'Responsable', width: 200 },
+        { field: 'brand', headerName: 'Marca', width: 100 },
+        { field: 'nameGym', headerName: 'Gimnasio', width: 180 },
+        { field: 'owner', headerName: 'Responsable', width: 140 },
         { 
             field: 'actions', 
             headerName: 'Acciones',
             sortable: false,
-            width: 200,
+            width: 100,
             disableClickEventBubbling: true,
             renderCell: (params) => (
                 <div
