@@ -57,7 +57,8 @@ const TableUserLayout = () => {
 
     return (
         <>
-            <Box>
+            <Box
+            class = "imgUser">
                 <NavBar />
                 <br/><br/>
                 <TableUsers users={users} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister}/>

@@ -41,7 +41,9 @@ const TableLocalsLayout = () => {
 
     return (
         <>
-            <Box>
+            <Box
+                 class = "imgLocal"
+            >
                 <NavBar />
                 <br/><br/>
                 <TableLocals gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />

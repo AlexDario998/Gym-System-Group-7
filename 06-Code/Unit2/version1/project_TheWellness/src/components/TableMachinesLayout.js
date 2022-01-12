@@ -57,7 +57,8 @@ const TableMachinesLayout = () => {
 
     return (
         <>
-            <Box>
+            <Box
+             class = "imgMachine">
                 <NavBar />
                 <br/><br/>
                 <TableMachines gymMachines={gymMachines} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />

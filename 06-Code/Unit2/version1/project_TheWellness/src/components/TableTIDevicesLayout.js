@@ -57,7 +57,8 @@ const TableTIDevicesLayout = () => {
 
     return (
         <>
-            <Box>
+            <Box
+            class = "imgTIDevice">
                 <NavBar />
                 <br/><br/>
                 <TableTIDevices tiDevices={tiDevices} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
