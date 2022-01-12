@@ -1,25 +1,25 @@
-import TableUsers from './TableUser'
-import { getUsers,deleteUser,updateUser } from '../services/userAxios'
+import TableTIDevices from '../components/TableTIDevices'
+import {getTIDevices, deleteTiDevice, updateTiDevice} from '../services/tiDeviceAxios'
+import {getLocals} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
-import NavBar from './NavBar'
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
-import {getLocals} from '../services/localAxios'
 
 const cookies = new Cookies()
 
-const TableUserLayout = () => {
+const TableTIDevicesLayout = () => {
 
-    const [users, setUsers] = useState([])
+    const [tiDevices, setTIDevices] = useState([])
     const [gyms, setGyms] = useState([])
 
-    const deleteRegister = (idUser) => {
-        deleteUser(idUser)
+    const deleteRegister = (idTiDevice) => {
+        deleteTiDevice(idTiDevice)
     }
 
     const updateRegister = (values) => {
-        updateUser(values)
+        updateTiDevice(values)
     }
 
     useEffect(() => {
@@ -37,15 +37,15 @@ const TableUserLayout = () => {
     }, [])
 
     useEffect(() => {
-        async function loadUsers() {
-            const response = await getUsers()
+        async function loadTIDevices() {
+            const response = await getTIDevices()
 
             if (response.status === 200) {
-                setUsers(response.data)
+                setTIDevices(response.data)
             }
         }
 
-        loadUsers()
+        loadTIDevices()
         
     }, [])
 
@@ -58,13 +58,13 @@ const TableUserLayout = () => {
     return (
         <>
             <Box
-            class = "imgUser">
+            class = "imgTIDevice">
                 <NavBar />
                 <br/><br/>
-                <TableUsers users={users} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister}/>
+                <TableTIDevices tiDevices={tiDevices} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
             </Box>
         
         </>
     )
 }
-export default TableUserLayout
+export default TableTIDevicesLayout

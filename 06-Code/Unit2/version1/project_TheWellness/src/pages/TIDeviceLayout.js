@@ -1,23 +1,27 @@
-import TableLocals from './TableLocals'
-import {getLocals, deleteLocal, updateLocal} from '../services/localAxios'
+import React, {useEffect, useState} from 'react';
+import FormAddTIDevice from '../components/FormAddTIDevice'
+import {saveTIDevice} from '../services/tiDeviceAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import React, {useEffect, useState} from 'react';
-import NavBar from './NavBar'
+import { getLocals } from '../services/localAxios';
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 
 const cookies = new Cookies()
 
-const TableLocalsLayout = () => {
-
+const TIDeviceLayout = () => {
     const [gyms, setGyms] = useState([])
 
-    const deleteRegister = (idLocal) => {
-        deleteLocal(idLocal)
-    }
+    const [values, setValues] = useState({
+        name: '',
+        serialNumber: '',
+        brand: '',
+        local: '',
+        owner: ''
+    })
 
-    const updateRegister = (values) => {
-        updateLocal(values)
+    const handleSubmit = (data) => {
+        saveTIDevice(data,values,setValues)
     }
 
     useEffect(() => {
@@ -26,6 +30,7 @@ const TableLocalsLayout = () => {
 
             if (response.status === 200) {
                 setGyms(response.data)
+                
             }
         }
 
@@ -42,14 +47,15 @@ const TableLocalsLayout = () => {
     return (
         <>
             <Box
-                 class = "imgLocal"
+                class = "imgTIDevice"
             >
                 <NavBar />
                 <br/><br/>
-                <TableLocals gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
+                <FormAddTIDevice handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues}/>
+                <br/>
             </Box>
         
         </>
     )
 }
-export default TableLocalsLayout
+export default TIDeviceLayout

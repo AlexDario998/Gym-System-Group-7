@@ -1,10 +1,10 @@
-import TableMachines from './TableMachines'
+import TableMachines from '../components/TableMachines'
 import {getGymMachines,deleteGymMachine,updateGymMachine} from '../services/gymMachineAxios'
 import {getLocals} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
-import NavBar from './NavBar'
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 
 const cookies = new Cookies()

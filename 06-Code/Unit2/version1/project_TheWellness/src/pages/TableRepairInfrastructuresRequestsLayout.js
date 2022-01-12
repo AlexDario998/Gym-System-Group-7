@@ -1,38 +1,31 @@
-import TableRepairTIDevicesRequests from "./TableRepairTIDevicesRequests";
+import TableRepairInfrastructuresRequests from "../components/TableRepairInfrastructuresRequests";
 import {
   getReports,
-  deleteRequest,
   getReportsByConfirmation,
   updateConfirmation,
-
-} from "../services/repairRequestTIDevicesAxios";
+} from "../services/repairInfrastructuresRequestAxios"
 import {getLocals} from '../services/localAxios'
-import { getTIDevices} from '../services/tiDeviceAxios'
 import { getUsers} from '../services/userAxios'
 import "../index.css";
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import NavbarSystemsAdmin from "./NavbarSystemsAdmin";
+import NavbarMaintenanceAdmin from "../components/NavbarMaintenanceAdmin";
 import Cookies from "universal-cookie/es6";
 
 const cookies = new Cookies();
 
-const TableRepairTIDevicesRequestsLayout = () => {
+const TableRepairInfrastructuresRequestsLayout = () => {
 
-  const [reports, setReports] = useState([]);
+  const [reports, setReports] = useState([])
   const [gyms, setGyms] = useState([])
-  const [tiDevices, setTiDevices] = useState([])
   const [users, setUsers] = useState([])
 
   const updateRegister = (data) => {
     updateConfirmation(data);
-
   };
-
 
   useEffect(() => {
     async function loadReports() {
-      const response = await getReports();
       const data = await getReportsByConfirmation();
       setReports(data);
     }
@@ -55,20 +48,6 @@ const TableRepairTIDevicesRequestsLayout = () => {
   }, [])
 
   useEffect(() => {
-      async function loadTiDevices() {
-          const response = await getTIDevices()
-
-          if (response.status === 200) {
-              setTiDevices(response.data)
-              
-          }
-      }
-
-      loadTiDevices()
-      
-  }, [])
-
-  useEffect(() => {
       async function loadUsers() {
           const response = await getUsers()
 
@@ -83,7 +62,7 @@ const TableRepairTIDevicesRequestsLayout = () => {
   }, [])
 
   useEffect(() => {
-    if (typeof cookies.get("userName") === "undefined" || cookies.get('type', {path: "/"}) !== '3') {
+    if (typeof cookies.get("userName") === "undefined" || cookies.get('type', {path: "/"}) !== '4') {
       window.location.href = "./";
     }
   });
@@ -91,17 +70,16 @@ const TableRepairTIDevicesRequestsLayout = () => {
   return (
     <>
       <Box>
-        <NavbarSystemsAdmin />
+        <NavbarMaintenanceAdmin />
         <br />
         <br />
-        <TableRepairTIDevicesRequests
+        <TableRepairInfrastructuresRequests
           reports={reports}
           updateRegister={updateRegister}
-          gyms={gyms} users={users} tiDevices={tiDevices}
-   
+          gyms={gyms} users={users}
         />
       </Box>
     </>
   );
 };
-export default TableRepairTIDevicesRequestsLayout;
+export default TableRepairInfrastructuresRequestsLayout;

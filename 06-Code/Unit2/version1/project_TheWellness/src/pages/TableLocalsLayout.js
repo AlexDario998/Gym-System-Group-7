@@ -1,27 +1,23 @@
-import React, {useEffect, useState} from 'react';
-import {saveGymMachine} from '../services/gymMachineAxios'
+import TableLocals from '../components/TableLocals'
+import {getLocals, deleteLocal, updateLocal} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import { getLocals } from '../services/localAxios';
-import NavBar from './NavBar'
+import React, {useEffect, useState} from 'react';
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
-import FormMachine from './FormMachine';
 
 const cookies = new Cookies()
 
-const MachineLayout = () => {
+const TableLocalsLayout = () => {
+
     const [gyms, setGyms] = useState([])
 
-    const [values, setValues] = useState({
-        name: '',
-        gym: '',
-        serialNumber: '',
-        mark: '',
-        zone: ''
-    })
+    const deleteRegister = (idLocal) => {
+        deleteLocal(idLocal)
+    }
 
-    const handleSubmit = (data) => {
-        saveGymMachine(data,values,setValues)
+    const updateRegister = (values) => {
+        updateLocal(values)
     }
 
     useEffect(() => {
@@ -30,7 +26,6 @@ const MachineLayout = () => {
 
             if (response.status === 200) {
                 setGyms(response.data)
-                
             }
         }
 
@@ -47,15 +42,14 @@ const MachineLayout = () => {
     return (
         <>
             <Box
-                class = "imgMachine"
+                 class = "imgLocal"
             >
                 <NavBar />
                 <br/><br/>
-                <FormMachine handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues} />
-                <br/>
+                <TableLocals gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
             </Box>
         
         </>
     )
 }
-export default MachineLayout
+export default TableLocalsLayout

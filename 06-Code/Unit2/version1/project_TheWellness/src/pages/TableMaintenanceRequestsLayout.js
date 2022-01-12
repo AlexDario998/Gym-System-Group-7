@@ -1,33 +1,33 @@
-import TableMaintenanceRequestsLeader from './TableMaintenanceRequestsLeader'
-import {getReports, getReportsByConfirmationMachines, updateConfirmation} from '../services/maintenanceRequestsAxios.js'
+import TableMaintenanceRequests from '../components/TableMaintenanceRequests'
+import {getReports, getReportsByConfirmationMachines, updateConfirmation} from '../services/maintenanceRequestsAxios'
 import {getLocals} from '../services/localAxios'
 import { getGymMachines} from '../services/gymMachineAxios'
 import { getUsers} from '../services/userAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
-import NavbarLeaderGym from './NavBarLeaderGym'
+import NavbarMaintenanceAdmin from '../components/NavbarMaintenanceAdmin'
 import Cookies from 'universal-cookie/es6';
 
 const cookies = new Cookies()
 
-const TableMaintenanceRequestsLayoutLeader = () => {
+const TableMaintenanceRequestsLayout = () => {
 
     const [reports, setReports] = useState([])
     const [gyms, setGyms] = useState([])
     const [gymMachines, setGymMachines] = useState([])
     const [users, setUsers] = useState([])
- 
+
+    const updateRegister = (data) => {
+        updateConfirmation(data);
+      };
     
 
     useEffect(() => {
         async function loadReports() {
-            const response = await getReports()
-
-            if (response.status === 200) {
-                setReports(response.data)
-                
-            }
+            const data = await getReportsByConfirmationMachines();
+             setReports(data);
+            
         }
 
         loadReports()
@@ -78,7 +78,7 @@ const TableMaintenanceRequestsLayoutLeader = () => {
 
 
     useEffect(() => {
-        if (typeof cookies.get('userName') === 'undefined' || cookies.get('type', {path: "/"}) !== '2') {
+        if (typeof cookies.get('userName') === 'undefined' || cookies.get('type', {path: "/"}) !== '4') {
             window.location.href = "./"
         }
     })
@@ -86,14 +86,14 @@ const TableMaintenanceRequestsLayoutLeader = () => {
     return (
         <>
             <Box>
-                <NavbarLeaderGym/>
+                <NavbarMaintenanceAdmin/>
                 <br/><br/>
-                <TableMaintenanceRequestsLeader reports={reports}
-                gyms={gyms} users={users} gymMachines={gymMachines}
+                <TableMaintenanceRequests reports={reports}
+                    updateRegister={updateRegister} gyms={gyms} users={users} gymMachines={gymMachines}
                 />
             </Box>
         
         </>
     )
 }
-export default TableMaintenanceRequestsLayoutLeader
+export default TableMaintenanceRequestsLayout

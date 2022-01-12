@@ -1,9 +1,9 @@
-import FormUser from './FormUser'
+import FormUser from '../components/FormUser'
 import {saveUser} from '../services/userAxios'
 import {getLocals} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import NavBar from './NavBar'
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 

@@ -1,33 +1,33 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
-import Infra from './components/FormInfLayout';
-import Systems from './components/FormSystemLayout';
+import Infra from './pages/FormInfLayout';
+import Systems from './pages/FormSystemLayout';
 import Machine from './pages/FormMachLayout';
-import TIDevice from './components/TIDeviceLayout';
-import Gym from './components/LocalLayout';
-import User from './components/UserLayout';
-import Machines from './components/MachineLayout';
-import HomescreenSuperAdmin from './components/HomeScreenSuperAdminLayout';
-import HomescreenLeaderGym from './components/HomeScreenLeaderGymLayout';
+import TIDevice from './pages/TIDeviceLayout';
+import Gym from './pages/LocalLayout';
+import User from './pages/UserLayout';
+import Machines from './pages/MachineLayout';
+import HomescreenSuperAdmin from './pages/HomeScreenSuperAdminLayout';
+import HomescreenLeaderGym from './pages/HomeScreenLeaderGymLayout';
 import HomeScreenMantAdmin from './components/HomeScreenMantAdmin';
-import HomeScreenSystemAdmin from './components/HomeScreenSystemAdminLayout';
+import HomeScreenSystemAdmin from './pages/HomeScreenSystemAdminLayout';
 
-import Menuopt from './components/MenuOptLayout';
-import Optsoli from './components/OptSoliLayout';
-import TableLocals from './components/TableLocalsLayout'
-import TableTIDevices from './components/TableTIDevicesLayout'
+import Menuopt from './pages/MenuOptLayout';
+import Optsoli from './pages/OptSoliLayout';
+import TableLocals from './pages/TableLocalsLayout'
+import TableTIDevices from './pages/TableTIDevicesLayout'
 
-import TableUsers  from './components/TableUserLayout'
+import TableUsers  from './pages/TableUserLayout'
 
-import TableGymMachines from './components/TableMachinesLayout'
+import TableGymMachines from './pages/TableMachinesLayout'
 
-import TableRepairTIDevicesRequests from './components/TableRepairTIDevicesRequestsLayout';
-import TableMaintenanceRequests from './components/TableMaintenanceRequestsLayout';
-import TableRepairInfrastructuresRequests from './components/TableRepairInfrastructuresRequestsLayout';
-import TableMaintenanceRequestsLayoutLeader from './components/TableMaintenanceRequestsLayoutLeader';
-import TableRepairInfrastructuresRequestsLayoutLeader from './components/TableRepairInfrastructuresRequestsLayoutLeader';
-import TableRepairTIDevicesRequestsLayoutLeader from './components/TableRepairTIDevicesRequestsLayoutLeader';
+import TableRepairTIDevicesRequests from './pages/TableRepairTIDevicesRequestsLayout';
+import TableMaintenanceRequests from './pages/TableMaintenanceRequestsLayout';
+import TableRepairInfrastructuresRequests from './pages/TableRepairInfrastructuresRequestsLayout';
+import TableMaintenanceRequestsLayoutLeader from './pages/TableMaintenanceRequestsLayoutLeader';
+import TableRepairInfrastructuresRequestsLayoutLeader from './pages/TableRepairInfrastructuresRequestsLayoutLeader';
+import TableRepairTIDevicesRequestsLayoutLeader from './pages/TableRepairTIDevicesRequestsLayoutLeader';
 
 const App = () => {
 
