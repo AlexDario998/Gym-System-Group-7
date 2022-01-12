@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import Infra from './components/FormInfLayout';
 import Systems from './components/FormSystemLayout';
-import Machine from './components/FormMachLayout';
+import Machine from './pages/FormMachLayout';
 import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
 import User from './components/UserLayout';
