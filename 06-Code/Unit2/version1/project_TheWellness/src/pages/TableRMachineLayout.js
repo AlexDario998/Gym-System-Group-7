@@ -1,11 +1,11 @@
-import TableRmachine from './TableRepairMachine'
+import TableRmachine from '../components/TableRepairMachine'
 import { getRmachine} from '../services/rMachineAxios'
 import { getGymMachines} from '../services/gymMachineAxios'
 import { getUsers} from '../services/userAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
-import NavBar from './NavBar'
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 
 const cookies = new Cookies()

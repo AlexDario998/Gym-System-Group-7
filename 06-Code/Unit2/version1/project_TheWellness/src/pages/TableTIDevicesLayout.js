@@ -1,10 +1,10 @@
-import TableTIDevices from './TableTIDevices'
+import TableTIDevices from '../components/TableTIDevices'
 import {getTIDevices, deleteTiDevice, updateTiDevice} from '../services/tiDeviceAxios'
 import {getLocals} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
-import NavBar from './NavBar'
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 
 const cookies = new Cookies()
@@ -57,7 +57,8 @@ const TableTIDevicesLayout = () => {
 
     return (
         <>
-            <Box>
+            <Box
+            class = "imgTIDevice">
                 <NavBar />
                 <br/><br/>
                 <TableTIDevices tiDevices={tiDevices} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />

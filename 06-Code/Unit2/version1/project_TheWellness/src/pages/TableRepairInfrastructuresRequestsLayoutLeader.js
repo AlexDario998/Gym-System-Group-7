@@ -1,4 +1,4 @@
-import TableRepairInfrastructuresRequestsLeader from "./TableRepairInfrastructuresRequestsLeader";
+import TableRepairInfrastructuresRequestsLeader from "../components/TableRepairInfrastructuresRequestsLeader";
 import {
   getReports,
   getReportsByConfirmation,
@@ -10,7 +10,7 @@ import "../index.css";
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Cookies from "universal-cookie/es6";
-import NavBarLeaderGym from "./NavBarLeaderGym";
+import NavBarLeaderGym from "../components/NavBarLeaderGym";
 
 const cookies = new Cookies();
 

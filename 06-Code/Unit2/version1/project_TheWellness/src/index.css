@@ -13,7 +13,7 @@ code {
 }
 
 .imgTIDevice {
-  background-image: url(img/imgAddTIDevice.png);
+  background-image: url(img/imgAddTIDeviceBlack.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -24,7 +24,8 @@ code {
 }
 
 .imgLocal {
-  background-image: url(img/imgAddLocal.jpg);
+  /* background-image: url(img/imgAddLocal.jpg); */
+  background-image: url(img/imgAddLocalBlack.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -35,7 +36,7 @@ code {
 }
  
 .imgUser{
-  background-image: url(img/usuarios.PNG);
+  background-image: url(img/womanB.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -46,7 +47,7 @@ code {
 }
 
 .imgMachine{
-  background-image: url(img/gyms_04.jpg);
+  background-image: url(img/gyms_04Black1.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -119,7 +120,8 @@ code {
 
 
 .bgHome{
-  background-image: url(img/backgroundHome.jpg);
+  /* background-image: url(img/backgroundHome.jpg); */
+  background-image: url(img/backgroundHomeBlack.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -144,7 +146,7 @@ code {
   /* color: rgb(252, 134, 0); */
 }
 
-.logoHome{
+/* .logoHome{
   background-image: url(img/logoWellnessGroup.png);
   background-size: cover;
   width: 40vh;
@@ -153,8 +155,8 @@ code {
   right: 100px;
   background-color: #fff;
   border-radius: 300px;
-  box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px rgb(252, 134, 0), 0 0 30px rgb(252, 134, 0), 0 0 40px rgb(252, 134, 0), 0 0 55px rgb(252, 134, 0), 0 0 75px rgb(252, 134, 0);
-}
+  box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px rgb(252, 134, 0), 0 0 30px rgb(252, 134, 0), 0 0 40px rgb(252, 134, 0);
+} */
 
 .linkDescartar{
   text-decoration: none;
@@ -262,4 +264,19 @@ code {
   text-align: center; 
   font-size: 29px;
   margin: 0;
+}
+@media (max-height:650px){
+    #editUser{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400;
+      /* bgcolor: 'background.paper; */
+      border: 2px solid #000;
+      boxShadow: 24px;
+      padding: 40px;  
+    height: 100vh;
+    overflow-y: scroll;  }
+
 }

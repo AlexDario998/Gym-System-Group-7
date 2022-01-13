@@ -1,25 +1,25 @@
-import TableMachines from './TableMachines'
-import {getGymMachines,deleteGymMachine,updateGymMachine} from '../services/gymMachineAxios'
-import {getLocals} from '../services/localAxios'
+import TableUsers from '../components/TableUser'
+import { getUsers,deleteUser,updateUser } from '../services/userAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
-import NavBar from './NavBar'
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
+import {getLocals} from '../services/localAxios'
 
 const cookies = new Cookies()
 
-const TableMachinesLayout = () => {
+const TableUserLayout = () => {
 
-    const [gymMachines, setGymMachines] = useState([])
+    const [users, setUsers] = useState([])
     const [gyms, setGyms] = useState([])
 
-    const deleteRegister = (idGymMachines) => {
-        deleteGymMachine(idGymMachines)
+    const deleteRegister = (idUser) => {
+        deleteUser(idUser)
     }
 
     const updateRegister = (values) => {
-        updateGymMachine(values)
+        updateUser(values)
     }
 
     useEffect(() => {
@@ -37,15 +37,15 @@ const TableMachinesLayout = () => {
     }, [])
 
     useEffect(() => {
-        async function loadGymMachines() {
-            const response = await getGymMachines()
+        async function loadUsers() {
+            const response = await getUsers()
 
             if (response.status === 200) {
-                setGymMachines(response.data)
+                setUsers(response.data)
             }
         }
 
-        loadGymMachines()
+        loadUsers()
         
     }, [])
 
@@ -57,13 +57,14 @@ const TableMachinesLayout = () => {
 
     return (
         <>
-            <Box>
+            <Box
+            class = "imgUser">
                 <NavBar />
                 <br/><br/>
-                <TableMachines gymMachines={gymMachines} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
+                <TableUsers users={users} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister}/>
             </Box>
         
         </>
     )
 }
-export default TableMachinesLayout
+export default TableUserLayout

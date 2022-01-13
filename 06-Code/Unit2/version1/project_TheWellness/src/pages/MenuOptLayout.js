@@ -1,7 +1,7 @@
-import MenuOpt from './menuOpt'
+import MenuOpt from '../components/menuOpt'
 import '../index.css';
 import {Box} from "@mui/material"
-import NavBarLeaderGym from './NavBarLeaderGym'
+import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 

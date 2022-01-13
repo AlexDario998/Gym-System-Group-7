@@ -1,4 +1,4 @@
-import TableRepairTIDevicesRequestsLeader from "./TableRepairTIDevicesRequestsLeader";
+import TableRepairTIDevicesRequests from "../components/TableRepairTIDevicesRequests";
 import {
   getReports,
   deleteRequest,
@@ -12,28 +12,29 @@ import { getUsers} from '../services/userAxios'
 import "../index.css";
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import NavBarLeaderGym from "./NavBarLeaderGym";
+import NavbarSystemsAdmin from "../components/NavbarSystemsAdmin";
 import Cookies from "universal-cookie/es6";
 
 const cookies = new Cookies();
 
 const TableRepairTIDevicesRequestsLayout = () => {
+
   const [reports, setReports] = useState([]);
   const [gyms, setGyms] = useState([])
   const [tiDevices, setTiDevices] = useState([])
   const [users, setUsers] = useState([])
-  
 
+  const updateRegister = (data) => {
+    updateConfirmation(data);
+
+  };
 
 
   useEffect(() => {
     async function loadReports() {
-      const response = await getReports()
-
-      if (response.status === 200) {
-          setReports(response.data)
-          
-      }
+      const response = await getReports();
+      const data = await getReportsByConfirmation();
+      setReports(data);
     }
 
     loadReports();
@@ -82,7 +83,7 @@ const TableRepairTIDevicesRequestsLayout = () => {
   }, [])
 
   useEffect(() => {
-    if (typeof cookies.get("userName") === "undefined" || cookies.get('type', {path: "/"}) !== '2') {
+    if (typeof cookies.get("userName") === "undefined" || cookies.get('type', {path: "/"}) !== '3') {
       window.location.href = "./";
     }
   });
@@ -90,11 +91,12 @@ const TableRepairTIDevicesRequestsLayout = () => {
   return (
     <>
       <Box>
-        <NavBarLeaderGym />
+        <NavbarSystemsAdmin />
         <br />
         <br />
-        <TableRepairTIDevicesRequestsLeader
+        <TableRepairTIDevicesRequests
           reports={reports}
+          updateRegister={updateRegister}
           gyms={gyms} users={users} tiDevices={tiDevices}
    
         />
