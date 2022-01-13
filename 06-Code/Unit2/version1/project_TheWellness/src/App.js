@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
-import Infra from './components/FormInfLayout';
-import Systems from './components/FormSystemLayout';
+import Infra from './pages/FormInfLayout';
+import Systems from './pages/FormSystemLayout';
 import Machine from './pages/FormMachLayout';
 import TIDevice from './components/TIDeviceLayout';
 import Gym from './components/LocalLayout';
