@@ -90,7 +90,7 @@ const TableRepairTIDevicesRequestsLayout = () => {
 
   return (
     <>
-      <Box>
+      <Box class = "boxSystem">
         <NavbarSystemsAdmin />
         <br />
         <br />

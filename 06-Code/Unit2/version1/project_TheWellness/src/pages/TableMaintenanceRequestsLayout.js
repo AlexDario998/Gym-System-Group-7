@@ -85,7 +85,7 @@ const TableMaintenanceRequestsLayout = () => {
 
     return (
         <>
-            <Box>
+            <Box  class="boxMach">
                 <NavbarMaintenanceAdmin/>
                 <br/><br/>
                 <TableMaintenanceRequests reports={reports}

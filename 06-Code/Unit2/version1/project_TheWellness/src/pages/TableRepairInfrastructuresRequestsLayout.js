@@ -69,7 +69,7 @@ const TableRepairInfrastructuresRequestsLayout = () => {
 
   return (
     <>
-      <Box>
+      <Box class = "boxInfra">
         <NavbarMaintenanceAdmin />
         <br />
         <br />
