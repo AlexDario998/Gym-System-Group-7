@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useState} from 'react';
 import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Select,MenuItem} from "@mui/material"
@@ -13,10 +13,40 @@ const FormMachine = ( props ) => {
     const gyms = props.gyms
     const values = props.values
     const setValues = props.setValues
+
+    const[validation, setValidation]=useState({
+        auxName:false,
+        auxBrand:false,
+        auxSerial:false,
+        auxLocal:false,
+        auxZone:false
+    })
     
     const handleChange = (event) => {
         const { name, value } = event.target
         setValues({ ...values, [name]: value})
+    }
+
+    const validateName=()=>{
+        const name= values.name
+        const regexName=/^[a-zA-Z ]+$/
+        const iName=document.getElementById('iName')
+
+        if(name===""){
+            iName.textContent="*Campo obligatorio"
+            setValidation({...validation,auxName:false})
+            
+        }
+
+        if(!regexName.test(name)){
+             iName.textContent="*Solo se permiten letras"
+            setValidation({...validation,auxName:false})
+        }else{
+            iName.textContent=""
+           setValidation({...validation,auxName:true})
+        }
+
+        
     }
 
     const handleSubmitInternal = (e) => {
@@ -46,7 +76,15 @@ const FormMachine = ( props ) => {
                 <br/>
                 <h1 align="center">Agregar máquina de gimnasio</h1><br/>
 
-                <TextField fullWidth id="machineName" name='name' value={values.name} onChange={handleChange} placeholder="Ingrese el nombre de la máquina" label="Nombre" />
+                <TextField fullWidth 
+                id="machineName" 
+                name='name' 
+                value={values.name} 
+                onChange={handleChange} 
+                placeholder="Ingrese el nombre de la máquina" 
+                onBlur={validateName} 
+                label="Nombre" />
+                <i id="iName"> </i>
                 <br/>
 
                 <TextField fullWidth id="machineBrand" name='mark' value={values.mark} onChange={handleChange} placeholder="Ingrese la marca " label="Marca" />
