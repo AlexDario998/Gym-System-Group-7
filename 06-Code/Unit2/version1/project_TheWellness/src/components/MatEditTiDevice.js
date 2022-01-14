@@ -31,6 +31,162 @@ const MatEditTiDevice = ( props ) => {
         owner: data.owner
     })
 
+    const [validation,setValidation]=useState({
+        auxName:false,
+        auxSerial:false,
+        auxBrand:false,
+        auxOwner:false,
+        auxLocal:false
+    })
+
+    const validateName=()=>{
+
+        const nameDevice= formTiDeviceValues.name
+        const regexName=/^[a-zA-Z ]+$/
+        const iName=document.getElementById('iName')
+        const nameD= document.getElementById('name')
+        var auxIterator = 0
+
+        if(nameDevice===""){
+            iName.textContent="*Campo obligatorio"
+            auxIterator++
+            setValidation({...validation,auxName:false})
+        }
+
+        if(auxIterator !== 1 &&!regexName.test(nameDevice)){
+            iName.textContent="*Solo se permiten letras"
+            auxIterator++
+            setValidation({...validation,auxName:false})
+        }
+
+        if(auxIterator===0){
+            iName.textContent=""
+            nameD.style.border=''
+            setValidation({...validation,auxName:true})
+        }else{
+            nameD.style.borderBottom='2px solid red'
+            nameD.style.borderRight='2px solid red'
+            nameD.style.borderLeft='2px solid red'
+            nameD.style.borderRadius='5px'
+        }
+
+    }
+
+    const validateSerial=()=>{
+        const serial=formTiDeviceValues.serialNumber
+        const regexSerial=/^[a-zA-Z0-9]+$/
+        const iSerial=document.getElementById('iSerial')
+        const serialN=document.getElementById('serialNumber')
+         var auxIterator = 0
+
+
+        if(serial===""){
+            iSerial.textContent="*Campo obligatorio"
+            setValidation({...validation,auxSerial:false})
+             auxIterator++
+        }
+
+        if(!regexSerial.test(serial)){
+            iSerial.textContent="*Solo se permiten letras y números"
+            setValidation({...validation,auxSerial:false})
+             auxIterator++
+        }
+
+        if( auxIterator===0){
+            iSerial.textContent=""
+            serialN.style.border=''
+            setValidation({...validation,auxSerial:true})
+        }else{
+            serialN.style.borderBottom='2px solid red'
+            serialN.style.borderRight='2px solid red'
+            serialN.style.borderLeft='2px solid red'
+            serialN.style.borderRadius='5px'
+        }
+
+    }
+
+    const validateBrand=()=>{
+        const brand=formTiDeviceValues.brand
+        const regexBrand=/^[a-zA-Z ]+$/
+        const iBrand=document.getElementById('iBrand')
+        const brandDV=document.getElementById('brand')
+        var auxIterator = 0
+
+
+        if(brand===""){
+            iBrand.textContent="*Campo obligatorio"
+            setValidation({...validation,auxBrand: false})
+             auxIterator++
+        }
+        
+        
+        if(!regexBrand.test(brand)){
+            iBrand.textContent="*Solo se permiten letras"
+            setValidation({...validation,auxBrand:false})
+             auxIterator++
+        
+            
+        }
+        if( auxIterator===0){
+            iBrand.textContent=""
+            brandDV.style.border=''
+            setValidation({...validation,auxBrand:true})
+        }else{
+            brandDV.style.borderBottom='2px solid red'
+            brandDV.style.borderRight='2px solid red'
+            brandDV.style.borderLeft='2px solid red'
+            brandDV.style.borderRadius='5px'
+        }
+    }
+
+    const validateOwner=()=>{
+        const owner= formTiDeviceValues.owner
+        const regexOwner=/^[a-zA-Z ]+$/
+        const iOwner= document.getElementById('iOwner')
+        const ownerD= document.getElementById('owner')
+        var auxIterator=0
+
+        if(owner===""){
+            iOwner.textContent="*Campo obligatorio"
+            setValidation({...validation,auxOwner:false})
+             auxIterator++
+        }
+
+        if(!regexOwner.test(owner)){
+            iOwner.textContent="*Solo se permiten letras"
+            setValidation({...validation,auxOwner:false})
+             auxIterator++
+        }
+        
+        if( auxIterator===0){
+            iOwner.textContent=""
+            ownerD.style.border=''
+            setValidation({...validation,auxOwner:true})
+        }else{
+            ownerD.style.borderBottom='2px solid red'
+            ownerD.style.borderRight='2px solid red'
+            ownerD.style.borderLeft='2px solid red'
+            ownerD.style.borderRadius='5px'     
+        }
+    }
+
+     const validateLocal=()=>{
+        const local=formTiDeviceValues.local
+       // console.log(local)
+        if(local===""){
+            setValidation({...validation,auxLocal:false})
+        }else{
+            setValidation({...validation,auxLocal:true})
+        
+        }
+
+    
+    }
+
+
+
+
+
     const handleChange = (event) => {
         const { name, value } = event.target
         setformTiDeviceValues({ ...formTiDeviceValues, [name]: value})
@@ -38,8 +194,20 @@ const MatEditTiDevice = ( props ) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        handleUpdateRegister(formTiDeviceValues)
+        
+
+        if(validation.auxName === true &&validation.auxBrand===true&&
+          validation.auxOwner===true&&validation.auxSerial===true&&
+          validation.auxLocal===true){
+            handleUpdateRegister(formTiDeviceValues)
+        }else{
+            window.alert("*Por favor llene los campos correctamente")
+        }
+
+
     };
+
+    console.log(validation)
   
     const handleOpenModal = () => {
         setOpen(true)
@@ -65,7 +233,7 @@ const MatEditTiDevice = ( props ) => {
             >
                 <Box sx={style}>
                     <form onSubmit={handleEdit}>
-                        <h1 align='center'>Editar local</h1><br/>
+                        <h1 align='center'>Editar Dispositivo TI</h1><br/>
 
                         {/* TI dispositive */}
                         <TextField fullWidth 
@@ -73,9 +241,10 @@ const MatEditTiDevice = ( props ) => {
                             id="name" 
                             value={formTiDeviceValues.name}
                             onChange={handleChange}
+                            onBlur={validateName}
                             placeholder="Dispositivo TI" 
                             label="Dispositivo TI" 
-                        />
+                        /><i id="iName"></i>
 
                         {/* Serial number */}
                         <TextField fullWidth 
@@ -83,12 +252,13 @@ const MatEditTiDevice = ( props ) => {
                             id="serialNumber" 
                             value={formTiDeviceValues.serialNumber}
                             onChange={handleChange}
+                            onBlur={validateSerial}
                             placeholder="Número serial" 
                             label="Número serial" 
                             style={{
                                 marginTop: '5%'
                             }}
-                        />
+                        /><i id="iSerial"></i>
 
                         {/* Brand */}
                         <TextField fullWidth 
@@ -96,12 +266,14 @@ const MatEditTiDevice = ( props ) => {
                             id="brand" 
                             value={formTiDeviceValues.brand}
                             onChange={handleChange}
+                            onBlur={validateBrand}
                             placeholder="Marca" 
                             label="Marca" 
                             style={{
                                 marginTop: '5%'
                             }}
-                        />
+                        /><i id="iBrand"></i>
+
 
                         {/* Owner */}
                         <TextField fullWidth 
@@ -109,12 +281,13 @@ const MatEditTiDevice = ( props ) => {
                             id="owner" 
                             value={formTiDeviceValues.owner}
                             onChange={handleChange}
+                            onBlur={validateOwner}
                             placeholder="Propietario" 
                             label="Propietario" 
                             style={{
                                 marginTop: '5%'
                             }}
-                        />
+                        /><i id="iOwner"></i>
 
                         {/* Gym */}
                         <FormControl fullWidth 
@@ -127,6 +300,7 @@ const MatEditTiDevice = ( props ) => {
                                 labelId="labelGym"
                                 name='local'
                                 id="local"
+                                onBlur={validateLocal}
                                 value={formTiDeviceValues.local}
                                 onChange={handleChange}
                                 label="Gimnasio al que pertenece"
