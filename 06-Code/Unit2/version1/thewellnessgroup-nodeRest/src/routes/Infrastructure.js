@@ -30,8 +30,8 @@ router.post("/infrastructure", (req, res) => {
   //update a request
   router.put("/infrastructure/:id", (req, res) => {
     const { id } = req.params;
-    const {name, local} = req.body;
-    InfrastructureSchema.updateOne({_id: id},{$set: {name, local}})
+    const {name, gym} = req.body;
+    InfrastructureSchema.updateOne({_id: id},{$set: {name, gym}})
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
   });

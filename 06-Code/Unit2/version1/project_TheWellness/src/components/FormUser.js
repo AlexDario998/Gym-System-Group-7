@@ -120,20 +120,12 @@ const FormUser = (props) => {
 
         if (lastName === "") {
             iLastName.textContent = "*Ingrese el apellido. Campo obligatorio."
-            lastN.style.borderBottom='2px solid red'
-            lastN.style.borderRight='2px solid red'
-            lastN.style.borderLeft='2px solid red'
-            lastN.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxLastName: false})
         }
 
         if (auxIterator !== 1 && !regexOnlyletters.test(lastName)) {
             iLastName.textContent = "*Solo se permiten letras."
-            lastN.style.borderBottom='2px solid red'
-            lastN.style.borderRight='2px solid red'
-            lastN.style.borderLeft='2px solid red'
-            lastN.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxLastName: false})
         }
@@ -156,6 +148,11 @@ const FormUser = (props) => {
             iLastName.textContent = ""
             lastN.style.border=''
             setValidation({...validation, auxLastName: true})
+        }else{
+            lastN.style.borderBottom='2px solid red'
+            lastN.style.borderRight='2px solid red'
+            lastN.style.borderLeft='2px solid red'
+            lastN.style.borderRadius='5px'
         }
     }
 
@@ -175,30 +172,18 @@ const FormUser = (props) => {
 
         if (idCard === "") {
             iIdCard.textContent = "*Ingrese el ID. Campo obligatorio."
-            idC.style.borderBottom='2px solid red'
-            idC.style.borderRight='2px solid red'
-            idC.style.borderLeft='2px solid red'
-            idC.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxId: false})
         }
 
         if (auxIterator !== 1 && !regexOnlyNumbers.test(idCard)) {
             iIdCard.textContent = "*El ID solo debe contener números"
-            idC.style.borderBottom='2px solid red'
-            idC.style.borderRight='2px solid red'
-            idC.style.borderLeft='2px solid red'
-            idC.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxId: false})
         }
 
         if (auxIterator !== 1 && idCard.length < 10) {
             iIdCard.textContent = "*El ID debe tener 10 digitos"
-            idC.style.borderBottom='2px solid red'
-            idC.style.borderRight='2px solid red'
-            idC.style.borderLeft='2px solid red'
-            idC.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxId: false})
         }
@@ -207,10 +192,6 @@ const FormUser = (props) => {
                 idCard.charAt(1) === '2' || idCard.charAt(1) === '3' || idCard.charAt(1) === '4')) || idCard.charAt(0) === '0')) 
         {
 			iIdCard.textContent = "*Ingrese correctamente los primeros dos dígitos de la cédula"
-            idC.style.borderBottom='2px solid red'
-            idC.style.borderRight='2px solid red'
-            idC.style.borderLeft='2px solid red'
-            idC.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxId: false})
 		}
@@ -258,10 +239,6 @@ const FormUser = (props) => {
 
             if (auxBoolIDCard  === false) {
                 iIdCard.textContent = "*Comprobación del último dígito errada. Ingrese correctamente su cédula"
-                idC.style.borderBottom='2px solid red'
-                idC.style.borderRight='2px solid red'
-                idC.style.borderLeft='2px solid red'
-                idC.style.borderRadius='5px'
                 auxIterator++
                 setValidation({...validation, auxId: false})
             }
@@ -271,6 +248,11 @@ const FormUser = (props) => {
             iIdCard.textContent = ""
             idC.style.border=''
             setValidation({...validation, auxId: true})
+        }else{
+            idC.style.borderBottom='2px solid red'
+            idC.style.borderRight='2px solid red'
+            idC.style.borderLeft='2px solid red'
+            idC.style.borderRadius='5px'
         }
     }
     
@@ -283,20 +265,12 @@ const FormUser = (props) => {
 
         if (email === "") {
             iEmail.textContent = "*Ingrese el correo electrónico. Campo obligatorio."
-            emails.style.borderBottom='2px solid red'
-            emails.style.borderRight='2px solid red'
-            emails.style.borderLeft='2px solid red'
-            emails.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxEmail: false})
         }
 
         if (auxIterator !== 1 && !regexEmail.test(email)) {
             iEmail.textContent = "*Ingrese correctamente el email"
-            emails.style.borderBottom='2px solid red'
-            emails.style.borderRight='2px solid red'
-            emails.style.borderLeft='2px solid red'
-            emails.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxEmail: false})
         }
@@ -305,6 +279,11 @@ const FormUser = (props) => {
             iEmail.textContent = ""
             emails.style.border=''
             setValidation({...validation, auxEmail: true})
+        }else{
+            emails.style.borderBottom='2px solid red'
+            emails.style.borderRight='2px solid red'
+            emails.style.borderLeft='2px solid red'
+            emails.style.borderRadius='5px'
         }
     }
 
@@ -334,20 +313,12 @@ const FormUser = (props) => {
 
         if (password === "") {
             iPassword.textContent = "*Ingrese la contraseña. Campo obligatorio."
-            pass.style.borderBottom='2px solid red'
-            pass.style.borderRight='2px solid red'
-            pass.style.borderLeft='2px solid red'
-            pass.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxPassword: false})
         }
 
         if (auxIterator !== 1 && password.length < 5) {
             iPassword.textContent = "*El Password debe tener al menos 5 digitos"
-            pass.style.borderBottom='2px solid red'
-            pass.style.borderRight='2px solid red'
-            pass.style.borderLeft='2px solid red'
-            pass.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxPassword: false})
         }
@@ -356,6 +327,11 @@ const FormUser = (props) => {
             iPassword.textContent = ""
             pass.style.border=''
             setValidation({...validation, auxPassword: true})
+        }else{
+            pass.style.borderBottom='2px solid red'
+            pass.style.borderRight='2px solid red'
+            pass.style.borderLeft='2px solid red'
+            pass.style.borderRadius='5px'
         }
 
     }

@@ -1,0 +1,12 @@
+###
+POST http://localhost:3001/infrastructure HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Mueble de recepción",
+    "gym": "SmartFit Portal"
+}
+
+###
+GET http://localhost:3001/infrastructure HTTP/1.1
+

@@ -25,7 +25,58 @@ router.get("/repair-request-infrastructures/:id", (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
-module.exports = router;
+
+//get only completed requests
+router.get("/repair-request-infrastructures-true", (req, res) => {
+  InfrastructuresRequestsSchema.find({confirmation: true})
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+ 
+});
+
+//get only no completed requests
+router.get("/repair-request-infrastructures-false", (req, res) => {
+  InfrastructuresRequestsSchema.find({confirmation: false})
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+ 
+});
+
+//get the number of completed requests
+router.get("/repair-request-infrastructures-true/count", (req, res) => {
+  InfrastructuresRequestsSchema.find({confirmation: true})
+    .then((data) => 
+      {
+        var numberOfRegisters = 0
+
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].confirmation === true) {
+            numberOfRegisters++
+          }
+        }
+        res.json(numberOfRegisters)
+      })
+    .catch((error) => res.json({ message: error }));
+ 
+});
+
+//get the number of no completed requests
+router.get("/repair-request-infrastructures-false/count", (req, res) => {
+  InfrastructuresRequestsSchema.find({confirmation: false})
+    .then((data) => 
+      {
+        var numberOfRegisters = 0
+
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].confirmation === false) {
+            numberOfRegisters++
+          }
+        }
+        res.json(numberOfRegisters)
+      })
+    .catch((error) => res.json({ message: error }));
+ 
+});
 
 //update a request
 router.put("/repair-request-infrastructures/:id", (req, res) => {
