@@ -15,6 +15,7 @@ const [validation,setValidation]=useState({
     auxSerial:false,
     auxBrand:false,
     auxOwner:false,
+    auxLocal:false,
 })
 
 
@@ -52,20 +53,80 @@ if(!regexName.test(nameDevice)){
 }
 
 
+const validateSerial=()=>{
+    const serial=values.serialNumber
+    const regexSerial=/^[a-zA-Z0-9]+$/
+    const iSerial=document.getElementById('iSerial')
+
+    if(serial===""){
+        iSerial.textContent="*Campo obligatorio"
+        setValidation({...validation,auxSerial:false})
+    }
+
+    if(!regexSerial.test(serial)){
+         iSerial.textContent="*Solo se permiten letras y números"
+        setValidation({...validation,auxSerial:false})
+    }else{
+        iSerial.textContent=""
+        setValidation({...validation,auxSerial:true})
+    }
+}
+
+
 const validateBrand=()=>{
     const brand=values.brand
     const regexBrand=/^[a-zA-Z ]+$/
     const iBrand=document.getElementById('iBrand')
 
+
+    if(brand===""){
+        iBrand.textContent="*Campo obligatorio"
+        setValidation({...validation,auxBrand: false})
+    }
+    
+    
     if(!regexBrand.test(brand)){
-        iBrand.textContent="Solo se permiten letras"
+        iBrand.textContent="*Solo se permiten letras"
         setValidation({...validation,auxBrand:false})
+    
+        
     }else{
         iBrand.textContent=""
         setValidation({...validation,auxBrand:true})
     }
 }
 
+ const validateOwner=()=>{
+     const owner= values.owner
+     const regexOwner=/^[a-zA-Z ]+$/
+     const iOwner= document.getElementById('iOwner')
+
+     if(owner===""){
+         iOwner.textContent="+Campo obligatorio"
+         setValidation({...validation,auxOwner:false})
+     }
+
+     if(!regexOwner.test(owner)){
+          iOwner.textContent="+Solo se permiten letras"
+         setValidation({...validation,auxOwner:false})
+     }else{
+         iOwner.textContent=""
+         setValidation({...validation,auxOwner:true})
+     }
+ }
+
+
+const validateLocal=()=>{
+    const local=values.local
+    if(local===""){
+        setValidation({...validation,auxLocal:false})
+    }else{
+        setValidation({...validation,auxLocal:true})
+       
+    }
+
+   
+}
 
 
 
@@ -74,7 +135,8 @@ const validateBrand=()=>{
         e.preventDefault()
         //handleSubmit(values)
         //e.target.reset()
-        if(validation.auxName===true&&validation.auxBrand===true){
+        if(validation.auxName===true&&validation.auxBrand===true&&
+        validation.auxOwner===true&&validation.auxSerial===true&&validation.auxLocal===true){
             handleSubmit(values)
         }else{
             window.alert("Por favor llene los campos correctamente")
@@ -129,9 +191,11 @@ const validateBrand=()=>{
                     id="serialNumber" 
                     value={values.serialNumber}
                     onChange={handleChange}
+                    onBlur={validateSerial}
                     placeholder="Número de serie" 
                     label="Número de serie" 
                 />
+                <i id="iSerial"> </i>
                 <br/>
 
                 {/* Brand */}
@@ -140,6 +204,7 @@ const validateBrand=()=>{
                     id="brand" 
                     value={values.brand}
                     onChange={handleChange}
+                    onBlur={validateBrand}
                     placeholder="Marca" 
                     label="Marca" 
                 />
@@ -152,8 +217,10 @@ const validateBrand=()=>{
                     id="owner" 
                     value={values.owner}
                     onChange={handleChange}
+                    onBlur={validateOwner}
                     placeholder="Encargado"
                     label="Encargado" />
+                    <i id="iOwner"></i>
                 <br/>
                 
                 {/* Gym */}
