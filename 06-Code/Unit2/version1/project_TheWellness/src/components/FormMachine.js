@@ -31,6 +31,7 @@ const FormMachine = ( props ) => {
         const name= values.name
         const regexName=/^[a-zA-Z ]+$/
         const iName=document.getElementById('iName')
+        const machName=document.getElementById('machineName')
         var auxIterator = 0
 
         if(name===""){
@@ -42,11 +43,17 @@ const FormMachine = ( props ) => {
         if(!regexName.test(name)){
             iName.textContent="*Solo se permiten letras"
             setValidation({...validation,auxName:false})
-            auxIterator ++
+            auxIterator++
         }
         if(auxIterator===0){
             iName.textContent=""
+            machName.style.border=''
             setValidation({...validation,auxName:true})
+        }else{
+            machName.style.borderBottom='2px solid red'
+            machName.style.borderRight='2px solid red'
+            machName.style.borderLeft='2px solid red'
+            machName.style.borderRadius='5px'     
         }
 
         
@@ -56,6 +63,7 @@ const FormMachine = ( props ) => {
         const mark=values.mark
         const regexBrand=/^[a-zA-Z ]+$/
         const iBrand=document.getElementById('iBrand')
+        const machBrand=document.getElementById('machineBrand')
         var auxIterator=0
 
 
@@ -75,7 +83,13 @@ const FormMachine = ( props ) => {
         }
         if( auxIterator===0){
             iBrand.textContent=""
+            machBrand.style.border=''
             setValidation({...validation,auxBrand:true})
+        }else{
+            machBrand.style.borderBottom='2px solid red'
+            machBrand.style.borderRight='2px solid red'
+            machBrand.style.borderLeft='2px solid red'
+            machBrand.style.borderRadius='5px'     
         }
     }
 
@@ -83,6 +97,7 @@ const FormMachine = ( props ) => {
         const serial=values.serialNumber
         const regexSerial=/^[a-zA-Z0-9]+$/
         const iSerial=document.getElementById('iSerial')
+        const machSerial=document.getElementById('machineSerial')
         var auxIterator = 0
 
 
@@ -100,7 +115,13 @@ const FormMachine = ( props ) => {
 
         if( auxIterator===0){
             iSerial.textContent=""
+            machSerial.style.border=''
             setValidation({...validation,auxSerial:true})
+        }else{
+            machSerial.style.borderBottom='2px solid red'
+            machSerial.style.borderRight='2px solid red'
+            machSerial.style.borderLeft='2px solid red'
+            machSerial.style.borderRadius='5px'     
         }
 
     }
@@ -172,7 +193,7 @@ const FormMachine = ( props ) => {
                 placeholder="Ingrese el nombre de la máquina" 
                 onBlur={validateName} 
                 label="Nombre" />
-                <i id="iName"> </i>
+                <i id="iName" class="msgError"> </i>
                 <br/>
 
                 <TextField fullWidth 
@@ -183,7 +204,7 @@ const FormMachine = ( props ) => {
                 onBlur={validateBrand}
                 placeholder="Ingrese la marca " 
                 label="Marca" />
-                <i id="iBrand"> </i>
+                <i id="iBrand" class="msgError"> </i>
                 <br/>
 
                 <TextField fullWidth 
@@ -194,7 +215,7 @@ const FormMachine = ( props ) => {
                 onBlur={validateSerial}
                 placeholder="Ingrese el Número de serie" 
                 label="Número de serie" />
-                <i id="iSerial"></i>
+                <i id="iSerial" class="msgError"></i>
                 <br/>
                 
                 <FormControl fullWidth>
