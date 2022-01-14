@@ -32,7 +32,7 @@ const TableRepairInfrastructuresRequests = (props) => {
 
 const getUserById = (idUser) => {
     for (var i=0; i<users.length; i++) {
-        if (users[i].id === idUser) {
+        if (users[i]._id === idUser) {
             return users[i].name + ' ' + users[i].lastName
         }
     }
