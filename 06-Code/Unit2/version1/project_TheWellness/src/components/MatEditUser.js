@@ -35,6 +35,17 @@ const MatEditUser = ( props ) => {
         type: data.type,
         gym: data.gym
     })
+
+    const [validation, setValidation] = useState({
+        auxName: false,
+        auxLastName: false,
+        auxId: false,
+        auxEmail: false,
+        auxPassword: false,
+        auxUsername: false,
+        auxType: false,
+        auxLocal: false
+    })
     //console.log(formUser.gym)
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -42,10 +53,322 @@ const MatEditUser = ( props ) => {
         console.log(formUser)
     }
 
+    const nameValidation = () => {
+        const name = formUser.name
+        const regexOnlyletters = /^[a-zA-Z ]+$/
+        const iName = document.getElementById('iName')
+        const names = document.getElementById('name')
+        var splitName = name.split(' ')
+        var auxIterator = 0
+        var correctName = ""
+
+        if (name === "") {
+            iName.textContent = "*Ingrese el nombre. Campo obligatorio."
+           
+            auxIterator++
+            setValidation({...validation, auxName: false})
+        }
+
+        if (auxIterator !== 1 && !regexOnlyletters.test(name)) {
+            iName.textContent = "*Solo se permiten letras"
+            
+            auxIterator++
+            setValidation({...validation, auxName: false})
+        }
+
+        if (auxIterator === 0) {
+            for (var i=0; i<splitName.length; i++) {
+                for (var j=0; j<splitName[i].length; j++) {
+                    if (j === 0) {
+                        correctName += splitName[i].charAt(j).toUpperCase()
+                    }else {
+                        correctName += splitName[i].charAt(j)
+                    }
+                }
+
+                if (i !== splitName.length - 1) {
+                    correctName += " "
+                }
+            }
+            setformUser({...formUser, name: correctName})
+            iName.textContent = ""
+            names.style.border=''
+            setValidation({...validation, auxName: true})
+        }else{
+            names.style.borderBottom='2px solid red'
+            names.style.borderRight='2px solid red'
+            names.style.borderLeft='2px solid red'
+            names.style.borderRadius='5px'
+            
+        }
+    }
+
+    const lastNameValidation = () => {
+        const lastName = formUser.lastName
+        const regexOnlyletters = /^[a-zA-Z ]+$/
+        const iLastName = document.getElementById('iLastName')
+        const lastN= document.getElementById('userLastName')
+        var splitLastName = lastName.split(' ')
+        var auxIterator = 0
+        var correctLastName = ""
+
+        if (lastName === "") {
+            iLastName.textContent = "*Ingrese el apellido. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxLastName: false})
+        }
+
+        if (auxIterator !== 1 && !regexOnlyletters.test(lastName)) {
+            iLastName.textContent = "*Solo se permiten letras."
+            auxIterator++
+            setValidation({...validation, auxLastName: false})
+        }
+
+        if (auxIterator === 0) {
+            for (var i=0; i<splitLastName.length; i++) {
+                for (var j=0; j<splitLastName[i].length; j++) {
+                    if (j === 0) {
+                        correctLastName += splitLastName[i].charAt(j).toUpperCase()
+                    }else {
+                        correctLastName += splitLastName[i].charAt(j)
+                    }
+                }
+
+                if (i !== splitLastName.length - 1) {
+                    correctLastName += " "
+                }
+            }
+            setformUser({...formUser, lastName: correctLastName})
+            iLastName.textContent = ""
+            lastN.style.border=''
+            setValidation({...validation, auxLastName: true})
+        }else{
+            lastN.style.borderBottom='2px solid red'
+            lastN.style.borderRight='2px solid red'
+            lastN.style.borderLeft='2px solid red'
+            lastN.style.borderRadius='5px'
+        }
+    }
+
+     const idCardValidation = () => {
+        const idCard = formUser.idCard
+        const regexOnlyNumbers = /[0-9]+$/
+        const iIdCard = document.getElementById('iIdCard')
+        const idC = document.getElementById('userId')
+        var auxIterator = 0
+        var splitIDCard = idCard.split('')
+        var pairsArray = []
+        var oddArray = []
+        var sumOddNumbers = 0
+        var sumPairNumbers = 0
+        var totalSum = 0
+        var auxBoolIDCard = true
+
+        if (idCard === "") {
+            iIdCard.textContent = "*Ingrese el ID. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxId: false})
+        }
+
+        if (auxIterator !== 1 && !regexOnlyNumbers.test(idCard)) {
+            iIdCard.textContent = "*El ID solo debe contener números"
+            auxIterator++
+            setValidation({...validation, auxId: false})
+        }
+
+        if (auxIterator !== 1 && idCard.length < 10) {
+            iIdCard.textContent = "*El ID debe tener 10 digitos"
+            auxIterator++
+            setValidation({...validation, auxId: false})
+        }
+
+        if (auxIterator !== 1 && !(idCard.charAt(0) === '1' || (idCard.charAt(0) === '2' && (idCard.charAt(1) === '0' || idCard.charAt(1) === '1' || 
+                idCard.charAt(1) === '2' || idCard.charAt(1) === '3' || idCard.charAt(1) === '4')) || idCard.charAt(0) === '0')) 
+        {
+			iIdCard.textContent = "*Ingrese correctamente los primeros dos dígitos de la cédula"
+            auxIterator++
+            setValidation({...validation, auxId: false})
+		}
+
+        if (auxIterator !== 1) {
+            for (var j=0; j<splitIDCard.length - 1; j++) {
+                if ((j+1) % 2 === 0) {
+                    pairsArray.push(parseInt(splitIDCard[j]));
+                    
+                }else{
+                    oddArray.push(parseInt(splitIDCard[j]));
+                    
+                }
+            }
+
+            for (var k=0; k<oddArray.length; k++) {
+                oddArray[k] *= 2;
+                
+                if(oddArray[k] > 9){
+                    oddArray[k] -= 9;
+                    
+                }
+            }
+            
+            for(var l=0; l<oddArray.length; l++){
+                
+                sumOddNumbers += oddArray[l];
+            }
+            
+            for(var m=0; m<pairsArray.length; m++){
+                
+                sumPairNumbers += pairsArray[m];
+            }
+            
+            totalSum = sumOddNumbers + sumPairNumbers;
+            totalSum %= 10;
+            
+            if (totalSum !== 0) {
+                totalSum = 10 - totalSum;
+            }
+
+            if (totalSum !== parseInt(splitIDCard[splitIDCard.length - 1])) {
+                auxBoolIDCard = false;
+            }
+
+            if (auxBoolIDCard  === false) {
+                iIdCard.textContent = "*Comprobación del último dígito errada. Ingrese correctamente su cédula"
+                auxIterator++
+                setValidation({...validation, auxId: false})
+            }
+        }
+
+        if (auxIterator === 0) {
+            iIdCard.textContent = ""
+            idC.style.border=''
+            setValidation({...validation, auxId: true})
+        }else{
+            idC.style.borderBottom='2px solid red'
+            idC.style.borderRight='2px solid red'
+            idC.style.borderLeft='2px solid red'
+            idC.style.borderRadius='5px'
+        }
+    }
+
+    const emailValidation = () => {
+        const email = formUser.email
+        const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+        const iEmail = document.getElementById('iEmail')
+        const emails= document.getElementById('email')
+        var auxIterator = 0
+
+        if (email === "") {
+            iEmail.textContent = "*Ingrese el correo electrónico. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxEmail: false})
+        }
+
+        if (auxIterator !== 1 && !regexEmail.test(email)) {
+            iEmail.textContent = "*Ingrese correctamente el email"
+            auxIterator++
+            setValidation({...validation, auxEmail: false})
+        }
+
+        if (auxIterator === 0) {
+            iEmail.textContent = ""
+            emails.style.border=''
+            setValidation({...validation, auxEmail: true})
+        }else{
+            emails.style.borderBottom='2px solid red'
+            emails.style.borderRight='2px solid red'
+            emails.style.borderLeft='2px solid red'
+            emails.style.borderRadius='5px'
+        }
+    }
+
+    const usernameValidation = () => {
+        const username = formUser.userName
+        const iUsername = document.getElementById('iUsername')
+        var auxIterator = 0
+
+        if (username === "") {
+            iUsername.textContent = "*Ingrese el nombre de usuario. Campo obligatorio."
+            
+            auxIterator++
+            setValidation({...validation, auxUsername: false})
+        }
+
+        if (auxIterator === 0) {
+            iUsername.textContent = ""
+            setValidation({...validation, auxUsername: true})
+        }
+    }
+
+    const passwordValidation = () => {
+        const password = formUser.password
+        const iPassword = document.getElementById('iPassword')
+        const pass= document.getElementById('password')
+        var auxIterator = 0
+
+        if (password === "") {
+            iPassword.textContent = "*Ingrese la contraseña. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxPassword: false})
+        }
+
+        if (auxIterator !== 1 && password.length < 5) {
+            iPassword.textContent = "*El Password debe tener al menos 5 digitos"
+            auxIterator++
+            setValidation({...validation, auxPassword: false})
+        }
+
+        if (auxIterator === 0) {
+            iPassword.textContent = ""
+            pass.style.border=''
+            setValidation({...validation, auxPassword: true})
+        }else{
+            pass.style.borderBottom='2px solid red'
+            pass.style.borderRight='2px solid red'
+            pass.style.borderLeft='2px solid red'
+            pass.style.borderRadius='5px'
+        }
+
+    }
+
+    const modificationType = () => {
+        const type = formUser.type
+
+        if (type === 0) {
+            setValidation({...validation, auxType: false})
+        }else {
+            setValidation({...validation, auxType: true})
+        }
+        
+    }
+    
+    const modificationLocal = () => {
+        const local = formUser.gym
+        
+        if (local === "") {
+            setValidation({...validation, auxLocal: false})
+        }else {
+            setValidation({...validation, auxLocal: true})
+        }
+        
+    }
+
+
+
     const handleEdit = (e) => {
         e.preventDefault()
-        handleUpdateRegister(formUser)
+       
+
+        if (validation.auxName === true && validation.auxLastName === true && validation.auxId === true && validation.auxEmail === true && 
+            validation.auxUsername === true && validation.auxPassword === true && validation.auxType == true && validation.auxLocal === true) 
+        {
+             handleUpdateRegister(formUser)
+
+        }else {
+            window.alert("Por favor llene todos los campos correctamente")
+        }
     };
+
+    console.log(validation)
   
     const handleOpenModal = () => {
         setOpen(true)
@@ -81,7 +404,8 @@ const MatEditUser = ( props ) => {
                            placeholder="Nombres" 
                            label="Nombres" 
                            onChange={handleChange} 
-                        />
+                           onBlur={nameValidation}
+                        /> <i id="iName"></i>
                         
                         <TextField fullWidth 
                             id="userLastName"  
@@ -90,10 +414,11 @@ const MatEditUser = ( props ) => {
                             placeholder="Apellidos" 
                             label="Apellidos" 
                             onChange={handleChange} 
+                            onBlur={lastNameValidation}
                             style={{
                                 marginTop: '5%'
                             }}
-                        />
+                        /> <i id="iLastName"></i>
 
                         <TextField fullWidth 
                             id="userId"
@@ -102,10 +427,11 @@ const MatEditUser = ( props ) => {
                             value={formUser.idCard} 
                             label="Id/Pasaporte" 
                             onChange={handleChange} 
+                            onBlur={idCardValidation}
                             style={{
                                 marginTop: '5%'
                             }}
-                        />
+                        /> <i id="iIdCard"></i>
 
                         <TextField fullWidth
                             id="email"  
@@ -114,11 +440,12 @@ const MatEditUser = ( props ) => {
                             value={formUser.email} 
                             label="Correo eléctronico" 
                             onChange={handleChange} 
+                            onBlur={emailValidation}
                             style={{
                                 marginTop: '5%',
                             }}
 
-                        />
+                        /><i id="iEmail"></i>
 
                         <TextField fullWidth 
                             id="userName" 
@@ -127,11 +454,12 @@ const MatEditUser = ( props ) => {
                             value={formUser.userName} 
                             label="Nombre de usuario" 
                             onChange={handleChange} 
+                            onBlur={usernameValidation}
                             style={{
                                 marginTop: '5%'
                             }}
                         
-                        />
+                        /><i id="iUsername"></i>
 
                         <TextField fullWidth 
                             id="password" 
@@ -141,11 +469,12 @@ const MatEditUser = ( props ) => {
                             type="password" 
                             label="Contraseña" 
                             onChange={handleChange} 
+                            onBlur={passwordValidation}
                             style={{
                                 marginTop: '5%'
                             }}
                         
-                        />
+                        /><i id="iPassword"></i>
 
                         <FormControl fullWidth
                             style={{
@@ -161,6 +490,7 @@ const MatEditUser = ( props ) => {
                                 value={formUser.type}
                                 label="Tipo de usuario"
                                 onChange={handleChange}
+                                onBlur={modificationType}
                             >
                                 <MenuItem disabled selected >Seleccione un tipo </MenuItem>
                                 <MenuItem value={2}>Supervisor</MenuItem>
@@ -182,6 +512,7 @@ const MatEditUser = ( props ) => {
                                 name='gym'
                                 id="gym"
                                 value={formUser.gym}
+                                onBlur={modificationLocal}
                                 onChange={handleChange}
                                 label="Gimnasio al que pertenece"
                             >
