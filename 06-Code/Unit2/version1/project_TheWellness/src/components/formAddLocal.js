@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import '../App.css';
 import '../index.css';
-import {Box, TextField, Button, MenuItem, Select} from "@mui/material"
+import {Box, TextField, Button, MenuItem, Select,Alert} from "@mui/material"
+import { border } from '@mui/system';
 
 const FormAddLocal = (props) => {
 
@@ -22,12 +23,19 @@ const FormAddLocal = (props) => {
         const nameGym = formAddLocalValues.namegym
         const regexNameGym = /^[a-zA-Z ]+$/
         const iNamegym = document.getElementById('iNamegym')
+        const namegym = document.getElementById('namegym')
 
+  
         if (!regexNameGym.test(nameGym)) {
-            iNamegym.textContent = "Solo se permiten letras"
+            iNamegym.textContent = "*Solo se permiten letras"
+            namegym.style.borderBottom='2px solid red'
+            namegym.style.borderRight='2px solid red'
+            namegym.style.borderLeft='2px solid red'
+            namegym.style.borderRadius='5px'
             setValidation({...validation, auxNameGym: false})
         }else {
             iNamegym.textContent = ""
+            namegym.style.border=''
             setValidation({...validation, auxNameGym: true})
         }
     }
@@ -36,12 +44,17 @@ const FormAddLocal = (props) => {
         const cityValue = formAddLocalValues.city
         const regexCity = /^[a-zA-Z ]+$/
         const iCity = document.getElementById('iCity')
-
+        const city= document.getElementById('city')
         if (!regexCity.test(cityValue)) {
-            iCity.textContent = "Solo se permiten letras"
+            iCity.textContent = "*Solo se permiten letras"
+            city.style.borderBottom='2px solid red'
+            city.style.borderRight='2px solid red'
+            city.style.borderLeft='2px solid red'
+            city.style.borderRadius='5px'
             setValidation({...validation, auxCity: false})
         }else {
             iCity.textContent = ""
+            city.style.border=''
             setValidation({...validation, auxCity: true})
         }
     }
@@ -91,7 +104,7 @@ const FormAddLocal = (props) => {
                     placeholder="Nombre del gimnasio" 
                     label="Nombre del gimnasio" 
                 />
-                <i id='iNamegym'></i>
+               <i id='iNamegym' class='msgError'></i> 
                 <br/>
 
                 {/* City */}
@@ -104,9 +117,8 @@ const FormAddLocal = (props) => {
                     placeholder="Ciudad" 
                     label="Ciudad" 
                 />
-                <i id='iCity'></i>
+                <i id='iCity' class='msgError'></i>
                 <br/>
-
                 <Button
                     variant="contained"
                     size = "large"
