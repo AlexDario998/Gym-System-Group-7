@@ -13,7 +13,6 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
     const users = props.users
     const tiDevices = props.tiDevices
 
-
     const getGymById = (idGym) => {
         for (var i=0; i<gyms.length; i++) {
             if (gyms[i].id === idGym) {
@@ -32,14 +31,11 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
 
     const getUserById = (idUser) => {
         for (var i=0; i<users.length; i++) {
-            if (users[i].id === idUser) {
+            if (users[i]._id === idUser) {
                 return users[i].name + ' ' + users[i].lastName
             }
         }
     }
-
-
-
 
     const columns = [
         { field: 'user', headerName: 'Autor', width: 200 },

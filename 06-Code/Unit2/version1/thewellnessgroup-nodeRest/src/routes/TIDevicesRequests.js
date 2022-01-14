@@ -1,26 +1,77 @@
 const express = require("express");
+const nodemailer = require("nodemailer")
 const router = express.Router();
-const TIDevicesRequestsSchema = require("../models/repair-request-ti-devices");
+const RequestTiDevice = require("../models/repair-request-ti-devices");
+require('dotenv').config
 
 // read requests
 router.post("/repair-request-ti-devices", (req, res) => {
-  const tiDevicesRequests = TIDevicesRequestsSchema(req.body);
-  tiDevicesRequests
-    .save()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
+  let request = req.body
+  let tiDevicesRequest = new RequestTiDevice(
+    {
+      "idUser": request.idUser,
+      "idLocal": request.idLocal,
+      "idTIDevice": request.idTIDevice,
+      "date": request.date,
+      "description": request.description,
+      "confirmation": request.confirmation
+    }
+  )
+
+  tiDevicesRequest.save((err, requestDB) => {
+    if (err) {
+      res.json({
+        result: false,
+        message: "No se pudo realizar la solicitud de arreglo.",
+        err
+      })
+    }else {
+      res.json({
+        result: true,
+        message: "Se realizo al solicitud.",
+        requestDB
+      })
+
+      let transporter = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+          user: "elkin.cadena2015@gmail.com",
+          pass: "David044_vera"
+        }
+      })
+      
+      let mailOptions = {
+        from: 'elkin.cadena2015@gmail.com',
+        to: 'nubemegasgratis123@gmail.com',
+        subject: 'Hola, bienvenido',
+        html: `
+          <h3>Encargado: ${request.idUser}</h3>
+          <h4>Fecha de encargo: ${request.date}</h4>
+          <p>Descripción: ${request.description}</p>
+        `
+      }
+      
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error)
+        }else {
+            console.log("El correo se envio correctamente " + info.response)
+        }
+      })
+    }
+  })
 });
 
 //get all requests
 router.get("/repair-request-ti-devices", (req, res) => {
-  TIDevicesRequestsSchema.find()
+  RequestTiDevice.find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
 //get only completed requests
 router.get("/repair-request-ti-devices-true", (req, res) => {
-  TIDevicesRequestsSchema.find({confirmation: true})
+  RequestTiDevice.find({confirmation: true})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
  
@@ -28,7 +79,7 @@ router.get("/repair-request-ti-devices-true", (req, res) => {
 
 //get only no completed requests
 router.get("/repair-request-ti-devices-false", (req, res) => {
-  TIDevicesRequestsSchema.find({confirmation: false})
+  RequestTiDevice.find({confirmation: false})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
  
@@ -36,7 +87,7 @@ router.get("/repair-request-ti-devices-false", (req, res) => {
 
 //get the number of completed requests
 router.get("/repair-request-ti-devices-true/count", (req, res) => {
-  TIDevicesRequestsSchema.find({confirmation: true})
+  RequestTiDevice.find({confirmation: true})
     .then((data) => 
       {
         var numberOfRegisters = 0
@@ -54,7 +105,7 @@ router.get("/repair-request-ti-devices-true/count", (req, res) => {
 
 //get the number of no completed requests
 router.get("/repair-request-ti-devices-false/count", (req, res) => {
-  TIDevicesRequestsSchema.find({confirmation: false})
+  RequestTiDevice.find({confirmation: false})
     .then((data) => 
       {
         var numberOfRegisters = 0
@@ -73,7 +124,7 @@ router.get("/repair-request-ti-devices-false/count", (req, res) => {
 //get a request
 router.get("/repair-request-ti-devices/:id", (req, res) => {
   const { id } = req.params;
-  TIDevicesRequestsSchema.findById(id)
+  RequestTiDevice.findById(id)
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
@@ -82,7 +133,7 @@ router.get("/repair-request-ti-devices/:id", (req, res) => {
 router.put("/repair-request-ti-devices/:id", (req, res) => {
   const { id } = req.params;
   const {idUser, idLocal, idTIDevice, date, description, confirmation} = req.body;
-  TIDevicesRequestsSchema.updateOne({_id: id},{$set: {idUser, idLocal, idTIDevice, date, description, confirmation}})
+  RequestTiDevice.updateOne({_id: id},{$set: {idUser, idLocal, idTIDevice, date, description, confirmation}})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
@@ -90,11 +141,9 @@ router.put("/repair-request-ti-devices/:id", (req, res) => {
 //delete a request
 router.delete("/repair-request-ti-devices/:id", (req, res) => {
     const { id } = req.params;
-    TIDevicesRequestsSchema.remove({_id: id})
+    RequestTiDevice.remove({_id: id})
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
-  });
-
-
+});
 
 module.exports = router;

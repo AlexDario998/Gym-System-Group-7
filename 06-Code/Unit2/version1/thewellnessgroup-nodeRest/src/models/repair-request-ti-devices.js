@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const TIDevicesRequestsSchema = mongoose.Schema({
+const TIDevicesRequestsSchema = new mongoose.Schema({
   
     idUser:{
         type: 'string',
@@ -32,4 +32,4 @@ const TIDevicesRequestsSchema = mongoose.Schema({
       }
 })
 
-module.exports = mongoose.model('repair-request-ti-devices', TIDevicesRequestsSchema)
+module.exports = mongoose.model('RequestTiDevice', TIDevicesRequestsSchema, 'repair-request-ti-devices')

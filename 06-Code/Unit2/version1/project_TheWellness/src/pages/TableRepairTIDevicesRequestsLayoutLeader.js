@@ -23,9 +23,6 @@ const TableRepairTIDevicesRequestsLayout = () => {
   const [tiDevices, setTiDevices] = useState([])
   const [users, setUsers] = useState([])
   
-
-
-
   useEffect(() => {
     async function loadReports() {
       const response = await getReports()

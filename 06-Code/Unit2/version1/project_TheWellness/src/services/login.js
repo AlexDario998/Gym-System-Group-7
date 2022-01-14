@@ -19,7 +19,7 @@ export function checkLogin(loginValues) {
         }
         
         if (dataLogin !== null) {
-            cookies.set('id', dataLogin.id, {path: "/"})
+            cookies.set('id', dataLogin._id, {path: "/"})
             cookies.set('name', dataLogin.name, {path: "/"})
             cookies.set('lastName', dataLogin.lastName, {path: "/"})
             cookies.set('userName', dataLogin.userName, {path: "/"})

@@ -34,13 +34,14 @@ export async function deleteRequest(idRequest){
 export async function saveRsystems(data, values, setValues){
   try{
     const response = await axios({
-        url: `${baseUrl}/repair-request-ti-devices`,
-        method: 'POST',
-        data: data,
+      url: `${baseUrl}/repair-request-ti-devices`,
+      method: 'POST',
+      data: data,
     })
     
     setValues({idLocal: '', idTIDevice:'', description:''})
     window.location.reload()
+
   }catch(error){
     console.log(error)
     setValues({idLocal: '', idTIDevice:'', description:''})

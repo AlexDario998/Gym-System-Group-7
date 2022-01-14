@@ -16,6 +16,20 @@ export async function getUsers(){
   }
 }
 
+export async function getUserById(idUser){
+  try{
+      const response = await axios({
+          url: `${baseUrl}/users/${idUser}`,
+          method: 'GET',
+      })
+      
+      return response
+
+  }catch(error){
+    console.log(error)
+  }
+}
+
 export async function saveUser(userData, values, setValues){
 
   try{

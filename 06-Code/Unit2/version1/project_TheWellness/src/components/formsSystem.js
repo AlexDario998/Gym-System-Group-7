@@ -13,11 +13,10 @@ const FormsSystem = (props) => {
   const setFormSystemValues = props.setFormSystemValues
 
   const [validation, setValidation] = useState({
-        
-        auxDescription: false,
-        auxLocal: false,
-        auxDevice:false
-    })
+    auxDescription: false,
+    auxLocal: false,
+    auxDevice:false
+  })
 
   const handleChange = (event) => {
     const { name, value } = event.target
