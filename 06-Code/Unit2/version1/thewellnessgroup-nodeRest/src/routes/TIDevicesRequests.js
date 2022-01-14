@@ -35,14 +35,14 @@ router.post("/repair-request-ti-devices", (req, res) => {
       let transporter = nodemailer.createTransport({
         service: "Gmail",
         auth: {
-          user: "elkin.cadena2015@gmail.com",
-          pass: "David044_vera"
+          user: "seatvelastegui@gmail.com",
+          pass: "seat_jose"
         }
       })
       
       let mailOptions = {
-        from: 'elkin.cadena2015@gmail.com',
-        to: 'nubemegasgratis123@gmail.com',
+        from: 'seatvelastegui@gmail.com',
+        to: 'elkin.cadena2015@gmail.com',
         subject: 'Hola, bienvenido',
         html: `
           <h3>Encargado: ${request.idUser}</h3>
