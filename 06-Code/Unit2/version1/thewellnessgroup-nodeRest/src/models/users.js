@@ -5,6 +5,7 @@ const usersSchema = mongoose.Schema({
     name:{
         type: 'string',
         required: true,
+        
       },
     
       lastName:{

@@ -3,14 +3,14 @@ POST http://localhost:3001/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "2",
-    "lastName": "2",
-    "userName": "2",
-    "password":"2",
-    "idCard": "2",
-    "email": "2",
-    "type": 2,
-    "gym": "2"
+    "name": "Allyson",
+    "lastName": "Burau Garcia",
+    "userName": "",
+    "password":"admin",
+    "idCard": "1311548526",
+    "email": "allybu@hotmail.com",
+    "type": 1,
+    "gym": "61d5d58f19e7d53578fda485"
 }
 
 ###
