@@ -15,7 +15,7 @@ const SelectRequest = (props) => {
 
         <FormControl fullWidth>
             <InputLabel id="requestState">Estado de la Solicitud</InputLabel>
-            <Select
+            <Select 
                 fullWidth
                 labelId="requestState"
                 id="state"
