@@ -1,5 +1,4 @@
-import logo from '../img/logoWellnessGroup.png';
-import React, {useEffect,useState} from 'react';
+import React, {useState} from 'react';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -15,14 +14,22 @@ import FormControl from '@mui/material/FormControl';
 
 const FormUser = (props) => {
 
-    const initialValues={userName:"",idCard:""}
-    const [formErrors,setFormErrors]=useState({});
+    //const initialValues={userName:"",idCard:""}
+    //const [formErrors,setFormErrors]=useState({});
     const handleSubmit = props.handleSubmit
     const gyms = props.gyms
     const formUserValues = props.formUserValues
-    const [isSubmit, setIsSubmit]=useState(false);
+    //const [isSubmit, setIsSubmit]=useState(false);
     const setFormUservalues = props.setFormUservalues
-    console.log(gyms)
+    
+    const [validation, setValidation] = useState({
+        auxName: false,
+        auxLastName: false,
+        auxId: false,
+        auxEmail: false,
+        auxPassword: false,
+        auxUsername: false
+    })
     
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -31,36 +38,252 @@ const FormUser = (props) => {
     }
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        validate(formUserValues);
         handleSubmit(formUserValues);
-        setIsSubmit(true);
+        //setIsSubmit(true);
     }
+
     const handleClickShowPassword = () => {
-    setFormUservalues({
-      ...formUserValues,
-      showPassword: !formUserValues.showPassword,
-    });
-  };
+        setFormUservalues({
+        ...formUserValues,
+        showPassword: !formUserValues.showPassword,
+        });
+    };
 
-    useEffect(()=>{
-        console.log()
-        if(Object.keys(formErrors).length===0 && isSubmit){
-            console.log(formUserValues);
-        }
-    },[formErrors]);
-
-    const validate=(formUserValues)=>{
-        const errors={};
-        const regex= /^[^\s@]+@[^s@]+\.[^\s@]{2,}$/i;
-        if(!formUserValues.userName){
-            errors.userName="Username is required";
-        }
-
-    }
     const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-      
+        event.preventDefault();
+    };
+
+    const nameValidation = () => {
+        const name = formUserValues.name
+        const regexOnlyletters = /^[a-zA-Z ]+$/
+        const iName = document.getElementById('iName')
+        var splitName = name.split(' ')
+        var auxIterator = 0
+        var correctName = ""
+
+        if (name === "") {
+            iName.textContent = "Ingrese el nombre. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxName: false})
+        }
+
+        if (auxIterator !== 1 && !regexOnlyletters.test(name)) {
+            iName.textContent = "Solo se permiten letras"
+            auxIterator++
+            setValidation({...validation, auxName: false})
+        }
+
+        if (auxIterator === 0) {
+            for (var i=0; i<splitName.length; i++) {
+                for (var j=0; j<splitName[i].length; j++) {
+                    if (j === 0) {
+                        correctName += splitName[i].charAt(j).toUpperCase()
+                    }else {
+                        correctName += splitName[i].charAt(j)
+                    }
+                }
+
+                if (i !== splitName.length - 1) {
+                    correctName += " "
+                }
+            }
+            setFormUservalues({...formUserValues, name: correctName})
+            iName.textContent = ""
+            setValidation({...validation, auxName: true})
+        }
+    }
+
+    const lastNameValidation = () => {
+        const lastName = formUserValues.lastName
+        const regexOnlyletters = /^[a-zA-Z ]+$/
+        const iLastName = document.getElementById('iLastName')
+        var splitLastName = lastName.split(' ')
+        var auxIterator = 0
+        var correctLastName = ""
+
+        if (lastName === "") {
+            iLastName.textContent = "Ingrese el apellido. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxLastName: false})
+        }
+
+        if (auxIterator !== 1 && !regexOnlyletters.test(lastName)) {
+            iLastName.textContent = "Solo se permiten letras."
+            auxIterator++
+            setValidation({...validation, auxLastName: false})
+        }
+
+        if (auxIterator === 0) {
+            for (var i=0; i<splitLastName.length; i++) {
+                for (var j=0; j<splitLastName[i].length; j++) {
+                    if (j === 0) {
+                        correctLastName += splitLastName[i].charAt(j).toUpperCase()
+                    }else {
+                        correctLastName += splitLastName[i].charAt(j)
+                    }
+                }
+
+                if (i !== splitLastName.length - 1) {
+                    correctLastName += " "
+                }
+            }
+            setFormUservalues({...formUserValues, lastName: correctLastName})
+            iLastName.textContent = ""
+            setValidation({...validation, auxLastName: true})
+        }
+    }
+
+    const idCardValidation = () => {
+        const idCard = formUserValues.idCard
+        const regexOnlyNumbers = /[0-9]+$/
+        const iIdCard = document.getElementById('iIdCard')
+        var auxIterator = 0
+        var splitIDCard = idCard.split('')
+        var pairsArray = []
+        var oddArray = []
+        var sumOddNumbers = 0
+        var sumPairNumbers = 0
+        var totalSum = 0
+        var auxBoolIDCard = true
+
+        if (idCard === "") {
+            iIdCard.textContent = "Ingrese el ID. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxId: false})
+        }
+
+        if (auxIterator !== 1 && !regexOnlyNumbers.test(idCard)) {
+            iIdCard.textContent = "El ID solo debe contener números"
+            auxIterator++
+            setValidation({...validation, auxId: false})
+        }
+
+        if (auxIterator !== 1 && idCard.length < 10) {
+            iIdCard.textContent = "El ID debe tener 10 digitos"
+            auxIterator++
+            setValidation({...validation, auxId: false})
+        }
+
+        if (auxIterator !== 1 && !(idCard.charAt(0) === '1' || (idCard.charAt(0) === '2' && (idCard.charAt(1) === '0' || idCard.charAt(1) === '1' || 
+                idCard.charAt(1) === '2' || idCard.charAt(1) === '3' || idCard.charAt(1) === '4')) || idCard.charAt(0) === '0')) 
+        {
+			iIdCard.textContent = "Ingrese correctamente los primeros dos dígitos de la cédula"
+            auxIterator++
+            setValidation({...validation, auxId: false})
+		}
+
+        if (auxIterator !== 1) {
+            for (var j=0; j<splitIDCard.length - 1; j++) {
+                if ((j+1) % 2 === 0) {
+                    pairsArray.push(parseInt(splitIDCard[j]));
+                    
+                }else{
+                    oddArray.push(parseInt(splitIDCard[j]));
+                    
+                }
+            }
+
+            for (var k=0; k<oddArray.length; k++) {
+                oddArray[k] *= 2;
+                
+                if(oddArray[k] > 9){
+                    oddArray[k] -= 9;
+                    
+                }
+            }
+            
+            for(var l=0; l<oddArray.length; l++){
+                
+                sumOddNumbers += oddArray[l];
+            }
+            
+            for(var m=0; m<pairsArray.length; m++){
+                
+                sumPairNumbers += pairsArray[m];
+            }
+            
+            totalSum = sumOddNumbers + sumPairNumbers;
+            totalSum %= 10;
+            
+            if (totalSum !== 0) {
+                totalSum = 10 - totalSum;
+            }
+
+            if (totalSum !== parseInt(splitIDCard[splitIDCard.length - 1])) {
+                auxBoolIDCard = false;
+            }
+
+            if (auxBoolIDCard  === false) {
+                iIdCard.textContent = "Comprobación del último dígito errada. Ingrese correctamente su cédula"
+                auxIterator++
+                setValidation({...validation, auxId: false})
+            }
+        }
+
+        if (auxIterator === 0) {
+            iIdCard.textContent = ""
+            setValidation({...validation, auxId: true})
+        }
+    }
+    
+    const emailValidation = () => {
+        const email = formUserValues.email
+        const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+        const iEmail = document.getElementById('iEmail')
+        var auxIterator = 0
+
+        if (email === "") {
+            iEmail.textContent = "Ingrese la cédula. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxEmail: false})
+        }
+
+        if (auxIterator !== 1 && !regexEmail.test(email)) {
+            iEmail.textContent = "Ingrese correctamente el email"
+            auxIterator++
+            setValidation({...validation, auxEmail: false})
+        }
+
+        if (auxIterator === 0) {
+            iEmail.textContent = ""
+            setValidation({...validation, auxEmail: true})
+        }
+    }
+
+    const usernameValidation = () => {
+        const username = formUserValues.userName
+        const iUsername = document.getElementById('iUsername')
+        var auxIterator = 0
+
+        if (username === "") {
+            iUsername.textContent = "Ingrese el nombre de usuario. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxUsername: false})
+        }
+
+        if (auxIterator === 0) {
+            iUsername.textContent = ""
+            setValidation({...validation, auxUsername: true})
+        }
+    }
+
+    const passwordValidation = () => {
+        const password = formUserValues.password
+        const iPassword = document.getElementById('iPassword')
+        var auxIterator = 0
+
+        if (password === "") {
+            iPassword.textContent = "Ingrese la contraseña. Campo obligatorio."
+            auxIterator++
+            setValidation({...validation, auxPassword: false})
+        }
+
+        if (auxIterator === 0) {
+            iPassword.textContent = ""
+            setValidation({...validation, auxPassword: true})
+        }
+    }
+    
     return(
        
         <form onSubmit={handleSubmitInternal} >
@@ -85,16 +308,67 @@ const FormUser = (props) => {
                 <br/>
                 <h1 align="center">Crear usuario</h1><br/>
 
-                <TextField fullWidth id="userName" name="name" value={formUserValues.name} placeholder="Nombres" label="Nombres" onChange={handleChange} />
+                <TextField fullWidth 
+                    id="userName" 
+                    name="name" 
+                    value={formUserValues.name} 
+                    placeholder="Nombres" 
+                    label="Nombres" 
+                    onChange={handleChange} 
+                    onBlur={nameValidation}
+                />
+                <i id='iName'></i>
                 <br/>
-                <TextField fullWidth id="userLastName"  name="lastName" value={formUserValues.lastName} placeholder="Apellidos" label="Apellidos" onChange={handleChange} />
+
+                <TextField fullWidth 
+                    id="userLastName"  
+                    name="lastName" 
+                    value={formUserValues.lastName} 
+                    placeholder="Apellidos" 
+                    label="Apellidos" 
+                    onChange={handleChange} 
+                    onBlur={lastNameValidation}
+                />
+                <i id='iLastName'></i>
                 <br/>
-                <TextField fullWidth id="userId" name="idCard" placeholder="ID/Pasaporte" value={formUserValues.idCard} label="Id/Pasaporte" onChange={handleChange} />
+                
+                <TextField fullWidth 
+                    id="userId" 
+                    name="idCard" 
+                    placeholder="ID/Pasaporte"
+                    inputProps={{ maxLength: 10 }}
+                    value={formUserValues.idCard} 
+                    label="Id/Pasaporte" 
+                    onChange={handleChange} 
+                    onBlur={idCardValidation}
+                />
+                <i id='iIdCard'></i>
                 <br/>
-                <TextField fullWidth id="email"  name="email" placeholder="Correo eléctronico" value={formUserValues.email} label="Correo eléctronico" onChange={handleChange} />
+
+                <TextField fullWidth 
+                    id="email" 
+                    name="email" 
+                    placeholder="Correo eléctronico" 
+                    value={formUserValues.email} 
+                    label="Correo eléctronico" 
+                    onChange={handleChange} 
+                    onBlur={emailValidation}
+                />
+                <i id='iEmail'></i>
                 <br/>
-                <TextField fullWidth id="userName" name="userName" placeholder="Nombre de usuario" value={formUserValues.userName} label="Nombre de usuario" onChange={handleChange} />
+
+                <TextField fullWidth 
+                    id="userName" 
+                    name="userName" 
+                    placeholder="Nombre de usuario" 
+                    value={formUserValues.userName} 
+                    label="Nombre de usuario" 
+                    onChange={handleChange} 
+                    onBlur={usernameValidation}
+                />
+                <i id='iUsername'></i>
                 <br/>
+
                 <TextField fullWidth 
                     id="password" 
                     name="password"
@@ -103,20 +377,22 @@ const FormUser = (props) => {
                     type={formUserValues.showPassword ? 'text' : 'password'}
                     label="Contraseña" 
                     onChange={handleChange} 
+                    onBlur={passwordValidation}
                     
-                     endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                  >
-                    {formUserValues.showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
+                    endAdornment={
+                        <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                            >
+                                {formUserValues.showPassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                        </InputAdornment>
+                    }
                     
-                    />
+                />
+                <i id='iPassword'></i>
                 <br/>
                 
                 <FormControl fullWidth>
