@@ -151,7 +151,7 @@ const TableRepairTIDevicesRequestsLayout = () => {
         <TableRepairTIDevicesRequestsLeader
           reports={reports}
           gyms={gyms} users={users} tiDevices={tiDevices}
-   
+          confirmation={confirmation}
         />
       </Box>
     </>

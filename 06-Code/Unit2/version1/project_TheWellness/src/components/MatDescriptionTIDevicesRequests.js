@@ -1,6 +1,8 @@
 import FeedIcon from "@mui/icons-material/Feed";
 import { IconButton, Modal, Box } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {getReportsByState} from "../services/repairRequestTIDevicesAxios"
+
 
 const style = {
   position: "absolute",
@@ -16,19 +18,32 @@ const style = {
 
 const MatDescriptionTIDevicesRequests = (props) => {
   const data = props.data;
-  const handleDescriptionRegister = props.handleDescriptionRegister;
+  const confirmation = props.confirmation;
   
   const [open, setOpen] = useState(false);
-
   const [values, setValues] = useState({
     id: data.id,
     idUser: data.idUser,
     idLocal: data.idLocal,
-    idTIDevice: data.idGymMachine,
+    idTIDevice: data.idTIDevice,
     date: data.date,
-    description: data.description,
-    confirmation: data.confirmation
+    description: data.description
   });
+
+  console.log(values)
+
+  /*useEffect(() => {
+    async function loadReports() {
+      const response = await getReportsByState(confirmation.state)
+
+      if (response.status === 200) {
+        setValues(response.data)
+          
+      }
+    }
+
+    loadReports();
+  }, [confirmation]);*/
 
   const handleOpenModal = () => {
     setOpen(true);

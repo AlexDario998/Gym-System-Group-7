@@ -4,14 +4,13 @@ import { DataGrid } from '@mui/x-data-grid';
 import '../index.css'
 import MatDescriptionTIDevicesRequests from "./MatDescriptionTIDevicesRequests";
 
-
-
 const TableRepairTIDevicesRequestsLeader = (props) => {
 
     const reports = props.reports
     const gyms = props.gyms
     const users = props.users
     const tiDevices = props.tiDevices
+    const confirmation = props.confirmation
 
     const getGymById = (idGym) => {
         for (var i=0; i<gyms.length; i++) {
@@ -46,14 +45,14 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
             field: "description",
             headerName: "Descripción",
             sortable: false,
-            width: 120,
+            width: 200,
             disableClickEventBubbling: true,
-            renderCell: (params) => (
+            renderCell: (params) => {
               <div style={{ cursor: "pointer" }}>
-                <MatDescriptionTIDevicesRequests data={params.row} />
+                <MatDescriptionTIDevicesRequests data={params.row} confirmation={confirmation} />
               </div>
-            ),
-          },
+            },
+        }
          
     ]
       
