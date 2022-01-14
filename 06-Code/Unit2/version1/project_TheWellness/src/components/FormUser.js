@@ -61,7 +61,7 @@ const FormUser = (props) => {
 
     const nameValidation = () => {
         const name = formUserValues.name
-        const regexOnlyletters = /^[a-zA-Z ]+$/
+        const regexOnlyletters = /^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iName = document.getElementById('iName')
         const names = document.getElementById('userName')
         var splitName = name.split(' ')
@@ -111,7 +111,7 @@ const FormUser = (props) => {
 
     const lastNameValidation = () => {
         const lastName = formUserValues.lastName
-        const regexOnlyletters = /^[a-zA-Z ]+$/
+        const regexOnlyletters = /^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iLastName = document.getElementById('iLastName')
         const lastN= document.getElementById('userLastName')
         var splitLastName = lastName.split(' ')
