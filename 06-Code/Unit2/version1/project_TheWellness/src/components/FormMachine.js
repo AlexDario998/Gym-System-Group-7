@@ -31,28 +31,116 @@ const FormMachine = ( props ) => {
         const name= values.name
         const regexName=/^[a-zA-Z ]+$/
         const iName=document.getElementById('iName')
+        var auxIterator = 0
 
         if(name===""){
             iName.textContent="*Campo obligatorio"
             setValidation({...validation,auxName:false})
-            
+            auxIterator++
         }
 
         if(!regexName.test(name)){
-             iName.textContent="*Solo se permiten letras"
+            iName.textContent="*Solo se permiten letras"
             setValidation({...validation,auxName:false})
-        }else{
+            auxIterator ++
+        }
+        if(auxIterator===0){
             iName.textContent=""
-           setValidation({...validation,auxName:true})
+            setValidation({...validation,auxName:true})
         }
 
         
     }
 
+    const validateBrand=()=>{
+        const mark=values.mark
+        const regexBrand=/^[a-zA-Z ]+$/
+        const iBrand=document.getElementById('iBrand')
+        var auxIterator=0
+
+
+        if(mark===""){
+            iBrand.textContent="*Campo obligatorio"
+            setValidation({...validation,auxBrand: false})
+             auxIterator++
+        }
+        
+        
+        if(!regexBrand.test(mark)){
+            iBrand.textContent="*Solo se permiten letras"
+            setValidation({...validation,auxBrand:false})
+             auxIterator++
+        
+            
+        }
+        if( auxIterator===0){
+            iBrand.textContent=""
+            setValidation({...validation,auxBrand:true})
+        }
+    }
+
+    const validateSerial=()=>{
+        const serial=values.serialNumber
+        const regexSerial=/^[a-zA-Z0-9]+$/
+        const iSerial=document.getElementById('iSerial')
+        var auxIterator = 0
+
+
+        if(serial===""){
+            iSerial.textContent="*Campo obligatorio"
+            setValidation({...validation,auxSerial:false})
+             auxIterator++
+        }
+
+        if(!regexSerial.test(serial)){
+            iSerial.textContent="*Solo se permiten letras y números"
+            setValidation({...validation,auxSerial:false})
+             auxIterator++
+        }
+
+        if( auxIterator===0){
+            iSerial.textContent=""
+            setValidation({...validation,auxSerial:true})
+        }
+
+    }
+
+    const validateLocal=()=>{
+         const local=values.gym
+       // console.log(local)
+        if(local===""){
+            setValidation({...validation,auxLocal:false})
+        }else{
+            setValidation({...validation,auxLocal:true})
+        
+        }
+    }
+
+    const validateZone=()=>{
+        const zone=values.zone
+        if(zone===""){
+        setValidation({...validation,auxZone:false})
+        }else{
+            setValidation({...validation,auxZone:true})
+        }
+    }
+    
+
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        handleSubmit(values)
+        //
+
+        if(validation.auxName===true&&validation.auxBrand===true 
+        && validation.auxSerial===true && validation.auxLocal===true 
+        && validation.auxZone===true){
+            handleSubmit(values)
+        }else{
+            window.alert("Por favor llene los campos correctamente")
+        }
     }
+
+    console.log(validation)
+
 
     return(
         <form onSubmit={handleSubmitInternal} >
@@ -87,10 +175,26 @@ const FormMachine = ( props ) => {
                 <i id="iName"> </i>
                 <br/>
 
-                <TextField fullWidth id="machineBrand" name='mark' value={values.mark} onChange={handleChange} placeholder="Ingrese la marca " label="Marca" />
+                <TextField fullWidth 
+                id="machineBrand" 
+                name='mark' 
+                value={values.mark} 
+                onChange={handleChange} 
+                onBlur={validateBrand}
+                placeholder="Ingrese la marca " 
+                label="Marca" />
+                <i id="iBrand"> </i>
                 <br/>
 
-                <TextField fullWidth id="machineSerial" name='serialNumber' value={values.serialNumber} onChange={handleChange} placeholder="Ingrese el Número de serie" label="Número de serie" />
+                <TextField fullWidth 
+                id="machineSerial" 
+                name='serialNumber' 
+                value={values.serialNumber} 
+                onChange={handleChange} 
+                onBlur={validateSerial}
+                placeholder="Ingrese el Número de serie" 
+                label="Número de serie" />
+                <i id="iSerial"></i>
                 <br/>
                 
                 <FormControl fullWidth>
@@ -103,6 +207,7 @@ const FormMachine = ( props ) => {
                         value={values.gym}
                         label="Local asignado"
                         onChange={handleChange}
+                        onBlur={validateLocal}
                     >
                         <MenuItem disabled selected>Seleccione un local </MenuItem>
                         {
@@ -124,6 +229,7 @@ const FormMachine = ( props ) => {
                         name='zone'
                         value={values.zone}
                         label="Zona del gimnasio"
+                        onBlur={validateZone}
                         onChange={handleChange}
                     >
                         <MenuItem disabled selected>Seleccione un local </MenuItem>
