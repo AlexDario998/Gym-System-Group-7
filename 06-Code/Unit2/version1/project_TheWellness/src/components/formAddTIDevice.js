@@ -10,6 +10,18 @@ const FormAddTIDevice = (props) => {
     const values = props.values;
     const setValues = props.setValues;
 
+const [validation,setValidation]=useState({
+    auxName:false,
+    auxSerial:false,
+    auxBrand:false,
+    auxOwner:false,
+})
+
+
+
+
+
+
     /*const [values, setValues] = useState({
         name: '',
         serialNumber: '',
@@ -23,10 +35,50 @@ const FormAddTIDevice = (props) => {
         setValues({ ...values, [name]: value})
     }
 
+const validateName=()=>{
+
+const nameDevice= values.name
+const regexName=/^[a-zA-Z ]+$/
+const iName=document.getElementById('iName')
+
+if(!regexName.test(nameDevice)){
+    iName.textContent="Solo se permiten letras"
+    setValidation({...validation,auxName:false})
+}else{
+    iName.textContent=""
+    setValidation({...validation,auxName:true})
+}
+
+}
+
+
+const validateBrand=()=>{
+    const brand=values.brand
+    const regexBrand=/^[a-zA-Z ]+$/
+    const iBrand=document.getElementById('iBrand')
+
+    if(!regexBrand.test(brand)){
+        iBrand.textContent="Solo se permiten letras"
+        setValidation({...validation,auxBrand:false})
+    }else{
+        iBrand.textContent=""
+        setValidation({...validation,auxBrand:true})
+    }
+}
+
+
+
+
+
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        handleSubmit(values)
+        //handleSubmit(values)
         //e.target.reset()
+        if(validation.auxName===true&&validation.auxBrand===true){
+            handleSubmit(values)
+        }else{
+            window.alert("Por favor llene los campos correctamente")
+        }
     }
 
     /*if (gyms.length === 0) {
@@ -64,9 +116,11 @@ const FormAddTIDevice = (props) => {
                     id="name" 
                     value={values.name}
                     onChange={handleChange}
+                    onBlur={validateName}
                     placeholder="Nombre del dispositivo" 
                     label="Nombre del dispositivo" 
                 />
+                <i id='iName' > </i>
                 <br/>
 
                 {/* Serial number */}
@@ -89,6 +143,7 @@ const FormAddTIDevice = (props) => {
                     placeholder="Marca" 
                     label="Marca" 
                 />
+                <i id="iBrand"> </i>
                 <br/>
 
                 {/* Owner */}
