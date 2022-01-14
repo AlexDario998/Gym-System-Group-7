@@ -148,7 +148,7 @@ const MatEditLocal = ( props ) => {
                             placeholder="Nombre del gimnasio" 
                             onBlur={handleBlurGymName}
                             label="Nombre del gimnasio" 
-                        /><i id="iNamegym"> </i>
+                        /><i id="iNamegym" class="msgError"> </i>
 
                         {/* City */}
                         <TextField fullWidth 
@@ -162,7 +162,7 @@ const MatEditLocal = ( props ) => {
                             style={{
                                 marginTop: '5%'
                             }}
-                        /><i id="iCity"></i>
+                        /><i id="iCity" class="msgError"></i>
 
                         <Button
                             variant="contained"
