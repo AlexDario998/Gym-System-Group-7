@@ -35,7 +35,7 @@ const FormAddTIDevice = (props) => {
     const validateName=()=>{
 
         const nameDevice= values.name
-        const regexName=/^[a-zA-Z ]+$/
+        const regexName=/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iName=document.getElementById('iName')
         const nameD= document.getElementById('name')
         var auxIterator = 0
@@ -102,7 +102,7 @@ const FormAddTIDevice = (props) => {
 
     const validateBrand=()=>{
         const brand=values.brand
-        const regexBrand=/^[a-zA-Z ]+$/
+        const regexBrand=/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iBrand=document.getElementById('iBrand')
         const brandDV=document.getElementById('brand')
         var auxIterator = 0
@@ -136,7 +136,7 @@ const FormAddTIDevice = (props) => {
 
     const validateOwner=()=>{
         const owner= values.owner
-        const regexOwner=/^[a-zA-Z ]+$/
+        const regexOwner=/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iOwner= document.getElementById('iOwner')
         const ownerD= document.getElementById('owner')
         var auxIterator=0

@@ -29,7 +29,7 @@ const FormMachine = ( props ) => {
 
     const validateName=()=>{
         const name= values.name
-        const regexName=/^[a-zA-Z ]+$/
+        const regexName=/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iName=document.getElementById('iName')
         const machName=document.getElementById('machineName')
         var auxIterator = 0
@@ -61,7 +61,7 @@ const FormMachine = ( props ) => {
 
     const validateBrand=()=>{
         const mark=values.mark
-        const regexBrand=/^[a-zA-Z ]+$/
+        const regexBrand=/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iBrand=document.getElementById('iBrand')
         const machBrand=document.getElementById('machineBrand')
         var auxIterator=0

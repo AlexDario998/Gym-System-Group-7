@@ -41,7 +41,7 @@ const MatEditGymMachine = ( props ) => {
 
     const validateName=()=>{
         const name= gymMachineValues.name
-        const regexName=/^[a-zA-Z ]+$/
+        const regexName=/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iName=document.getElementById('iName')
         const machName=document.getElementById('machineName')
         var auxIterator = 0
@@ -74,7 +74,7 @@ const MatEditGymMachine = ( props ) => {
 
     const validateBrand=()=>{
         const mark=gymMachineValues.mark
-        const regexBrand=/^[a-zA-Z ]+$/
+        const regexBrand=/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iBrand=document.getElementById('iBrand')
         const machBrand=document.getElementById('machineBrand')
         var auxIterator=0
@@ -278,7 +278,7 @@ const MatEditGymMachine = ( props ) => {
                                 marginTop: '5%'
                             }}
                         >
-                            <InputLabel id="labelGym">Zona del gimnasio Gimnasio</InputLabel>
+                            <InputLabel id="labelGym">Zona del Gimnasio</InputLabel>
                             <Select
                                 fullWidth
                                 labelId="labelGym"

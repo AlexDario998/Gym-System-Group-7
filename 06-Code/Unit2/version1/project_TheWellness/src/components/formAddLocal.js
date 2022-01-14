@@ -21,7 +21,7 @@ const FormAddLocal = (props) => {
 
     const handleBlurGymName = () => {
         const nameGym = formAddLocalValues.namegym
-        const regexNameGym = /^[a-zA-Z ]+$/
+        const regexNameGym = /^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iNamegym = document.getElementById('iNamegym')
         const namegym = document.getElementById('namegym')
 
