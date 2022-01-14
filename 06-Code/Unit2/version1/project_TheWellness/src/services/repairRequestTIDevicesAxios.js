@@ -17,6 +17,7 @@ export async function getReports(){
     console.log(error)
   }
 }
+
 export async function deleteRequest(idRequest){
 
   const response = await axios.delete(`${baseUrl}/repair-request-ti-devices/${idRequest}`)
@@ -49,6 +50,48 @@ export async function saveRsystems(data, values, setValues){
   }
 }
 
+export async function getReportsByState(state) {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-ti-devices/${state}`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getNumberCompletedRequests() {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-ti-devices-false/count`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getNumberNoCompletedRequests() {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-ti-devices-true/count`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function getReportsByConfirmation() {
   try {
     const response = await axios({
@@ -64,7 +107,7 @@ export async function getReportsByConfirmation() {
         j++;
       }
     }
-    console.log(dataReports)
+
     return dataReports;
   } catch (error) {
     console.log(error);

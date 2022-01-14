@@ -69,17 +69,10 @@ router.get("/repair-request-ti-devices", (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
-//get only completed requests
-router.get("/repair-request-ti-devices-true", (req, res) => {
-  RequestTiDevice.find({confirmation: true})
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
- 
-});
-
-//get only no completed requests
-router.get("/repair-request-ti-devices-false", (req, res) => {
-  RequestTiDevice.find({confirmation: false})
+//get only completed or no completed requests
+router.get("/repair-request-ti-devices/:state", (req, res) => {
+  const {state} = req.params
+  RequestTiDevice.find({confirmation: state})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
  
