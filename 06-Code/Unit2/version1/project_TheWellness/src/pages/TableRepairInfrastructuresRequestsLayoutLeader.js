@@ -68,7 +68,9 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
 
   return (
     <>
-      <Box>
+      <Box
+      class = "boxInfra"
+      >
         <NavBarLeaderGym />
         <br />
         <br />

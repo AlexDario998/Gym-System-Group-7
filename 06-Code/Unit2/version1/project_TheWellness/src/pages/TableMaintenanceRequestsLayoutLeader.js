@@ -85,7 +85,7 @@ const TableMaintenanceRequestsLayoutLeader = () => {
 
     return (
         <>
-            <Box>
+            <Box class="boxMach">
                 <NavbarLeaderGym/>
                 <br/><br/>
                 <TableMaintenanceRequestsLeader reports={reports}
