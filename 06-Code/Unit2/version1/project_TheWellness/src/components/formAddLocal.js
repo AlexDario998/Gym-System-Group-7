@@ -24,19 +24,29 @@ const FormAddLocal = (props) => {
         const regexNameGym = /^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
         const iNamegym = document.getElementById('iNamegym')
         const namegym = document.getElementById('namegym')
+        var auxIterator = 0
 
+        if(nameGym===""){
+            iNamegym.textContent="*Campo obligatorio"
+            setValidation({...validation, auxNameGym: false})
+            auxIterator++
+        }
   
-        if (!regexNameGym.test(nameGym)) {
+        if (auxIterator !== 1 &&!regexNameGym.test(nameGym)) {
             iNamegym.textContent = "*Solo se permiten letras"
+            setValidation({...validation, auxNameGym: false})
+            auxIterator++
+        }
+        
+        if(auxIterator===0) {
+            iNamegym.textContent = ""
+            namegym.style.border=''
+            setValidation({...validation, auxNameGym: true})
+        }else{
             namegym.style.borderBottom='2px solid red'
             namegym.style.borderRight='2px solid red'
             namegym.style.borderLeft='2px solid red'
             namegym.style.borderRadius='5px'
-            setValidation({...validation, auxNameGym: false})
-        }else {
-            iNamegym.textContent = ""
-            namegym.style.border=''
-            setValidation({...validation, auxNameGym: true})
         }
     }
 
@@ -45,17 +55,29 @@ const FormAddLocal = (props) => {
         const regexCity = /^[a-zA-Z ]+$/
         const iCity = document.getElementById('iCity')
         const city= document.getElementById('city')
-        if (!regexCity.test(cityValue)) {
-            iCity.textContent = "*Solo se permiten letras"
+        var auxIterator = 0
+
+        if(cityValue===""){
+            iCity.textContent = "*Campo obligatorio"
+            setValidation({...validation, auxCity: false})
+            auxIterator++
+        }
+
+        if (auxIterator !== 1 && !regexCity.test(cityValue)) {
+            iCity.textContent = "*Solo se permiten letras"          
+            setValidation({...validation, auxCity: false})
+            auxIterator++
+        }
+        
+        if(auxIterator ===0){
+            iCity.textContent = ""
+            city.style.border=''
+            setValidation({...validation, auxCity: true})
+        }else{
             city.style.borderBottom='2px solid red'
             city.style.borderRight='2px solid red'
             city.style.borderLeft='2px solid red'
             city.style.borderRadius='5px'
-            setValidation({...validation, auxCity: false})
-        }else {
-            iCity.textContent = ""
-            city.style.border=''
-            setValidation({...validation, auxCity: true})
         }
     }
 
