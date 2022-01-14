@@ -405,7 +405,7 @@ const MatEditUser = ( props ) => {
                            label="Nombres" 
                            onChange={handleChange} 
                            onBlur={nameValidation}
-                        /> <i id="iName"></i>
+                        /> <i id="iName" class="msgError"></i>
                         
                         <TextField fullWidth 
                             id="userLastName"  
@@ -418,7 +418,7 @@ const MatEditUser = ( props ) => {
                             style={{
                                 marginTop: '5%'
                             }}
-                        /> <i id="iLastName"></i>
+                        /> <i id="iLastName" class="msgError"></i>
 
                         <TextField fullWidth 
                             id="userId"
@@ -431,7 +431,7 @@ const MatEditUser = ( props ) => {
                             style={{
                                 marginTop: '5%'
                             }}
-                        /> <i id="iIdCard"></i>
+                        /> <i id="iIdCard" class="msgError"></i>
 
                         <TextField fullWidth
                             id="email"  
@@ -445,7 +445,7 @@ const MatEditUser = ( props ) => {
                                 marginTop: '5%',
                             }}
 
-                        /><i id="iEmail"></i>
+                        /><i id="iEmail" class="msgError"></i>
 
                         <TextField fullWidth 
                             id="userName" 
@@ -459,7 +459,7 @@ const MatEditUser = ( props ) => {
                                 marginTop: '5%'
                             }}
                         
-                        /><i id="iUsername"></i>
+                        /><i id="iUsername" class="msgError"></i>
 
                         <TextField fullWidth 
                             id="password" 
@@ -474,7 +474,7 @@ const MatEditUser = ( props ) => {
                                 marginTop: '5%'
                             }}
                         
-                        /><i id="iPassword"></i>
+                        /><i id="iPassword" class="msgError"></i>
 
                         <FormControl fullWidth
                             style={{

@@ -244,7 +244,7 @@ const MatEditTiDevice = ( props ) => {
                             onBlur={validateName}
                             placeholder="Dispositivo TI" 
                             label="Dispositivo TI" 
-                        /><i id="iName"></i>
+                        /><i id="iName" class="msgError"></i>
 
                         {/* Serial number */}
                         <TextField fullWidth 
@@ -258,7 +258,7 @@ const MatEditTiDevice = ( props ) => {
                             style={{
                                 marginTop: '5%'
                             }}
-                        /><i id="iSerial"></i>
+                        /><i id="iSerial" class="msgError"></i>
 
                         {/* Brand */}
                         <TextField fullWidth 
@@ -272,7 +272,7 @@ const MatEditTiDevice = ( props ) => {
                             style={{
                                 marginTop: '5%'
                             }}
-                        /><i id="iBrand"></i>
+                        /><i id="iBrand" class="msgError"></i>
 
 
                         {/* Owner */}
@@ -287,7 +287,7 @@ const MatEditTiDevice = ( props ) => {
                             style={{
                                 marginTop: '5%'
                             }}
-                        /><i id="iOwner"></i>
+                        /><i id="iOwner" class="msgError"></i>
 
                         {/* Gym */}
                         <FormControl fullWidth 
