@@ -265,6 +265,12 @@ code {
   font-size: 29px;
   margin: 0;
 }
+
+.msgError{
+  margin-top: 5px;
+  color: red;
+  margin-right: auto;
+}
 @media (max-height:650px){
     #editUser{
       position: absolute;

@@ -14,12 +14,9 @@ import FormControl from '@mui/material/FormControl';
 
 const FormUser = (props) => {
 
-    //const initialValues={userName:"",idCard:""}
-    //const [formErrors,setFormErrors]=useState({});
     const handleSubmit = props.handleSubmit
     const gyms = props.gyms
     const formUserValues = props.formUserValues
-    //const [isSubmit, setIsSubmit]=useState(false);
     const setFormUservalues = props.setFormUservalues
     
     const [validation, setValidation] = useState({
@@ -28,7 +25,9 @@ const FormUser = (props) => {
         auxId: false,
         auxEmail: false,
         auxPassword: false,
-        auxUsername: false
+        auxUsername: false,
+        auxType: false,
+        auxLocal: false
     })
     
     const handleChange = (event) => {
@@ -38,8 +37,15 @@ const FormUser = (props) => {
     }
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        handleSubmit(formUserValues);
-        //setIsSubmit(true);
+        
+        if (validation.auxName === true && validation.auxLastName === true && validation.auxId === true && validation.auxEmail === true && 
+            validation.auxUsername === true && validation.auxPassword === true && validation.auxType == true && validation.auxLocal === true) 
+        {
+            handleSubmit(formUserValues)
+
+        }else {
+            window.alert("Por favor llene todos los campos correctamente")
+        }
     }
 
     const handleClickShowPassword = () => {
@@ -57,18 +63,27 @@ const FormUser = (props) => {
         const name = formUserValues.name
         const regexOnlyletters = /^[a-zA-Z ]+$/
         const iName = document.getElementById('iName')
+        const names = document.getElementById('userName')
         var splitName = name.split(' ')
         var auxIterator = 0
         var correctName = ""
 
         if (name === "") {
-            iName.textContent = "Ingrese el nombre. Campo obligatorio."
+            iName.textContent = "*Ingrese el nombre. Campo obligatorio."
+            names.style.borderBottom='2px solid red'
+            names.style.borderRight='2px solid red'
+            names.style.borderLeft='2px solid red'
+            names.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxName: false})
         }
 
         if (auxIterator !== 1 && !regexOnlyletters.test(name)) {
-            iName.textContent = "Solo se permiten letras"
+            iName.textContent = "*Solo se permiten letras"
+            names.style.borderBottom='2px solid red'
+            names.style.borderRight='2px solid red'
+            names.style.borderLeft='2px solid red'
+            names.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxName: false})
         }
@@ -89,6 +104,7 @@ const FormUser = (props) => {
             }
             setFormUservalues({...formUserValues, name: correctName})
             iName.textContent = ""
+            names.style.border=''
             setValidation({...validation, auxName: true})
         }
     }
@@ -97,18 +113,27 @@ const FormUser = (props) => {
         const lastName = formUserValues.lastName
         const regexOnlyletters = /^[a-zA-Z ]+$/
         const iLastName = document.getElementById('iLastName')
+        const lastN= document.getElementById('userLastName')
         var splitLastName = lastName.split(' ')
         var auxIterator = 0
         var correctLastName = ""
 
         if (lastName === "") {
-            iLastName.textContent = "Ingrese el apellido. Campo obligatorio."
+            iLastName.textContent = "*Ingrese el apellido. Campo obligatorio."
+            lastN.style.borderBottom='2px solid red'
+            lastN.style.borderRight='2px solid red'
+            lastN.style.borderLeft='2px solid red'
+            lastN.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxLastName: false})
         }
 
         if (auxIterator !== 1 && !regexOnlyletters.test(lastName)) {
-            iLastName.textContent = "Solo se permiten letras."
+            iLastName.textContent = "*Solo se permiten letras."
+            lastN.style.borderBottom='2px solid red'
+            lastN.style.borderRight='2px solid red'
+            lastN.style.borderLeft='2px solid red'
+            lastN.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxLastName: false})
         }
@@ -129,6 +154,7 @@ const FormUser = (props) => {
             }
             setFormUservalues({...formUserValues, lastName: correctLastName})
             iLastName.textContent = ""
+            lastN.style.border=''
             setValidation({...validation, auxLastName: true})
         }
     }
@@ -137,6 +163,7 @@ const FormUser = (props) => {
         const idCard = formUserValues.idCard
         const regexOnlyNumbers = /[0-9]+$/
         const iIdCard = document.getElementById('iIdCard')
+        const idC = document.getElementById('userId')
         var auxIterator = 0
         var splitIDCard = idCard.split('')
         var pairsArray = []
@@ -147,19 +174,31 @@ const FormUser = (props) => {
         var auxBoolIDCard = true
 
         if (idCard === "") {
-            iIdCard.textContent = "Ingrese el ID. Campo obligatorio."
+            iIdCard.textContent = "*Ingrese el ID. Campo obligatorio."
+            idC.style.borderBottom='2px solid red'
+            idC.style.borderRight='2px solid red'
+            idC.style.borderLeft='2px solid red'
+            idC.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxId: false})
         }
 
         if (auxIterator !== 1 && !regexOnlyNumbers.test(idCard)) {
-            iIdCard.textContent = "El ID solo debe contener números"
+            iIdCard.textContent = "*El ID solo debe contener números"
+            idC.style.borderBottom='2px solid red'
+            idC.style.borderRight='2px solid red'
+            idC.style.borderLeft='2px solid red'
+            idC.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxId: false})
         }
 
         if (auxIterator !== 1 && idCard.length < 10) {
-            iIdCard.textContent = "El ID debe tener 10 digitos"
+            iIdCard.textContent = "*El ID debe tener 10 digitos"
+            idC.style.borderBottom='2px solid red'
+            idC.style.borderRight='2px solid red'
+            idC.style.borderLeft='2px solid red'
+            idC.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxId: false})
         }
@@ -167,7 +206,11 @@ const FormUser = (props) => {
         if (auxIterator !== 1 && !(idCard.charAt(0) === '1' || (idCard.charAt(0) === '2' && (idCard.charAt(1) === '0' || idCard.charAt(1) === '1' || 
                 idCard.charAt(1) === '2' || idCard.charAt(1) === '3' || idCard.charAt(1) === '4')) || idCard.charAt(0) === '0')) 
         {
-			iIdCard.textContent = "Ingrese correctamente los primeros dos dígitos de la cédula"
+			iIdCard.textContent = "*Ingrese correctamente los primeros dos dígitos de la cédula"
+            idC.style.borderBottom='2px solid red'
+            idC.style.borderRight='2px solid red'
+            idC.style.borderLeft='2px solid red'
+            idC.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxId: false})
 		}
@@ -214,7 +257,11 @@ const FormUser = (props) => {
             }
 
             if (auxBoolIDCard  === false) {
-                iIdCard.textContent = "Comprobación del último dígito errada. Ingrese correctamente su cédula"
+                iIdCard.textContent = "*Comprobación del último dígito errada. Ingrese correctamente su cédula"
+                idC.style.borderBottom='2px solid red'
+                idC.style.borderRight='2px solid red'
+                idC.style.borderLeft='2px solid red'
+                idC.style.borderRadius='5px'
                 auxIterator++
                 setValidation({...validation, auxId: false})
             }
@@ -222,6 +269,7 @@ const FormUser = (props) => {
 
         if (auxIterator === 0) {
             iIdCard.textContent = ""
+            idC.style.border=''
             setValidation({...validation, auxId: true})
         }
     }
@@ -230,22 +278,32 @@ const FormUser = (props) => {
         const email = formUserValues.email
         const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
         const iEmail = document.getElementById('iEmail')
+        const emails= document.getElementById('email')
         var auxIterator = 0
 
         if (email === "") {
-            iEmail.textContent = "Ingrese la cédula. Campo obligatorio."
+            iEmail.textContent = "*Ingrese el correo electrónico. Campo obligatorio."
+            emails.style.borderBottom='2px solid red'
+            emails.style.borderRight='2px solid red'
+            emails.style.borderLeft='2px solid red'
+            emails.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxEmail: false})
         }
 
         if (auxIterator !== 1 && !regexEmail.test(email)) {
-            iEmail.textContent = "Ingrese correctamente el email"
+            iEmail.textContent = "*Ingrese correctamente el email"
+            emails.style.borderBottom='2px solid red'
+            emails.style.borderRight='2px solid red'
+            emails.style.borderLeft='2px solid red'
+            emails.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxEmail: false})
         }
 
         if (auxIterator === 0) {
             iEmail.textContent = ""
+            emails.style.border=''
             setValidation({...validation, auxEmail: true})
         }
     }
@@ -256,7 +314,8 @@ const FormUser = (props) => {
         var auxIterator = 0
 
         if (username === "") {
-            iUsername.textContent = "Ingrese el nombre de usuario. Campo obligatorio."
+            iUsername.textContent = "*Ingrese el nombre de usuario. Campo obligatorio."
+            
             auxIterator++
             setValidation({...validation, auxUsername: false})
         }
@@ -270,20 +329,59 @@ const FormUser = (props) => {
     const passwordValidation = () => {
         const password = formUserValues.password
         const iPassword = document.getElementById('iPassword')
+        const pass= document.getElementById('password')
         var auxIterator = 0
 
         if (password === "") {
-            iPassword.textContent = "Ingrese la contraseña. Campo obligatorio."
+            iPassword.textContent = "*Ingrese la contraseña. Campo obligatorio."
+            pass.style.borderBottom='2px solid red'
+            pass.style.borderRight='2px solid red'
+            pass.style.borderLeft='2px solid red'
+            pass.style.borderRadius='5px'
+            auxIterator++
+            setValidation({...validation, auxPassword: false})
+        }
+
+        if (auxIterator !== 1 && password.length < 5) {
+            iPassword.textContent = "*El Password debe tener al menos 5 digitos"
+            pass.style.borderBottom='2px solid red'
+            pass.style.borderRight='2px solid red'
+            pass.style.borderLeft='2px solid red'
+            pass.style.borderRadius='5px'
             auxIterator++
             setValidation({...validation, auxPassword: false})
         }
 
         if (auxIterator === 0) {
             iPassword.textContent = ""
+            pass.style.border=''
             setValidation({...validation, auxPassword: true})
         }
+
+    }
+
+    const modificationType = () => {
+        const type = formUserValues.type
+
+        if (type === 0) {
+            setValidation({...validation, auxType: false})
+        }else {
+            setValidation({...validation, auxType: true})
+        }
+        
     }
     
+    const modificationLocal = () => {
+        const local = formUserValues.gym
+        console.log(local)
+        if (local === "") {
+            setValidation({...validation, auxLocal: false})
+        }else {
+            setValidation({...validation, auxLocal: true})
+        }
+        
+    }
+
     return(
        
         <form onSubmit={handleSubmitInternal} >
@@ -306,7 +404,7 @@ const FormUser = (props) => {
                 }}
             >
                 <br/>
-                <h1 align="center">Crear usuario</h1><br/>
+                <h1 align="center">Agregar usuario</h1><br/>
 
                 <TextField fullWidth 
                     id="userName" 
@@ -317,7 +415,7 @@ const FormUser = (props) => {
                     onChange={handleChange} 
                     onBlur={nameValidation}
                 />
-                <i id='iName'></i>
+                <i id='iName' class='msgError'></i>
                 <br/>
 
                 <TextField fullWidth 
@@ -329,7 +427,7 @@ const FormUser = (props) => {
                     onChange={handleChange} 
                     onBlur={lastNameValidation}
                 />
-                <i id='iLastName'></i>
+                <i id='iLastName' class='msgError'></i>
                 <br/>
                 
                 <TextField fullWidth 
@@ -342,7 +440,7 @@ const FormUser = (props) => {
                     onChange={handleChange} 
                     onBlur={idCardValidation}
                 />
-                <i id='iIdCard'></i>
+                <i id='iIdCard' class='msgError'></i>
                 <br/>
 
                 <TextField fullWidth 
@@ -354,7 +452,7 @@ const FormUser = (props) => {
                     onChange={handleChange} 
                     onBlur={emailValidation}
                 />
-                <i id='iEmail'></i>
+                <i id='iEmail' class='msgError'></i>
                 <br/>
 
                 <TextField fullWidth 
@@ -390,9 +488,8 @@ const FormUser = (props) => {
                             </IconButton>
                         </InputAdornment>
                     }
-                    
                 />
-                <i id='iPassword'></i>
+                <i id='iPassword' class='msgError'></i>
                 <br/>
                 
                 <FormControl fullWidth>
@@ -405,8 +502,9 @@ const FormUser = (props) => {
                         value={formUserValues.type}
                         label="Tipo de usuario"
                         onChange={handleChange}
+                        onBlur={modificationType}
                     >
-                        <MenuItem disabled selected >Seleccione un tipo </MenuItem>
+                        <MenuItem disabled selected value={0}>Seleccione un tipo </MenuItem>
                         <MenuItem value={2}>Supervisor</MenuItem>
                         <MenuItem value={3}>Admin/Sistemas</MenuItem>
                         <MenuItem value={4}>Admin/Mantenimiento</MenuItem>
@@ -425,6 +523,7 @@ const FormUser = (props) => {
                         value={formUserValues.gym}
                         label="Local asignado"
                         onChange={handleChange}
+                        onBlur={modificationLocal}
                     >
                         <MenuItem disabled selected >Seleccione un local </MenuItem>
                         {
