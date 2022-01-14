@@ -14,12 +14,9 @@ import FormControl from '@mui/material/FormControl';
 
 const FormUser = (props) => {
 
-    //const initialValues={userName:"",idCard:""}
-    //const [formErrors,setFormErrors]=useState({});
     const handleSubmit = props.handleSubmit
     const gyms = props.gyms
     const formUserValues = props.formUserValues
-    //const [isSubmit, setIsSubmit]=useState(false);
     const setFormUservalues = props.setFormUservalues
     
     const [validation, setValidation] = useState({
@@ -28,7 +25,9 @@ const FormUser = (props) => {
         auxId: false,
         auxEmail: false,
         auxPassword: false,
-        auxUsername: false
+        auxUsername: false,
+        auxType: false,
+        auxLocal: false
     })
     
     const handleChange = (event) => {
@@ -38,8 +37,15 @@ const FormUser = (props) => {
     }
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        handleSubmit(formUserValues);
-        //setIsSubmit(true);
+        
+        if (validation.auxName === true && validation.auxLastName === true && validation.auxId === true && validation.auxEmail === true && 
+            validation.auxUsername === true && validation.auxPassword === true && validation.auxType == true && validation.auxLocal === true) 
+        {
+            handleSubmit(formUserValues)
+
+        }else {
+            window.alert("Por favor llene todos los campos correctamente")
+        }
     }
 
     const handleClickShowPassword = () => {
@@ -283,7 +289,29 @@ const FormUser = (props) => {
             setValidation({...validation, auxPassword: true})
         }
     }
+
+    const modificationType = () => {
+        const type = formUserValues.type
+
+        if (type === 0) {
+            setValidation({...validation, auxType: false})
+        }else {
+            setValidation({...validation, auxType: true})
+        }
+        
+    }
     
+    const modificationLocal = () => {
+        const local = formUserValues.gym
+        console.log(local)
+        if (local === "") {
+            setValidation({...validation, auxLocal: false})
+        }else {
+            setValidation({...validation, auxLocal: true})
+        }
+        
+    }
+
     return(
        
         <form onSubmit={handleSubmitInternal} >
@@ -306,7 +334,7 @@ const FormUser = (props) => {
                 }}
             >
                 <br/>
-                <h1 align="center">Crear usuario</h1><br/>
+                <h1 align="center">Agregar usuario</h1><br/>
 
                 <TextField fullWidth 
                     id="userName" 
@@ -390,7 +418,6 @@ const FormUser = (props) => {
                             </IconButton>
                         </InputAdornment>
                     }
-                    
                 />
                 <i id='iPassword'></i>
                 <br/>
@@ -405,8 +432,9 @@ const FormUser = (props) => {
                         value={formUserValues.type}
                         label="Tipo de usuario"
                         onChange={handleChange}
+                        onBlur={modificationType}
                     >
-                        <MenuItem disabled selected >Seleccione un tipo </MenuItem>
+                        <MenuItem disabled selected value={0}>Seleccione un tipo </MenuItem>
                         <MenuItem value={2}>Supervisor</MenuItem>
                         <MenuItem value={3}>Admin/Sistemas</MenuItem>
                         <MenuItem value={4}>Admin/Mantenimiento</MenuItem>
@@ -425,6 +453,7 @@ const FormUser = (props) => {
                         value={formUserValues.gym}
                         label="Local asignado"
                         onChange={handleChange}
+                        onBlur={modificationLocal}
                     >
                         <MenuItem disabled selected >Seleccione un local </MenuItem>
                         {
