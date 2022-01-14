@@ -7,10 +7,10 @@ const FormAddLocal = (props) => {
 
     const {handleSubmit, formAddLocalValues, setformAddLocalValues} = props
 
-    /*const [formAddLocalValues, setformAddLocalValues] = useState({
-        namegym: '',
-        city: ''
-    })*/
+    const [validation, setValidation] = useState({
+        auxNameGym: false,
+        auxCity: false
+    })
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -18,10 +18,43 @@ const FormAddLocal = (props) => {
         
     }
 
+    const handleBlurGymName = () => {
+        const nameGym = formAddLocalValues.namegym
+        const regexNameGym = /^[a-zA-Z ]+$/
+        const iNamegym = document.getElementById('iNamegym')
+
+        if (!regexNameGym.test(nameGym)) {
+            iNamegym.textContent = "Solo se permiten letras"
+            setValidation({...validation, auxNameGym: false})
+        }else {
+            iNamegym.textContent = ""
+            setValidation({...validation, auxNameGym: true})
+        }
+    }
+
+    const handleBlurCity = () => {
+        const cityValue = formAddLocalValues.city
+        const regexCity = /^[a-zA-Z ]+$/
+        const iCity = document.getElementById('iCity')
+
+        if (!regexCity.test(cityValue)) {
+            iCity.textContent = "Solo se permiten letras"
+            setValidation({...validation, auxCity: false})
+        }else {
+            iCity.textContent = ""
+            setValidation({...validation, auxCity: true})
+        }
+    }
+
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        handleSubmit(formAddLocalValues)
-        //e.target.reset()
+        
+        if (validation.auxNameGym === true && validation.auxCity === true) {
+            handleSubmit(formAddLocalValues)
+
+        }else {
+            window.alert("Por favor llene los campos correctamente")
+        }
     }
     
     return (
@@ -54,9 +87,11 @@ const FormAddLocal = (props) => {
                     id="namegym" 
                     value={formAddLocalValues.namegym}
                     onChange={handleChange}
+                    onBlur={handleBlurGymName}
                     placeholder="Nombre del gimnasio" 
                     label="Nombre del gimnasio" 
                 />
+                <i id='iNamegym'></i>
                 <br/>
 
                 {/* City */}
@@ -65,9 +100,11 @@ const FormAddLocal = (props) => {
                     id="city" 
                     value={formAddLocalValues.city} 
                     onChange={handleChange}
+                    onBlur={handleBlurCity}
                     placeholder="Ciudad" 
                     label="Ciudad" 
                 />
+                <i id='iCity'></i>
                 <br/>
 
                 <Button

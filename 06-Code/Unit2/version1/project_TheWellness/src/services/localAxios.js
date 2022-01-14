@@ -26,6 +26,7 @@ export async function saveLocal(localData, values, setValues){
     })
     
     setValues({namegym: '', city: ''})
+    window.alert("Datos ingresados correctamente")
 
   }catch(error){
     console.log(error)

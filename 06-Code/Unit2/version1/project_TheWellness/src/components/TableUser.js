@@ -28,18 +28,18 @@ const TableUser = (props) => {
     }
 
     const columns = [
-        { field: 'idCard', headerName: 'Cédula', width: 200 },
-        { field: 'name', headerName: 'Nombre', width: 200 },
+        { field: 'idCard', headerName: 'Cédula', width: 100 },
+        { field: 'name', headerName: 'Nombre', width: 130 },
         { field: 'lastName', headerName: 'Apellidos', width: 200 },
         { field: 'email', headerName: 'Correo', width: 200 },
-        { field: 'userName', headerName: 'Usuario', width: 200 },
-        { field: 'type', headerName: 'Tipo de usuario', width: 200 },
+        { field: 'userName', headerName: 'Usuario', width: 140 },
+        { field: 'type', headerName: 'Tipo de usuario', width: 130 },
         { field: 'nameGym', headerName: 'Local Asignado', width: 200 },
         { 
             field: 'actions', 
             headerName: 'Acciones',
             sortable: false,
-            width: 200,
+            width: 100,
             disableClickEventBubbling: true,
             renderCell: (params) => (
                 <div

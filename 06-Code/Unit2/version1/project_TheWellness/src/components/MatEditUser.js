@@ -3,7 +3,7 @@ import { IconButton, Modal, Box, TextField, Button, FormControl, InputLabel, Sel
 import { esES } from '@mui/x-data-grid';
 import React, { useState } from 'react';
 
-const style = {
+const style  = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -12,7 +12,7 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    padding: 4,
 };
 
 const MatEditUser = ( props ) => {
@@ -69,7 +69,7 @@ const MatEditUser = ( props ) => {
                 open={open}
                 onClose={() => setOpen(false)}
             >
-                <Box sx={style}>
+                <Box sx={style} id='editUser'>
                     <form onSubmit={handleEdit}>
                         <h1 align='center'>Editar Usuario</h1><br/>
 
@@ -82,7 +82,7 @@ const MatEditUser = ( props ) => {
                            label="Nombres" 
                            onChange={handleChange} 
                         />
-
+                        
                         <TextField fullWidth 
                             id="userLastName"  
                             name="lastName" 
@@ -115,7 +115,7 @@ const MatEditUser = ( props ) => {
                             label="Correo eléctronico" 
                             onChange={handleChange} 
                             style={{
-                                marginTop: '5%'
+                                marginTop: '5%',
                             }}
 
                         />

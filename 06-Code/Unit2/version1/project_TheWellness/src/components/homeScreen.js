@@ -41,8 +41,8 @@ function App() {
   return (
     <>
     <br/>
-    <br/><br/><br/><br/><br/>
-      <div class = "logoHome">.</div>
+    <br/><br/><br/><br/><br/><br/>
+      {/* <div class = "logoHome">.</div> */}
       <h1 class = "titleHome">Bienvenidos</h1>
       <h2 class = "subtitleHome">A "The Wellness Group"</h2>
     </>

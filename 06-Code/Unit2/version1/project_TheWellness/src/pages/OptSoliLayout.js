@@ -1,7 +1,7 @@
-import OptSoli from './OptSoli'
+import OptSoli from '../components/OptSoli'
 import '../index.css';
 import {Box} from "@mui/material"
-import NavBarLeaderGym from './NavBarLeaderGym'
+import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 

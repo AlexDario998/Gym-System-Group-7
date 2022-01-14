@@ -58,6 +58,7 @@ const FormsInf = (props) => {
                         id="local"
                         value={formInfValues.idLocal}
                         onChange={handleChange}
+                        variant="filled"
                     >
                         
                         <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
@@ -80,7 +81,6 @@ const FormsInf = (props) => {
                     id="description" 
                     value={formInfValues.description}
                     onChange={handleChange}
-                    placeholder="Descripción" 
                     multiline
                     rows={3}
                     variant="filled"
@@ -98,17 +98,17 @@ const FormsInf = (props) => {
             }}>
             Enviar y Notificar
           </Button>
-          <Link to="/menuOpt"  class='linkDescartar'>
+          {/* <Link to="/menuOpt"  class='linkDescartar'>
           <Button variant="contained" 
             sx={{
               boxShadow: '1px 1px 5px #333',
-              background: '#CB356B',  /* fallback for old browsers */
-              background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',  /* Chrome 10-25, Safari 5.1-6 */
-              background: 'linear-gradient(to right, #BD3F32, #CB356B)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+              background: '#CB356B',
+              background: '-webkit-linear-gradient(to right, #BD3F32, #CB356B)',
+              background: 'linear-gradient(to right, #BD3F32, #CB356B)',
             }}>
             Descartar
           </Button> 
-          </Link>
+          </Link> */}
         </Stack>
                 <br/>
             </Box>

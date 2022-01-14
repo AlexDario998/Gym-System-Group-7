@@ -1,33 +1,39 @@
-import TableRepairInfrastructuresRequests from "./TableRepairInfrastructuresRequests";
+import TableRepairTIDevicesRequestsLeader from "../components/TableRepairTIDevicesRequestsLeader";
 import {
   getReports,
+  deleteRequest,
   getReportsByConfirmation,
   updateConfirmation,
-} from "../services/repairInfrastructuresRequestAxios"
+
+} from "../services/repairRequestTIDevicesAxios";
 import {getLocals} from '../services/localAxios'
+import { getTIDevices} from '../services/tiDeviceAxios'
 import { getUsers} from '../services/userAxios'
 import "../index.css";
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import NavbarMaintenanceAdmin from "./NavbarMaintenanceAdmin";
+import NavBarLeaderGym from "../components/NavBarLeaderGym";
 import Cookies from "universal-cookie/es6";
 
 const cookies = new Cookies();
 
-const TableRepairInfrastructuresRequestsLayout = () => {
-
-  const [reports, setReports] = useState([])
+const TableRepairTIDevicesRequestsLayout = () => {
+  const [reports, setReports] = useState([]);
   const [gyms, setGyms] = useState([])
+  const [tiDevices, setTiDevices] = useState([])
   const [users, setUsers] = useState([])
+  
 
-  const updateRegister = (data) => {
-    updateConfirmation(data);
-  };
+
 
   useEffect(() => {
     async function loadReports() {
-      const data = await getReportsByConfirmation();
-      setReports(data);
+      const response = await getReports()
+
+      if (response.status === 200) {
+          setReports(response.data)
+          
+      }
     }
 
     loadReports();
@@ -48,6 +54,20 @@ const TableRepairInfrastructuresRequestsLayout = () => {
   }, [])
 
   useEffect(() => {
+      async function loadTiDevices() {
+          const response = await getTIDevices()
+
+          if (response.status === 200) {
+              setTiDevices(response.data)
+              
+          }
+      }
+
+      loadTiDevices()
+      
+  }, [])
+
+  useEffect(() => {
       async function loadUsers() {
           const response = await getUsers()
 
@@ -62,7 +82,7 @@ const TableRepairInfrastructuresRequestsLayout = () => {
   }, [])
 
   useEffect(() => {
-    if (typeof cookies.get("userName") === "undefined" || cookies.get('type', {path: "/"}) !== '4') {
+    if (typeof cookies.get("userName") === "undefined" || cookies.get('type', {path: "/"}) !== '2') {
       window.location.href = "./";
     }
   });
@@ -70,16 +90,16 @@ const TableRepairInfrastructuresRequestsLayout = () => {
   return (
     <>
       <Box>
-        <NavbarMaintenanceAdmin />
+        <NavBarLeaderGym />
         <br />
         <br />
-        <TableRepairInfrastructuresRequests
+        <TableRepairTIDevicesRequestsLeader
           reports={reports}
-          updateRegister={updateRegister}
-          gyms={gyms} users={users}
+          gyms={gyms} users={users} tiDevices={tiDevices}
+   
         />
       </Box>
     </>
   );
 };
-export default TableRepairInfrastructuresRequestsLayout;
+export default TableRepairTIDevicesRequestsLayout;

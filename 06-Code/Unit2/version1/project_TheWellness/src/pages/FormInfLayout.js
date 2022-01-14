@@ -1,9 +1,9 @@
-import FormsInf from './FormsInf'
+import FormsInf from '../components/FormsInf'
 import {getLocals} from '../services/localAxios'
 import {saveRinfrastructure} from '../services/repairInfrastructuresRequestAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import NavBarLeaderGym from './NavBarLeaderGym'
+import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 

@@ -1,10 +1,10 @@
-import FormsSystem from './FormsSystem'
+import FormsSystem from '../components/FormsSystem'
 import {getLocals} from '../services/localAxios'
 import {getTiDevicesByIdLocal} from '../services/tiDeviceAxios'
 import {saveRsystems} from '../services/repairRequestTIDevicesAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import NavBarLeaderGym from './NavBarLeaderGym'
+import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 

@@ -1,31 +1,23 @@
-import FormUser from './FormUser'
-import {saveUser} from '../services/userAxios'
-import {getLocals} from '../services/localAxios'
+import TableLocals from '../components/TableLocals'
+import {getLocals, deleteLocal, updateLocal} from '../services/localAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import NavBar from './NavBar'
+import React, {useEffect, useState} from 'react';
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
-import {useEffect, useState} from 'react';
 
 const cookies = new Cookies()
 
-const UserLayout = () => {
+const TableLocalsLayout = () => {
 
     const [gyms, setGyms] = useState([])
 
-    const [values, setValues] = useState({
-        name: '',
-        userName: '',
-        lastName: '',
-        password: '',
-        idCard: '',
-        email: '',
-        type: 0,
-        gym: ''
-    })
+    const deleteRegister = (idLocal) => {
+        deleteLocal(idLocal)
+    }
 
-    const handleSubmit = (data) => {
-        saveUser(data,values,setValues)
+    const updateRegister = (values) => {
+        updateLocal(values)
     }
 
     useEffect(() => {
@@ -34,7 +26,6 @@ const UserLayout = () => {
 
             if (response.status === 200) {
                 setGyms(response.data)
-                
             }
         }
 
@@ -51,15 +42,14 @@ const UserLayout = () => {
     return (
         <>
             <Box
-                class = "imgUser"
+                 class = "imgLocal"
             >
                 <NavBar />
                 <br/><br/>
-                <FormUser handleSubmit={handleSubmit} gyms={gyms} formUserValues={values} setFormUservalues={setValues} />
-                <br/>
+                <TableLocals gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
             </Box>
         
         </>
     )
 }
-export default UserLayout
+export default TableLocalsLayout

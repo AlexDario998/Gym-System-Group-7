@@ -1,10 +1,10 @@
-import FormsMach from './FormsMach'
+import FormsMach from '../components/FormsMach'
 import {getLocals} from '../services/localAxios'
 import {getGymMachinesByIdLocal} from '../services/gymMachineAxios'
 import {saveRmachine} from '../services/maintenanceRequestsAxios'
 import '../index.css';
 import {Box} from "@mui/material"
-import NavBarLeaderGym from './NavBarLeaderGym'
+import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 

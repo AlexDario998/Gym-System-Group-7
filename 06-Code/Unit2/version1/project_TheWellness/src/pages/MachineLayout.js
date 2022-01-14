@@ -1,27 +1,27 @@
 import React, {useEffect, useState} from 'react';
-import FormAddTIDevice from './FormAddTIDevice'
-import {saveTIDevice} from '../services/tiDeviceAxios'
+import {saveGymMachine} from '../services/gymMachineAxios'
 import '../index.css';
 import {Box} from "@mui/material"
 import { getLocals } from '../services/localAxios';
-import NavBar from './NavBar'
+import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
+import FormMachine from '../components/FormMachine';
 
 const cookies = new Cookies()
 
-const TIDeviceLayout = () => {
+const MachineLayout = () => {
     const [gyms, setGyms] = useState([])
 
     const [values, setValues] = useState({
         name: '',
+        gym: '',
         serialNumber: '',
-        brand: '',
-        local: '',
-        owner: ''
+        mark: '',
+        zone: ''
     })
 
     const handleSubmit = (data) => {
-        saveTIDevice(data,values,setValues)
+        saveGymMachine(data,values,setValues)
     }
 
     useEffect(() => {
@@ -47,15 +47,15 @@ const TIDeviceLayout = () => {
     return (
         <>
             <Box
-                class = "imgTIDevice"
+                class = "imgMachine"
             >
                 <NavBar />
                 <br/><br/>
-                <FormAddTIDevice handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues}/>
+                <FormMachine handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues} />
                 <br/>
             </Box>
         
         </>
     )
 }
-export default TIDeviceLayout
+export default MachineLayout
