@@ -213,7 +213,7 @@ const MatEditGymMachine = ( props ) => {
                         onChange={handleChange} 
                         onBlur={validateName}
                         placeholder="Ingrese el nombre de la máquina" 
-                        label="Nombre" /><i id="iName"></i>
+                        label="Nombre" /><i id="iName"  class="msgError"></i>
                         <br/>
 
                         <TextField 
@@ -228,7 +228,7 @@ const MatEditGymMachine = ( props ) => {
                             style={{
                                 marginTop: '5%'
                             }}
-                        /><i id="iBrand"></i>
+                        /><i id="iBrand" class="msgError"></i>
 
                         <TextField 
                             fullWidth 
@@ -242,7 +242,7 @@ const MatEditGymMachine = ( props ) => {
                             style={{
                                 marginTop: '5%'
                             }}
-                        /><i id="iSerial"></i>
+                        /><i id="iSerial"  class="msgError"></i>
 
                         <FormControl 
                             fullWidth
