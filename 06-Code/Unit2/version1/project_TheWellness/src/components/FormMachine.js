@@ -149,8 +149,6 @@ const FormMachine = ( props ) => {
 
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        //
-
         if(validation.auxName===true&&validation.auxBrand===true 
         && validation.auxSerial===true && validation.auxLocal===true 
         && validation.auxZone===true){

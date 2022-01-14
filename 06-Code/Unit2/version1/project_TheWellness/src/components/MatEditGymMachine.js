@@ -31,6 +31,136 @@ const MatEditGymMachine = ( props ) => {
         zone: data.zone
     })
 
+    const[validation, setValidation]=useState({
+        auxName:false,
+        auxBrand:false,
+        auxSerial:false,
+        auxLocal:false,
+        auxZone:false
+    })
+
+    const validateName=()=>{
+        const name= gymMachineValues.name
+        const regexName=/^[a-zA-Z ]+$/
+        const iName=document.getElementById('iName')
+        const machName=document.getElementById('machineName')
+        var auxIterator = 0
+
+        if(name===""){
+            iName.textContent="*Campo obligatorio"
+            setValidation({...validation,auxName:false})
+            auxIterator++
+        }
+
+        if(!regexName.test(name)){
+            iName.textContent="*Solo se permiten letras"
+            setValidation({...validation,auxName:false})
+            auxIterator++
+        }
+        if(auxIterator===0){
+            iName.textContent=""
+            machName.style.border=''
+            setValidation({...validation,auxName:true})
+        }else{
+            machName.style.borderBottom='2px solid red'
+            machName.style.borderRight='2px solid red'
+            machName.style.borderLeft='2px solid red'
+            machName.style.borderRadius='5px'     
+        }
+
+        
+    }
+
+
+    const validateBrand=()=>{
+        const mark=gymMachineValues.mark
+        const regexBrand=/^[a-zA-Z ]+$/
+        const iBrand=document.getElementById('iBrand')
+        const machBrand=document.getElementById('machineBrand')
+        var auxIterator=0
+
+
+        if(mark===""){
+            iBrand.textContent="*Campo obligatorio"
+            setValidation({...validation,auxBrand: false})
+             auxIterator++
+        }
+        
+        
+        if(!regexBrand.test(mark)){
+            iBrand.textContent="*Solo se permiten letras"
+            setValidation({...validation,auxBrand:false})
+             auxIterator++
+        
+            
+        }
+        if( auxIterator===0){
+            iBrand.textContent=""
+            machBrand.style.border=''
+            setValidation({...validation,auxBrand:true})
+        }else{
+            machBrand.style.borderBottom='2px solid red'
+            machBrand.style.borderRight='2px solid red'
+            machBrand.style.borderLeft='2px solid red'
+            machBrand.style.borderRadius='5px'     
+        }
+    }
+
+     const validateSerial=()=>{
+        const serial=gymMachineValues.serialNumber
+        const regexSerial=/^[a-zA-Z0-9]+$/
+        const iSerial=document.getElementById('iSerial')
+        const machSerial=document.getElementById('machineSerial')
+        var auxIterator = 0
+
+
+        if(serial===""){
+            iSerial.textContent="*Campo obligatorio"
+            setValidation({...validation,auxSerial:false})
+             auxIterator++
+        }
+
+        if(!regexSerial.test(serial)){
+            iSerial.textContent="*Solo se permiten letras y números"
+            setValidation({...validation,auxSerial:false})
+             auxIterator++
+        }
+
+        if( auxIterator===0){
+            iSerial.textContent=""
+            machSerial.style.border=''
+            setValidation({...validation,auxSerial:true})
+        }else{
+            machSerial.style.borderBottom='2px solid red'
+            machSerial.style.borderRight='2px solid red'
+            machSerial.style.borderLeft='2px solid red'
+            machSerial.style.borderRadius='5px'     
+        }
+
+    }
+
+    const validateLocal=()=>{
+         const local=gymMachineValues.gym
+       // console.log(local)
+        if(local===""){
+            setValidation({...validation,auxLocal:false})
+        }else{
+            setValidation({...validation,auxLocal:true})
+        
+        }
+    }
+
+    const validateZone=()=>{
+        const zone=gymMachineValues.zone
+        if(zone===""){
+        setValidation({...validation,auxZone:false})
+        }else{
+            setValidation({...validation,auxZone:true})
+        }
+    }
+    
+
+
     const handleChange = (event) => {
         const { name, value } = event.target
         setGymMachineValues({ ...gymMachineValues, [name]: value})
@@ -38,9 +168,18 @@ const MatEditGymMachine = ( props ) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        handleUpdateRegister(gymMachineValues)
+       
+        if(validation.auxName===true&&validation.auxBrand===true 
+        && validation.auxSerial===true && validation.auxLocal===true 
+        && validation.auxZone===true){
+             handleUpdateRegister(gymMachineValues)
+
+        }else{
+            window.alert("Por favor llene los campos correctamente")
+        }
     };
   
+   console.log(validation)
     const handleOpenModal = () => {
         setOpen(true)
     }
@@ -67,7 +206,14 @@ const MatEditGymMachine = ( props ) => {
                     <form onSubmit={handleEdit}>
                         <h1 align='center'>Editar máquina de gimnasio</h1><br/>
 
-                        <TextField fullWidth id="machineName" name='name' value={gymMachineValues.name} onChange={handleChange} placeholder="Ingrese el nombre de la máquina" label="Nombre" />
+                        <TextField fullWidth 
+                        id="machineName" 
+                        name='name' 
+                        value={gymMachineValues.name} 
+                        onChange={handleChange} 
+                        onBlur={validateName}
+                        placeholder="Ingrese el nombre de la máquina" 
+                        label="Nombre" /><i id="iName"></i>
                         <br/>
 
                         <TextField 
@@ -75,26 +221,28 @@ const MatEditGymMachine = ( props ) => {
                             id="machineBrand" 
                             name='mark' 
                             value={gymMachineValues.mark} 
-                            onChange={handleChange} 
+                            onChange={handleChange}
+                            onBlur={validateBrand} 
                             placeholder="Ingrese la marca" 
                             label="Marca" 
                             style={{
                                 marginTop: '5%'
                             }}
-                        />
+                        /><i id="iBrand"></i>
 
                         <TextField 
                             fullWidth 
                             id="machineSerial" 
                             name='serialNumber' 
                             value={gymMachineValues.serialNumber} 
-                            onChange={handleChange} 
+                            onChange={handleChange}
+                            onBlur={validateSerial} 
                             placeholder="Ingrese el Número de serie" 
                             label="Número de serie" 
                             style={{
                                 marginTop: '5%'
                             }}
-                        />
+                        /><i id="iSerial"></i>
 
                         <FormControl 
                             fullWidth
@@ -111,6 +259,7 @@ const MatEditGymMachine = ( props ) => {
                                 value={gymMachineValues.gym}
                                 label="Local asignado"
                                 onChange={handleChange}
+                                onBlur={validateLocal}
                             >
                                 <MenuItem disabled selected>Seleccione un local </MenuItem>
                                 {
@@ -138,6 +287,7 @@ const MatEditGymMachine = ( props ) => {
                                 value={gymMachineValues.zone}
                                 label="Zona del gimnasio"
                                 onChange={handleChange}
+                                onBlur={validateZone}
                             >
                                 <MenuItem disabled selected>Seleccione un local </MenuItem>
                                 <MenuItem value={'Cardio'}>Cardio</MenuItem>
