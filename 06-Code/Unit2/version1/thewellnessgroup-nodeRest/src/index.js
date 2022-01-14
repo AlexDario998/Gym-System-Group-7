@@ -5,6 +5,7 @@ const TIDevicesRequests = require("./routes/TIDevicesRequests");
 const InfrastructuresRequests = require("./routes/InfrastructuresRequests")
 const GymRequests = require("./routes/GymRequests")
 const Infrastructure = require("./routes/Infrastructure")
+const Users = require("./routes/Users")
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -18,6 +19,7 @@ app.use(TIDevicesRequests);
 app.use(InfrastructuresRequests);
 app.use(GymRequests);
 app.use(Infrastructure);
+app.use(Users);
 
 //routes
 app.get('/', (req,res) =>{
