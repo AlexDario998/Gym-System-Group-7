@@ -271,6 +271,34 @@ code {
   color: red;
   margin-right: auto;
 }
+
+.solComp{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-right: auto; */
+}
+
+.solInc{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10vh;
+}
+
+.boxSol{
+  margin: 0;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left:1.5vh;
+  padding-right:1.5vh;
+  display: flex;
+  margin-top: -35px;
+  margin-bottom: -20px;
+}
 @media (max-height:650px){
     #editUser{
       position: absolute;
@@ -284,5 +312,4 @@ code {
       padding: 40px;  
     height: 100vh;
     overflow-y: scroll;  }
-
 }

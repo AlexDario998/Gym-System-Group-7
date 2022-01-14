@@ -9,29 +9,15 @@ const SelectRequest = (props) => {
     return (
 
         <Box
-            sx={{
-                width: '30%',
-                height: '100%',
-                marginLeft:'auto',
-                marginRight:'auto',
-                justifyContent: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                flexDirection: 'column',
-                paddingLeft:'20px',
-                paddingRight:'20px',
-                background: '#fff',  /* fallback for old browsers */
-                borderRadius: '15px',
-                display: 'flex'
-            }}
+        class="boxSol"
         >
-            <Box>
-                <h3>Solicitudes completadas</h3>
-                <p>{completedRequests}</p>
+            <Box class = "solComp">
+                <h3>Solicitudes completadas:&nbsp;</h3>
+                <p>&nbsp;{completedRequests}</p>
             </Box>
-            <Box>
-                <h3>Solicitudes no completadas</h3>
-                <p>{noCompletedRequests}</p>
+            <Box class = "solInc">
+                <h3>Solicitudes no completadas:&nbsp;</h3>
+                <p>&nbsp;{noCompletedRequests}</p>
             </Box>
         </Box>
     
