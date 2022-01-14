@@ -70,20 +70,14 @@ const FormUser = (props) => {
 
         if (name === "") {
             iName.textContent = "*Ingrese el nombre. Campo obligatorio."
-            names.style.borderBottom='2px solid red'
-            names.style.borderRight='2px solid red'
-            names.style.borderLeft='2px solid red'
-            names.style.borderRadius='5px'
+           
             auxIterator++
             setValidation({...validation, auxName: false})
         }
 
         if (auxIterator !== 1 && !regexOnlyletters.test(name)) {
             iName.textContent = "*Solo se permiten letras"
-            names.style.borderBottom='2px solid red'
-            names.style.borderRight='2px solid red'
-            names.style.borderLeft='2px solid red'
-            names.style.borderRadius='5px'
+            
             auxIterator++
             setValidation({...validation, auxName: false})
         }
@@ -106,6 +100,12 @@ const FormUser = (props) => {
             iName.textContent = ""
             names.style.border=''
             setValidation({...validation, auxName: true})
+        }else{
+            names.style.borderBottom='2px solid red'
+            names.style.borderRight='2px solid red'
+            names.style.borderLeft='2px solid red'
+            names.style.borderRadius='5px'
+            
         }
     }
 
