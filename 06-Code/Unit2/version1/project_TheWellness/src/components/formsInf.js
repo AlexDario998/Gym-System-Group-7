@@ -11,6 +11,12 @@ const FormsInf = (props) => {
     const formInfValues = props.formInfValues;
     const setFormInfValues = props.setFormInfValues;
 
+    const [validation, setValidation] = useState({
+        
+        auxDescription: false,
+        auxLocal: false
+    })
+
     const handleChange = (event) => {
         const { name, value } = event.target
         setFormInfValues({ ...formInfValues, [name]: value})
@@ -18,7 +24,32 @@ const FormsInf = (props) => {
 
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        handleSubmit(formInfValues)
+        
+
+        if(validation.auxLocal===true&& validation.auxDescription===true){
+            handleSubmit(formInfValues)
+        }else{
+             window.alert("*Por favor llene los campos correctamente")
+        }
+    }
+
+    const validateLocal=()=>{
+        const local=formInfValues.local
+        if(local===""){
+            setValidation({...validation,auxLocal:false})
+        }else{
+             setValidation({...validation,auxLocal:true})
+        }
+        
+    }
+
+    const validateDescription=()=>{
+        const description=formInfValues.description
+        if(description===""){
+            setValidation({...validation,auxDescription:false})
+        }else{
+            setValidation({...validation,auxDescription:true})
+        }
     }
 
     return (
@@ -58,6 +89,7 @@ const FormsInf = (props) => {
                         id="local"
                         value={formInfValues.idLocal}
                         onChange={handleChange}
+                        onBlur={validateLocal}
                         variant="filled"
                     >
                         
@@ -81,6 +113,7 @@ const FormsInf = (props) => {
                     id="description" 
                     value={formInfValues.description}
                     onChange={handleChange}
+                    onBlur={validateDescription}
                     multiline
                     rows={3}
                     variant="filled"

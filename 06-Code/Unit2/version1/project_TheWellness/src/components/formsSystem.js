@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React ,{useState} from 'react';
 import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Stack,Typography,Select,MenuItem,FormControl} from "@mui/material"
@@ -12,6 +12,13 @@ const FormsSystem = (props) => {
   const formSystemValues = props.formSystemValues
   const setFormSystemValues = props.setFormSystemValues
 
+  const [validation, setValidation] = useState({
+        
+        auxDescription: false,
+        auxLocal: false,
+        auxDevice:false
+    })
+
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormSystemValues({ ...formSystemValues, [name]: value})
@@ -19,8 +26,43 @@ const FormsSystem = (props) => {
 
   const handleSubmitInternal = (e) => {
     e.preventDefault()
-    handleSubmit(formSystemValues)
+    
+    if(validation.auxDevice===true && validation.auxLocal===true
+    && validation.auxDescription===true){
+      handleSubmit(formSystemValues)
+
+    }else{
+      window.alert("*Por favor llene los campos correctamente")
+    }
   }
+
+  const validateLocal=()=>{
+        const local=formSystemValues.local
+        if(local===""){
+            setValidation({...validation,auxLocal:false})
+        }else{
+             setValidation({...validation,auxLocal:true})
+        }
+        
+    }
+
+    const validateDescription=()=>{
+        const description=formSystemValues.description
+        if(description===""){
+            setValidation({...validation,auxDescription:false})
+        }else{
+            setValidation({...validation,auxDescription:true})
+        }
+    }
+
+    const validateDevice=()=>{
+        const device=formSystemValues.idTIDevice
+        if(device===""){
+            setValidation({...validation,auxDevice:false})
+        }else{
+            setValidation({...validation,auxDevice:true})
+        }
+    }
 
   return (
 <form onSubmit={handleSubmitInternal}> 
@@ -66,6 +108,7 @@ const FormsSystem = (props) => {
             value={formSystemValues.idLocal}
             id="local"
             onChange={handleChange}
+            onBlur={validateLocal}
         >
             
             <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
@@ -101,6 +144,7 @@ const FormsSystem = (props) => {
             value={formSystemValues.idTiDevice}
             id="tiDevice"
             onChange={handleChange}
+            onBlur={validateDevice}
         >
             
             <MenuItem disabled selected>Seleccione una máquina</MenuItem>
@@ -123,6 +167,7 @@ const FormsSystem = (props) => {
             name='description'
             value={formSystemValues.description}
             onChange={handleChange}
+            onBlur={validateDescription}
             multiline
             rows={3}
             variant="filled"

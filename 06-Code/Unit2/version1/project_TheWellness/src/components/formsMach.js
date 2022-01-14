@@ -1,5 +1,5 @@
 import logo from '../img/logoWellnessGroup.png';
-import React, {useEffect} from 'react';
+import React, {useEffect,useState} from 'react';
 import '../App.css';
 import '../index.css';
 import {Box,TextField,Button,Stack,Typography,Select,MenuItem} from "@mui/material"
@@ -16,6 +16,15 @@ const FormsMach = (props) => {
   const formMachValues = props.formMachValues
   const setFormMachValues = props.setFormMachValues
 
+  const [validation, setValidation] = useState({
+        
+        auxDescription: false,
+        auxDevice:false,
+        auxZone:false,
+        auxType:false,
+        auxLocal: false
+    })
+
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormMachValues({ ...formMachValues, [name]: value})
@@ -23,8 +32,64 @@ const FormsMach = (props) => {
 
   const handleSubmitInternal = (e) => {
     e.preventDefault()
-    handleSubmit(formMachValues)
-  }
+    
+
+     if(validation.auxType===true && validation.auxZone===true 
+      && validation.auxLocal===true && validation.auxDevice && 
+      validation.auxDescription===true)
+      {
+      handleSubmit(formMachValues)}
+     else{
+       window.alert("*Por favor llene los campos correctamente")
+     }
+}
+
+   const validateLocal=()=>{
+        const local=formMachValues.local
+        if(local===""){
+            setValidation({...validation,auxLocal:false})
+        }else{
+             setValidation({...validation,auxLocal:true})
+        }
+        
+    }
+
+    const validateDescription=()=>{
+        const description=formMachValues.description
+        if(description===""){
+            setValidation({...validation,auxDescription:false})
+        }else{
+            setValidation({...validation,auxDescription:true})
+        }
+    }
+
+    const validateDevice=()=>{
+        const device=formMachValues.idGymMachine
+        if(device===""){
+            setValidation({...validation,auxDevice:false})
+        }else{
+            setValidation({...validation,auxDevice:true})
+        }
+    }
+
+    const validateZone=()=>{
+        const zone=formMachValues.gymZone
+        if(zone===""){
+            setValidation({...validation,auxZone:false})
+        }else{
+            setValidation({...validation,auxZone:true})
+        }
+    }
+
+    const validateType=()=>{
+        const type=formMachValues.machineType
+        if(type===""){
+            setValidation({...validation,auxType:false})
+        }else{
+            setValidation({...validation,auxType:true})
+        }
+    }
+
 
   
     
@@ -74,6 +139,7 @@ const FormsMach = (props) => {
             value={formMachValues.idLocal}
             id="local"
             onChange={handleChange}
+            onBlur={validateLocal}
         >
             
             <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
@@ -109,6 +175,7 @@ const FormsMach = (props) => {
             value={formMachValues.idGymMachine}
             id="gymMachine"
             onChange={handleChange}
+            onBlur={validateDevice}
         >
             
             <MenuItem disabled selected>Seleccione una máquina</MenuItem>
@@ -131,6 +198,7 @@ const FormsMach = (props) => {
           name='description'
           value={formMachValues.description}
           onChange={handleChange}
+          onBlur={validateDescription}
           multiline
           rows={3}
           variant="filled"
@@ -151,6 +219,7 @@ const FormsMach = (props) => {
           label="Zona del gimnasio"
           variant="filled"
           onChange={handleChange}
+          onBlur={validateType}
           sx={{
             width:'80%',
         }}
@@ -176,6 +245,7 @@ const FormsMach = (props) => {
           label="Zona del gimnasio"
           variant="filled"
           onChange={handleChange}
+          onBlur={validateZone}
           sx={{
             width:'80%',
         }}

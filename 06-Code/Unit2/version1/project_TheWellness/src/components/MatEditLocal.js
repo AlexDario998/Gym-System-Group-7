@@ -27,6 +27,74 @@ const MatEditLocal = ( props ) => {
         city: data.city
     })
 
+    const [validation, setValidation] = useState({
+        auxNameGym: false,
+        auxCity: false
+    })
+
+    const handleBlurGymName = () => {
+        const nameGym = formAddLocalValues.namegym
+        const regexNameGym = /^[a-zA-Z ]+$/
+        const iNamegym = document.getElementById('iNamegym')
+        const namegym = document.getElementById('namegym')
+        var auxIterator = 0
+
+        if(nameGym===""){
+            iNamegym.textContent="*Campo obligatorio"
+            setValidation({...validation, auxNameGym: false})
+            auxIterator++
+        }
+  
+        if (auxIterator !== 1 &&!regexNameGym.test(nameGym)) {
+            iNamegym.textContent = "*Solo se permiten letras"
+            setValidation({...validation, auxNameGym: false})
+            auxIterator++
+        }
+        
+        if(auxIterator===0) {
+            iNamegym.textContent = ""
+            namegym.style.border=''
+            setValidation({...validation, auxNameGym: true})
+        }else{
+            namegym.style.borderBottom='2px solid red'
+            namegym.style.borderRight='2px solid red'
+            namegym.style.borderLeft='2px solid red'
+            namegym.style.borderRadius='5px'
+        }
+    }
+
+    const handleBlurCity = () => {
+        const cityValue = formAddLocalValues.city
+        const regexCity = /^[a-zA-Z ]+$/
+        const iCity = document.getElementById('iCity')
+        const city= document.getElementById('city')
+        var auxIterator = 0
+
+        if(cityValue===""){
+            iCity.textContent = "*Campo obligatorio"
+            setValidation({...validation, auxCity: false})
+            auxIterator++
+        }
+
+        if (auxIterator !== 1 && !regexCity.test(cityValue)) {
+            iCity.textContent = "*Solo se permiten letras"          
+            setValidation({...validation, auxCity: false})
+            auxIterator++
+        }
+        
+        if(auxIterator ===0){
+            iCity.textContent = ""
+            city.style.border=''
+            setValidation({...validation, auxCity: true})
+        }else{
+            city.style.borderBottom='2px solid red'
+            city.style.borderRight='2px solid red'
+            city.style.borderLeft='2px solid red'
+            city.style.borderRadius='5px'
+        }
+    }
+
+
     const handleChange = (event) => {
         const { name, value } = event.target
         setformAddLocalValues({ ...formAddLocalValues, [name]: value})
@@ -35,7 +103,15 @@ const MatEditLocal = ( props ) => {
     const handleEdit = (e) => {
         e.preventDefault()
         handleUpdateRegister(formAddLocalValues)
+         if (validation.auxNameGym === true && validation.auxCity === true) {
+             handleUpdateRegister(formAddLocalValues)
+
+        }else {
+            window.alert("Por favor llene los campos correctamente")
+        }
     };
+
+    console.log(validation)
   
     const handleOpenModal = () => {
         setOpen(true)
@@ -70,8 +146,9 @@ const MatEditLocal = ( props ) => {
                             value={formAddLocalValues.namegym}
                             onChange={handleChange}
                             placeholder="Nombre del gimnasio" 
+                            onBlur={handleBlurGymName}
                             label="Nombre del gimnasio" 
-                        />
+                        /><i id="iNamegym" class="msgError"> </i>
 
                         {/* City */}
                         <TextField fullWidth 
@@ -79,12 +156,13 @@ const MatEditLocal = ( props ) => {
                             id="city" 
                             value={formAddLocalValues.city}
                             onChange={handleChange}
+                            onBlur={handleBlurCity}
                             placeholder="Ciudad" 
                             label="Ciudad" 
                             style={{
                                 marginTop: '5%'
                             }}
-                        />
+                        /><i id="iCity" class="msgError"></i>
 
                         <Button
                             variant="contained"
