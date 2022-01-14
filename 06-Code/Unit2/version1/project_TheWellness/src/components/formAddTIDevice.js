@@ -10,138 +10,153 @@ const FormAddTIDevice = (props) => {
     const values = props.values;
     const setValues = props.setValues;
 
-const [validation,setValidation]=useState({
-    auxName:false,
-    auxSerial:false,
-    auxBrand:false,
-    auxOwner:false,
-    auxLocal:false,
-})
+    const [validation,setValidation]=useState({
+        auxName:false,
+        auxSerial:false,
+        auxBrand:false,
+        auxOwner:false,
+        auxLocal:false
+    })
 
-
-
-
-
-
-    /*const [values, setValues] = useState({
-        name: '',
-        serialNumber: '',
-        brand: '',
-        local: '',
-        owner: ''
-    })*/
 
     const handleChange = (event) => {
         const { name, value } = event.target
         setValues({ ...values, [name]: value})
     }
 
-const validateName=()=>{
+    const validateName=()=>{
 
-const nameDevice= values.name
-const regexName=/^[a-zA-Z ]+$/
-const iName=document.getElementById('iName')
+        const nameDevice= values.name
+        const regexName=/^[a-zA-Z ]+$/
+        const iName=document.getElementById('iName')
+        var auxIterator = 0
 
-if(!regexName.test(nameDevice)){
-    iName.textContent="Solo se permiten letras"
-    setValidation({...validation,auxName:false})
-}else{
-    iName.textContent=""
-    setValidation({...validation,auxName:true})
-}
+        if(nameDevice===""){
+            iName.textContent="*Campo obligatorio"
+            auxIterator++
+            setValidation({...validation,auxName:false})
+        }
 
-}
+        if(auxIterator !== 1 &&!regexName.test(nameDevice)){
+            iName.textContent="Solo se permiten letras"
+            auxIterator++
+            setValidation({...validation,auxName:false})
+        }
 
+        if(auxIterator===0){
+            iName.textContent=""
+            setValidation({...validation,auxName:true})
+        }
 
-const validateSerial=()=>{
-    const serial=values.serialNumber
-    const regexSerial=/^[a-zA-Z0-9]+$/
-    const iSerial=document.getElementById('iSerial')
-
-    if(serial===""){
-        iSerial.textContent="*Campo obligatorio"
-        setValidation({...validation,auxSerial:false})
     }
 
-    if(!regexSerial.test(serial)){
-         iSerial.textContent="*Solo se permiten letras y números"
-        setValidation({...validation,auxSerial:false})
-    }else{
-        iSerial.textContent=""
-        setValidation({...validation,auxSerial:true})
+
+    const validateSerial=()=>{
+        const serial=values.serialNumber
+        const regexSerial=/^[a-zA-Z0-9]+$/
+        const iSerial=document.getElementById('iSerial')
+         var auxIterator = 0
+
+
+        if(serial===""){
+            iSerial.textContent="*Campo obligatorio"
+            setValidation({...validation,auxSerial:false})
+             auxIterator++
+        }
+
+        if(!regexSerial.test(serial)){
+            iSerial.textContent="*Solo se permiten letras y números"
+            setValidation({...validation,auxSerial:false})
+             auxIterator++
+        }
+
+        if( auxIterator===0){
+            iSerial.textContent=""
+            setValidation({...validation,auxSerial:true})
+        }
+
     }
-}
 
 
-const validateBrand=()=>{
-    const brand=values.brand
-    const regexBrand=/^[a-zA-Z ]+$/
-    const iBrand=document.getElementById('iBrand')
+    const validateBrand=()=>{
+        const brand=values.brand
+        const regexBrand=/^[a-zA-Z ]+$/
+        const iBrand=document.getElementById('iBrand')
+        const auxIterator=0
 
 
-    if(brand===""){
-        iBrand.textContent="*Campo obligatorio"
-        setValidation({...validation,auxBrand: false})
-    }
-    
-    
-    if(!regexBrand.test(brand)){
-        iBrand.textContent="*Solo se permiten letras"
-        setValidation({...validation,auxBrand:false})
-    
+        if(brand===""){
+            iBrand.textContent="*Campo obligatorio"
+            setValidation({...validation,auxBrand: false})
+             auxIterator++
+        }
         
-    }else{
-        iBrand.textContent=""
-        setValidation({...validation,auxBrand:true})
-    }
-}
-
- const validateOwner=()=>{
-     const owner= values.owner
-     const regexOwner=/^[a-zA-Z ]+$/
-     const iOwner= document.getElementById('iOwner')
-
-     if(owner===""){
-         iOwner.textContent="+Campo obligatorio"
-         setValidation({...validation,auxOwner:false})
-     }
-
-     if(!regexOwner.test(owner)){
-          iOwner.textContent="+Solo se permiten letras"
-         setValidation({...validation,auxOwner:false})
-     }else{
-         iOwner.textContent=""
-         setValidation({...validation,auxOwner:true})
-     }
- }
-
-
-const validateLocal=()=>{
-    const local=values.local
-    if(local===""){
-        setValidation({...validation,auxLocal:false})
-    }else{
-        setValidation({...validation,auxLocal:true})
-       
+        
+        if(!regexBrand.test(brand)){
+            iBrand.textContent="*Solo se permiten letras"
+            setValidation({...validation,auxBrand:false})
+             auxIterator++
+        
+            
+        }
+        if( auxIterator===0){
+            iBrand.textContent=""
+            setValidation({...validation,auxBrand:true})
+        }
     }
 
-   
-}
+    const validateOwner=()=>{
+        const owner= values.owner
+        const regexOwner=/^[a-zA-Z ]+$/
+        const iOwner= document.getElementById('iOwner')
+        const auxIterator=0
+
+        if(owner===""){
+            iOwner.textContent="+Campo obligatorio"
+            setValidation({...validation,auxOwner:false})
+             auxIterator++
+        }
+
+        if(!regexOwner.test(owner)){
+            iOwner.textContent="+Solo se permiten letras"
+            setValidation({...validation,auxOwner:false})
+             auxIterator++
+        }
+        
+        if( auxIterator===0){
+            iOwner.textContent=""
+            setValidation({...validation,auxOwner:true})
+        }
+    }
 
 
+    const validateLocal=()=>{
+        const local=values.local
+       // console.log(local)
+        if(local===""){
+            setValidation({...validation,auxLocal:false})
+        }else{
+            setValidation({...validation,auxLocal:true})
+        
+        }
 
+    
+    }
 
     const handleSubmitInternal = (e) => {
         e.preventDefault()
         //handleSubmit(values)
         //e.target.reset()
-        if(validation.auxName===true&&validation.auxBrand===true&&
-        validation.auxOwner===true&&validation.auxSerial===true&&validation.auxLocal===true){
+        if(validation.auxName === true &&validation.auxBrand===true&&
+          validation.auxOwner===true&&validation.auxSerial===true&&
+          validation.auxLocal===true){
             handleSubmit(values)
         }else{
             window.alert("Por favor llene los campos correctamente")
         }
     }
+
+    console.log(validation)
 
     /*if (gyms.length === 0) {
         return 'No hay gimnasios. Agregue uno primero.'
@@ -233,6 +248,7 @@ const validateLocal=()=>{
                         id="local"
                         value={values.local}
                         onChange={handleChange}
+                        onBlur={validateLocal}
                         label="Gimnasio al que pertenece"
                     >
                         
