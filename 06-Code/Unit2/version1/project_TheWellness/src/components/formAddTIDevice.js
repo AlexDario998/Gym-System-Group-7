@@ -18,11 +18,6 @@ const [validation,setValidation]=useState({
     auxLocal:false,
 })
 
-
-
-
-
-
     /*const [values, setValues] = useState({
         name: '',
         serialNumber: '',
