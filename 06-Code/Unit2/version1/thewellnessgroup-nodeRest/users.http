@@ -3,13 +3,13 @@ POST http://localhost:3001/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Allyson",
-    "lastName": "Burau Garcia",
+    "name": "José",
+    "lastName": "Velasteguí Lanas",
     "userName": "",
-    "password":"admin",
-    "idCard": "1311548526",
-    "email": "allybu@hotmail.com",
-    "type": 1,
+    "password":"jose",
+    "idCard": "1887878778",
+    "email": "jose@hotmail.com",
+    "type": 2,
     "gym": "61d5d58f19e7d53578fda485"
 }
 

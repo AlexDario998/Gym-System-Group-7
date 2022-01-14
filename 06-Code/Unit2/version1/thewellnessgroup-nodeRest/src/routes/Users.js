@@ -5,8 +5,10 @@ const usersSchema = require("../models/users");
 // read requests
 router.post("/users", (req, res) => {
   let users = req.body;
-  let number = 0;
-  users.userName = users.name.charAt(0) + users.lastName;
+  var splitName = users.lastName.split(" ", 2);
+  splitName = splitName[0];
+  users.userName = users.name.charAt(0) + splitName;
+
   let newUser = usersSchema({
     name: users.name,
     lastName: users.lastName,
