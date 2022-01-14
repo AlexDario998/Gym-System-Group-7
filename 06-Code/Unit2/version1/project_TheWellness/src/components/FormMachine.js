@@ -104,13 +104,13 @@ const FormMachine = ( props ) => {
         if(serial===""){
             iSerial.textContent="*Campo obligatorio"
             setValidation({...validation,auxSerial:false})
-             auxIterator++
+            auxIterator++
         }
 
         if(!regexSerial.test(serial)){
             iSerial.textContent="*Solo se permiten letras y números"
             setValidation({...validation,auxSerial:false})
-             auxIterator++
+            auxIterator++
         }
 
         if( auxIterator===0){
