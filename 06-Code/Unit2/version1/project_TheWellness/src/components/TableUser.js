@@ -79,7 +79,7 @@ const TableUser = (props) => {
                     {
                         users.map(item => (
                             {
-                                id: item.id,
+                                id: item._id,
                                 name: item.name,
                                 lastName: item.lastName,
                                 idCard: item.idCard,

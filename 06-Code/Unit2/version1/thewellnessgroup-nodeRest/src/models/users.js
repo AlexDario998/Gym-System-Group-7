@@ -33,7 +33,7 @@ const usersSchema = mongoose.Schema({
         required: true,
       },
       gym:{
-        type:'string',
+        type:'ObjectId',
         required: true,
       }
 })
