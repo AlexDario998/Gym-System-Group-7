@@ -25,7 +25,6 @@ const FormUser = (props) => {
         auxId: false,
         auxEmail: false,
         auxPassword: false,
-        auxUsername: false,
         auxType: false,
         auxLocal: false
     })
@@ -39,7 +38,7 @@ const FormUser = (props) => {
         e.preventDefault()
         
         if (validation.auxName === true && validation.auxLastName === true && validation.auxId === true && validation.auxEmail === true && 
-            validation.auxUsername === true && validation.auxPassword === true && validation.auxType == true && validation.auxLocal === true) 
+           validation.auxPassword === true && validation.auxType == true && validation.auxLocal === true) 
         {
             handleSubmit(formUserValues)
 
@@ -287,24 +286,6 @@ const FormUser = (props) => {
         }
     }
 
-    const usernameValidation = () => {
-        const username = formUserValues.userName
-        const iUsername = document.getElementById('iUsername')
-        var auxIterator = 0
-
-        if (username === "") {
-            iUsername.textContent = "*Ingrese el nombre de usuario. Campo obligatorio."
-            
-            auxIterator++
-            setValidation({...validation, auxUsername: false})
-        }
-
-        if (auxIterator === 0) {
-            iUsername.textContent = ""
-            setValidation({...validation, auxUsername: true})
-        }
-    }
-
     const passwordValidation = () => {
         const password = formUserValues.password
         const iPassword = document.getElementById('iPassword')
@@ -431,17 +412,14 @@ const FormUser = (props) => {
                 <i id='iEmail' class='msgError'></i>
                 <br/>
 
-                <TextField fullWidth 
+                <TextField
                     id="userName" 
                     name="userName" 
-                    placeholder="Nombre de usuario" 
-                    value={formUserValues.userName} 
-                    label="Nombre de usuario" 
-                    onChange={handleChange} 
-                    onBlur={usernameValidation}
+                    value=""
+                    onChange={handleChange}
+                    type="hidden"
+                    sx={{display:'none'}}
                 />
-                <i id='iUsername'></i>
-                <br/>
 
                 <TextField fullWidth 
                     id="password" 
