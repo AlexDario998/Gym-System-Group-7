@@ -102,7 +102,6 @@ const MatEditLocal = ( props ) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        handleUpdateRegister(formAddLocalValues)
          if (validation.auxNameGym === true && validation.auxCity === true) {
              handleUpdateRegister(formAddLocalValues)
 
