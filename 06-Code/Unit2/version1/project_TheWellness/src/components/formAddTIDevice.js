@@ -37,6 +37,7 @@ const FormAddTIDevice = (props) => {
         const nameDevice= values.name
         const regexName=/^[a-zA-Z ]+$/
         const iName=document.getElementById('iName')
+        const nameD= document.getElementById('name')
         var auxIterator = 0
 
         if(nameDevice===""){
@@ -46,14 +47,20 @@ const FormAddTIDevice = (props) => {
         }
 
         if(auxIterator !== 1 &&!regexName.test(nameDevice)){
-            iName.textContent="Solo se permiten letras"
+            iName.textContent="*Solo se permiten letras"
             auxIterator++
             setValidation({...validation,auxName:false})
         }
 
         if(auxIterator===0){
             iName.textContent=""
+            nameD.style.border=''
             setValidation({...validation,auxName:true})
+        }else{
+            nameD.style.borderBottom='2px solid red'
+            nameD.style.borderRight='2px solid red'
+            nameD.style.borderLeft='2px solid red'
+            nameD.style.borderRadius='5px'
         }
 
     }
@@ -63,6 +70,7 @@ const FormAddTIDevice = (props) => {
         const serial=values.serialNumber
         const regexSerial=/^[a-zA-Z0-9]+$/
         const iSerial=document.getElementById('iSerial')
+        const serialN=document.getElementById('serialNumber')
          var auxIterator = 0
 
 
@@ -80,7 +88,13 @@ const FormAddTIDevice = (props) => {
 
         if( auxIterator===0){
             iSerial.textContent=""
+            serialN.style.border=''
             setValidation({...validation,auxSerial:true})
+        }else{
+            serialN.style.borderBottom='2px solid red'
+            serialN.style.borderRight='2px solid red'
+            serialN.style.borderLeft='2px solid red'
+            serialN.style.borderRadius='5px'
         }
 
     }
@@ -90,7 +104,8 @@ const FormAddTIDevice = (props) => {
         const brand=values.brand
         const regexBrand=/^[a-zA-Z ]+$/
         const iBrand=document.getElementById('iBrand')
-        const auxIterator=0
+        const brandDV=document.getElementById('brand')
+        var auxIterator = 0
 
 
         if(brand===""){
@@ -109,7 +124,13 @@ const FormAddTIDevice = (props) => {
         }
         if( auxIterator===0){
             iBrand.textContent=""
+            brandDV.style.border=''
             setValidation({...validation,auxBrand:true})
+        }else{
+            brandDV.style.borderBottom='2px solid red'
+            brandDV.style.borderRight='2px solid red'
+            brandDV.style.borderLeft='2px solid red'
+            brandDV.style.borderRadius='5px'
         }
     }
 
@@ -117,23 +138,30 @@ const FormAddTIDevice = (props) => {
         const owner= values.owner
         const regexOwner=/^[a-zA-Z ]+$/
         const iOwner= document.getElementById('iOwner')
-        const auxIterator=0
+        const ownerD= document.getElementById('owner')
+        var auxIterator=0
 
         if(owner===""){
-            iOwner.textContent="+Campo obligatorio"
+            iOwner.textContent="*Campo obligatorio"
             setValidation({...validation,auxOwner:false})
              auxIterator++
         }
 
         if(!regexOwner.test(owner)){
-            iOwner.textContent="+Solo se permiten letras"
+            iOwner.textContent="*Solo se permiten letras"
             setValidation({...validation,auxOwner:false})
              auxIterator++
         }
         
         if( auxIterator===0){
             iOwner.textContent=""
+            ownerD.style.border=''
             setValidation({...validation,auxOwner:true})
+        }else{
+            ownerD.style.borderBottom='2px solid red'
+            ownerD.style.borderRight='2px solid red'
+            ownerD.style.borderLeft='2px solid red'
+            ownerD.style.borderRadius='5px'     
         }
     }
 
@@ -160,7 +188,7 @@ const FormAddTIDevice = (props) => {
           validation.auxLocal===true){
             handleSubmit(values)
         }else{
-            window.alert("Por favor llene los campos correctamente")
+            window.alert("*Por favor llene los campos correctamente")
         }
     }
 
@@ -205,7 +233,7 @@ const FormAddTIDevice = (props) => {
                     placeholder="Nombre del dispositivo" 
                     label="Nombre del dispositivo" 
                 />
-                <i id='iName' > </i>
+                <i id='iName' class="msgError"> </i>
                 <br/>
 
                 {/* Serial number */}
@@ -218,7 +246,7 @@ const FormAddTIDevice = (props) => {
                     placeholder="Número de serie" 
                     label="Número de serie" 
                 />
-                <i id="iSerial"> </i>
+                <i id="iSerial" class="msgError"> </i>
                 <br/>
 
                 {/* Brand */}
@@ -231,7 +259,7 @@ const FormAddTIDevice = (props) => {
                     placeholder="Marca" 
                     label="Marca" 
                 />
-                <i id="iBrand"> </i>
+                <i id="iBrand" class="msgError"> </i>
                 <br/>
 
                 {/* Owner */}
@@ -243,7 +271,7 @@ const FormAddTIDevice = (props) => {
                     onBlur={validateOwner}
                     placeholder="Encargado"
                     label="Encargado" />
-                    <i id="iOwner"></i>
+                    <i id="iOwner" class="msgError"></i>
                 <br/>
                 
                 {/* Gym */}
