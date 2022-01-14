@@ -32,11 +32,11 @@ const MatEditTiDevice = ( props ) => {
     })
 
     const [validation,setValidation]=useState({
-        auxName:false,
-        auxSerial:false,
-        auxBrand:false,
-        auxOwner:false,
-        auxLocal:false
+        auxName:true,
+        auxSerial:true,
+        auxBrand:true,
+        auxOwner:true,
+        auxLocal:true
     })
 
     const validateName=()=>{
@@ -183,10 +183,6 @@ const MatEditTiDevice = ( props ) => {
     
     }
 
-
-
-
-
     const handleChange = (event) => {
         const { name, value } = event.target
         setformTiDeviceValues({ ...formTiDeviceValues, [name]: value})
@@ -195,7 +191,6 @@ const MatEditTiDevice = ( props ) => {
     const handleEdit = (e) => {
         e.preventDefault()
         
-
         if(validation.auxName === true &&validation.auxBrand===true&&
           validation.auxOwner===true&&validation.auxSerial===true&&
           validation.auxLocal===true){

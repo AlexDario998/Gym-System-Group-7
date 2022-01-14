@@ -37,14 +37,14 @@ const MatEditUser = ( props ) => {
     })
 
     const [validation, setValidation] = useState({
-        auxName: false,
-        auxLastName: false,
-        auxId: false,
-        auxEmail: false,
-        auxPassword: false,
-        auxUsername: false,
-        auxType: false,
-        auxLocal: false
+        auxName: true,
+        auxLastName: true,
+        auxId: true,
+        auxEmail: true,
+        auxPassword: true,
+        auxUsername: true,
+        auxType: true,
+        auxLocal: true
     })
     //console.log(formUser.gym)
     const handleChange = (event) => {

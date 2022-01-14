@@ -32,11 +32,11 @@ const MatEditGymMachine = ( props ) => {
     })
 
     const[validation, setValidation]=useState({
-        auxName:false,
-        auxBrand:false,
-        auxSerial:false,
-        auxLocal:false,
-        auxZone:false
+        auxName:true,
+        auxBrand:true,
+        auxSerial:true,
+        auxLocal:true,
+        auxZone:true
     })
 
     const validateName=()=>{

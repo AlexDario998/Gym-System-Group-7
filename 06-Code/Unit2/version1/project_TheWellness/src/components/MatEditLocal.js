@@ -28,8 +28,8 @@ const MatEditLocal = ( props ) => {
     })
 
     const [validation, setValidation] = useState({
-        auxNameGym: false,
-        auxCity: false
+        auxNameGym: true,
+        auxCity:true
     })
 
     const handleBlurGymName = () => {
