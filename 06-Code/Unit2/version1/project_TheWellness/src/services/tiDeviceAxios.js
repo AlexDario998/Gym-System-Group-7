@@ -16,6 +16,20 @@ export async function getTIDevices(){
     }
 }
 
+export async function getTIDeviceById(idTiDevice){
+  try{
+      const response = await axios({
+          url: `${baseUrl}/timachines/${idTiDevice}`,
+          method: 'GET',
+      })
+      
+      return response
+
+  }catch(error){
+    console.log(error)
+  }
+}
+
 export async function getTiDevicesByIdLocal(idLocal){
   try{
       const response = await axios({

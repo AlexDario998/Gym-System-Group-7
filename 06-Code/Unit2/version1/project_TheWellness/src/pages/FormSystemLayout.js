@@ -1,6 +1,7 @@
 import FormsSystem from '../components/FormsSystem'
-import {getLocals} from '../services/localAxios'
-import {getTiDevicesByIdLocal} from '../services/tiDeviceAxios'
+import {getLocals, getLocalById} from '../services/localAxios'
+import {getUserById} from '../services/userAxios'
+import {getTIDeviceById, getTiDevicesByIdLocal} from '../services/tiDeviceAxios'
 import {saveRsystems} from '../services/repairRequestTIDevicesAxios'
 import '../index.css';
 import {Box} from "@mui/material"
@@ -25,12 +26,90 @@ const FormSystemLayout = () => {
         idTIDevice: '',
         date: dateComplete,
         description: '',
-        confirmation: true
+        confirmation: true,
+        fullNameUser: '',
+        emailUser: '',
+        passwordUser: '',
+        nameLocal: '',
+        city: '',
+        tiDevice: '',
+        tiDeviceSerialNumber: ''
+        
     })
 
     const handleSubmit = (data) => {
         saveRsystems(data,formSystemValues,setFormSystemValues)
     }
+
+    useEffect(() => {
+        async function loadUserById() {
+            const response = await getUserById(cookies.get('id', {path: "/"}))
+            const user = response.data.name + ' ' + response.data.lastName
+
+            if (response.status === 200) {
+                setFormSystemValues(
+                    {
+                        idUser: cookies.get('id', {path: "/"}),
+                        idLocal: '',
+                        idTIDevice: '',
+                        date: dateComplete,
+                        description: '',
+                        confirmation: true,
+                        fullNameUser: user,
+                        emailUser: response.data.email,
+                        passwordUser: response.data.password,
+                        nameLocal: '',
+                        city: '',
+                        tiDevice: '',
+                        tiDeviceSerialNumber: ''
+                    }
+                )
+            }
+        }
+
+        loadUserById()
+        
+    }, [])
+
+    useEffect(() => {
+        async function loadUserById() {
+            const response = await getUserById(cookies.get('id', {path: "/"}))
+            const user = response.data.name + ' ' + response.data.lastName
+
+            if (response.status === 200) {
+                setFormSystemValues({...formSystemValues, fullNameUser: user, emailUser: response.data.email, passwordUser: response.data.password})
+            }
+        }
+
+        loadUserById()
+        
+    }, [])
+
+    useEffect(() => {
+        async function loadLocalById() {
+            const response = await getLocalById(formSystemValues.idLocal)
+
+            if (response.status === 200) {
+                setFormSystemValues({...formSystemValues, nameLocal: response.data.namegym, city: response.data.city})
+            }
+        }
+
+        loadLocalById()
+        
+    }, [formSystemValues.idLocal])
+
+    useEffect(() => {
+        async function loadTiDeviceById() {
+            const response = await getTIDeviceById(formSystemValues.idTIDevice)
+
+            if (response.status === 200) {
+                setFormSystemValues({...formSystemValues, tiDevice: response.data.name, tiDeviceSerialNumber: response.data.serialNumber})
+            }
+        }
+
+        loadTiDeviceById()
+        
+    }, [formSystemValues.idTIDevice])
 
     useEffect(() => {
         async function loadTiDevicesByIdLocal() {

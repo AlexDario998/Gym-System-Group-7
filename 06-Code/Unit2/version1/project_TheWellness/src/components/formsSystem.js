@@ -26,8 +26,7 @@ const FormsSystem = (props) => {
   const handleSubmitInternal = (e) => {
     e.preventDefault()
     
-    if(validation.auxDevice===true && validation.auxLocal===true
-    && validation.auxDescription===true){
+    if(validation.auxDevice === true && validation.auxLocal === true && validation.auxDescription === true){
       handleSubmit(formSystemValues)
 
     }else{
@@ -35,19 +34,19 @@ const FormsSystem = (props) => {
     }
   }
 
-  const validateLocal=()=>{
+  const validateLocal = () => {
         const local=formSystemValues.local
-        if(local===""){
-            setValidation({...validation,auxLocal:false})
+        if(local === ""){
+            setValidation({...validation, auxLocal:false})
         }else{
-             setValidation({...validation,auxLocal:true})
+             setValidation({...validation, auxLocal:true})
         }
         
     }
 
     const validateDescription=()=>{
-        const description=formSystemValues.description
-        if(description===""){
+        const description = formSystemValues.description
+        if(description === ""){
             setValidation({...validation,auxDescription:false})
         }else{
             setValidation({...validation,auxDescription:true})
@@ -149,7 +148,7 @@ const FormsSystem = (props) => {
             <MenuItem disabled selected>Seleccione una máquina</MenuItem>
             {
                 tiDeviceValues.map(item => (
-                    <MenuItem value={item.id} >{item.name}</MenuItem>
+                    <MenuItem value={item.id} >{item.name} - {item.serialNumber}</MenuItem>
                     
                 ))
             }

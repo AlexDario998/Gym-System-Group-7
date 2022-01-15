@@ -122,29 +122,32 @@ const TableRepairTIDevicesRequestsLayout = () => {
         <NavBarLeaderGym />
         <br />
         <br />
-
-        <NumberRequests completedRequests={numberCompletedRequests.completedRequests} noCompletedRequests={numberNoCompletedRequests.noCompletedRequests} />
-
-        <br />
-        <br />
-
-        <Box 
+        <Box
           sx={{
-            width: '30%',
-            // height: '100%',
-            marginLeft:'auto',
-            marginRight:'auto',
-            justifyContent: 'center',
-            display: 'flex',
-            alignItems: 'center',
-            paddingLeft:'20px',
-            paddingRight:'20px',
-            borderRadius: '15px'
+              
           }}
         >
-          <SelectRequest confirmation={confirmation} setConfirmation={setConfirmation} />
+          <NumberRequests completedRequests={numberCompletedRequests.completedRequests} noCompletedRequests={numberNoCompletedRequests.noCompletedRequests} />
+          <br />
+          <br />
+
+          <Box 
+            sx={{
+              width: '30%',
+              // height: '100%',
+              marginLeft:'auto',
+              marginRight:'auto',
+              justifyContent: 'center',
+              display: 'flex',
+              alignItems: 'center',
+              paddingLeft:'20px',
+              paddingRight:'20px',
+              borderRadius: '15px'
+            }}
+          >
+            <SelectRequest confirmation={confirmation} setConfirmation={setConfirmation} />
+          </Box>
         </Box>
-        
         <br />
         <br />
 

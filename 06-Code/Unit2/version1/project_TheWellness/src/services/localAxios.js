@@ -16,6 +16,20 @@ export async function getLocals(){
   }
 }
 
+export async function getLocalById(idLocal){
+  try{
+      const response = await axios({
+          url: `${baseUrl}/gyms/${idLocal}`,
+          method: 'GET',
+      })
+      
+      return response
+
+  }catch(error){
+    console.log(error)
+  }
+}
+
 export async function saveLocal(localData, values, setValues){
 
   try{
