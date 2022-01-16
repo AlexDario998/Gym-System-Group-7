@@ -55,7 +55,7 @@ const getUserById = (idUser) => {
     <Box
       sx={{
         width: "90%",
-        height: "82vh",
+        height: "90%",
         marginLeft: "auto",
         marginRight: "auto",
         justifyContent: "center",

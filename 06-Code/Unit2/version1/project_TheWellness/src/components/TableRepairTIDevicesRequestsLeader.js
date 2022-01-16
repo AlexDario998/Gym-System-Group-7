@@ -60,7 +60,7 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
         <Box
             sx={{
                 width: '90%',
-                height: '82vh',
+                height: '90%',
                 marginLeft:'auto',
                 marginRight:'auto',
                 justifyContent: 'center',
@@ -102,8 +102,5 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
             </div>
         </Box>
     );
-      
-    
-
 }
 export default TableRepairTIDevicesRequestsLeader

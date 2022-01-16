@@ -124,14 +124,14 @@ const TableMaintenanceRequestsLayoutLeader = () => {
 
   return (
     <>
-      <Box class="boxSystemSol">
+      <Box class="boxMach">
       <NavBarLeaderGym />
         <br />
         <br />
         <Box 
         sx={{
           width: "70%",
-          height: "80%",
+          height: "90%",
           marginLeft: "auto",
           marginRight: "auto",
           justifyContent: "center",

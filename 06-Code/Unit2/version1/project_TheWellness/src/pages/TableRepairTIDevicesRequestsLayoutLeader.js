@@ -125,7 +125,7 @@ const TableRepairTIDevicesRequestsLayout = () => {
         <Box
           sx={{
             width: "70%",
-            height: "80%",
+            height: "90%",
             marginLeft: "auto",
             marginRight: "auto",
             justifyContent: "center",
@@ -139,9 +139,6 @@ const TableRepairTIDevicesRequestsLayout = () => {
             boxShadow: "1px 1px 20px #333",
           }}
         >
-          
-        
-
           <Box 
             sx={{
               width: '80%',
