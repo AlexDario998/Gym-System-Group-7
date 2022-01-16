@@ -1,5 +1,6 @@
 import FormsInf from '../components/FormsInf'
-import {getLocals} from '../services/localAxios'
+import {getLocals, getLocalById} from '../services/localAxios'
+import {getUserById} from '../services/userAxios'
 import {saveRinfrastructure} from '../services/repairInfrastructuresRequestAxios'
 import '../index.css';
 import {Box} from "@mui/material"
@@ -22,12 +23,71 @@ const FormInfLayout = () => {
         idLocal: '',
         date: dateComplete,
         description: '',
-        confirmation: true
+        confirmation: true,
+        fullNameUser: '',
+        emailUser: '',
+        passwordUser: '',
+        nameLocal: '',
+        city: ''
     })
 
     const handleSubmit = (data) => {
         saveRinfrastructure(data,formInfValues,setFormInfValues)
     }
+
+    useEffect(() => {
+        async function loadUserById() {
+            const response = await getUserById(cookies.get('id', {path: "/"}))
+            const user = response.data.name + ' ' + response.data.lastName
+
+            if (response.status === 200) {
+                setFormInfValues(
+                    {
+                        idUser: cookies.get('id', {path: "/"}),
+                        idLocal: '',
+                        date: dateComplete,
+                        description: '',
+                        confirmation: true,
+                        fullNameUser: user,
+                        emailUser: response.data.email,
+                        passwordUser: response.data.password,
+                        nameLocal: '',
+                        city: ''
+                    }
+                )
+            }
+        }
+
+        loadUserById()
+        
+    }, [])
+
+    useEffect(() => {
+        async function loadUserById() {
+            const response = await getUserById(cookies.get('id', {path: "/"}))
+            const user = response.data.name + ' ' + response.data.lastName
+
+            if (response.status === 200) {
+                setFormInfValues({...formInfValues, fullNameUser: user, emailUser: response.data.email, passwordUser: response.data.password})
+            }
+        }
+
+        loadUserById()
+        
+    }, [])
+
+    useEffect(() => {
+        async function loadLocalById() {
+            const response = await getLocalById(formInfValues.idLocal)
+
+            if (response.status === 200) {
+                setFormInfValues({...formInfValues, nameLocal: response.data.namegym, city: response.data.city})
+            }
+        }
+
+        loadLocalById()
+        
+    }, [formInfValues.idLocal])
 
     useEffect(() => {
         async function loadGyms() {

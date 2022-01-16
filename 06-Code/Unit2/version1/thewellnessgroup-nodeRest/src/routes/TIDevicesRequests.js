@@ -1,8 +1,7 @@
 const express = require("express");
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
 const router = express.Router();
 const RequestTiDevice = require("../models/repair-request-ti-devices");
-require('dotenv').config
 
 // read requests
 router.post("/repair-request-ti-devices", (req, res) => {
@@ -17,7 +16,6 @@ router.post("/repair-request-ti-devices", (req, res) => {
       "confirmation": request.confirmation
     }
   )
-  console.log(tiDevicesRequest)
 
   tiDevicesRequest.save((err, requestDB) => {
     if (err) {
@@ -32,7 +30,6 @@ router.post("/repair-request-ti-devices", (req, res) => {
         message: "Se realizo al solicitud.",
         requestDB
       })
-      console.log(requestDB)
 
       let transporter = nodemailer.createTransport({
         service: "Gmail",
@@ -47,7 +44,7 @@ router.post("/repair-request-ti-devices", (req, res) => {
         to: 'sys.usuario123@gmail.com',
         subject: 'Solicitud de arreglo de dispositivo TI',
         html: `
-          <h3>Encargado: ${request.fullNameUser}</h3>
+          <h3>Líder del gimnasio: ${request.fullNameUser}</h3>
           <h4>Fecha de encargo: ${request.date}</h4>
           <h4>Local: ${request.nameLocal}</h4>
           <h4>Ciudad: ${request.city}</h4>
