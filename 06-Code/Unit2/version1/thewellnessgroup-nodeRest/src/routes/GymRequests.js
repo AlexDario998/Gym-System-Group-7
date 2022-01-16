@@ -70,7 +70,7 @@ router.post("/repair-request-gym-machines", (req, res) => {
 //get only completed or no completed requests
 router.get("/repair-request-gym-machines/:state", (req, res) => {
   const {state} = req.params
-  GymRequestsSchema.find({confirmation: state})
+  RequestGymMachine.find({confirmation: state})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
  
@@ -147,18 +147,18 @@ router.get("/repair-request-gym-machines-false/count", (req, res) => {
 router.put("/repair-request-gym-machines/:id", (req, res) => {
   const { id } = req.params;
   const {idUser, idLocal, idGymMachine, date, machineType, gymZone, description, confirmation} = req.body;
- RequestGymMachine.updateOne({_id: id},{$set: {idUser, idLocal, idGymMachine, date, machineType, gymZone, description, confirmation}})
+  RequestGymMachine.updateOne({_id: id},{$set: {idUser, idLocal, idGymMachine, date, machineType, gymZone, description, confirmation}})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
 //delete a request
 router.delete("/repair-request-gym-machines/:id", (req, res) => {
-    const { id } = req.params;
-   RequestGymMachine.remove({_id: id})
-      .then((data) => res.json(data))
-      .catch((error) => res.json({ message: error }));
-  });
+  const { id } = req.params;
+  RequestGymMachine.remove({_id: id})
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
 
 
 

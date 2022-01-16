@@ -72,7 +72,7 @@ router.get("/repair-request-infrastructures", (req, res) => {
 //get only completed or no completed requests
 router.get("/repair-request-infrastructures/:state", (req, res) => {
   const {state} = req.params
-  InfrastructuresRequestsSchema.find({confirmation: state})
+  RequestInfrastructure.find({confirmation: state})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
  
