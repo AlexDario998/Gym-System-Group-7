@@ -73,6 +73,15 @@ router.get("/repair-request-gym-machines", (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
+//get only completed or no completed requests
+router.get("/repair-request-gym-machines/:state", (req, res) => {
+  const {state} = req.params
+  GymRequestsSchema.find({confirmation: state})
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+ 
+});
+
 //get a request
 router.get("/repair-request-gym-machines/:id", (req, res) => {
   const { id } = req.params;
@@ -97,7 +106,7 @@ router.get("/repair-request-gym-machines-false", (req, res) => {
  
 });
 
-//get the number of completed requests
+//get the number of no completed requests
 router.get("/repair-request-gym-machines-true/count", (req, res) => {
  RequestGymMachine.find({confirmation: true})
     .then((data) => 
@@ -115,7 +124,7 @@ router.get("/repair-request-gym-machines-true/count", (req, res) => {
  
 });
 
-//get the number of no completed requests
+//get the number of completed requests
 router.get("/repair-request-gym-machines-false/count", (req, res) => {
  RequestGymMachine.find({confirmation: false})
     .then((data) => 

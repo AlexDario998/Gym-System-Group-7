@@ -49,7 +49,7 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
             disableClickEventBubbling: true,
             renderCell: (params) => {
               <div style={{ cursor: "pointer" }}>
-                <MatDescriptionTIDevicesRequests data={params.row} confirmation={confirmation} />
+                <MatDescriptionTIDevicesRequests data={params.row}/>
               </div>
             },
         }

@@ -68,6 +68,14 @@ router.get("/repair-request-infrastructures", (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
+//get only completed or no completed requests
+router.get("/repair-request-infrastructures/:state", (req, res) => {
+  const {state} = req.params
+  InfrastructuresRequestsSchema.find({confirmation: state})
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+ 
+});
 
 //get a request by id
 router.get("/repair-request-infrastructures/:id", (req, res) => {
@@ -93,7 +101,7 @@ router.get("/repair-request-infrastructures-false", (req, res) => {
  
 });
 
-//get the number of completed requests
+//get the number of no completed requests
 router.get("/repair-request-infrastructures-true/count", (req, res) => {
   RequestInfrastructure.find({confirmation: true})
     .then((data) => 
@@ -111,7 +119,7 @@ router.get("/repair-request-infrastructures-true/count", (req, res) => {
  
 });
 
-//get the number of no completed requests
+//get the number of completed requests
 router.get("/repair-request-infrastructures-false/count", (req, res) => {
   RequestInfrastructure.find({confirmation: false})
     .then((data) => 
