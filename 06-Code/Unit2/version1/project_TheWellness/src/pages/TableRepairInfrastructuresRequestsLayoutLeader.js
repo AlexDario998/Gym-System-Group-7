@@ -130,14 +130,11 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
             boxShadow: "1px 1px 20px #333",
           }}
         >
-          <NumberRequests
-            completedRequests={numberCompletedRequests.completedRequests}
-            noCompletedRequests={numberNoCompletedRequests.noCompletedRequests}
-          />
+         
 
           <Box
             sx={{
-              width: "30%",
+              width: "80%",
               // height: '100%',
               marginLeft: "auto",
               marginRight: "auto",
@@ -147,11 +144,17 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
               paddingLeft: "20px",
               paddingRight: "20px",
               borderRadius: "15px",
+              flexDirection: "row",
+              marginTop:"5%",
             }}
           >
             <SelectRequest
               confirmation={confirmation}
               setConfirmation={setConfirmation}
+            />
+             <NumberRequests
+              completedRequests={numberCompletedRequests.completedRequests}
+              noCompletedRequests={numberNoCompletedRequests.noCompletedRequests}
             />
           </Box>
 
