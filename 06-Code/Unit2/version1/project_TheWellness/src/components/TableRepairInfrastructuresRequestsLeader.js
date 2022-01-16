@@ -54,7 +54,7 @@ const getUserById = (idUser) => {
   return (
     <Box
       sx={{
-        width: "70%",
+        width: "90%",
         height: "82vh",
         marginLeft: "auto",
         marginRight: "auto",
@@ -65,8 +65,7 @@ const getUserById = (idUser) => {
         paddingLeft: "20px",
         paddingRight: "20px",
         background: "#fff",
-        borderRadius: "15px",
-        boxShadow: "1px 1px 20px #333",
+        borderRadius: "15px"
       }}
     >
       <h1>Solicitudes de Arreglo Infraestructura</h1>

@@ -113,14 +113,27 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
         <NavBarLeaderGym />
         <br />
         <br />
-        <Box sx={{}}>
+        <Box 
+          sx={{
+            width: "70%",
+            height: "100%",
+            marginLeft: "auto",
+            marginRight: "auto",
+            justifyContent: "center",
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            paddingLeft: "20px",
+            paddingRight: "20px",
+            background: "#fff",
+            borderRadius: "15px",
+            boxShadow: "1px 1px 20px #333",
+          }}
+        >
           <NumberRequests
             completedRequests={numberCompletedRequests.completedRequests}
             noCompletedRequests={numberNoCompletedRequests.noCompletedRequests}
           />
-
-          <br />
-          <br />
 
           <Box
             sx={{
@@ -141,14 +154,21 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
               setConfirmation={setConfirmation}
             />
           </Box>
+
+          <br />
+          <br />
+          <hr />  
+
+          <TableRepairInfrastructuresRequestsLeader
+            reports={reports}
+            gyms={gyms}
+            users={users}
+          />
+          <br/>
         </Box>
         <br />
         <br />
-        <TableRepairInfrastructuresRequestsLeader
-          reports={reports}
-          gyms={gyms}
-          users={users}
-        />
+        
       </Box>
     </>
   );
