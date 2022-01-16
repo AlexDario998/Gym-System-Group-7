@@ -23,11 +23,12 @@ export async function saveRmachine(rmachineData, values, setValues){
         data: rmachineData,
     })
     console.log(rmachineData)
-    setValues({idLocal: '', idTIDevice:'', description:'', machineType: '', gymZone:''})
-    //window.location.reload()
+    setValues({idLocal: '', idGymMachine:'', description:'', machineType: '', gymZone:''})
+    window.location.reload()
+
   }catch(error){
     console.log(error)
-    setValues({idLocal: '', idTIDevice:'', description:'', machineType: '', gymZone:''})
+    setValues({idLocal: '', idGymMachine:'', description:'', machineType: '', gymZone:''})
 
   }
 }

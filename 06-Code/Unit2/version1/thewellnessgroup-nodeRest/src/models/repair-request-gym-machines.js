@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const gymMachinesRequestsSchema = new mongoose.Schema({
   
- 
       idUser:{
         type: 'string',
         required: true,

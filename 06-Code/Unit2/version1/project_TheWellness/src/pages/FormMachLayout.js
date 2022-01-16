@@ -104,7 +104,7 @@ const FormMachLayout = () => {
     useEffect(() => {
         async function loadgymMachineById() {
             const response = await getGymMachineById(formMachValues.idGymMachine)
-
+            
             if (response.status === 200) {
                 setFormMachValues({...formMachValues, gymMachine: response.data.name, gymMachineSerialNumber: response.data.serialNumber})
             }

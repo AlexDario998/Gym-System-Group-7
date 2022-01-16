@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 const router = express.Router();
 const RequestTiDevice = require("../models/repair-request-ti-devices");
 
-// read requests
+// create request of ti device
 router.post("/repair-request-ti-devices", (req, res) => {
   let request = req.body
   let tiDevicesRequest = new RequestTiDevice(

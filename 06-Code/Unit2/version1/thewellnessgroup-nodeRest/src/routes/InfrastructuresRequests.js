@@ -41,7 +41,7 @@ router.post("/repair-request-infrastructures", (req, res) => {
       let mailOptions = {
         from: request.emailUser,
         to: 'amantenaince@gmail.com',
-        subject: 'Solicitud de arreglo de dispositivo TI',
+        subject: 'Solicitud de arreglo de infraestructura',
         html: `
           <h3>Líder del gimnasio: ${request.fullNameUser}</h3>
           <h4>Fecha de encargo: ${request.date}</h4>
@@ -68,6 +68,7 @@ router.get("/repair-request-infrastructures", (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
+
 //get only completed or no completed requests
 router.get("/repair-request-infrastructures/:state", (req, res) => {
   const {state} = req.params

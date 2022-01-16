@@ -1,15 +1,16 @@
 const express = require("express");
+const nodemailer = require("nodemailer");
 const router = express.Router();
 const RequestGymMachine = require("../models/repair-request-gym-machines");
 
-// read requests
+// create request of gym machine
 router.post("/repair-request-gym-machines", (req, res) => {
   let request = req.body
   let gymMachineRequest = new RequestGymMachine(
     {
       "idUser": request.idUser,
       "idLocal": request.idLocal,
-      "idTIDevice": request.idTIDevice,
+      "idGymMachine": request.idGymMachine,
       "date": request.date,
       "machineType": request.machineType,
       "gymZone": request.gymZone,
@@ -43,14 +44,14 @@ router.post("/repair-request-gym-machines", (req, res) => {
       let mailOptions = {
         from: request.emailUser,
         to: 'amantenaince@gmail.com',
-        subject: 'Solicitud de arreglo de dispositivo TI',
+        subject: 'Solicitud de arreglo de máquina de gimnasio',
         html: `
           <h3>Líder del gimnasio: ${request.fullNameUser}</h3>
           <h4>Fecha de encargo: ${request.date}</h4>
           <h4>Local: ${request.nameLocal}</h4>
           <h4>Ciudad: ${request.city}</h4>
-          <h4>Dispositivo: ${request.tiDevice}</h4>
-          <h4>Número serial: ${request.tiDeviceSerialNumber}</h4>
+          <h4>Máquina de gimnasio: ${request.gymMachine}</h4>
+          <h4>Número serial: ${request.gymMachineSerialNumber}</h4>
           <p>Descripción: ${request.description}</p>
         `
       }
@@ -66,13 +67,6 @@ router.post("/repair-request-gym-machines", (req, res) => {
   })
 });
 
-//get all requests
-router.get("/repair-request-gym-machines", (req, res) => {
- RequestGymMachine.find()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
-});
-
 //get only completed or no completed requests
 router.get("/repair-request-gym-machines/:state", (req, res) => {
   const {state} = req.params
@@ -80,6 +74,13 @@ router.get("/repair-request-gym-machines/:state", (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
  
+});
+
+//get all requests
+router.get("/repair-request-gym-machines", (req, res) => {
+  RequestGymMachine.find()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
 });
 
 //get a request
@@ -106,7 +107,7 @@ router.get("/repair-request-gym-machines-false", (req, res) => {
  
 });
 
-//get the number of no completed requests
+//get the number of completed requests
 router.get("/repair-request-gym-machines-true/count", (req, res) => {
  RequestGymMachine.find({confirmation: true})
     .then((data) => 
@@ -124,7 +125,7 @@ router.get("/repair-request-gym-machines-true/count", (req, res) => {
  
 });
 
-//get the number of completed requests
+//get the number of no completed requests
 router.get("/repair-request-gym-machines-false/count", (req, res) => {
  RequestGymMachine.find({confirmation: false})
     .then((data) => 

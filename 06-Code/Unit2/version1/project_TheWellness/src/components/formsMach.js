@@ -32,12 +32,8 @@ const FormsMach = (props) => {
 
   const handleSubmitInternal = (e) => {
     e.preventDefault()
-    
-
-     if(validation.auxType===true && validation.auxZone===true 
-      && validation.auxLocal===true && validation.auxDevice && 
-      validation.auxDescription===true)
-      {
+  
+    if(validation.auxType === true && validation.auxZone === true && validation.auxLocal === true && validation.auxDevice === true && validation.auxDescription === true) {
       handleSubmit(formMachValues)}
      else{
        window.alert("*Por favor llene los campos correctamente")
