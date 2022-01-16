@@ -116,7 +116,7 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
         <Box 
           sx={{
             width: "70%",
-            height: "100%",
+            height: "80%",
             marginLeft: "auto",
             marginRight: "auto",
             justifyContent: "center",
