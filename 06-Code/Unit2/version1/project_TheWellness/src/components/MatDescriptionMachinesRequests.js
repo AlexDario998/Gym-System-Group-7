@@ -20,17 +20,6 @@ const MatDescriptionMachinesRequests = (props) => {
   
   const [open, setOpen] = useState(false);
 
-  const [values, setValues] = useState({
-    id: data.id,
-    idUser: data.idUser,
-    idLocal: data.idLocal,
-    idGymMachine: data.idGymMachine,
-    date: data.date,
-    machineType: data.machineType,
-    gymZone: data.gymZone,
-    description: data.description,
-    confirmation: data.confirmation
-  });
 
   const handleOpenModal = () => {
     setOpen(true);
@@ -58,7 +47,7 @@ const MatDescriptionMachinesRequests = (props) => {
           {/* Description */}
           <hr />
           <p name="description" id="description">
-            {values.description}
+            {data.description}
           </p>
         </Box>
       </Modal>

@@ -60,7 +60,7 @@ const TableMaintenanceRequestsLayoutLeader = () => {
     }
 
     loadNumberRequests();
-  }, []);
+  }, [confirmation]);
 
   useEffect(() => {
     async function loadNumberRequests() {
@@ -75,7 +75,7 @@ const TableMaintenanceRequestsLayoutLeader = () => {
     }
 
     loadNumberRequests();
-  }, []);
+  }, [confirmation]);
 
   useEffect(() => {
     async function loadGyms() {
@@ -182,7 +182,6 @@ const TableMaintenanceRequestsLayoutLeader = () => {
           gyms={gyms}
           users={users}
           gymMachines={gymMachines}
-          confirmation={confirmation}
         />
          <br/>
         </Box>

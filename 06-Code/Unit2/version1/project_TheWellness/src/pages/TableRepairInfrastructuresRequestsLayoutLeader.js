@@ -2,12 +2,9 @@ import TableRepairInfrastructuresRequestsLeader from "../components/TableRepairI
 import SelectRequest from "../components/SelectRequest";
 import NumberRequests from "../components/NumberRequests";
 import {
-  getReports,
   getReportsByState,
   getNumberCompletedRequests,
   getNumberNoCompletedRequests,
-  getReportsByConfirmation,
-  updateConfirmation,
 } from "../services/repairInfrastructuresRequestAxios";
 import { getLocals } from "../services/localAxios";
 import { getUsers } from "../services/userAxios";
@@ -113,7 +110,7 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
         <NavBarLeaderGym />
         <br />
         <br />
-        <Box 
+        <Box
           sx={{
             width: "70%",
             height: "90%",
@@ -130,8 +127,6 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
             boxShadow: "1px 1px 20px #333",
           }}
         >
-         
-
           <Box
             sx={{
               width: "80%",
@@ -145,33 +140,34 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
               paddingRight: "20px",
               borderRadius: "15px",
               flexDirection: "row",
-              marginTop:"5%",
+              marginTop: "5%",
             }}
           >
             <SelectRequest
               confirmation={confirmation}
               setConfirmation={setConfirmation}
             />
-             <NumberRequests
+            <NumberRequests
               completedRequests={numberCompletedRequests.completedRequests}
-              noCompletedRequests={numberNoCompletedRequests.noCompletedRequests}
+              noCompletedRequests={
+                numberNoCompletedRequests.noCompletedRequests
+              }
             />
           </Box>
 
           <br />
           <br />
-          <hr />  
+          <hr />
 
           <TableRepairInfrastructuresRequestsLeader
             reports={reports}
             gyms={gyms}
             users={users}
           />
-          <br/>
+          <br />
         </Box>
         <br />
         <br />
-        
       </Box>
     </>
   );

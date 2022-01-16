@@ -52,7 +52,7 @@ const TableRepairTIDevicesRequestsLayout = () => {
     }
 
     loadNumberRequests()
-  }, []);
+  }, [confirmation]);
 
   useEffect(() => {
     async function loadNumberRequests() {
@@ -64,7 +64,7 @@ const TableRepairTIDevicesRequestsLayout = () => {
     }
 
     loadNumberRequests()
-  }, []);
+  }, [confirmation]);
 
   useEffect(() => {
     async function loadGyms() {
@@ -168,11 +168,11 @@ const TableRepairTIDevicesRequestsLayout = () => {
        
         <br />
         <br />
-
+        <hr />
         <TableRepairTIDevicesRequestsLeader
           reports={reports}
           gyms={gyms} users={users} tiDevices={tiDevices}
-          confirmation={confirmation}
+    
         />
         <br/>
         <br/>
