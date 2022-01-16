@@ -10,11 +10,11 @@ Content-Type: application/json
     "machineType": "4",
     "gymZone": "4",
     "description":"4",
-    "confirmation": true
+    "confirmation": false
 }
 
 ###
-GET http://localhost:3001/repair-request-gym-machines HTTP/1.1
+GET http://localhost:3001/repair-request-gym-machines/true HTTP/1.1
 
 ###
 GET http://localhost:3001/repair-request-gym-machines/61d7e18853ad903e2c4a78fd HTTP/1.1

@@ -53,6 +53,48 @@ export async function getReportsByConfirmation() {
   }
 }
 
+export async function getReportsByState(state) {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-infrastructures/${state}`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getNumberCompletedRequests() {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-infrastructures-false/count`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getNumberNoCompletedRequests() {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-infrastructures-true/count`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function updateConfirmation(data){
   const response = await axios.put(`${baseUrl}/repair-request-infrastructures/${data.id}`,{
     idUser: data.idUser,

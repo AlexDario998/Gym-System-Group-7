@@ -31,6 +31,49 @@ export async function saveRmachine(rmachineData, values, setValues){
 
   }
 }
+
+export async function getReportsByState(state) {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-gym-machines/${state}`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getNumberCompletedRequests() {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-gym-machines-false/count`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getNumberNoCompletedRequests() {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-gym-machines-true/count`,
+      method: "GET",
+    });
+    
+    return response
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function getReportsByConfirmationMachines() {
   try {
     const response = await axios({

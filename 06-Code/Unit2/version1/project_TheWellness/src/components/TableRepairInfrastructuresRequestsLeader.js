@@ -15,6 +15,7 @@ const TableRepairInfrastructuresRequestsLeader = (props) => {
   const reports = props.reports;
   const gyms = props.gyms
   const users = props.users
+  const confirmation = props.confirmation
  
   const getGymById = (idGym) => {
     for (var i=0; i<gyms.length; i++) {

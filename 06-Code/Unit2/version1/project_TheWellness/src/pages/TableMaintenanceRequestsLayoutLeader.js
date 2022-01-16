@@ -1,99 +1,172 @@
-import TableMaintenanceRequestsLeader from '../components/TableMaintenanceRequestsLeader'
-import {getReports, getReportsByConfirmationMachines, updateConfirmation} from '../services/maintenanceRequestsAxios.js'
-import {getLocals} from '../services/localAxios'
-import { getGymMachines} from '../services/gymMachineAxios'
-import { getUsers} from '../services/userAxios'
-import '../index.css';
-import {Box} from "@mui/material"
-import React, {useEffect, useState} from 'react';
-import NavbarLeaderGym from '../components/NavBarLeaderGym'
-import Cookies from 'universal-cookie/es6';
+import TableMaintenanceRequestsLeader from "../components/TableMaintenanceRequestsLeader";
+import SelectRequest from "../components/SelectRequest";
+import NumberRequests from "../components/NumberRequests";
+import {
+  getReports,
+  getNumberCompletedRequests,
+  getNumberNoCompletedRequests,
+  getReportsByState,
+  getReportsByConfirmationMachines,
+  updateConfirmation,
+} from "../services/maintenanceRequestsAxios.js";
+import { getLocals } from "../services/localAxios";
+import { getGymMachines } from "../services/gymMachineAxios";
+import { getUsers } from "../services/userAxios";
+import "../index.css";
+import { Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import NavBarLeaderGym from "../components/NavBarLeaderGym";
+import Cookies from "universal-cookie/es6";
 
-const cookies = new Cookies()
+const cookies = new Cookies();
 
 const TableMaintenanceRequestsLayoutLeader = () => {
+  const [confirmation, setConfirmation] = useState({
+    state: true,
+  });
+  const [numberCompletedRequests, setNumberCompletedRequests] = useState({
+    completedRequests: 0,
+  });
+  const [numberNoCompletedRequests, setNumberNoCompletedRequests] = useState({
+    noCompletedRequests: 0,
+  });
+  const [reports, setReports] = useState([]);
+  const [gyms, setGyms] = useState([]);
+  const [gymMachines, setGymMachines] = useState([]);
+  const [users, setUsers] = useState([]);
 
-    const [reports, setReports] = useState([])
-    const [gyms, setGyms] = useState([])
-    const [gymMachines, setGymMachines] = useState([])
-    const [users, setUsers] = useState([])
- 
-    
+  useEffect(() => {
+    async function loadReports() {
+      const response = await getReportsByState(confirmation.state);
 
-    useEffect(() => {
-        async function loadReports() {
-            const response = await getReports()
+      if (response.status === 200) {
+        setReports(response.data);
+      }
+    }
 
-            if (response.status === 200) {
-                setReports(response.data)
-                
-            }
-        }
+    loadReports();
+  }, [confirmation]);
 
-        loadReports()
-        
-    }, [])
+  useEffect(() => {
+    async function loadNumberRequests() {
+      const responseCompleted = await getNumberCompletedRequests();
 
-    useEffect(() => {
-        async function loadGyms() {
-            const response = await getLocals()
+      if (responseCompleted.status === 200) {
+        setNumberCompletedRequests({
+          ...numberCompletedRequests,
+          completedRequests: responseCompleted.data,
+        });
+      }
+    }
 
-            if (response.status === 200) {
-                setGyms(response.data)
-                
-            }
-        }
+    loadNumberRequests();
+  }, []);
 
-        loadGyms()
-        
-    }, [])
+  useEffect(() => {
+    async function loadNumberRequests() {
+      const responseNoCompleted = await getNumberNoCompletedRequests();
 
-    useEffect(() => {
-        async function loadGymMachines() {
-            const response = await getGymMachines()
+      if (responseNoCompleted.status === 200) {
+        setNumberNoCompletedRequests({
+          ...numberNoCompletedRequests,
+          noCompletedRequests: responseNoCompleted.data,
+        });
+      }
+    }
 
-            if (response.status === 200) {
-                setGymMachines(response.data)
-                
-            }
-        }
+    loadNumberRequests();
+  }, []);
 
-        loadGymMachines()
-        
-    }, [])
+  useEffect(() => {
+    async function loadGyms() {
+      const response = await getLocals();
 
-    useEffect(() => {
-        async function loadUsers() {
-            const response = await getUsers()
+      if (response.status === 200) {
+        setGyms(response.data);
+      }
+    }
 
-            if (response.status === 200) {
-                setUsers(response.data)
-                
-            }
-        }
+    loadGyms();
+  }, []);
 
-        loadUsers()
-        
-    }, [])
+  useEffect(() => {
+    async function loadGymMachines() {
+      const response = await getGymMachines();
 
+      if (response.status === 200) {
+        setGymMachines(response.data);
+      }
+    }
 
-    useEffect(() => {
-        if (typeof cookies.get('userName') === 'undefined' || cookies.get('type', {path: "/"}) !== '2') {
-            window.location.href = "./"
-        }
-    })
+    loadGymMachines();
+  }, []);
 
-    return (
-        <>
-            <Box class="boxMach">
-                <NavbarLeaderGym/>
-                <br/><br/>
-                <TableMaintenanceRequestsLeader reports={reports}
-                gyms={gyms} users={users} gymMachines={gymMachines}
-                />
-            </Box>
-        
-        </>
-    )
-}
-export default TableMaintenanceRequestsLayoutLeader
+  useEffect(() => {
+    async function loadUsers() {
+      const response = await getUsers();
+
+      if (response.status === 200) {
+        setUsers(response.data);
+      }
+    }
+
+    loadUsers();
+  }, []);
+
+  useEffect(() => {
+    if (
+      typeof cookies.get("userName") === "undefined" ||
+      cookies.get("type", { path: "/" }) !== "2"
+    ) {
+      window.location.href = "./";
+    }
+  });
+
+  return (
+    <>
+      <Box class="boxSystemSol">
+        <NavBarLeaderGym />
+        <br />
+        <br />
+        <Box sx={{}}>
+          <NumberRequests
+            completedRequests={numberCompletedRequests.completedRequests}
+            noCompletedRequests={numberNoCompletedRequests.noCompletedRequests}
+          />
+          <br />
+          <br />
+
+          <Box
+            sx={{
+              width: "30%",
+              // height: '100%',
+              marginLeft: "auto",
+              marginRight: "auto",
+              justifyContent: "center",
+              display: "flex",
+              alignItems: "center",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+              borderRadius: "15px",
+            }}
+          >
+            <SelectRequest
+              confirmation={confirmation}
+              setConfirmation={setConfirmation}
+            />
+          </Box>
+        </Box>
+        <br />
+        <br />
+        <TableMaintenanceRequestsLeader
+          reports={reports}
+          gyms={gyms}
+          users={users}
+          gymMachines={gymMachines}
+          confirmation={confirmation}
+        />
+      </Box>
+    </>
+  );
+};
+export default TableMaintenanceRequestsLayoutLeader;
