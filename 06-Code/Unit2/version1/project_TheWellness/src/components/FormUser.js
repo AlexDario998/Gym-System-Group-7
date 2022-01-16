@@ -16,6 +16,7 @@ const FormUser = (props) => {
 
     const handleSubmit = props.handleSubmit
     const gyms = props.gyms
+    const users = props.users
     const formUserValues = props.formUserValues
     const setFormUservalues = props.setFormUservalues
     
@@ -319,10 +320,59 @@ const FormUser = (props) => {
 
     const modificationType = () => {
         const type = formUserValues.type
-
+        const typeSelect= document.getElementById('type')
+        const iType = document.getElementById('iType')
+        var auxExists = false
+        
         if (type === 0) {
             setValidation({...validation, auxType: false})
+
+        }else if (type === 3 || type === 4) {
+            for (var i=0; i<users.length; i++) {
+                if (users[i].type === type) {
+                    auxExists = true
+                    break
+                }
+            }
+
+            if (auxExists === true) {
+                iType.textContent = "*Tipo de usuario ya registrado."
+                typeSelect.style.borderBottom='2px solid red'
+                typeSelect.style.borderRight='2px solid red'
+                typeSelect.style.borderLeft='2px solid red'
+                typeSelect.style.borderRadius='5px'
+                setValidation({...validation, auxType: false})
+            }else {
+                iType.textContent = ""
+                typeSelect.style.border = ''
+                setValidation({...validation, auxType: true})
+            }
+        
+        }else if (type === 2) {
+            
+            for (var i=0; i<users.length; i++) {
+                if (users[i].gym === formUserValues.gym) {
+                    auxExists = true
+                    break
+                }
+            }
+
+            if (auxExists === true) {
+                iType.textContent = "*Ya existe un líder de gimnasio para el gimnasio indicado. Escoja otro."
+                typeSelect.style.borderBottom='2px solid red'
+                typeSelect.style.borderRight='2px solid red'
+                typeSelect.style.borderLeft='2px solid red'
+                typeSelect.style.borderRadius='5px'
+                setValidation({...validation, auxType: false})
+            }else {
+                iType.textContent = ""
+                typeSelect.style.border = ''
+                setValidation({...validation, auxType: true})
+            }
+
         }else {
+            iType.textContent = ""
+            typeSelect.style.border = ''
             setValidation({...validation, auxType: true})
         }
         
@@ -330,15 +380,43 @@ const FormUser = (props) => {
     
     const modificationLocal = () => {
         const local = formUserValues.gym
-        console.log(local)
+        const typeSelect= document.getElementById('type')
+        const iType = document.getElementById('iType')
+        var auxExists = false
+        
         if (local === "") {
             setValidation({...validation, auxLocal: false})
         }else {
+            
+            if (formUserValues.type === 2) {
+                for (var i=0; i<users.length; i++) {
+                    if (users[i].gym === local) {
+                        auxExists = true
+                        break
+                    }
+                }
+    
+                if (auxExists === true) {
+                    iType.textContent = "*Ya existe un líder de gimnasio para el gimnasio indicado. Escoja otro."
+                    typeSelect.style.borderBottom='2px solid red'
+                    typeSelect.style.borderRight='2px solid red'
+                    typeSelect.style.borderLeft='2px solid red'
+                    typeSelect.style.borderRadius='5px'
+                    console.log("hola")
+                    setValidation({...validation, auxType: false})
+                }else {
+                    iType.textContent = ""
+                    typeSelect.style.border = ''
+                    console.log("hol33a")
+                    setValidation({...validation, auxType: true})
+                }
+            }
+
             setValidation({...validation, auxLocal: true})
         }
         
     }
-
+    console.log(validation)
     return(
        
         <form onSubmit={handleSubmitInternal} >
@@ -447,27 +525,6 @@ const FormUser = (props) => {
                 <br/>
                 
                 <FormControl fullWidth>
-                    <InputLabel id="labelTypeUser">Tipo de Usuario</InputLabel>
-                    <Select
-                        fullWidth
-                        labelId="labelTypeUser"
-                        id="type"
-                        name="type"
-                        value={formUserValues.type}
-                        label="Tipo de usuario"
-                        onChange={handleChange}
-                        onBlur={modificationType}
-                    >
-                        <MenuItem disabled selected value={0}>Seleccione un tipo </MenuItem>
-                        <MenuItem value={2}>Supervisor</MenuItem>
-                        <MenuItem value={3}>Admin/Sistemas</MenuItem>
-                        <MenuItem value={4}>Admin/Mantenimiento</MenuItem>
-                        <MenuItem value={5}>Grupo de mantenimiento</MenuItem>
-                    </Select>
-                </FormControl>
-                <br/>
-
-                <FormControl fullWidth>
                     <InputLabel id="labelGym">Local asignado</InputLabel>
                     <Select
                         fullWidth
@@ -488,6 +545,28 @@ const FormUser = (props) => {
                         }
                     </Select>
                 </FormControl>
+                <br/>
+
+                <FormControl fullWidth>
+                    <InputLabel id="labelTypeUser">Tipo de Usuario</InputLabel>
+                    <Select
+                        fullWidth
+                        labelId="labelTypeUser"
+                        id="type"
+                        name="type"
+                        value={formUserValues.type}
+                        label="Tipo de usuario"
+                        onChange={handleChange}
+                        onBlur={modificationType}
+                    >
+                        <MenuItem disabled selected value={0}>Seleccione un tipo </MenuItem>
+                        <MenuItem value={2}>Supervisor</MenuItem>
+                        <MenuItem value={3}>Admin/Sistemas</MenuItem>
+                        <MenuItem value={4}>Admin/Mantenimiento</MenuItem>
+                        <MenuItem value={5}>Grupo de mantenimiento</MenuItem>
+                    </Select>
+                </FormControl>
+                <i id='iType' class='msgError'></i>
                 <br/>
 
                 <Button
