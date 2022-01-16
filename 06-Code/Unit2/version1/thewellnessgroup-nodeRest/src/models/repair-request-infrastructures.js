@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const infrastructuresRequestsSchema = mongoose.Schema({
+const infrastructuresRequestsSchema = new mongoose.Schema({
   
     idUser:{
         type: 'string',
@@ -25,4 +25,4 @@ const infrastructuresRequestsSchema = mongoose.Schema({
       }
 })
 
-module.exports = mongoose.model('repair-request-infrastructures', infrastructuresRequestsSchema)
+module.exports = mongoose.model('RequestInfrastructure', infrastructuresRequestsSchema, 'repair-request-infrastructures')

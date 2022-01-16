@@ -22,9 +22,10 @@ export async function saveRinfrastructure(rinfrastructureData,values,setValues) 
       method: "POST",
       data: rinfrastructureData,
     });
-
+    console.log(rinfrastructureData)
     setValues({ idLocal: "", description: "" });
     window.location.reload()
+
   } catch (error) {
     console.log(error);
     setValues({ idLocal: "", description: "" });
