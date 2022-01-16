@@ -46,13 +46,38 @@ router.post("/repair-request-gym-machines", (req, res) => {
         to: 'amantenaince@gmail.com',
         subject: 'Solicitud de arreglo de máquina de gimnasio',
         html: `
-          <h3>Líder del gimnasio: ${request.fullNameUser}</h3>
-          <h4>Fecha de encargo: ${request.date}</h4>
-          <h4>Local: ${request.nameLocal}</h4>
-          <h4>Ciudad: ${request.city}</h4>
-          <h4>Máquina de gimnasio: ${request.gymMachine}</h4>
-          <h4>Número serial: ${request.gymMachineSerialNumber}</h4>
-          <p>Descripción: ${request.description}</p>
+        <div style="border: 1px solid #000;">
+          <div style=" 
+              background: #e65c00; 
+              background: -webkit-linear-gradient(to right, #F9D423, #e65c00);
+              background: linear-gradient(to right, #F9D423, #e65c00);
+              border: 1px solid #000; 
+              display: flex;
+              align-items: center;
+              text-align: center;
+          ">
+              <h2 style=" 
+                  display: inline-block;
+                  font-family: sans-serif;
+                  margin-right: auto;
+                  margin-left: auto;">THE WELLNESS GROUP</h2> 
+          </div>
+          <div style="margin-left: 30px;">
+              <h4 style="display: inline-block;">Líder del gimnasio:</h4><p style="display: inline-block;  margin-left: 10px;">${request.fullNameUser}</p>
+              <br/>
+              <h4 style="display: inline-block;">Fecha de encargo:</h4><p style="display: inline-block;  margin-left: 10px;">${request.date}</p>
+              <br/>
+              <h4 style="display: inline-block;">Local:</h4><p style="display: inline-block;  margin-left: 10px;">${request.nameLocal}</p>
+              <br/>
+              <h4 style="display: inline-block;">Ciudad:</h4><p style="display: inline-block;  margin-left: 10px;">${request.city}</p>
+              <br/>
+              <h4 style="display: inline-block;">Máquina de gimnasio:</h4><p style="display: inline-block;  margin-left: 10px;">${request.gymMachine}</p>
+              <br/>
+              <h4 style="display: inline-block;">Número serial:</h4><p style="display: inline-block;  margin-left: 10px;">${request.gymMachineSerialNumber}</p>
+              <br/>
+              <h4 style="display: inline-block;">Descripción:</h4><p style="display: inline-block;  margin-left: 10px;">${request.description}</p>
+          </div>
+        </div>
         `
       }
       
