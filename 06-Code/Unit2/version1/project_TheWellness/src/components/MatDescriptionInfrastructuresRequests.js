@@ -16,23 +16,13 @@ const style = {
 
 const MatDescriptionInfrastructuresRequests = (props) => {
   const data = props.data;
-  const handleDescriptionRegister = props.handleDescriptionRegister;
-  
-  const [open, setOpen] = useState(false);
 
-  const [values, setValues] = useState({
-    id: data.id,
-    idUser: data.idUser,
-    idLocal: data.idLocal,
-    date: data.date,
-    description: data.description,
-    confirmation: data.confirmation
-  });
+  const [open, setOpen] = useState(false);
 
   const handleOpenModal = () => {
     setOpen(true);
   };
-
+  
   return (
     <>
       <IconButton
@@ -55,7 +45,7 @@ const MatDescriptionInfrastructuresRequests = (props) => {
           {/* Description */}
           <hr />
           <p name="description" id="description">
-            {values.description}
+            {data.description}
           </p>
         </Box>
       </Modal>

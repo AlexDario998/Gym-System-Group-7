@@ -57,7 +57,7 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
     }
 
     loadNumberRequests();
-  }, []);
+  }, [confirmation]);
 
   useEffect(() => {
     async function loadNumberRequests() {
@@ -72,7 +72,7 @@ const TableRepairInfrastructuresRequestsLayoutLeader = () => {
     }
 
     loadNumberRequests();
-  }, []);
+  }, [confirmation]);
 
   useEffect(() => {
     async function loadGyms() {
