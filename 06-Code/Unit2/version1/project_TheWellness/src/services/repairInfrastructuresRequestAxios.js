@@ -96,6 +96,22 @@ export async function getNumberNoCompletedRequests() {
   }
 }
 
+export async function getReportsCompleted(){
+  try {
+    const response = await axios({
+      url: `${baseUrl}/repair-request-infrastructures-false`,
+      method: "GET",
+    });
+    return response
+    
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
 export async function updateConfirmation(data){
   const response = await axios.put(`${baseUrl}/repair-request-infrastructures/${data.id}`,{
     idUser: data.idUser,

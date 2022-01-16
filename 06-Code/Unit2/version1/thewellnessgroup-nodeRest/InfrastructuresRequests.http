@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3001/repair-request-infrastructures/true HTTP/1.1
+GET http://localhost:3001/repair-request-infrastructures/false HTTP/1.1
 
 ###
 GET http://localhost:3001/repair-requests-infrastructures/61d7dd6fcf7eb2a717f3416a HTTP/1.1
