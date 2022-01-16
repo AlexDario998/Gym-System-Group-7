@@ -124,17 +124,28 @@ const TableRepairTIDevicesRequestsLayout = () => {
         <br />
         <Box
           sx={{
-              
+            width: "70%",
+            height: "80%",
+            marginLeft: "auto",
+            marginRight: "auto",
+            justifyContent: "center",
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            paddingLeft: "20px",
+            paddingRight: "20px",
+            background: "#fff",
+            borderRadius: "15px",
+            boxShadow: "1px 1px 20px #333",
           }}
         >
-          <NumberRequests completedRequests={numberCompletedRequests.completedRequests} noCompletedRequests={numberNoCompletedRequests.noCompletedRequests} />
-          <br />
-          <br />
+          
+        
 
           <Box 
             sx={{
-              width: '30%',
-              // height: '100%',
+              width: '80%',
+              //height: '40%',
               marginLeft:'auto',
               marginRight:'auto',
               justifyContent: 'center',
@@ -142,12 +153,22 @@ const TableRepairTIDevicesRequestsLayout = () => {
               alignItems: 'center',
               paddingLeft:'20px',
               paddingRight:'20px',
-              borderRadius: '15px'
+              borderRadius: '15px',
+              flexDirection: "row",
+              marginTop:"5%",
             }}
           >
-            <SelectRequest confirmation={confirmation} setConfirmation={setConfirmation} />
+            <SelectRequest 
+              confirmation={confirmation} 
+              setConfirmation={setConfirmation} 
+            />
+            <NumberRequests 
+            completedRequests={numberCompletedRequests.completedRequests} 
+            noCompletedRequests={numberNoCompletedRequests.noCompletedRequests}
+             />
+
           </Box>
-        </Box>
+       
         <br />
         <br />
 
@@ -156,6 +177,11 @@ const TableRepairTIDevicesRequestsLayout = () => {
           gyms={gyms} users={users} tiDevices={tiDevices}
           confirmation={confirmation}
         />
+        <br/>
+        <br/>
+         </Box>
+         <br/>
+        <br/>
       </Box>
     </>
   );

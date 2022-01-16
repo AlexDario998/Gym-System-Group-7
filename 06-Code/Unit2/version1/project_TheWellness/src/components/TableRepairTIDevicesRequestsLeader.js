@@ -59,7 +59,7 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
     return (
         <Box
             sx={{
-                width: '70%',
+                width: '90%',
                 height: '82vh',
                 marginLeft:'auto',
                 marginRight:'auto',
@@ -71,7 +71,7 @@ const TableRepairTIDevicesRequestsLeader = (props) => {
                 paddingRight:'20px',
                 background: '#fff', 
                 borderRadius: '15px',
-                boxShadow: '1px 1px 20px #333'
+               
             }}
         >
 
