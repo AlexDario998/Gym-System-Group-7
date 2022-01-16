@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const gymMachinesRequestsSchema = mongoose.Schema({
+const gymMachinesRequestsSchema = new mongoose.Schema({
   
  
       idUser:{
@@ -44,4 +44,4 @@ const gymMachinesRequestsSchema = mongoose.Schema({
       }
 })
 
-module.exports = mongoose.model('repair-request-gym-machines', gymMachinesRequestsSchema)
+module.exports = mongoose.model('RequestGymMachine', gymMachinesRequestsSchema, 'repair-request-gym-machines')

@@ -1,6 +1,7 @@
 import FormsMach from '../components/FormsMach'
-import {getLocals} from '../services/localAxios'
-import {getGymMachinesByIdLocal} from '../services/gymMachineAxios'
+import {getLocals, getLocalById} from '../services/localAxios'
+import {getUserById} from '../services/userAxios'
+import {getGymMachinesByIdLocal, getGymMachineById} from '../services/gymMachineAxios'
 import {saveRmachine} from '../services/maintenanceRequestsAxios'
 import '../index.css';
 import {Box} from "@mui/material"
@@ -27,12 +28,91 @@ const FormMachLayout = () => {
         machineType: '',
         gymZone: '',
         description: '',
-        confirmation: true
+        confirmation: true,
+        fullNameUser: '',
+        emailUser: '',
+        passwordUser: '',
+        nameLocal: '',
+        city: '',
+        gymMachine: '',
+        gymMachineSerialNumber: ''
     })
 
     const handleSubmit = (data) => {
         saveRmachine(data,formMachValues,setFormMachValues)
     }
+
+    useEffect(() => {
+        async function loadUserById() {
+            const response = await getUserById(cookies.get('id', {path: "/"}))
+            const user = response.data.name + ' ' + response.data.lastName
+
+            if (response.status === 200) {
+                setFormMachValues(
+                    {
+                        idUser: cookies.get('id', {path: "/"}),
+                        idLocal: '',
+                        idGymMachine: '',
+                        date: dateComplete,
+                        machineType: '',
+                        gymZone: '',
+                        description: '',
+                        confirmation: true,
+                        fullNameUser: user,
+                        emailUser: response.data.email,
+                        passwordUser: response.data.password,
+                        nameLocal: '',
+                        city: '',
+                        gymMachine: '',
+                        gymMachineSerialNumber: ''
+                    }
+                )
+            }
+        }
+
+        loadUserById()
+        
+    }, [])
+
+    useEffect(() => {
+        async function loadUserById() {
+            const response = await getUserById(cookies.get('id', {path: "/"}))
+            const user = response.data.name + ' ' + response.data.lastName
+
+            if (response.status === 200) {
+                setFormMachValues({...formMachValues, fullNameUser: user, emailUser: response.data.email, passwordUser: response.data.password})
+            }
+        }
+
+        loadUserById()
+        
+    }, [])
+
+    useEffect(() => {
+        async function loadLocalById() {
+            const response = await getLocalById(formMachValues.idLocal)
+
+            if (response.status === 200) {
+                setFormMachValues({...formMachValues, nameLocal: response.data.namegym, city: response.data.city})
+            }
+        }
+
+        loadLocalById()
+        
+    }, [formMachValues.idLocal])
+
+    useEffect(() => {
+        async function loadgymMachineById() {
+            const response = await getGymMachineById(formMachValues.idGymMachine)
+
+            if (response.status === 200) {
+                setFormMachValues({...formMachValues, gymMachine: response.data.name, gymMachineSerialNumber: response.data.serialNumber})
+            }
+        }
+
+        loadgymMachineById()
+        
+    }, [formMachValues.idGymMachine])
 
     useEffect(() => {
         async function loadGymMachinesByIdLocal() {

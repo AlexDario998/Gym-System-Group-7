@@ -16,6 +16,21 @@ export async function getGymMachines(){
     }
 }
 
+export async function getGymMachineById(idGymMachine){
+  try{
+      const response = await axios({
+          url: `${baseUrl}/machines/${idGymMachine}`,
+          method: 'GET',
+      })
+      
+      return response
+
+  }catch(error){
+    console.log(error)
+  }
+}
+
+
 export async function getGymMachinesByIdLocal(idLocal){
   try{
       const response = await axios({

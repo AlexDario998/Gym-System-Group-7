@@ -22,7 +22,7 @@ export async function saveRinfrastructure(rinfrastructureData,values,setValues) 
       method: "POST",
       data: rinfrastructureData,
     });
-    console.log(rinfrastructureData)
+    
     setValues({ idLocal: "", description: "" });
     window.location.reload()
 

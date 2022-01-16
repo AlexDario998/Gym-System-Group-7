@@ -40,7 +40,7 @@ router.post("/repair-request-infrastructures", (req, res) => {
       
       let mailOptions = {
         from: request.emailUser,
-        to: 'sys.usuario123@gmail.com',
+        to: 'amantenaince@gmail.com',
         subject: 'Solicitud de arreglo de dispositivo TI',
         html: `
           <h3>Líder del gimnasio: ${request.fullNameUser}</h3>

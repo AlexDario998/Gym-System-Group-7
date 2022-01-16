@@ -1,19 +1,74 @@
 const express = require("express");
 const router = express.Router();
-const GymRequestsSchema = require("../models/repair-request-gym-machines");
+const RequestGymMachine = require("../models/repair-request-gym-machines");
 
 // read requests
 router.post("/repair-request-gym-machines", (req, res) => {
-  const gymRequests = GymRequestsSchema(req.body);
-  gymRequests
-    .save()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
+  let request = req.body
+  let gymMachineRequest = new RequestGymMachine(
+    {
+      "idUser": request.idUser,
+      "idLocal": request.idLocal,
+      "idTIDevice": request.idTIDevice,
+      "date": request.date,
+      "machineType": request.machineType,
+      "gymZone": request.gymZone,
+      "description": request.description,
+      "confirmation": request.confirmation
+    }
+  )
+
+  gymMachineRequest.save((err, requestDB) => {
+    if (err) {
+      res.json({
+        result: false,
+        message: "No se pudo realizar la solicitud de arreglo.",
+        err
+      })
+    }else {
+      res.json({
+        result: true,
+        message: "Se realizo al solicitud.",
+        requestDB
+      })
+
+      let transporter = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+          user: request.emailUser,
+          pass: request.passwordUser
+        }
+      })
+      
+      let mailOptions = {
+        from: request.emailUser,
+        to: 'amantenaince@gmail.com',
+        subject: 'Solicitud de arreglo de dispositivo TI',
+        html: `
+          <h3>Líder del gimnasio: ${request.fullNameUser}</h3>
+          <h4>Fecha de encargo: ${request.date}</h4>
+          <h4>Local: ${request.nameLocal}</h4>
+          <h4>Ciudad: ${request.city}</h4>
+          <h4>Dispositivo: ${request.tiDevice}</h4>
+          <h4>Número serial: ${request.tiDeviceSerialNumber}</h4>
+          <p>Descripción: ${request.description}</p>
+        `
+      }
+      
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error)
+        }else {
+            console.log("El correo se envio correctamente " + info.response)
+        }
+      })
+    }
+  })
 });
 
 //get all requests
 router.get("/repair-request-gym-machines", (req, res) => {
-  GymRequestsSchema.find()
+ RequestGymMachine.find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
@@ -21,14 +76,14 @@ router.get("/repair-request-gym-machines", (req, res) => {
 //get a request
 router.get("/repair-request-gym-machines/:id", (req, res) => {
   const { id } = req.params;
-  GymRequestsSchema.findById(id)
+ RequestGymMachine.findById(id)
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
 //get only completed requests
 router.get("/repair-request-gym-machines-true", (req, res) => {
-  GymRequestsSchema.find({confirmation: true})
+ RequestGymMachine.find({confirmation: true})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
  
@@ -36,7 +91,7 @@ router.get("/repair-request-gym-machines-true", (req, res) => {
 
 //get only no completed requests
 router.get("/repair-request-gym-machines-false", (req, res) => {
-  GymRequestsSchema.find({confirmation: false})
+ RequestGymMachine.find({confirmation: false})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
  
@@ -44,7 +99,7 @@ router.get("/repair-request-gym-machines-false", (req, res) => {
 
 //get the number of completed requests
 router.get("/repair-request-gym-machines-true/count", (req, res) => {
-  GymRequestsSchema.find({confirmation: true})
+ RequestGymMachine.find({confirmation: true})
     .then((data) => 
       {
         var numberOfRegisters = 0
@@ -62,7 +117,7 @@ router.get("/repair-request-gym-machines-true/count", (req, res) => {
 
 //get the number of no completed requests
 router.get("/repair-request-gym-machines-false/count", (req, res) => {
-  GymRequestsSchema.find({confirmation: false})
+ RequestGymMachine.find({confirmation: false})
     .then((data) => 
       {
         var numberOfRegisters = 0
@@ -82,7 +137,7 @@ router.get("/repair-request-gym-machines-false/count", (req, res) => {
 router.put("/repair-request-gym-machines/:id", (req, res) => {
   const { id } = req.params;
   const {idUser, idLocal, idGymMachine, date, machineType, gymZone, description, confirmation} = req.body;
-  GymRequestsSchema.updateOne({_id: id},{$set: {idUser, idLocal, idGymMachine, date, machineType, gymZone, description, confirmation}})
+ RequestGymMachine.updateOne({_id: id},{$set: {idUser, idLocal, idGymMachine, date, machineType, gymZone, description, confirmation}})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
@@ -90,7 +145,7 @@ router.put("/repair-request-gym-machines/:id", (req, res) => {
 //delete a request
 router.delete("/repair-request-gym-machines/:id", (req, res) => {
     const { id } = req.params;
-    GymRequestsSchema.remove({_id: id})
+   RequestGymMachine.remove({_id: id})
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
   });
