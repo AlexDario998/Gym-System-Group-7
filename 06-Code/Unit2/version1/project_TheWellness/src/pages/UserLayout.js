@@ -19,6 +19,7 @@ const UserLayout = () => {
         userName: '',
         lastName: '',
         password: '',
+        userName: '',
         idCard: '',
         email: '',
         type: 0,
