@@ -199,6 +199,17 @@ const FormUser = (props) => {
 		}
 
         if (auxIterator !== 1) {
+            for (var i=0; i<users.length; i++) {
+                if (users[i].idCard === idCard) {
+                    iIdCard.textContent = "*Cédula ya registrada"
+                    auxIterator++
+                    setValidation({...validation, auxId: false})
+                    break
+                }
+            }
+        }
+
+        if (auxIterator !== 1) {
             for (var j=0; j<splitIDCard.length - 1; j++) {
                 if ((j+1) % 2 === 0) {
                     pairsArray.push(parseInt(splitIDCard[j]));
