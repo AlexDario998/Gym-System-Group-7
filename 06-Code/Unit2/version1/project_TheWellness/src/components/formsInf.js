@@ -58,16 +58,15 @@ const FormsInf = (props) => {
             
             <Box 
                 sx={{
-                    width: '40%',
-                    height: '100%',
+                    width: '50%',
+                    // height: '100%',
                     marginLeft:'auto',
                     marginRight:'auto',
                     justifyContent: 'center',
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'column',
-                    paddingLeft:'20px',
-                    paddingRight:'20px',
+                    padding:'1vh', 
                     background: '#fff',
                     borderRadius: '15px',
                     boxShadow: '1px 1px 20px #333'
@@ -91,6 +90,9 @@ const FormsInf = (props) => {
                         onChange={handleChange}
                         onBlur={validateLocal}
                         variant="filled"
+                        sx={{
+                            width:'80%'
+                          }}
                     >
                         
                         <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
@@ -117,6 +119,9 @@ const FormsInf = (props) => {
                     multiline
                     rows={3}
                     variant="filled"
+                    sx={{
+                        width:'80%'
+                      }}
                 />
                 <br/>
 
