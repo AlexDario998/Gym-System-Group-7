@@ -66,7 +66,7 @@ const TableLocals = (props) => {
                     {
                         gyms.map(item => (
                             {
-                                id: item.id,
+                                id: item._id,
                                 namegym: item.namegym,
                                 city: item.city
                             }

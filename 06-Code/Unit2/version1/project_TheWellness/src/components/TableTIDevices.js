@@ -78,7 +78,7 @@ const TableTIDevices = (props) => {
                     {
                         tiDevices.map(item => (
                             {
-                                id: item.id,
+                                id: item._id,
                                 name: item.name,
                                 serialNumber: item.serialNumber,
                                 brand: item.brand,

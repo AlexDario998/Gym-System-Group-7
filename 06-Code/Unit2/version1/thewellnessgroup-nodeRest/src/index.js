@@ -6,6 +6,9 @@ const InfrastructuresRequests = require("./routes/InfrastructuresRequests")
 const GymRequests = require("./routes/GymRequests")
 const Infrastructure = require("./routes/Infrastructure")
 const Users = require("./routes/Users")
+const TiMachines = require("./routes/tiMachinesController")
+const GymMachines = require("./routes/gymMachinesController")
+const Gyms = require("./routes/gymsController")
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -20,6 +23,9 @@ app.use(InfrastructuresRequests);
 app.use(GymRequests);
 app.use(Infrastructure);
 app.use(Users);
+app.use(TiMachines);
+app.use(GymMachines);
+app.use(Gyms);
 
 //routes
 app.get('/', (req,res) =>{

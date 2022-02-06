@@ -79,7 +79,7 @@ const TableMachines = (props) => {
                     {
                         gymMachines.map(item => (
                             {
-                                id: item.id,
+                                id: item._id,
                                 name: item.name,
                                 gym: item.gym,
                                 serialNumber: item.serialNumber,
