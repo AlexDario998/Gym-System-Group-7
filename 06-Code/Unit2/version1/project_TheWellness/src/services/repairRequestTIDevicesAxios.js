@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Cookies from 'universal-cookie/es6'
 
-const baseUrl = 'http://localhost:3001'
+const baseUrl = process.env.REACT_APP_BASE_URL;
 const cookies = new Cookies()
 
 export async function getReports(){
