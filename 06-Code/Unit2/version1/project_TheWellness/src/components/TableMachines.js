@@ -11,7 +11,8 @@ const TableMachines = (props) => {
     const gyms = props.gyms
     const deleteRegister = props.deleteRegister
     const updateRegister = props.updateRegister
-
+    console.log(gymMachines)
+    console.log(gyms)
     const handleDeleteRegister = (idMachine) => {
         deleteRegister(idMachine)
     }
@@ -23,7 +24,7 @@ const TableMachines = (props) => {
     const getGymById = (idGym) => {
 
         for (var i=0; i<gyms.length; i++) {
-            if (gyms[i].id === idGym) {
+            if (gyms[i]._id === idGym) {
                 return gyms[i].namegym
             }
         }

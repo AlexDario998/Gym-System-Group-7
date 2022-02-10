@@ -18,7 +18,7 @@ const TableMaintenanceRequests = (props) => {
 
     const getGymById = (idGym) => {
         for (var i=0; i<gyms.length; i++) {
-            if (gyms[i].id === idGym) {
+            if (gyms[i]._id === idGym) {
                 return gyms[i].namegym
             }
         }
@@ -26,7 +26,7 @@ const TableMaintenanceRequests = (props) => {
 
     const getGymMachineById = (idGymMachine) => {
         for (var i=0; i<gymMachines.length; i++) {
-            if (gymMachines[i].id === idGymMachine) {
+            if (gymMachines[i]._id === idGymMachine) {
                 return gymMachines[i].name
             }
         }

@@ -20,7 +20,7 @@ const TableRepairTIDevicesRequests = (props) => {
 
     const getGymById = (idGym) => {
         for (var i=0; i<gyms.length; i++) {
-            if (gyms[i].id === idGym) {
+            if (gyms[i]._id === idGym) {
                 return gyms[i].namegym
             }
         }
@@ -28,7 +28,7 @@ const TableRepairTIDevicesRequests = (props) => {
 
     const getTiDeviceById = (idTiDevice) => {
         for (var i=0; i<tiDevices.length; i++) {
-            if (tiDevices[i].id === idTiDevice) {
+            if (tiDevices[i]._id === idTiDevice) {
                 return tiDevices[i].name
             }
         }

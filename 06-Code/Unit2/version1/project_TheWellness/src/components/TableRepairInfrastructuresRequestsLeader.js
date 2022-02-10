@@ -10,7 +10,7 @@ const TableRepairInfrastructuresRequestsLeader = (props) => {
 
   const getGymById = (idGym) => {
     for (var i = 0; i < gyms.length; i++) {
-      if (gyms[i].id === idGym) {
+      if (gyms[i]._id === idGym) {
         return gyms[i].namegym;
       }
     }
