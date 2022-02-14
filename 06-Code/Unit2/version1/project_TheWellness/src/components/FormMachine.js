@@ -231,7 +231,7 @@ const FormMachine = ( props ) => {
                         <MenuItem disabled selected>Seleccione un local </MenuItem>
                         {
                             gyms.map(item => (
-                                <MenuItem value={item.id}>{item.namegym}</MenuItem>
+                                <MenuItem value={item._id}>{item.namegym}</MenuItem>
                                 
                             ))
                         }
