@@ -1,0 +1,327 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.imgTIDevice {
+  background-image: url(img/imgAddTIDeviceBlack.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.imgLocal {
+  /* background-image: url(img/imgAddLocal.jpg); */
+  background-image: url(img/imgAddLocalBlack.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+ 
+.imgUser{
+  background-image: url(img/womanB.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.imgMachine{
+  background-image: url(img/gyms_04Black1.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.boxback{
+  background-image: url(img/GymBackground.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  /* height: 100vh; */
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  /* color: #fff; */
+  text-align: center; 
+  font-size: 6vh;
+  margin: 0;
+}
+
+.subtitle{
+  text-align: center; 
+  font-size: 35px;
+  margin: 0;
+}
+
+.boxInfra{
+  background-image: url(img/pool_dark.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+
+.boxMach{
+  background-image: url(img/gym_swissotel_01darks.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+
+.boxSystem{
+  background-image: url(img/computerDark.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+
+.boxSystemSol{
+  background-image: url(img/computerDark.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+
+.bgHome{
+  /* background-image: url(img/backgroundHome.jpg); */
+  background-image: url(img/backgroundHomeBlack.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: fixed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.titleHome{
+  font-size: 11vh;
+  margin: 0;
+  margin-left: 5%;
+  margin-top: 1%;
+  color: rgb(255, 183, 77);
+  /* color: #fff; */
+}
+.subtitleHome{
+  font-size: 8vh;
+  margin: 0;
+  margin-left: 5%;
+  color: #fff;
+  /* color: rgb(252, 134, 0); */
+}
+
+/* .logoHome{
+  background-image: url(img/logoWellnessGroup.png);
+  background-size: cover;
+  width: 40vh;
+  height: 40vh;
+  position: absolute;
+  right: 100px;
+  background-color: #fff;
+  border-radius: 300px;
+  box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px rgb(252, 134, 0), 0 0 30px rgb(252, 134, 0), 0 0 40px rgb(252, 134, 0);
+} */
+
+.linkDescartar{
+  text-decoration: none;
+}
+/* Menu Options */
+
+.backgroundOpt{
+  background-color: #fff;
+}
+.menuOpt{
+  /* background-image: linear-gradient(to top, #fff 0%, rgb(255, 161, 74) 100%); */
+  /* background-image: url(img/imgRepairMachBlack.jpg); */
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-y: fixed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tableOpt{
+  width: 100%;
+  text-align: center;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin: 0;
+}
+.imgOpt{
+  background-color: #fff;
+  width: 100%;
+  height: 35vh;
+  -webkit-box-shadow: 0px 0px 31px 6px rgba(0,0,0,0.75); 
+  box-shadow: 0px 0px 31px 6px rgba(0,0,0,0.75);  
+}
+
+/* .imgOpt:hover{
+  -webkit-box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75); 
+  box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75);  
+
+} */
+
+.titlesOpt,
+.imgOpt{
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* .titlesOpt:hover{
+  color: rgb(224, 108, 0);
+  -webkit-box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75); 
+  box-shadow: 0px 0px 31px 6px rgba(255, 255, 255, 0.75);  
+} */
+/* .imgOpt:hover{
+
+  background: #232323;
+  box-shadow: 0 0 5px #FFF, 0 0 6px #FFF, 0 0 7px #FFF, 0 0 8px #f09f25, 0 0 9px #f09f25, 0 0 10px #f09f25, 0 0 11px #f09f25, 0 0 12px #f09f25;
+} */
+
+.addReq{
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid red;
+  display: block;
+  width: 180px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+}
+
+/* .addReq:hover{
+  color: orange;
+} */
+
+.repMach{
+  background-image: url(img/gym_swissotel_01.jpg);
+  background-size: cover;
+}
+
+.repSyst{
+  background-image: url(img/IMG_9406.jfif);
+  background-size: cover;
+}
+
+.repInfra{
+  background-image: url(img/gym_dann_carlton_01.jpg);
+  background-size: cover;
+}
+
+
+.logoNav{
+  background-image: url(img/logoWellnessGroup.png);
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  margin-right: 15px;
+}
+
+.titleSol{
+  text-align: center; 
+  font-size: 29px;
+  margin: 0;
+}
+
+.msgError{
+  margin-top: 5px;
+  color: red;
+  margin-right: auto;
+}
+
+.solComp{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-right: auto; */
+}
+
+.solInc{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10vh;
+}
+
+.boxSol{
+  margin: 0;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left:1.5vh;
+  padding-right:1.5vh;
+  display: flex;
+  margin-top: -35px;
+  margin-bottom: -20px;
+}
+@media (max-height:650px){
+    #editUser{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400;
+      /* bgcolor: 'background.paper; */
+      border: 2px solid #000;
+      boxShadow: 24px;
+      padding: 40px;  
+    height: 100vh;
+    overflow-y: scroll;  }
+}

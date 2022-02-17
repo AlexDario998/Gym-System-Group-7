@@ -1,0 +1,38 @@
+###
+POST http://localhost:3001/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "José",
+    "lastName": "Velasteguí Lanas",
+    "userName": "",
+    "password":"jose",
+    "idCard": "1887878778",
+    "email": "jose@hotmail.com",
+    "type": 2,
+    "gym": "61d5d58f19e7d53578fda485"
+}
+
+###
+GET http://localhost:3001/users HTTP/1.1
+
+###
+GET http://localhost:3001/users/61e0df8ecc5156cc703a185b HTTP/1.1
+
+###
+PUT http://localhost:3001/users/61e0dedacc5156cc703a1852 HTTP/1.1
+Content-Type: application/json
+
+{
+        "name": "1.1",
+    "lastName": "1",
+    "userName": "1",
+    "password":"1",
+    "idCard": "1",
+    "email": "1",
+    "type": 1,
+    "gym": "1"
+}
+
+###
+DELETE http://localhost:3001/users/61e0dedacc5156cc703a1852 HTTP/1.1
