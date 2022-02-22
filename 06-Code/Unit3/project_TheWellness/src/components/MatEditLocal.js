@@ -1,6 +1,6 @@
 import EditIcon from '@mui/icons-material/Edit'
 import { IconButton, Modal, Box, TextField, Button } from '@mui/material'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const style = {
     position: 'absolute',
@@ -15,21 +15,19 @@ const style = {
 };
 
 const MatEditLocal = ( props ) => {
-
-    const data = props.data
+    
+    var data = props.data
     const handleUpdateRegister = props.handleUpdateRegister
 
-    const [open, setOpen] = useState(false);
-
+    const [open, setOpen] = useState(false)
     const [formAddLocalValues, setformAddLocalValues] = useState({
-        id: data.id,
         namegym: data.namegym,
         city: data.city
     })
-
+    
     const [validation, setValidation] = useState({
         auxNameGym: true,
-        auxCity:true
+        auxCity: true
     })
 
     const handleBlurGymName = () => {
@@ -94,23 +92,27 @@ const MatEditLocal = ( props ) => {
         }
     }
 
-
     const handleChange = (event) => {
         const { name, value } = event.target
         setformAddLocalValues({ ...formAddLocalValues, [name]: value})
+
+        if (name == "namegym") {
+            data.namegym = value
+        }else if (name == "city") {
+            data.city = value
+        }
     }
+
 
     const handleEdit = (e) => {
         e.preventDefault()
          if (validation.auxNameGym === true && validation.auxCity === true) {
-             handleUpdateRegister(formAddLocalValues)
+             handleUpdateRegister(data)
 
         }else {
             window.alert("Por favor llene los campos correctamente")
         }
     };
-
-    console.log(validation)
   
     const handleOpenModal = () => {
         setOpen(true)
@@ -142,7 +144,7 @@ const MatEditLocal = ( props ) => {
                         <TextField fullWidth 
                             name='namegym' 
                             id="namegym" 
-                            value={formAddLocalValues.namegym}
+                            value={data.namegym}
                             onChange={handleChange}
                             placeholder="Nombre del gimnasio" 
                             onBlur={handleBlurGymName}
@@ -153,7 +155,7 @@ const MatEditLocal = ( props ) => {
                         <TextField fullWidth 
                             name='city' 
                             id="city" 
-                            value={formAddLocalValues.city}
+                            value={data.city}
                             onChange={handleChange}
                             onBlur={handleBlurCity}
                             placeholder="Ciudad" 

@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../App.css';
 import '../index.css';
-import {Box, TextField, Button, MenuItem, Select, FormControl, InputLabel,Typography,Stack} from "@mui/material"
-import { Link } from 'react-router-dom';
+import {Box, TextField, Button, MenuItem, Select, Typography, Stack} from "@mui/material";
 
 const FormsInf = (props) => {
 
@@ -98,7 +97,7 @@ const FormsInf = (props) => {
                         <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
                         {
                             gyms.map(item => (
-                                <MenuItem value={item.id}>{item.namegym}</MenuItem>
+                                <MenuItem value={item._id}>{item.namegym}</MenuItem>
                                 
                             ))
                         }
@@ -129,7 +128,6 @@ const FormsInf = (props) => {
           <Button variant="contained" type='submit'
             sx={{
                 boxShadow: '1px 1px 5px #333',
-                // margin: "10px",  
                 background: '#ffb74d ',  /* fallback for old browsers */
                 background: 'linear-gradient(to right, #ffb74d, #ffb74d)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                         

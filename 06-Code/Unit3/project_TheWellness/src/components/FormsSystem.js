@@ -112,7 +112,7 @@ const FormsSystem = (props) => {
             <MenuItem disabled selected>Seleccione un gimnasio</MenuItem>
             {
                 gyms.map(item => (
-                    <MenuItem value={item.id} >{item.namegym}</MenuItem>
+                    <MenuItem value={item._id} >{item.namegym}</MenuItem>
                     
                 ))
             }
@@ -148,7 +148,7 @@ const FormsSystem = (props) => {
             <MenuItem disabled selected>Seleccione una máquina</MenuItem>
             {
                 tiDeviceValues.map(item => (
-                    <MenuItem value={item.id} >{item.name} - {item.serialNumber}</MenuItem>
+                    <MenuItem value={item._id} >{item.name} - {item.serialNumber}</MenuItem>
                     
                 ))
             }
