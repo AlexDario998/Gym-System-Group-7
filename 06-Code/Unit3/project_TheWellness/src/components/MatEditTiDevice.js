@@ -39,6 +39,23 @@ const MatEditTiDevice = ( props ) => {
         auxLocal:true
     })
 
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setformTiDeviceValues({ ...formTiDeviceValues, [name]: value})
+        if (name == "name"){
+            data.name = value
+        }else if (name == "serialNumber"){
+            data.serialNumber = value
+        }else if (name == "brand"){
+            data.brand = value
+        }else if (name == "local"){
+            data.local = value
+        }else if (name == "owner"){
+            data.owner = value
+        }
+    } 
+
+
     const validateName=()=>{
 
         const nameDevice= formTiDeviceValues.name
@@ -183,18 +200,14 @@ const MatEditTiDevice = ( props ) => {
     
     }
 
-    const handleChange = (event) => {
-        const { name, value } = event.target
-        setformTiDeviceValues({ ...formTiDeviceValues, [name]: value})
-    }
-
+   
     const handleEdit = (e) => {
         e.preventDefault()
         
         if(validation.auxName === true &&validation.auxBrand===true&&
           validation.auxOwner===true&&validation.auxSerial===true&&
           validation.auxLocal===true){
-            handleUpdateRegister(formTiDeviceValues)
+            handleUpdateRegister(data)
         }else{
             window.alert("*Por favor llene los campos correctamente")
         }
@@ -234,7 +247,7 @@ const MatEditTiDevice = ( props ) => {
                         <TextField fullWidth 
                             name='name' 
                             id="name" 
-                            value={formTiDeviceValues.name}
+                            value={data.name}
                             onChange={handleChange}
                             onBlur={validateName}
                             placeholder="Dispositivo TI" 
@@ -245,7 +258,7 @@ const MatEditTiDevice = ( props ) => {
                         <TextField fullWidth 
                             name='serialNumber' 
                             id="serialNumber" 
-                            value={formTiDeviceValues.serialNumber}
+                            value={data.serialNumber}
                             onChange={handleChange}
                             onBlur={validateSerial}
                             placeholder="Número serial" 
@@ -259,7 +272,7 @@ const MatEditTiDevice = ( props ) => {
                         <TextField fullWidth 
                             name='brand' 
                             id="brand" 
-                            value={formTiDeviceValues.brand}
+                            value={data.brand}
                             onChange={handleChange}
                             onBlur={validateBrand}
                             placeholder="Marca" 
@@ -274,7 +287,7 @@ const MatEditTiDevice = ( props ) => {
                         <TextField fullWidth 
                             name='owner' 
                             id="owner" 
-                            value={formTiDeviceValues.owner}
+                            value={data.owner}
                             onChange={handleChange}
                             onBlur={validateOwner}
                             placeholder="Propietario" 
@@ -296,7 +309,7 @@ const MatEditTiDevice = ( props ) => {
                                 name='local'
                                 id="local"
                                 onBlur={validateLocal}
-                                value={formTiDeviceValues.local}
+                                value={data.local}
                                 onChange={handleChange}
                                 label="Gimnasio al que pertenece"
                             >

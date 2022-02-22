@@ -39,6 +39,22 @@ const MatEditGymMachine = ( props ) => {
         auxZone:true
     })
 
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setGymMachineValues({ ...gymMachineValues, [name]: value})
+        if (name == "name"){
+            data.name = value
+        }else if (name == "gym"){
+            data.gym = value
+        }else if (name == "serialNumber"){
+            data.serialNumber = value
+        }else if (name == "mark"){
+            data.mark = value
+        }else if (name == "zone"){
+            data.zone = value
+        }
+    }
+
     const validateName=()=>{
         const name= gymMachineValues.name
         const regexName=/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/
@@ -161,10 +177,7 @@ const MatEditGymMachine = ( props ) => {
     
 
 
-    const handleChange = (event) => {
-        const { name, value } = event.target
-        setGymMachineValues({ ...gymMachineValues, [name]: value})
-    }
+    
 
     const handleEdit = (e) => {
         e.preventDefault()
@@ -172,7 +185,7 @@ const MatEditGymMachine = ( props ) => {
         if(validation.auxName===true&&validation.auxBrand===true 
         && validation.auxSerial===true && validation.auxLocal===true 
         && validation.auxZone===true){
-             handleUpdateRegister(gymMachineValues)
+             handleUpdateRegister(data)
 
         }else{
             window.alert("Por favor llene los campos correctamente")
@@ -209,7 +222,7 @@ const MatEditGymMachine = ( props ) => {
                         <TextField fullWidth 
                         id="machineName" 
                         name='name' 
-                        value={gymMachineValues.name} 
+                        value={data.name} 
                         onChange={handleChange} 
                         onBlur={validateName}
                         placeholder="Ingrese el nombre de la máquina" 
@@ -220,7 +233,7 @@ const MatEditGymMachine = ( props ) => {
                             fullWidth 
                             id="machineBrand" 
                             name='mark' 
-                            value={gymMachineValues.mark} 
+                            value={data.mark} 
                             onChange={handleChange}
                             onBlur={validateBrand} 
                             placeholder="Ingrese la marca" 
@@ -234,7 +247,7 @@ const MatEditGymMachine = ( props ) => {
                             fullWidth 
                             id="machineSerial" 
                             name='serialNumber' 
-                            value={gymMachineValues.serialNumber} 
+                            value={data.serialNumber} 
                             onChange={handleChange}
                             onBlur={validateSerial} 
                             placeholder="Ingrese el Número de serie" 
@@ -256,7 +269,7 @@ const MatEditGymMachine = ( props ) => {
                                 labelId="labelGym"
                                 id="gym"
                                 name='gym'
-                                value={gymMachineValues.gym}
+                                value={data.gym}
                                 label="Local asignado"
                                 onChange={handleChange}
                                 onBlur={validateLocal}
@@ -284,7 +297,7 @@ const MatEditGymMachine = ( props ) => {
                                 labelId="labelGym"
                                 id="zone"
                                 name='zone'
-                                value={gymMachineValues.zone}
+                                value={data.zone}
                                 label="Zona del gimnasio"
                                 onChange={handleChange}
                                 onBlur={validateZone}
