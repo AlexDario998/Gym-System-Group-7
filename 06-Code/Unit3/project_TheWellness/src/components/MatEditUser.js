@@ -20,7 +20,6 @@ const MatEditUser = ( props ) => {
     const data = props.data
     const handleUpdateRegister = props.handleUpdateRegister
     const gyms = props.gyms
-    //console.log(data)
 
     const [open, setOpen] = useState(false);
 
@@ -46,11 +45,28 @@ const MatEditUser = ( props ) => {
         auxType: true,
         auxLocal: true
     })
-    //console.log(formUser.gym)
+    
     const handleChange = (event) => {
         const { name, value } = event.target
         setformUser({ ...formUser, [name]: value})
-        console.log(formUser)
+        
+        if (name == "idCard") {
+            data.idCard = value
+        }else if (name == "name") {
+            data.name = value
+        }else if (name == "lastName") {
+            data.lastName = value
+        }else if (name == "userName") {
+            data.userName = value
+        }else if (name == "email") {
+            data.email = value
+        }else if (name == "password") {
+            data.password = value
+        }else if (name == "type") {
+            data.type = value
+        }else if (name == "gym") {
+            data.gym = value
+        }
     }
 
     const nameValidation = () => {
@@ -352,16 +368,13 @@ const MatEditUser = ( props ) => {
         
     }
 
-
-
     const handleEdit = (e) => {
         e.preventDefault()
-       
 
         if (validation.auxName === true && validation.auxLastName === true && validation.auxId === true && validation.auxEmail === true && 
             validation.auxUsername === true && validation.auxPassword === true && validation.auxType == true && validation.auxLocal === true) 
         {
-             handleUpdateRegister(formUser)
+             handleUpdateRegister(data)
 
         }else {
             window.alert("Por favor llene todos los campos correctamente")
@@ -400,7 +413,7 @@ const MatEditUser = ( props ) => {
                         <TextField fullWidth 
                            id="name" 
                            name="name" 
-                           value={formUser.name} 
+                           value={data.name} 
                            placeholder="Nombres" 
                            label="Nombres" 
                            onChange={handleChange} 
@@ -410,7 +423,7 @@ const MatEditUser = ( props ) => {
                         <TextField fullWidth 
                             id="userLastName"  
                             name="lastName" 
-                            value={formUser.lastName} 
+                            value={data.lastName} 
                             placeholder="Apellidos" 
                             label="Apellidos" 
                             onChange={handleChange} 
@@ -424,7 +437,7 @@ const MatEditUser = ( props ) => {
                             id="userId"
                             name="idCard" 
                             placeholder="ID/Pasaporte" 
-                            value={formUser.idCard} 
+                            value={data.idCard} 
                             label="Id/Pasaporte" 
                             onChange={handleChange} 
                             onBlur={idCardValidation}
@@ -437,7 +450,7 @@ const MatEditUser = ( props ) => {
                             id="email"  
                             name="email" 
                             placeholder="Correo eléctronico" 
-                            value={formUser.email} 
+                            value={data.email} 
                             label="Correo eléctronico" 
                             onChange={handleChange} 
                             onBlur={emailValidation}
@@ -451,7 +464,7 @@ const MatEditUser = ( props ) => {
                             id="userName" 
                             name="userName" 
                             placeholder="Nombre de usuario" 
-                            value={formUser.userName} 
+                            value={data.userName} 
                             label="Nombre de usuario" 
                             onChange={handleChange} 
                             onBlur={usernameValidation}
@@ -465,7 +478,7 @@ const MatEditUser = ( props ) => {
                             id="password" 
                             name="password" 
                             placeholder="Contraseña" 
-                            value={formUser.password} 
+                            value={data.password} 
                             type="password" 
                             label="Contraseña" 
                             onChange={handleChange} 
@@ -487,7 +500,7 @@ const MatEditUser = ( props ) => {
                                 labelId="labelTypeUser"
                                 id="type"
                                 name="type"
-                                value={formUser.type}
+                                value={data.type}
                                 label="Tipo de usuario"
                                 onChange={handleChange}
                                 onBlur={modificationType}
@@ -511,7 +524,7 @@ const MatEditUser = ( props ) => {
                                 labelId="labelGym"
                                 name='gym'
                                 id="gym"
-                                value={formUser.gym}
+                                value={data.gym}
                                 onBlur={modificationLocal}
                                 onChange={handleChange}
                                 label="Gimnasio al que pertenece"
