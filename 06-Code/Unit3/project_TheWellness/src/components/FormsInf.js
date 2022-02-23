@@ -23,12 +23,11 @@ const FormsInf = (props) => {
 
     const handleSubmitInternal = (e) => {
         e.preventDefault()
-        
 
         if(validation.auxLocal===true&& validation.auxDescription===true){
             handleSubmit(formInfValues)
         }else{
-             window.alert("*Por favor llene los campos correctamente")
+            window.alert("*Por favor llene los campos correctamente")
         }
     }
 
@@ -107,7 +106,7 @@ const FormsInf = (props) => {
 
                 {/* Description */}
                 <Typography variant="subtitle1" gutterBottom component="div">
-                    Descripcion:
+                    Descripción:
                 </Typography>
                 <TextField fullWidth 
                     name='description' 
@@ -124,18 +123,20 @@ const FormsInf = (props) => {
                 />
                 <br/>
 
-                <Stack spacing={3} direction="row">
-          <Button variant="contained" type='submit'
-            sx={{
-                boxShadow: '1px 1px 5px #333',
-                background: '#ffb74d ',  /* fallback for old browsers */
-                background: 'linear-gradient(to right, #ffb74d, #ffb74d)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                        
-            }}>
-            Enviar y Notificar
-          </Button>
-          
-        </Stack>
+
+                <Button 
+                    variant="contained" 
+                    type='submit'
+                    sx={{
+                        boxShadow: '1px 1px 5px #333',
+                        background: '#ffb74d ',  /* fallback for old browsers */
+                        background: 'linear-gradient(to right, #ffb74d, #ffb74d)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                                
+                    }}
+                >
+                    Enviar y Notificar
+                </Button>
+                
                 <br/>
             </Box>
             
