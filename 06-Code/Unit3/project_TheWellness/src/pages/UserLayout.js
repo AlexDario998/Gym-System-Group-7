@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 import ModalDataRegistered from '../components/ModalDataRegistered';
+import BreadcrumbsAdmin from '../components/BreadcrumbsAdmin'
 
 const cookies = new Cookies()
 
@@ -78,6 +79,7 @@ const UserLayout = () => {
                 class = "imgUser"
             >
                 <NavBar />
+                <BreadcrumbsAdmin breadcrumb1="Página principal" breadcrumb2="Agregar usuario"/>
                 <br/><br/>
                 <FormUser handleSubmit={handleSubmit} gyms={gyms} users={users} formUserValues={values} setFormUservalues={setValues} />
                 <br/>

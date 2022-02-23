@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 import FormMachine from '../components/FormMachine';
 import ModalDataRegistered from '../components/ModalDataRegistered';
+import BreadcrumbsAdmin from '../components/BreadcrumbsAdmin'
 
 const cookies = new Cookies()
 
@@ -58,6 +59,7 @@ const MachineLayout = () => {
                 class = "imgMachine"
             >
                 <NavBar />
+                <BreadcrumbsAdmin breadcrumb1="Página principal" breadcrumb2="Agregar máquina de gimnasio"/>
                 <br/><br/>
                 <FormMachine handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues} />
                 <br/>
