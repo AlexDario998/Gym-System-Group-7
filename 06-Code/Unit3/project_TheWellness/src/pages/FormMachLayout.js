@@ -9,6 +9,7 @@ import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 import ModalDataRegistered from '../components/ModalDataRegistered';
+import BreadcrumbsLeaderThreeLayers1 from '../components/BreadcrumbsLeaderThreeLayers1'
 
 const cookies = new Cookies()
 
@@ -153,6 +154,7 @@ const FormMachLayout = () => {
                  }}
             >
                 <NavBarLeaderGym />
+                <BreadcrumbsLeaderThreeLayers1 breadcrumb1="Página principal" breadcrumb2="Crear Solicitudes" breadcrumb3= "Maquinas Solicitud de Arreglo"/>
                 {/* <br/><br/> */}
                 <FormsMach handleSubmit={handleSubmit} gymMachineValues={gymMachineValues} gyms={gyms} formMachValues={formMachValues} setFormMachValues={setFormMachValues} />
                 {/* <br/> */}

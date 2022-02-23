@@ -9,6 +9,7 @@ import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 import ModalDataRegistered from '../components/ModalDataRegistered';
+import BreadcrumbsLeaderThreeLayers1 from '../components/BreadcrumbsLeaderThreeLayers1'
 
 const cookies = new Cookies()
 const date = new Date()
@@ -149,6 +150,7 @@ const FormSystemLayout = () => {
                   }}
             >
                 <NavBarLeaderGym />
+                <BreadcrumbsLeaderThreeLayers1 breadcrumb1="Página principal" breadcrumb2="Crear Solicitudes" breadcrumb3= "Sistemas/Dispositivos TI Solicitud de Arreglo"/>
                 {/* <br/><br/> */}
                 <FormsSystem handleSubmit={handleSubmit} tiDeviceValues={tiDeviceValues} gyms={gyms} formSystemValues={formSystemValues} setFormSystemValues={setFormSystemValues} />
                 {/* <br/> */}
