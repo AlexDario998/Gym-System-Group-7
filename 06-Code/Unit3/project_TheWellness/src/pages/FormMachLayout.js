@@ -8,6 +8,7 @@ import {Box} from "@mui/material"
 import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
+import ModalDataRegistered from '../components/ModalDataRegistered';
 
 const cookies = new Cookies()
 const date = new Date()
@@ -38,8 +39,15 @@ const FormMachLayout = () => {
         gymMachineSerialNumber: ''
     })
 
-    const handleSubmit = (data) => {
-        saveRmachine(data,formMachValues,setFormMachValues)
+    const [modal, setModal] = useState(false)
+
+    async function handleSubmit(data) {
+        const response = await saveRmachine(data,formMachValues,setFormMachValues)
+
+        if (response.status == 200) {
+            setModal(true);
+            
+        }
     }
 
     useEffect(() => {
@@ -161,6 +169,7 @@ const FormMachLayout = () => {
                 {/* <br/><br/> */}
                 <FormsMach handleSubmit={handleSubmit} gymMachineValues={gymMachineValues} gyms={gyms} formMachValues={formMachValues} setFormMachValues={setFormMachValues} />
                 {/* <br/> */}
+                <ModalDataRegistered modal={modal} setModal={setModal} message="Solicitud realizada correctamente" />
             </Box>
         
         </>

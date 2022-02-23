@@ -158,9 +158,6 @@ const FormMachine = ( props ) => {
         }
     }
 
-    console.log(validation)
-
-
     return(
         <form onSubmit={handleSubmitInternal} >
             <Box 

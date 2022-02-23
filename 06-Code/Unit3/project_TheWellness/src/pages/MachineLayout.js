@@ -6,6 +6,7 @@ import { getLocals } from '../services/localAxios';
 import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 import FormMachine from '../components/FormMachine';
+import ModalDataRegistered from '../components/ModalDataRegistered';
 
 const cookies = new Cookies()
 
@@ -20,8 +21,15 @@ const MachineLayout = () => {
         zone: ''
     })
 
-    const handleSubmit = (data) => {
-        saveGymMachine(data,values,setValues)
+    const [modal, setModal] = useState(false)
+
+    async function handleSubmit(data) {
+        const response = await saveGymMachine(data,values,setValues)
+
+        if (response.status == 200) {
+            setModal(true);
+            
+        }
     }
 
     useEffect(() => {
@@ -53,6 +61,8 @@ const MachineLayout = () => {
                 <br/><br/>
                 <FormMachine handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues} />
                 <br/>
+                <ModalDataRegistered modal={modal} setModal={setModal} message="Datos registrados correctamente" />
+                
             </Box>
         
         </>

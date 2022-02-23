@@ -73,6 +73,8 @@ export async function saveGymMachine(machineData, values, setValues){
                 zone: ''
             }
         )
+
+        return response
   
     }catch(error){
         console.log(error)

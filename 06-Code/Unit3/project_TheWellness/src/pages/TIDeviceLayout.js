@@ -6,6 +6,7 @@ import {Box} from "@mui/material"
 import { getLocals } from '../services/localAxios';
 import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
+import ModalDataRegistered from '../components/ModalDataRegistered';
 
 const cookies = new Cookies()
 
@@ -20,8 +21,15 @@ const TIDeviceLayout = () => {
         owner: ''
     })
 
-    const handleSubmit = (data) => {
-        saveTIDevice(data,values,setValues)
+    const [modal, setModal] = useState(false)
+
+    async function handleSubmit(data) {
+        const response = await saveTIDevice(data,values,setValues)
+
+        if (response.status == 200) {
+            setModal(true);
+            
+        }
     }
 
     useEffect(() => {
@@ -53,6 +61,7 @@ const TIDeviceLayout = () => {
                 <br/><br/>
                 <FormAddTIDevice handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues}/>
                 <br/>
+                <ModalDataRegistered modal={modal} setModal={setModal} message="Datos registrados correctamente" />
             </Box>
         
         </>
