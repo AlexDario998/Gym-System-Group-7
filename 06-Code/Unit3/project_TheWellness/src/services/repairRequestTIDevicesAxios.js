@@ -40,12 +40,25 @@ export async function saveRsystems(data, values, setValues){
       data: data,
     })
     
-    setValues({idLocal: '', idTIDevice:'', description:''})
-    window.location.reload()
+    setValues({...values,
+      idLocal: '',
+      idTIDevice: '',
+      date: '',
+      description: '',
+      confirmation: true,
+      fullNameUser: '',
+      emailUser: '',
+      passwordUser: '',
+      nameLocal: '',
+      city: '',
+      tiDevice: '',
+      tiDeviceSerialNumber: ''
+    })
+
+    return response
 
   }catch(error){
     console.log(error)
-    setValues({idLocal: '', idTIDevice:'', description:''})
 
   }
 }

@@ -37,7 +37,7 @@ const FormSystemLayout = () => {
         tiDeviceSerialNumber: ''
         
     })
-
+    console.log(formSystemValues)
     const [modal, setModal] = useState(false)
 
     async function handleSubmit(data) {
@@ -77,21 +77,7 @@ const FormSystemLayout = () => {
 
         loadUserById()
         
-    }, [])
-
-    useEffect(() => {
-        async function loadUserById() {
-            const response = await getUserById(cookies.get('id', {path: "/"}))
-            const user = response.data.name + ' ' + response.data.lastName
-
-            if (response.status === 200) {
-                setFormSystemValues({...formSystemValues, fullNameUser: user, emailUser: response.data.email, passwordUser: response.data.password})
-            }
-        }
-
-        loadUserById()
-        
-    }, [])
+    }, [formSystemValues.fullNameUser])
 
     useEffect(() => {
         async function loadLocalById() {

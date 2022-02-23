@@ -23,12 +23,22 @@ export async function saveRinfrastructure(rinfrastructureData,values,setValues) 
       data: rinfrastructureData,
     });
     
-    setValues({ idLocal: "", description: "" });
-    window.location.reload()
+    setValues({...values, 
+      idLocal: '',
+      date: '',
+      description: '',
+      confirmation: true,
+      fullNameUser: '',
+      emailUser: '',
+      passwordUser: '',
+      nameLocal: '',
+      city: ''
+    })
+
+    return response
 
   } catch (error) {
     console.log(error);
-    setValues({ idLocal: "", description: "" });
   }
 }
 

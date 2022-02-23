@@ -11,13 +11,14 @@ import {useEffect, useState} from 'react';
 import ModalDataRegistered from '../components/ModalDataRegistered';
 
 const cookies = new Cookies()
-const date = new Date()
-const year = date.getFullYear()
-const month = date.getMonth() + 1
-const day = date.getDate()
-const dateComplete = day + '/' + month + '/' + year
 
 const FormMachLayout = () => {
+
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const dateComplete = day + '/' + month + '/' + year
 
     const [gyms, setGyms] = useState([])
     const [gymMachineValues, setGymMachineValues] = useState([])
@@ -38,7 +39,7 @@ const FormMachLayout = () => {
         gymMachine: '',
         gymMachineSerialNumber: ''
     })
-
+    
     const [modal, setModal] = useState(false)
 
     async function handleSubmit(data) {
@@ -80,21 +81,7 @@ const FormMachLayout = () => {
 
         loadUserById()
         
-    }, [])
-
-    useEffect(() => {
-        async function loadUserById() {
-            const response = await getUserById(cookies.get('id', {path: "/"}))
-            const user = response.data.name + ' ' + response.data.lastName
-
-            if (response.status === 200) {
-                setFormMachValues({...formMachValues, fullNameUser: user, emailUser: response.data.email, passwordUser: response.data.password})
-            }
-        }
-
-        loadUserById()
-        
-    }, [])
+    }, [formMachValues.fullNameUser])
 
     useEffect(() => {
         async function loadLocalById() {

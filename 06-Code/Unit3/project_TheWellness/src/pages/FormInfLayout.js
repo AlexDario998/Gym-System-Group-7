@@ -10,13 +10,14 @@ import {useEffect, useState} from 'react';
 import ModalDataRegistered from '../components/ModalDataRegistered';
 
 const cookies = new Cookies()
-const date = new Date()
-const year = date.getFullYear()
-const month = date.getMonth() + 1
-const day = date.getDate()
-const dateComplete = day + '/' + month + '/' + year
 
 const FormInfLayout = () => {
+
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const dateComplete = day + '/' + month + '/' + year
 
     const [gyms, setGyms] = useState([])
     const [formInfValues, setFormInfValues] = useState({
@@ -31,7 +32,7 @@ const FormInfLayout = () => {
         nameLocal: '',
         city: ''
     })
-
+    
     const [modal, setModal] = useState(false)
 
     async function handleSubmit(data) {
@@ -68,21 +69,7 @@ const FormInfLayout = () => {
 
         loadUserById()
         
-    }, [])
-
-    useEffect(() => {
-        async function loadUserById() {
-            const response = await getUserById(cookies.get('id', {path: "/"}))
-            const user = response.data.name + ' ' + response.data.lastName
-
-            if (response.status === 200) {
-                setFormInfValues({...formInfValues, fullNameUser: user, emailUser: response.data.email, passwordUser: response.data.password})
-            }
-        }
-
-        loadUserById()
-        
-    }, [])
+    }, [formInfValues.fullNameUser])
 
     useEffect(() => {
         async function loadLocalById() {
@@ -90,6 +77,7 @@ const FormInfLayout = () => {
 
             if (response.status === 200) {
                 setFormInfValues({...formInfValues, nameLocal: response.data.namegym, city: response.data.city})
+                
             }
         }
 
