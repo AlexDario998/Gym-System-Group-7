@@ -29,7 +29,8 @@ const BreadcrumbsComponent = (props) => {
           bgcolor: "#f5f5f5",
         }}
       >
-        <Stack margin-right="100px" spacing={2} color="white">
+        <Stack margin-right="100px" spacing={2} color="white" sx={{
+          marginLeft: "2%"}}>
           <Breadcrumbs
             separator={<NavigateNextIcon fontSize="small" />}
             aria-label="breadcrumb"
