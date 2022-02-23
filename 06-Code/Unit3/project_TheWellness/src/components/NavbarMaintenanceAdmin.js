@@ -14,7 +14,7 @@ import logo from "../img/logoWellnessGroup.png";
 import { Link } from "react-router-dom";
 import "../index.css";
 import Cookies from "universal-cookie/es6";
-const cookies = new Cookies()
+const cookies = new Cookies();
 
 const NavbarMaintenanceAdmin = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -25,75 +25,77 @@ const NavbarMaintenanceAdmin = () => {
   };
   const handleOpenReportMenu = (event) => {
     setAnchorElReports(event.currentTarget);
-};
+  };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
   const handleCloseReportMenu = () => {
     setAnchorElReports(null);
-};
-
+  };
 
   const logOut = () => {
-        cookies.remove('id', {path: "/"})
-        cookies.remove('name', {path: "/"})
-        cookies.remove('lastName', {path: "/"})
-        cookies.remove('userName', {path: "/"})
-        cookies.remove('idCard', {path: "/"})
-        cookies.remove('email', {path: "/"})
-        cookies.remove('gym', {path: "/"})
-        cookies.remove('type', {path: "/"})
+    cookies.remove("id", { path: "/" });
+    cookies.remove("name", { path: "/" });
+    cookies.remove("lastName", { path: "/" });
+    cookies.remove("userName", { path: "/" });
+    cookies.remove("idCard", { path: "/" });
+    cookies.remove("email", { path: "/" });
+    cookies.remove("gym", { path: "/" });
+    cookies.remove("type", { path: "/" });
 
-        window.location.href = './'
-    }
+    window.location.href = "./";
+  };
 
   return (
     <AppBar position="static" style={{ backgroundColor: "#ffb74d" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <Link to="/homeScreenMantAdmin"><div class="logoNav"></div></Link>
+          <Link to="/homeScreenMantAdmin">
+            <div class="logoNav"></div>
+          </Link>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Tooltip title="Reportes">
-                            <Button
-                                key='reports'
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                onClick={handleOpenReportMenu}
-                            >
-                                Solicitudes
-                            </Button>
-                        </Tooltip>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Tooltip title="Reportes">
+              <Button
+                key="reports"
+                sx={{ my: 2, color: "white", display: "block" }}
+                onClick={handleOpenReportMenu}
+              >
+                Solicitudes
+              </Button>
+            </Tooltip>
 
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="subMenuReports"
-                            anchorEl={anchorElReports}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElReports)}
-                            onClose={handleCloseReportMenu}
-                        >
-                            
-                          <Link to='/TableMaintenanceRequests' className='link'> 
-                            <MenuItem key='reportsMachines'>
-                                    <Typography textAlign="center">Máquinas de gimnasio</Typography>      
-                            </MenuItem>
-                          </Link>
-                          <Link to='/TableRepairInfrastructuresRequests' className='link'> 
-                            <MenuItem key='reportsInfrastructure'>
-                                    <Typography textAlign="center">Infraestructura</Typography>      
-                            </MenuItem>
-                          </Link>
-                        </Menu>
-                    </Box>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="subMenuReports"
+              anchorEl={anchorElReports}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElReports)}
+              onClose={handleCloseReportMenu}
+            >
+              <Link to="/TableMaintenanceRequests" className="link">
+                <MenuItem key="reportsMachines">
+                  <Typography textAlign="center">
+                    Máquinas de gimnasio
+                  </Typography>
+                </MenuItem>
+              </Link>
+              <Link to="/TableRepairInfrastructuresRequests" className="link">
+                <MenuItem key="reportsInfrastructure">
+                  <Typography textAlign="center">Infraestructura</Typography>
+                </MenuItem>
+              </Link>
+            </Menu>
+          </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Salir">

@@ -9,14 +9,11 @@ import Box from "@mui/material/Box";
 const BreadcrumbsComponent = (props) => {
     const breadcrumb1 = props.breadcrumb1
     const breadcrumb2 = props.breadcrumb2
-  function handleClick(event) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
-  }
+
 
     const breadcrumbs = [
      
-      <Link to="/homeScreenSystemAdmin" underline="hover" key="1" color="inherit"  onClick={handleClick}>
+      <Link to="/homeScreenSystemAdmin" underline="hover" key="1" color="inherit"  >
         {breadcrumb1}
       </Link> 
       ,

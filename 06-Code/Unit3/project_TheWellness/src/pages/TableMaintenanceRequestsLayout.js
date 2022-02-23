@@ -8,6 +8,7 @@ import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
 import NavbarMaintenanceAdmin from '../components/NavbarMaintenanceAdmin'
 import Cookies from 'universal-cookie/es6';
+import BreadcrumbsMantAdmin from '../components/BreadcrumbsMantAdmin'
 
 const cookies = new Cookies()
 
@@ -87,6 +88,7 @@ const TableMaintenanceRequestsLayout = () => {
         <>
             <Box  class="boxMach">
                 <NavbarMaintenanceAdmin/>
+                <BreadcrumbsMantAdmin breadcrumb1="Página principal" breadcrumb2="Solicitudes de Arreglo de Máquinas de Gimnasio"/>
                 <br/><br/>
                 <TableMaintenanceRequests reports={reports}
                     updateRegister={updateRegister} gyms={gyms} users={users} gymMachines={gymMachines}

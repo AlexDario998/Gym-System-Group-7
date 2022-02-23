@@ -16,7 +16,7 @@ const BreadcrumbsComponent = (props) => {
 
     const breadcrumbs = [
      
-      <Link to="/homeScreenMantAdmin" underline="hover" key="1" color="inherit"  onClick={handleClick}>
+      <Link to="/homeScreenMantAdmin" underline="hover" key="1" color="inherit" >
         {breadcrumb1}
       </Link> 
       ,

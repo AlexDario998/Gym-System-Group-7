@@ -11,6 +11,7 @@ import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import NavbarMaintenanceAdmin from "../components/NavbarMaintenanceAdmin";
 import Cookies from "universal-cookie/es6";
+import BreadcrumbsMantAdmin from '../components/BreadcrumbsMantAdmin'
 
 const cookies = new Cookies();
 
@@ -71,6 +72,7 @@ const TableRepairInfrastructuresRequestsLayout = () => {
     <>
       <Box class = "boxInfra">
         <NavbarMaintenanceAdmin />
+        <BreadcrumbsMantAdmin breadcrumb1="Página principal" breadcrumb2="Solicitudes de Arreglo Infraestructura"/>
         <br />
         <br />
         <TableRepairInfrastructuresRequests
