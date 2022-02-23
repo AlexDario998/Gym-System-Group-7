@@ -65,6 +65,8 @@ export async function saveTIDevice(tiDeviceData, values, setValues){
 
       setValues({name: '', serialNumber: '', brand: '',  local: '', owner: ''})
 
+      return response
+
   }catch(error){
     console.log(error)
   }

@@ -7,6 +7,7 @@ import {Box} from "@mui/material"
 import NavBarLeaderGym from '../components/NavBarLeaderGym'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
+import ModalDataRegistered from '../components/ModalDataRegistered';
 
 const cookies = new Cookies()
 const date = new Date()
@@ -31,8 +32,15 @@ const FormInfLayout = () => {
         city: ''
     })
 
-    const handleSubmit = (data) => {
-        saveRinfrastructure(data,formInfValues,setFormInfValues)
+    const [modal, setModal] = useState(false)
+
+    async function handleSubmit(data) {
+        const response = await saveRinfrastructure(data,formInfValues,setFormInfValues)
+
+        if (response.status == 200) {
+            setModal(true);
+            
+        }
     }
 
     useEffect(() => {
@@ -118,6 +126,7 @@ const FormInfLayout = () => {
                 <br/><br/>
                 <FormsInf handleSubmit={handleSubmit} gyms={gyms} formInfValues={formInfValues} setFormInfValues={setFormInfValues} />
                 <br/>
+                <ModalDataRegistered modal={modal} setModal={setModal} message="Solicitud realizada correctamente" />
             </Box>
         
         </>
