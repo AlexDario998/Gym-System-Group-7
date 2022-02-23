@@ -6,6 +6,7 @@ import React, {useEffect, useState} from 'react';
 import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 import {getLocals} from '../services/localAxios'
+import BreadcrumbsAdmin from '../components/BreadcrumbsAdmin'
 
 const cookies = new Cookies()
 
@@ -60,6 +61,7 @@ const TableUserLayout = () => {
             <Box
             class = "imgUser">
                 <NavBar />
+                <BreadcrumbsAdmin breadcrumb1="Página principal" breadcrumb2="Reporte de Usuarios"/>
                 <br/><br/>
                 <TableUsers users={users} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister}/>
             </Box>

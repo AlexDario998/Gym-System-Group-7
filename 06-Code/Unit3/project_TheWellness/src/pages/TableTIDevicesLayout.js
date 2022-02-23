@@ -6,6 +6,7 @@ import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
 import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
+import BreadcrumbsAdmin from '../components/BreadcrumbsAdmin'
 
 const cookies = new Cookies()
 
@@ -60,6 +61,7 @@ const TableTIDevicesLayout = () => {
             <Box
             class = "imgTIDevice">
                 <NavBar />
+                <BreadcrumbsAdmin breadcrumb1="Página principal" breadcrumb2="Reporte equipos informáticos"/>
                 <br/><br/>
                 <TableTIDevices tiDevices={tiDevices} gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
             </Box>

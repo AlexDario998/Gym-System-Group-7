@@ -5,6 +5,7 @@ import {Box} from "@mui/material"
 import React, {useEffect, useState} from 'react';
 import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
+import BreadcrumbsAdmin from '../components/BreadcrumbsAdmin'
 
 const cookies = new Cookies()
 
@@ -45,6 +46,7 @@ const TableLocalsLayout = () => {
                  class = "imgLocal"
             >
                 <NavBar />
+                <BreadcrumbsAdmin breadcrumb1="Página principal" breadcrumb2="Reporte locales"/>
                 <br/><br/>
                 <TableLocals gyms={gyms} deleteRegister={deleteRegister} updateRegister={updateRegister} />
             </Box>
