@@ -311,6 +311,13 @@ code {
   margin-top: -35px;
   margin-bottom: -20px;
 }
+.textBread{
+  height: fit-content;
+  margin: 6% 0;
+
+  color:rgb(152, 152, 152);
+  font-size: 15px;
+}
 @media (max-height:650px){
     #editUser{
       position: absolute;
