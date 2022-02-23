@@ -4,6 +4,7 @@ import {Box} from "@mui/material"
 import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 import {useEffect} from 'react';
+import BreadcrumbsHomeScreen from '../components/BreadcrumbsHomeScreen'
 
 const cookies = new Cookies()
 
@@ -19,6 +20,7 @@ const HomeScreenSuperAdminLayout = () => {
         <>
             <Box class = "bgHome">
                 <NavBar />
+                <BreadcrumbsHomeScreen breadcrumb1="Página principal"/>
                 <br/><br/>
                 <HomeScreen />
                 <br/>
