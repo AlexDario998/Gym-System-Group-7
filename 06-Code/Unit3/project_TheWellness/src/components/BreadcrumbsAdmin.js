@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Box from "@mui/material/Box";
+import '../index.css';
 
 const BreadcrumbsComponent = (props) => {
     const breadcrumb1 = props.breadcrumb1
@@ -13,11 +14,11 @@ const BreadcrumbsComponent = (props) => {
 
     const breadcrumbs = [
      
-      <Link to="/homeScreenSuperAdmin" underline="hover" key="1" color="inherit"  >
+      <Link to="/homeScreenSuperAdmin" underline="hover" key="1" color="inherit" class = "linkBread">
         {breadcrumb1}
       </Link> 
       ,
-      <Typography key="3" color="text.primary">
+      <Typography key="3" color="text.primary" class = "textBread">
         {breadcrumb2}
       </Typography>,
     ];
