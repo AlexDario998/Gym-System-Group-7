@@ -14,7 +14,7 @@ const BreadcrumbsComponent = (props) => {
   }
 
     const breadcrumbs = [
-      <Typography key="3" color="text.primary">
+      <Typography key="3" color="text.primary" class = "textBread">
         {breadcrumb1}
       </Typography>,
     ];
@@ -25,7 +25,9 @@ const BreadcrumbsComponent = (props) => {
           bgcolor: "#f5f5f5",
         }}
       >
-        <Stack margin-right="100px" spacing={2} color="white">
+        <Stack spacing={2} color="white" class = "bread" sx={{
+          marginLeft: "2%",
+        }}>
           <Breadcrumbs
             separator={<NavigateNextIcon fontSize="small" />}
             aria-label="breadcrumb"
