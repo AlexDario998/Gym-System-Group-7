@@ -17,6 +17,7 @@ import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import NavBarLeaderGym from "../components/NavBarLeaderGym";
 import Cookies from "universal-cookie/es6";
+import BreadcrumbsLeaderThreeLayers2 from '../components/BreadcrumbsLeaderThreeLayers2'
 
 const cookies = new Cookies();
 
@@ -126,6 +127,7 @@ const TableMaintenanceRequestsLayoutLeader = () => {
     <>
       <Box class="boxMach">
       <NavBarLeaderGym />
+      <BreadcrumbsLeaderThreeLayers2 breadcrumb1="Página principal" breadcrumb2="Solicitudes" breadcrumb3= "Solicitudes de Arreglo de Máquinas de Gimnasio"/>
         <br />
         <br />
         <Box 

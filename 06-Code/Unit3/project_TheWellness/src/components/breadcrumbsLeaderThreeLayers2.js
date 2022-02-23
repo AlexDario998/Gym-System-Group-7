@@ -23,7 +23,7 @@ const BreadcrumbsComponent = (props) => {
       {breadcrumb1}
     </Link>,
     <Link
-      to="OptSoli"
+      to="/OptSoli"
       underline="hover"
       key="1"
       color="inherit"
