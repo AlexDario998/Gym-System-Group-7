@@ -314,8 +314,13 @@ code {
 .textBread{
   height: fit-content;
   margin: 6% 0;
+  color: rgb(255, 166, 0);
+  font-size: 15px;
+}
 
+.linkBread{
   color:rgb(152, 152, 152);
+  text-decoration: none;
   font-size: 15px;
 }
 @media (max-height:650px){

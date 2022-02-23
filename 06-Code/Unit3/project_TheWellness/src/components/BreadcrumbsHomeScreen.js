@@ -5,6 +5,7 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Box from "@mui/material/Box";
+import '../index.css';
 
 const BreadcrumbsComponent = (props) => {
     const breadcrumb1 = props.breadcrumb1
