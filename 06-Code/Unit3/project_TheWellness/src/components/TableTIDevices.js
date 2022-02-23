@@ -58,6 +58,7 @@ const TableTIDevices = (props) => {
                 height: '82vh',
                 marginLeft:'auto',
                 marginRight:'auto',
+                marginBottom:'2%',
                 justifyContent: 'center',
                 display: 'flex',
                 alignItems: 'center',

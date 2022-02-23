@@ -131,27 +131,13 @@ const TableMaintenanceRequestsLayoutLeader = () => {
         <br />
         <br />
         <Box 
-        sx={{
-          width: "70%",
-          height: "90%",
-          marginLeft: "auto",
-          marginRight: "auto",
-          justifyContent: "center",
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          background: "#fff",
-          borderRadius: "15px",
-          boxShadow: "1px 1px 20px #333",
-        }}
+        class = "BoxMaintenance"
         >
           
           <Box
             sx={{
               width: "80%",
-              //height: '90%',
+              height: '100vh',
               marginLeft: "auto",
               marginRight: "auto",
               justifyContent: "center",
