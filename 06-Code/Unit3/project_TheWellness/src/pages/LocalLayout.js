@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 import {useEffect, useState} from 'react';
 import ModalDataRegistered from '../components/ModalDataRegistered';
+import BreadcrumbsAdmin from '../components/BreadcrumbsAdmin'
 
 const cookies = new Cookies()
 
@@ -39,6 +40,7 @@ const LocalLayout = () => {
                 class = "imgLocal"
             >
                 <NavBar />
+                <BreadcrumbsAdmin breadcrumb1="Página principal" breadcrumb2="Agregar local"/>
                 <br/><br/>
                 <FormAddLocal handleSubmit={handleSubmit} formAddLocalValues={formAddLocalValues} setformAddLocalValues={setformAddLocalValues} />
                 <br/>

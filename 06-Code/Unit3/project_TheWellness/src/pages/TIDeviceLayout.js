@@ -7,6 +7,7 @@ import { getLocals } from '../services/localAxios';
 import NavBar from '../components/NavBar'
 import Cookies from 'universal-cookie/es6';
 import ModalDataRegistered from '../components/ModalDataRegistered';
+import BreadcrumbsAdmin from '../components/BreadcrumbsAdmin'
 
 const cookies = new Cookies()
 
@@ -58,6 +59,7 @@ const TIDeviceLayout = () => {
                 class = "imgTIDevice"
             >
                 <NavBar />
+                <BreadcrumbsAdmin breadcrumb1="Página principal" breadcrumb2="Agregar dispositivo TI"/>
                 <br/><br/>
                 <FormAddTIDevice handleSubmit={handleSubmit} gyms={gyms} values={values} setValues={setValues}/>
                 <br/>
