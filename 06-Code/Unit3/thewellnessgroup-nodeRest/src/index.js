@@ -1,14 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const TIDevicesRequests = require("./routes/TIDevicesRequests");
-const InfrastructuresRequests = require("./routes/InfrastructuresRequests")
-const GymRequests = require("./routes/GymRequests")
-const Infrastructure = require("./routes/Infrastructure")
-const Users = require("./routes/Users")
-const TiMachines = require("./routes/tiMachinesController")
-const GymMachines = require("./routes/gymMachinesController")
-const Gyms = require("./routes/gymsController")
+const TIDevicesRequests = require("./controller/TIDevicesRequests");
+const InfrastructuresRequests = require("./controller/InfrastructuresRequests")
+const GymRequests = require("./controller/GymRequests")
+const Infrastructure = require("./controller/Infrastructure")
+const Users = require("./controller/Users")
+const TiMachines = require("./controller/tiMachinesController")
+const GymMachines = require("./controller/gymMachinesController")
+const Gyms = require("./controller/gymsController")
 
 const app = express();
 const port = process.env.PORT || 3001;
