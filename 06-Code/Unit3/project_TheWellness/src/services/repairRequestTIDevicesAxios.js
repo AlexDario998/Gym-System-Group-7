@@ -147,3 +147,23 @@ export async function updateConfirmation(data){
   
 }
 
+export async function updateConfirmationTrue(data){
+  const response = await axios.put(`${baseUrl}/repair-request-ti-devices/${data.id}`,{
+    idUser: data.idUser,
+    idLocal: data.idLocal,
+    idTIDevice: data.idTIDevice,
+    date: data.date,
+    description: data.description,
+    confirmation: true
+  })
+  .then(response => {
+    window.alert('Solicitud Rechazada, Volver Hacerlo!')
+    window.location.reload()
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+  
+}
+

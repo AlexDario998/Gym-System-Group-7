@@ -18,12 +18,13 @@ const MatRepairInfrastructureComplete = ( props ) => {
         }
         
     };
-  
+
     return (
         <IconButton 
             color="secondary"
             aria-label="add an alarm"
             onClick={handleUpdateClick}
+
         >
             <FactCheckIcon
                 style={{
