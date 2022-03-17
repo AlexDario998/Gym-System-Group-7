@@ -2,9 +2,6 @@ import TableRepairTIDevicesRequests from "../components/TableRepairTIDevicesRequ
 import SelectRequest from "../components/SelectRequest"
 import NumberRequests from "../components/NumberRequests"
 import {
-  getReports,
-  deleteRequest,
-  getReportsByConfirmation,
   updateConfirmation,
   updateConfirmationTrue,
   getNumberCompletedRequests, 
@@ -21,7 +18,7 @@ import React, { useEffect, useState } from "react";
 import NavbarSystemsAdmin from "../components/NavbarSystemsAdmin";
 import Cookies from "universal-cookie/es6";
 import BreadcrumbsSystemAdmin from '../components/BreadcrumbsSystemAdmin'
-import TableRepairTIDevicesRequestsTrue from "../components/TableRepairTIDevicesRequestsTrue";
+import TableRepairTIDevicesRequestsFalse from "../components/TableRepairTIDevicesRequestsFalse";
 
 const cookies = new Cookies();
 
@@ -251,7 +248,7 @@ if(confirmation.state === false){
         <br />
         <br />
         <hr />
-        <TableRepairTIDevicesRequestsTrue
+        <TableRepairTIDevicesRequestsFalse
           reports={reportsFalse}
           updateRegisterTrue={updateRegisterTrue}
           gyms={gyms} users={users} tiDevices={tiDevices}

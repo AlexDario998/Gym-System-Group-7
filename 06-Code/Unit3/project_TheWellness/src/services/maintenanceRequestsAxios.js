@@ -133,3 +133,26 @@ export async function updateConfirmation(data){
 
   
 }
+
+export async function updateConfirmationTrue(data){
+  console.log(data)
+  const response = await axios.put(`${baseUrl}/repair-request-gym-machines/${data.id}`,{
+    idUser: data.idUser,
+    idLocal: data.idLocal,
+    idGymMachine: data.idGymMachine,
+    date: data.date,
+    machineType: data.machineType,
+    gymZone: data.gymZone,
+    description: data.description,
+    confirmation: true
+  })
+  .then(response => {
+    window.alert('Solicitud Rechazada, Volver Hacerlo!')
+    window.location.reload()
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+  
+}

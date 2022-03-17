@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import MatRepairRequestsComplete from "./MatRepairRequestsComplete";
-import MatDescriptionMachinesRequests from "./MatDescriptionMachinesRequests";
+import "../index.css";
+import MatDescriptionTIDevicesRequests from "./MatDescriptionTIDevicesRequests";
+import MatRepairRequestsUncomplete from "./MatRepairRequestsUncomplete";
 
-const TableMaintenanceRequests = (props) => {
-  const reports = props.reports;
-  const updateRegister = props.updateRegister;
+const TableRepairTIDevicesRequestsFalse = (props) => {
+  const reportsFalse = props.reports;
+  const updateRegisterFalse = props.updateRegisterTrue;
   const gyms = props.gyms;
   const users = props.users;
-  const gymMachines = props.gymMachines;
+  const tiDevices = props.tiDevices;
 
-  const handleUpdateRegister = (data) => {
-    updateRegister(data);
+  const handleUpdateRegisterFalse = (data) => {
+  
+    updateRegisterFalse(data);
   };
 
   const getGymById = (idGym) => {
@@ -23,10 +25,10 @@ const TableMaintenanceRequests = (props) => {
     }
   };
 
-  const getGymMachineById = (idGymMachine) => {
-    for (var i = 0; i < gymMachines.length; i++) {
-      if (gymMachines[i]._id === idGymMachine) {
-        return gymMachines[i].name;
+  const getTiDeviceById = (idTiDevice) => {
+    for (var i = 0; i < tiDevices.length; i++) {
+      if (tiDevices[i]._id === idTiDevice) {
+        return tiDevices[i].name;
       }
     }
   };
@@ -42,10 +44,8 @@ const TableMaintenanceRequests = (props) => {
   const columns = [
     { field: "user", headerName: "Autor", width: 200 },
     { field: "local", headerName: "Local", width: 200 },
-    { field: "gymMachine", headerName: "Maquina", width: 200 },
+    { field: "tiDevice", headerName: "Dispositivo", width: 200 },
     { field: "date", headerName: "Fecha de Solicitud", width: 200 },
-    { field: "machineType", headerName: "Tipo de Maquina", width: 200 },
-    { field: "gymZone", headerName: "Zona del Gimnasio", width: 200 },
     {
       field: "description",
       headerName: "Descripción",
@@ -54,25 +54,25 @@ const TableMaintenanceRequests = (props) => {
       disableClickEventBubbling: true,
       renderCell: (params) => (
         <div style={{ cursor: "pointer" }}>
-          <MatDescriptionMachinesRequests data={params.row} />
+          <MatDescriptionTIDevicesRequests data={params.row} />
         </div>
       ),
     },
     {
-      field: "confirmation",
-      headerName: "Confirmación",
-      sortable: false,
-      width: 120,
-      disableClickEventBubbling: true,
-      renderCell: (params) => (
-        <div style={{ cursor: "pointer" }}>
-          <MatRepairRequestsComplete
-            data={params.row}
-            handleUpdateRegister={handleUpdateRegister}
-          />
-        </div>
-      ),
-    },
+        field: "Reverse",
+        headerName: "Reversar Confirmación",
+        sortable: false,
+        width: 120,
+        disableClickEventBubbling: true,
+        renderCell: (params) => (
+          <div style={{ cursor: "pointer" }}>
+            <MatRepairRequestsUncomplete
+              data={params.row}
+              handleUpdateRegisterFalse={handleUpdateRegisterFalse}
+            />
+          </div>
+        ),
+      },
   ];
 
   return (
@@ -92,23 +92,21 @@ const TableMaintenanceRequests = (props) => {
         borderRadius: "15px",
       }}
     >
-      <h1>Solicitudes de Arreglo de Máquinas de Gimnasio</h1>
+      <h1>Solicitudes de Arreglo Dispositivos TI</h1>
       <br />
 
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={reports.map((item) => ({
+          rows={reportsFalse.map((item) => ({
             id: item._id,
             idUser: item.idUser,
             idLocal: item.idLocal,
-            idGymMachine: item.idGymMachine,
+            idTIDevice: item.idTIDevice,
             date: item.date,
-            machineType: item.machineType,
-            gymZone: item.gymZone,
             description: item.description,
             user: getUserById(item.idUser),
             local: getGymById(item.idLocal),
-            gymMachine: getGymMachineById(item.idGymMachine),
+            tiDevice: getTiDeviceById(item.idTIDevice),
           }))}
           columns={columns}
           pageSize={10}
@@ -118,4 +116,4 @@ const TableMaintenanceRequests = (props) => {
     </Box>
   );
 };
-export default TableMaintenanceRequests;
+export default TableRepairTIDevicesRequestsFalse;

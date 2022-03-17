@@ -1,20 +1,18 @@
 import React, { useEffect } from "react";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import "../index.css";
-import MatDescriptionTIDevicesRequests from "./MatDescriptionTIDevicesRequests";
 import MatRepairRequestsUncomplete from "./MatRepairRequestsUncomplete";
+import MatDescriptionMachinesRequests from "./MatDescriptionMachinesRequests";
 
-const TableRepairTIDevicesRequestsTrue = (props) => {
+const TableMaintenanceRequestsFalse = (props) => {
   const reportsFalse = props.reports;
-  const updateRegisterTrue = props.updateRegisterTrue;
+  const updateRegisterFalse = props.updateRegisterTrue;
   const gyms = props.gyms;
   const users = props.users;
-  const tiDevices = props.tiDevices;
+  const gymMachines = props.gymMachines;
 
-  const handleUpdateRegisterTrue = (data) => {
-  
-    updateRegisterTrue(data);
+  const handleUpdateRegisterFalse = (data) => {
+    updateRegisterFalse(data);
   };
 
   const getGymById = (idGym) => {
@@ -25,10 +23,10 @@ const TableRepairTIDevicesRequestsTrue = (props) => {
     }
   };
 
-  const getTiDeviceById = (idTiDevice) => {
-    for (var i = 0; i < tiDevices.length; i++) {
-      if (tiDevices[i]._id === idTiDevice) {
-        return tiDevices[i].name;
+  const getGymMachineById = (idGymMachine) => {
+    for (var i = 0; i < gymMachines.length; i++) {
+      if (gymMachines[i]._id === idGymMachine) {
+        return gymMachines[i].name;
       }
     }
   };
@@ -44,8 +42,10 @@ const TableRepairTIDevicesRequestsTrue = (props) => {
   const columns = [
     { field: "user", headerName: "Autor", width: 200 },
     { field: "local", headerName: "Local", width: 200 },
-    { field: "tiDevice", headerName: "Dispositivo", width: 200 },
+    { field: "gymMachine", headerName: "Maquina", width: 200 },
     { field: "date", headerName: "Fecha de Solicitud", width: 200 },
+    { field: "machineType", headerName: "Tipo de Maquina", width: 200 },
+    { field: "gymZone", headerName: "Zona del Gimnasio", width: 200 },
     {
       field: "description",
       headerName: "Descripción",
@@ -54,25 +54,25 @@ const TableRepairTIDevicesRequestsTrue = (props) => {
       disableClickEventBubbling: true,
       renderCell: (params) => (
         <div style={{ cursor: "pointer" }}>
-          <MatDescriptionTIDevicesRequests data={params.row} />
+          <MatDescriptionMachinesRequests data={params.row} />
         </div>
       ),
     },
     {
-        field: "Reverse",
-        headerName: "Reversar Confirmación",
-        sortable: false,
-        width: 120,
-        disableClickEventBubbling: true,
-        renderCell: (params) => (
-          <div style={{ cursor: "pointer" }}>
-            <MatRepairRequestsUncomplete
-              data={params.row}
-              handleUpdateRegisterTrue={handleUpdateRegisterTrue}
-            />
-          </div>
-        ),
-      },
+      field: "reverse",
+      headerName: "Reversar Confirmación",
+      sortable: false,
+      width: 120,
+      disableClickEventBubbling: true,
+      renderCell: (params) => (
+        <div style={{ cursor: "pointer" }}>
+          <MatRepairRequestsUncomplete
+            data={params.row}
+            handleUpdateRegisterFalse={handleUpdateRegisterFalse}
+          />
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -92,7 +92,7 @@ const TableRepairTIDevicesRequestsTrue = (props) => {
         borderRadius: "15px",
       }}
     >
-      <h1>Solicitudes de Arreglo Dispositivos TI</h1>
+      <h1>Solicitudes de Arreglo de Máquinas de Gimnasio</h1>
       <br />
 
       <div style={{ height: 400, width: "100%" }}>
@@ -101,12 +101,14 @@ const TableRepairTIDevicesRequestsTrue = (props) => {
             id: item._id,
             idUser: item.idUser,
             idLocal: item.idLocal,
-            idTIDevice: item.idTIDevice,
+            idGymMachine: item.idGymMachine,
             date: item.date,
+            machineType: item.machineType,
+            gymZone: item.gymZone,
             description: item.description,
             user: getUserById(item.idUser),
             local: getGymById(item.idLocal),
-            tiDevice: getTiDeviceById(item.idTIDevice),
+            gymMachine: getGymMachineById(item.idGymMachine),
           }))}
           columns={columns}
           pageSize={10}
@@ -116,4 +118,4 @@ const TableRepairTIDevicesRequestsTrue = (props) => {
     </Box>
   );
 };
-export default TableRepairTIDevicesRequestsTrue;
+export default TableMaintenanceRequestsFalse;

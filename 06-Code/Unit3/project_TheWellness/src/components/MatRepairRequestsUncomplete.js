@@ -1,22 +1,21 @@
-import FactCheckIcon from '@mui/icons-material/FactCheck';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { IconButton } from '@mui/material'
 import React, { useState } from "react";
 
 const MatRepairInfrastructureUncomplete = ( props ) => {
 
-    const handleUpdateRegisterTrue = props.handleUpdateRegisterTrue
+    const handleUpdateRegisterFalse = props.handleUpdateRegisterFalse
     const data = props.data
   
 
-    const handleUpdateClickTrue = () => {
+    const handleUpdateClickFalse = () => {
 
         
         const option = window.confirm('¿Está seguro que desea revertir esta solicitud completada?')
 
         if (option === true) {
             
-            handleUpdateRegisterTrue(data)
+            handleUpdateRegisterFalse(data)
         }
         
     };
@@ -25,7 +24,7 @@ const MatRepairInfrastructureUncomplete = ( props ) => {
         <IconButton 
             color="secondary"
             aria-label="add an alarm"
-            onClick={handleUpdateClickTrue}
+            onClick={handleUpdateClickFalse}
         >
             <CancelIcon
                 style={{
