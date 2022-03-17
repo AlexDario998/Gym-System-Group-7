@@ -3,18 +3,18 @@ import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import "../index.css";
 import MatDescriptionTIDevicesRequests from "./MatDescriptionTIDevicesRequests";
-import MatRepairRequestsComplete from "./MatRepairRequestsComplete";
+import MatRepairRequestsUncomplete from "./MatRepairRequestsUncomplete";
 
-const TableRepairTIDevicesRequests = (props) => {
-  const reports = props.reports;
-  const updateRegister = props.updateRegister;
+const TableRepairTIDevicesRequestsTrue = (props) => {
+  const reportsFalse = props.reports;
+  const updateRegisterTrue = props.updateRegisterTrue;
   const gyms = props.gyms;
   const users = props.users;
   const tiDevices = props.tiDevices;
 
-  const handleUpdateRegister = (data) => {
-    updateRegister(data);
+  const handleUpdateRegisterTrue = (data) => {
   
+    updateRegisterTrue(data);
   };
 
   const getGymById = (idGym) => {
@@ -59,20 +59,20 @@ const TableRepairTIDevicesRequests = (props) => {
       ),
     },
     {
-      field: "confirmation",
-      headerName: "Confirmación",
-      sortable: false,
-      width: 120,
-      disableClickEventBubbling: true,
-      renderCell: (params) => (
-        <div style={{ cursor: "pointer" }}>
-          <MatRepairRequestsComplete
-            data={params.row}
-            handleUpdateRegister={handleUpdateRegister}
-          />
-        </div>
-      ),
-    },
+        field: "Reverse",
+        headerName: "Reversar Confirmación",
+        sortable: false,
+        width: 120,
+        disableClickEventBubbling: true,
+        renderCell: (params) => (
+          <div style={{ cursor: "pointer" }}>
+            <MatRepairRequestsUncomplete
+              data={params.row}
+              handleUpdateRegisterTrue={handleUpdateRegisterTrue}
+            />
+          </div>
+        ),
+      },
   ];
 
   return (
@@ -97,7 +97,7 @@ const TableRepairTIDevicesRequests = (props) => {
 
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={reports.map((item) => ({
+          rows={reportsFalse.map((item) => ({
             id: item._id,
             idUser: item.idUser,
             idLocal: item.idLocal,
@@ -116,4 +116,4 @@ const TableRepairTIDevicesRequests = (props) => {
     </Box>
   );
 };
-export default TableRepairTIDevicesRequests;
+export default TableRepairTIDevicesRequestsTrue;
