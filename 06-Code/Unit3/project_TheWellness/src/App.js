@@ -15,6 +15,7 @@ import HomeScreenSystemAdmin from './pages/HomeScreenSystemAdminLayout';
 
 import Menuopt from './pages/MenuOptLayout';
 import Optsoli from './pages/OptSoliLayout';
+import OptSoliLayoutAdmin from './pages/OptSoliLayoutAdmin';
 import TableLocals from './pages/TableLocalsLayout'
 import TableTIDevices from './pages/TableTIDevicesLayout'
 
@@ -46,6 +47,7 @@ const App = () => {
         <Route path="/homeScreenSystemAdmin" element={<HomeScreenSystemAdmin />} />
         <Route path="/menuOpt" element={<Menuopt />} />
         <Route path="/optSoli" element={<Optsoli />} />
+        <Route path="/optSoliAdmin" element={<OptSoliLayoutAdmin />} />
         <Route path="/formAddTIDevice" element={<TIDevice />} />
         <Route path="/formAddGym" element={<Gym />} />
         <Route path="/formUser" element={<User />} />
