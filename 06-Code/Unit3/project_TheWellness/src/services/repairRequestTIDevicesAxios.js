@@ -157,7 +157,7 @@ export async function updateConfirmationTrue(data){
     confirmation: true
   })
   .then(response => {
-    window.alert('Solicitud Rechazada, Volver Hacerlo!')
+    window.alert('Tu Solicitud Se Marcó Como No Completada')
     window.location.reload()
   })
   .catch(error => {
