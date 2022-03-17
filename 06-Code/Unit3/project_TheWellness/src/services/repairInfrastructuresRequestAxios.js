@@ -15,28 +15,32 @@ export async function getReports() {
   }
 }
 
-export async function saveRinfrastructure(rinfrastructureData,values,setValues) {
+export async function saveRinfrastructure(
+  rinfrastructureData,
+  values,
+  setValues
+) {
   try {
     const response = await axios({
       url: `${baseUrl}/repair-request-infrastructures`,
       method: "POST",
       data: rinfrastructureData,
     });
-    
-    setValues({...values, 
-      idLocal: '',
-      date: '',
-      description: '',
+
+    setValues({
+      ...values,
+      idLocal: "",
+      date: "",
+      description: "",
       confirmation: true,
-      fullNameUser: '',
-      emailUser: '',
-      passwordUser: '',
-      nameLocal: '',
-      city: ''
-    })
+      fullNameUser: "",
+      emailUser: "",
+      passwordUser: "",
+      nameLocal: "",
+      city: "",
+    });
 
-    return response
-
+    return response;
   } catch (error) {
     console.log(error);
   }
@@ -57,7 +61,7 @@ export async function getReportsByConfirmation() {
         j++;
       }
     }
-    
+
     return dataReports;
   } catch (error) {
     console.log(error);
@@ -70,9 +74,8 @@ export async function getReportsByState(state) {
       url: `${baseUrl}/repair-request-infrastructures/${state}`,
       method: "GET",
     });
-    
-    return response
 
+    return response;
   } catch (error) {
     console.log(error);
   }
@@ -84,9 +87,8 @@ export async function getNumberCompletedRequests() {
       url: `${baseUrl}/repair-request-infrastructures-false/count`,
       method: "GET",
     });
-    
-    return response
 
+    return response;
   } catch (error) {
     console.log(error);
   }
@@ -98,45 +100,57 @@ export async function getNumberNoCompletedRequests() {
       url: `${baseUrl}/repair-request-infrastructures-true/count`,
       method: "GET",
     });
-    
-    return response
 
+    return response;
   } catch (error) {
     console.log(error);
   }
 }
 
-export async function getReportsCompleted(){
+export async function getReportsCompleted() {
   try {
     const response = await axios({
       url: `${baseUrl}/repair-request-infrastructures-false`,
       method: "GET",
     });
-    return response
-    
-
+    return response;
   } catch (error) {
     console.log(error);
   }
 }
 
+export async function updateConfirmation(data) {
+  const response = await axios
+    .put(`${baseUrl}/repair-request-infrastructures/${data.id}`, {
+      idUser: data.idUser,
+      idLocal: data.idLocal,
+      date: data.date,
+      description: data.description,
+      confirmation: false,
+    })
+    .then((response) => {
+      window.alert("Solicitud completada");
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 
-
-export async function updateConfirmation(data){
-  const response = await axios.put(`${baseUrl}/repair-request-infrastructures/${data.id}`,{
-    idUser: data.idUser,
-    idLocal: data.idLocal,
-    date: data.date,
-    description: data.description,
-    confirmation: false
-  })
-  .then(response => {
-    window.alert('Solicitud completada')
-    window.location.reload()
-  })
-  .catch(error => {
-    console.log(error)
-  })
-
-  
+export async function updateConfirmationTrue(data) {
+  const response = await axios
+    .put(`${baseUrl}/repair-request-infrastructures/${data.id}`, {
+      idUser: data.idUser,
+      idLocal: data.idLocal,
+      date: data.date,
+      description: data.description,
+      confirmation: true,
+    })
+    .then((response) => {
+      window.alert("Solicitud Rechazada, Volver Hacerlo!");
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

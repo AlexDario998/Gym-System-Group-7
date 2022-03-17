@@ -14,29 +14,29 @@ import MatRepairRequestsComplete from "./MatRepairRequestsComplete";
 
 const TableRepairInfrastructuresRequests = (props) => {
   const reports = props.reports;
-  const updateRegister = props.updateRegister
-  const gyms = props.gyms
-  const users = props.users
+  const updateRegister = props.updateRegister;
+  const gyms = props.gyms;
+  const users = props.users;
 
   const handleUpdateRegister = (data) => {
-    updateRegister(data)
-  }
+    updateRegister(data);
+  };
 
   const getGymById = (idGym) => {
-    for (var i=0; i<gyms.length; i++) {
-        if (gyms[i]._id === idGym) {
-            return gyms[i].namegym
-        }
+    for (var i = 0; i < gyms.length; i++) {
+      if (gyms[i]._id === idGym) {
+        return gyms[i].namegym;
+      }
     }
-}
+  };
 
-const getUserById = (idUser) => {
-    for (var i=0; i<users.length; i++) {
-        if (users[i]._id === idUser) {
-            return users[i].name + ' ' + users[i].lastName
-        }
+  const getUserById = (idUser) => {
+    for (var i = 0; i < users.length; i++) {
+      if (users[i]._id === idUser) {
+        return users[i].name + " " + users[i].lastName;
+      }
     }
-}
+  };
 
   const columns = [
     { field: "user", headerName: "Nombre del autor", width: 200 },
@@ -62,7 +62,10 @@ const getUserById = (idUser) => {
       disableClickEventBubbling: true,
       renderCell: (params) => (
         <div style={{ cursor: "pointer" }}>
-          <MatRepairRequestsComplete data={params.row} handleUpdateRegister={handleUpdateRegister} />
+          <MatRepairRequestsComplete
+            data={params.row}
+            handleUpdateRegister={handleUpdateRegister}
+          />
         </div>
       ),
     },
@@ -71,8 +74,8 @@ const getUserById = (idUser) => {
   return (
     <Box
       sx={{
-        width: "70%",
-        height: "82vh",
+        width: "90%",
+        height: "90%",
         marginLeft: "auto",
         marginRight: "auto",
         justifyContent: "center",
@@ -83,7 +86,6 @@ const getUserById = (idUser) => {
         paddingRight: "20px",
         background: "#fff",
         borderRadius: "15px",
-        boxShadow: "1px 1px 20px #333",
       }}
     >
       <h1>Solicitudes de Arreglo Infraestructura</h1>
@@ -91,7 +93,6 @@ const getUserById = (idUser) => {
 
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
-        
           rows={reports.map((item) => ({
             id: item._id,
             idUser: item.idUser,
@@ -99,7 +100,7 @@ const getUserById = (idUser) => {
             date: item.date,
             description: item.description,
             user: getUserById(item.idUser),
-            local: getGymById(item.idLocal)
+            local: getGymById(item.idLocal),
           }))}
           columns={columns}
           pageSize={10}
