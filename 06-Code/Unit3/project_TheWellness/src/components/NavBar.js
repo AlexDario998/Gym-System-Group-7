@@ -126,7 +126,7 @@ const NavBar = () => {
             </Menu>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: { xs: "none", md: "flex", marginRight: "auto" } }}>
             <Tooltip title="Generar reportes">
               <Button
                 key="reports"
