@@ -40,11 +40,38 @@ function App() {
       };
   return (
     <>
-    <br/>
-    <br/><br/><br/><br/><br/><br/>
-      {/* <div class = "logoHome">.</div> */}
-      <h1 class = "titleHome">Bienvenidos</h1>
-      <h2 class = "subtitleHome">A "The Wellness Group"</h2>
+    <div class = "slider">
+      <ul>
+          <li>
+            <div class="img4">
+              <br/><br/><br/><br/><br/><br/><br/>
+              <h1 class = "titleHome">Bienvenidos</h1>
+              <h2 class = "subtitleHome">A "The Wellness Group"</h2>
+            </div>
+          </li>
+          <li>
+            <div class="img2">
+              <br/><br/><br/><br/><br/><br/><br/>
+              <h1 class = "titleHome">Aquí</h1>
+              <h2 class = "subtitleHome">Podrás agregar lo que tu necesites</h2>
+            </div>
+          </li>
+          <li>
+            <div class="img3">
+              <br/><br/><br/><br/><br/><br/><br/>
+              <h1 class = "titleHome">No Olvides</h1>
+              <h2 class = "subtitleHome">Revisar tus reportes</h2>
+            </div>
+          </li>
+          <li>
+            <div class="img4">
+              <br/><br/><br/><br/><br/><br/><br/>
+              <h1 class = "titleHome">Bienvenidos</h1>
+              <h2 class = "subtitleHome">A "The Wellness Group"</h2>
+            </div>
+          </li>
+      </ul>
+    </div>
     </>
       
 

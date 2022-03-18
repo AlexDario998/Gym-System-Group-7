@@ -10,7 +10,7 @@ import User from './pages/UserLayout';
 import Machines from './pages/MachineLayout';
 import HomescreenSuperAdmin from './pages/HomeScreenSuperAdminLayout';
 import HomescreenLeaderGym from './pages/HomeScreenLeaderGymLayout';
-import HomeScreenMantAdmin from './components/HomeScreenMantAdmin';
+import HomeScreenMantAdmin from './pages/HomeScreenMantAdmin';
 import HomeScreenSystemAdmin from './pages/HomeScreenSystemAdminLayout';
 
 import Menuopt from './pages/MenuOptLayout';

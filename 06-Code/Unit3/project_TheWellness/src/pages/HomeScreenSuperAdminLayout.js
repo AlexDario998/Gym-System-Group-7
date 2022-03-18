@@ -18,13 +18,12 @@ const HomeScreenSuperAdminLayout = () => {
 
     return (
         <>
-            <Box class = "bgHome">
+            {/* <Box class = "bgHome"> */}
                 <NavBar />
-                <BreadcrumbsHomeScreen breadcrumb1="Página principal"/>
-                <br/><br/>
+                <BreadcrumbsHomeScreen breadcrumb1="Página principal" class= "brad"/>
+            
                 <HomeScreen />
-                <br/>
-            </Box>
+{/* </Box> */}
         
         </>
     )

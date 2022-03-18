@@ -144,14 +144,15 @@ code {
 }
 .titleHome{
   font-size: 11vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   margin-left: 5%;
-  margin-top: 1%;
   color: rgb(255, 183, 77);
   /* color: #fff; */
 }
 .subtitleHome{
   font-size: 8vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   margin-left: 5%;
   color: #fff;
@@ -340,6 +341,68 @@ code {
   box-shadow: 1px 1px 20px #333;
   padding: 2%;
 }
+
+.slider{
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  height: 85.3vh;
+  background-color: #333;
+}
+
+.slider ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 400%;
+  background-size: cover;
+
+  animation: cambio 19s infinite;
+  animation-direction: initial;
+}
+
+.slider li{
+  width: 100%;
+  list-style: none;
+}
+
+.img1,.img2,.img3,.img4{ 
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.img1{
+  background-image: url(img/caminadora.jpeg);
+}
+.img2{
+  background-image: url(img/pesas.jpg);
+}
+
+.img3{
+  background-image: url(img/pexels-victor-freitas-897060.jpg);
+}
+
+.img4{
+  background-image: url(img/backgroundHomeBlack.jpg);
+}
+
+@keyframes cambio{
+  0%{ margin-left: 0;}
+  20%{ margin-left: 0;}
+
+  25%{ margin-left: -100%;}
+  45%{ margin-left: -100%;}
+
+  50%{ margin-left: -200%;}
+  70%{ margin-left: -200%;}
+  
+  75%{ margin-left: -300%;}
+  100%{ margin-left: -300%;}
+
+
+}
 @media (max-height:690px){
     #editUser{
       position: absolute;
@@ -356,6 +419,13 @@ code {
 
     .BoxMaintenance{
       height: 115vh;
-     
+    }
+
+    .slider{
+      height: 81vh;
+    }
+
+    .img1,.img2,.img3,.img4{ 
+      background-size: 100% 100vh;
     }
 }

@@ -1,4 +1,4 @@
-import HomeScreen from '../components/HomeScreen'
+import HomeScreen from '../components/HomeScreenSA'
 import '../index.css';
 import {Box} from "@mui/material"
 import NavBar from '../components/NavbarSystemsAdmin'
@@ -18,13 +18,13 @@ const HomeScreenSystemAdminLayout = () => {
 
     return (
         <>
-            <Box class = "bgHome">
+            {/* <Box class = "bgHome"> */}
                 <NavBar />
                 <BreadcrumbsHomeScreen breadcrumb1="Página principal"/>
-                <br/><br/>
+                {/* <br/><br/> */}
                 <HomeScreen />
-                <br/>
-            </Box>
+                {/* <br/> */}
+            {/* </Box> */}
         
         </>
     )
