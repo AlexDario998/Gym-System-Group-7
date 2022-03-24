@@ -1,4 +1,4 @@
-import OptSoli from '../components/OptSoli'
+import OptSoliAdmin from '../components/OptSoliAdmin'
 import '../index.css';
 import {Box} from "@mui/material"
 import NavBar from '../components/NavBar'
@@ -24,7 +24,7 @@ const OptSoliLayout = () => {
                 <NavBar/>
                 <BreadcrumbsAdmin breadcrumb1="Página principal" breadcrumb2="Solicitudes"/>
                 <br/><br/>
-                <OptSoli />
+                <OptSoliAdmin />
                 <br/>
             </Box>
         

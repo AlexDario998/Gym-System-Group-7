@@ -29,6 +29,10 @@ import TableRepairInfrastructuresRequests from './pages/TableRepairInfrastructur
 import TableMaintenanceRequestsLayoutLeader from './pages/TableMaintenanceRequestsLayoutLeader';
 import TableRepairInfrastructuresRequestsLayoutLeader from './pages/TableRepairInfrastructuresRequestsLayoutLeader';
 import TableRepairTIDevicesRequestsLayoutLeader from './pages/TableRepairTIDevicesRequestsLayoutLeader';
+import TableMaintenanceRequestsLayoutAdmin from './pages/TableMaintenanceRequestsLayoutAdmin';
+import TableRepairTIDevicesRequestsLayoutAdmin from './pages/TableRepairTIDevicesRequestsLayoutAdmin';
+import TableRepairInfrastructuresRequestsLayoutAdmin from './pages/TableRepairInfrastructuresRequestsLayoutAdmin';
+
 
 const App = () => {
 
@@ -62,6 +66,9 @@ const App = () => {
         <Route path="/tableMaintenanceRequestsLayoutLeader" element={<TableMaintenanceRequestsLayoutLeader />} />
         <Route path="/TableRepairInfrastructuresRequestsLayoutLeader" element={<TableRepairInfrastructuresRequestsLayoutLeader />} />
         <Route path="/TableRepairTIDevicesRequestsLayoutLeader" element={<TableRepairTIDevicesRequestsLayoutLeader />} />
+        <Route path="/tableMaintenanceRequestsLayoutAdmin" element={<TableMaintenanceRequestsLayoutAdmin />} />
+        <Route path="/TableRepairTIDevicesRequestsLayoutAdmin" element={<TableRepairTIDevicesRequestsLayoutAdmin />} />
+        <Route path="/TableRepairInfrastructuresRequestsLayoutAdmin" element={<TableRepairInfrastructuresRequestsLayoutAdmin />} />
 
       </Routes>
     </BrowserRouter>
